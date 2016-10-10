@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+<link href="../../css/authApp.css" rel="stylesheet" type="text/css">
+<style>
+.container {
+	width: 600px;
+}
+</style>
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="row">
+
+				<div class="main">
+
+					<h3>로그인</h3>
+					<div class="row">
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<a href="#" class="btn btn-lg btn-danger btn-block">Google +</a>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<a href="#" class="btn btn-lg btn-warning btn-block">Kakao</a>
+						</div>
+					</div>
+					<div class="login-or">
+						<hr class="hr-or">
+						<span class="span-or">or</span>
+					</div>
+
+					<form role="form">
+						<div class="form-group">
+							<label for="inputUsernameEmail">Email</label>
+							<input type="text" class="form-control" id="email">
+						</div>
+						<div class="form-group">
+							<label for="inputPassword">Password</label>
+							<input type="password" class="form-control" id="password">
+						</div>
+						<div class="checkbox pull-right">
+							<label> <input type="checkbox" id="saveEmail"> Remember me
+							</label>
+						</div>
+						<button type="button" id="loginBtn" class="btn btn btn-default my-btn-size">Log In</button>
+					</form>
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/bit.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/authApp.js"></script>
+	<script>
+		init() // 화면을 준비시킨다.
+		ajaxLogout() // 로그아웃을 무조건 실행
+	</script>
+</body>
+</html>

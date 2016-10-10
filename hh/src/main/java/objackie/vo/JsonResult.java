@@ -1,4 +1,4 @@
-package example.vo;
+package objackie.vo;
 
 public class JsonResult {
   public static final String SUCCESS = "success";
@@ -31,7 +31,7 @@ public class JsonResult {
   public static JsonResult error(Object data) {
     return new JsonResult(ERROR, data);
   }
-  
+
   public JsonResult(String state) {
     this(state, null);
   }
@@ -40,19 +40,21 @@ public class JsonResult {
     this.state = state;
     this.data = data;
   }
-  
+
   public String getState() {
     return state;
   }
+
   public void setState(String state) {
     this.state = state;
   }
+
   public Object getData() {
     return data;
   }
+
   public void setData(Object data) {
     this.data = data;
   }
-  
- 
+
 }
