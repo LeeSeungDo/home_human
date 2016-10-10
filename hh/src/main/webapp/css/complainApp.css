@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+
+#complainTable .king {
+	width: 92%;
+	margin: auto;
+}
+
+#complainTable .king > div {
+	margin: 0 5px 20px 5px;
+}
+
+html {
+	display: table;
+	margin: auto;
+	box-sizing: border-box
+}
+
+*, *:before, *:after {
+	box-sizing: inherit
+}
+
+.uk-tab {
+	position:relative;
+}
+
+body {
+	max-width: 1024px; height : 100%;
+	display: table-cell;
+	vertical-align: middle;
+	margin: 0 auto;
+	height: 100%;
+	font-size: 15px;
+}
+
+.xclose {
+	float: right;
+}
+
+#upload-drop {
+	margin-bottom: 30px;
+	border: dotted;
+	border-color: #f1f1f1;
+	padding: 31px;
+	background: #fafafa;
+}
