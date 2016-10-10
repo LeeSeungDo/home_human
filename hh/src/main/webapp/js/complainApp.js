@@ -23,7 +23,7 @@ function ajaxComplainList() {
 	    })
     })
 }
-
+ 
 //function ajaxLoginUser() {
 //	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 //		var result = obj.jsonResult
