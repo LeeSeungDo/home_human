@@ -1,0 +1,69 @@
+<!--  -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>공지 사항</title>
+
+<link rel="stylesheet"
+	href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="../css/gongzi.css">
+
+</head>
+<body>
+	<header>
+		<h1 style="text-align: center">header</h1>
+	</header>
+	<section>
+		<div>
+			<img class="main_photo" src="../img/dongpa.png" alt="동파사진">
+			<h1>동파 방지 요령 숙지 바랍니다.</h1>
+			<br>
+			<p>이번 겨울은 유난히 춥습니다. 금년겨울은 유난히 추울 것으로 예상 되고 있습니다겨울철 한파에 대비한 건물의
+				관리에 유념하실 사항을 안내 드리니 참조하시기 바랍니다. 일반주택의 경우 상시 거주를 하면서 물을 사용하고 난방도 하여
+				어는 일이 없지만. 상시거주하지않는 별장의 경우에는 물의 흐름이 없어 동파로 인한 피해가 잦아집니다. 미리미리 대비하시어
+				주시기바랍니다.</p>
+		</div>
+		<div class="crud-bar">
+			<button type="button" class="btn btn-primary" style="margin: 20px" 
+			        onclick="location.href='gongziInput.html'">새 공지 쓰기</button>
+		</div>
+		<div class="col-lg-12">
+			<div class="well text-center">전체 공지 보기</div>
+		</div>
+
+		<div id="gongziTable"></div>
+
+		<script id="trTemplateText" type="text/x-handlebars-template">
+{{#each data}}
+<div class="col-md-4 sub_section">
+  <p>{{no}}</p>
+  <h3>{{title}}</h3>
+  <p class="ellipsis">{{contents}}</p>  
+  <button class="card1" data-no="{{no}}" type="button" class="btn btn-default my-view">전체 보기</button>
+</div>
+{{/each}}
+
+</script>
+		<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+		<script type="text/javascript" src="../js/common.js"></script>
+		<script type="text/javascript" src="../js/bit.js"></script>
+		<script type="text/javascript" src="gongzi.js"></script>
+		<script>		  
+			ajaxGongziList()
+		</script>
+	</section>
+	<footer>
+		<h1 style="text-align: center">footer</h1>
+	</footer>
+
+
+</body>
+</html>
+
+
+
