@@ -1,22 +1,15 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>공지 사항</title>
+
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
+	href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-	crossorigin="anonymous">
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-	crossorigin="anonymous"></script>
+	href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
 <link rel="stylesheet" type="text/css" href="../css/gongzi.css">
+
 </head>
 <body>
 	<header>
@@ -33,82 +26,41 @@
 				주시기바랍니다.</p>
 		</div>
 		<div class="crud-bar">
-			<button type="button" class="btn btn-primary" style="margin: 20px">새
-				공지 쓰기</button>
+			<button type="button" class="btn btn-primary" style="margin: 20px" 
+			        onclick="location.href='gongziInput.html'">새 공지 쓰기</button>
 		</div>
 		<div class="col-lg-12">
 			<div class="well text-center">전체 공지 보기</div>
 		</div>
 
-		<div class="col-md-4 sub_section">
-			<h3>친해지길 바래 활동사진 업로드 방식 변경 안내</h3>
-			<p class="ellipsis">8월부터 변경되는 친해지길 바래 사진 업로드 방식을 설명해드리겠습니다!! 기존
-				링크를 통해 제출하던 친해지길 바래의 활동사진을 앞으로 개인 인스타그램에 업로드하는 것으로 변경하려 합니다 :) 사진은
-				전과 동일하게 참석자 전원과 활동내용을 확인 할 수 있는 사진으로 업로드 해주시고 #쉐어하우스 #친해지길바래 #친스타그램
-				네가지 태그는 필수로 달아주세요! 업로드 후에는 이전과 동일하게 링크를 통해 신청 해주시면 됩니다.</p>
-			<a class="btn btn-default" href="#" role="button">전체 보기</a>
-		</div>
+		<div id="gongziTable"></div>
 
-		<div class="col-md-4 sub_section">
-			<h3>장마철 홍수를 대비한 안내문</h3>
-			<p class="ellipsis">곧 다가오는 장마철 집중호우에 대비한 대비요령을 알려드리겠습니다. 타이니는 이동식
-				주택으로 기초석으로 지지가 되어 있습니다. 설치시에 수평을 조절하여 설치를 해드리지만 집중호우로 인하여 토사가 유실될 경우
-				타이니의 수평이 맞지 않는 경우가 있습니다.수평이 맞지 않으면 창문과 현관도어가 잘 안 닫히게 됩니다. 이럴 경우의 조치
-				방법을 알려드립니다. .장마철대비한 조치 1)타이니의 주변에 물이 고여 침하가되지않도록 주변에 배수로를 파서 물을 다른
-				곳으로 유도 하여 주시기 바랍니다. 2)지반이 불안전한 경우 아래 안내와 같은 방법으로 미리 예방을 하시면 더욱 좋습니다.
-				. 빗물에 의해 기초석 하단부 토사가 유실된 경우 조치방법 1) 유실된 기초석 옆의 스마트하우스 하단 지면에 두꺼운 목재를
-				깔로 그 위에 자동차 작키를 올려놓고 작키로 타이니 하단부를 떠 올려서 수평을 맞추어줍니다. (수평대 이용) 2) 기초석
-				하부를 삽으로 흙을 파내고 잡석과 레미탈을 물에 섞어 반죽해 기초석 하단부를 꼼꼼히 채워줍니다. 3) 하루 정도 지난
-				후(양생이 된 후) 작키를 빼내고 우천시 다량의 빗물이 기초석 주변으로 흘러 들어 토사가 유출되지 않도록 스마트하우스
-				주변에 배수로를 만들어 줍니다. * 스마트하우스 설치 시 별도의 기초공사를 스마트하우스에서 진행하는 것이 아니고 현 부지에
-				수평에 맞추어 설치만 해 드리기에 설치 후 제품에 문제가 아닌 주변여건으로 인해 발생되는 부분에 대해서는 스마트하우스에서
-				처리해 드리지 못함을 이해해주시기 바랍니다. * 지반 침하 등으로 스마트하우스의 수평이 잘 맞지 않는 경우에는 출입문이나
-				창문 개폐에 문제가 발생될 수 있습니다.</p>
-			<a class="btn btn-default" href="#" role="button">전체 보기</a>
-		</div>
+		<script id="trTemplateText" type="text/x-handlebars-template">
+{{#each data}}
+<div class="col-md-4 sub_section">
+  <p>{{no}}</p>
+  <h3>{{title}}</h3>
+  <p class="ellipsis">{{contents}}</p>  
+  <button class="card1" data-no="{{no}}" type="button" class="btn btn-default my-view">전체 보기</button>
+</div>
+{{/each}}
 
-		<div class="col-md-4 sub_section">
-			<h3>2016년 신년인사</h3>
-			<p class="ellipsis">안녕하세요! 지난해 고객님들에게 뜻하지 않게 많은 사랑을 받았습니다. 저희
-				중앙일보 조인스랜드 와 (주)스마트하우스 임직원들은 고객님의 보내주신 성원과 사랑을 정직과 신뢰로 고객님들에게
-				되돌려드리려고 합니다. 그리고 불구하고 고객님들에게 무한한 감사의 말씀을 드립니다. 지난해 고객님들은 어떻셨습니까? 그
-				어느 해 보다도 다사다난한 시간들을 보냈을 것 같습니다. 다가오는 계사년에는 기대와 설례임으로 기대해 봅니다. 시작이
-				반입니다. 한 해를 시작하는 오늘 한 숨을 걷어차고 가벼운 마음으로 각자의 꿈을 향해 달리기로 새해를 맞이 합시다.
-				감사합니다.</p>
-			<a class="btn btn-default" href="#" role="button">전체 보기</a>
-		</div>
-
-		<div class="col-md-4 sub_section">
-			<h3>친해지길 바래 활동사진 업로드 방식 변경 안내</h3>
-			<p class="ellipsis">8월부터 변경되는 친해지길 바래 사진 업로드 방식을 설명해드리겠습니다!! 기존
-				링크를 통해 제출하던 친해지길 바래의 활동사진을 앞으로 개인 인스타그램에 업로드하는 것으로 변경하려 합니다 :) 사진은
-				전과 동일하게 참석자 전원과 활동내용을 확인 할 수 있는 사진으로 업로드 해주시고 #쉐어하우스 #친해지길바래 #친스타그램
-				네가지 태그는 필수로 달아주세요! 업로드 후에는 이전과 동일하게 링크를 통해 신청 해주시면 됩니다.</p>
-			<a class="btn btn-default" href="#" role="button">전체 보기</a>
-		</div>
-
-		<div class="col-md-4 sub_section">
-			<h3>친해지길 바래 활동사진 업로드 방식 변경 안내</h3>
-			<p class="ellipsis">8월부터 변경되는 친해지길 바래 사진 업로드 방식을 설명해드리겠습니다!! 기존
-				링크를 통해 제출하던 친해지길 바래의 활동사진을 앞으로 개인 인스타그램에 업로드하는 것으로 변경하려 합니다 :) 사진은
-				전과 동일하게 참석자 전원과 활동내용을 확인 할 수 있는 사진으로 업로드 해주시고 #쉐어하우스 #친해지길바래 #친스타그램
-				네가지 태그는 필수로 달아주세요! 업로드 후에는 이전과 동일하게 링크를 통해 신청 해주시면 됩니다.</p>
-			<a class="btn btn-default" href="#" role="button">전체 보기</a>
-		</div>
-
-		<div class="col-md-4 sub_section">
-			<h3>친해지길 바래 활동사진 업로드 방식 변경 안내</h3>
-			<p class="ellipsis">8월부터 변경되는 친해지길 바래 사진 업로드 방식을 설명해드리겠습니다!! 기존
-				링크를 통해 제출하던 친해지길 바래의 활동사진을 앞으로 개인 인스타그램에 업로드하는 것으로 변경하려 합니다 :) 사진은
-				전과 동일하게 참석자 전원과 활동내용을 확인 할 수 있는 사진으로 업로드 해주시고 #쉐어하우스 #친해지길바래 #친스타그램
-				네가지 태그는 필수로 달아주세요! 업로드 후에는 이전과 동일하게 링크를 통해 신청 해주시면 됩니다.</p>
-			<a class="btn btn-default" href="#" role="button">전체 보기</a>
-		</div>
-
+</script>
+		<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+		<script type="text/javascript" src="../js/common.js"></script>
+		<script type="text/javascript" src="../js/bit.js"></script>
+		<script type="text/javascript" src="gongzi.js"></script>
+		<script>		  
+			ajaxGongziList()
+		</script>
 	</section>
 	<footer>
 		<h1 style="text-align: center">footer</h1>
 	</footer>
+
+
 </body>
 </html>
 
