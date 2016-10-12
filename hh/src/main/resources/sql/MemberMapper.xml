@@ -13,6 +13,14 @@
 		from MEMBS
 		where EMAIL=#{email} and PWD=#{password}
 	</select>
+	
+	<insert id="insert" parameterType="member">
+    insert into membs(EMAIL, NAME, PWD, TEL, GEND, BIRTH, AUTH)
+    values(#{email}, #{name}, PWD(#{password}), #{tel}, #{gender}, now(), #{auth})
+  </insert>
+	
+	
+	
 </mapper>
 
 

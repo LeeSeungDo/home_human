@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>세입자 등록</title>
+<link id="data-uikit-theme" rel="stylesheet"
+	href="../node_modules/uikit/dist/css/uikit.min.css">
+<link id="data-uikit-theme" rel="stylesheet"
+	href="../node_modules/uikit/dist/css/uikit.gradient.min.css">
+<link id="data-uikit-theme" rel="stylesheet"
+	href="../node_modules/uikit/dist/css/uikit.almost-flat.min.css">
+<link id="data-uikit-theme" rel="stylesheet"
+	href="../node_modules/uikit/docs/css/uikit.docs.min.css">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="css/uikit.docs.min.css">
+<style>
+html, body {
+    height: 100%;
+}
+
+ html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+} 
+</style>
+</head>
+
+<body>
+<section class="container">
+	<form class="uk-form uk-form-stacked">
+									<div class="uk-form-row">
+									
+									<div class="uk-form-row">
+                                        <label class="uk-form-label" for="form-s-it">세입자 아이디</label>
+                                        <div class="uk-form-controls">
+                                            <input type="text" id="form-s-it" placeholder="email@gmail.com"> 
+                                            <a href="#"><i class="uk-icon-search"></i></a> 
+                                        </div>
+                                    	
+                                    	<div class="uk-form-row">
+                                        <label class="uk-form-label" for="form-s-s">나의 건물</label>
+                                        <div class="uk-form-controls">
+                                            <select id="form-s-s">
+                                            	<option>--------선택--------</option>
+                                                <option>우성아파트 2단지</option>
+                                                <option>파라곤 오피스텔</option>
+                                                <option>불꽃 빌라</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    
+                                    </div>
+                                    <div class="uk-form-row">
+                                        <label class="uk-form-label" for="form-s-ip">상세주소 입력</label>
+                                        <div class="uk-form-controls">
+                                            <div class="uk-form-row">
+                                            <input type="text" id="form-s-ip" style="width:275px" placeholder="서울시 광진구 자양동 불꽃빌라" readonly>
+                                            </div>
+                                            <div class="uk-form-row">
+                                            <input type="text" id="form-s-ip" style="width:275px" placeholder="동, 호수 등 상세주소 입력">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+									<div class="uk-form-row">
+                                        <span class="uk-form-label">임대 유형</span>
+                                        <div class="uk-form-controls">
+                                            <label for="form-s-mix1">월세</label><input type="checkbox" id="form-s-mix1"> 
+                                            <input type="text" id="form-s-it" placeholder="월세 입력" 
+                                            class="uk-form-width-mini uk-form-medium" style="width:100px">
+                                            <input type="text" id="form-s-it" placeholder="보증금 입력" 
+                                            class="uk-form-width-mini uk-form-medium" style="width:100px">
+                                        </div>
+                                        <div class="uk-form-controls">
+                                            <label for="form-s-mix1">전세</label><input type="checkbox" id="form-s-mix1"> 
+                                            <input type="text" id="form-s-it" placeholder="전세금 입력" 
+                                            class="uk-form-width-mini uk-form-medium" style="width:100px">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="uk-form-row">
+                                    	<form class="uk-form">
+                                    		<label for="form-s-mix1">계약일</label>
+                               	 				<input type="text" data-uk-datepicker="{format:'DD.MM.YYYY'}">
+                            			</form>
+                                    </div>
+                                    <div class="uk-form-row">
+                                    	<form class="uk-form">
+                                    		<label for="form-s-mix1">만료일</label>
+                               	 				<input type="text" data-uk-datepicker="{format:'DD.MM.YYYY'}">
+                            			</form>
+                                    </div>
+                                    
+                                    <div class="uk-form-row">
+                                    	<form class="uk-form">
+                                    		<label for="form-s-mix1">월세 납부일 매달</label>
+                                            <select id="form-s-s">
+                                            	<option></option>
+                                                <option>1일</option>
+                                                <option>2일</option>
+                                                <option>3일</option>
+                                                <option>4일</option>
+                                                <option>5일</option>
+                                                <option>6일</option> 
+                                            </select>
+                                    </div>
+                            			</form>
+                            			</div>
+                            			
+                                     <div class="uk-form-row">
+                                    	<form class="uk-form">
+                                    		<label for="form-s-mix1">월세 납부일 매달</label>
+                                            <select id="form-s-s">
+                                            	<option></option>
+                                                <option>1일</option>
+                                                <option>2일</option>
+                                                <option>3일</option>
+                                                <option>4일</option>
+                                                <option>5일</option>
+                                                <option>6일</option> 
+                                            </select>
+                                    </div>
+                            			</form>
+                            			</div>
+                                    
+                                    	<div class="uk-form-row">
+                                        <span class="uk-form-label">관리비 항목</span>
+                                        <div class="uk-form-controls">
+                                            <label><input type="radio" name="radio">통합 관리비</label>
+                                            <label><input type="radio" name="radio">기본 관리비</label>
+                                            <label><input type="radio" name="radio">전기요금</label>
+                                            <label><input type="radio" name="radio">가스요금</label>
+                                            <label><input type="radio" name="radio">수도요금</label>
+                                            <label><input type="radio" name="radio">기타요금</label>
+                                        </div>
+                                    </div>
+                                 
+                                    
+                                 	   <div class="uk-form-row">
+                                        <span class="uk-form-label">계약 상태</span>
+                                        <div class="uk-form-controls">
+                                            <label><input type="radio" name="radio">만료된 계약</label>
+                                            <label><input type="radio" name="radio">진행 중인 계약</label>
+                                        </div>
+                                    </div>
+                                 
+                               
+
+                            </form>
+	<br>
+
+	<div class="bottom_btn_area">
+		<input type="button" class="uk-button uk-button-primary" value="등록" onclick="javascript:writeCheck();"> 
+		
+		<input type="button" class="uk-button" value="취소" onclick="fnObj.moveView();">
+	</div>
+	</div>
+	</div>
+	
+	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+
+	<script src="../node_modules/uikit/dist/js/uikit.min.js"></script>
+	<script src="../node_modules/uikit/dist/js/components/upload.js"></script>
+	<script src="../node_modules/uikit/dist/js/components/datepicker.js"></script>
+	<script src="../node_modules/uikit/vendor/jquery.js"></script>
+	<script src="../node_modules/uikit/dist/js/uikit.min.js"></script>
+	<script src="../node_modules/uikit/vendor/highlight/highlight.js"></script>
+	<script src="../node_modules/uikit/docs/js/docs.js"></script>
+	<script src="../node_modules/uikit/dist/js/components/upload.js"></script>
+
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/bit.js"></script>
+	<script>
+    </body>
+</html>

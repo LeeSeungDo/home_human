@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>민원사항</title> 
+ <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"> 
+<link rel="stylesheet" href="../css/uikit.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome
+							/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="../css/complainApp.css" />
+
+</head>
+<body class="w3-light-grey w3-content" style="max-width:1024px">
+
+<!-- 헤더 -->
+  <header class="w3-container">
+    <span class="w3-opennav w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <h1><b>민원사항</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <span class="w3-margin-right">정렬:</span>
+      <button class="w3-btn">최신순</button>
+      <button class="w3-btn w3-white">오래된순</button>
+      <button class="w3-btn w3-white w3-hide-small">가정별</button>
+      <button class="w3-btn w3-white w3-hide-small">민원종류별</button>
+    </div>
+  </header>
+  
+<p><button type="button" class="uk-button uk-button-primary" 
+           onclick="location.href='complainForm.html'">새 글</button></p>
+
+<div id="complainTable">
+<div class="king"></div>
+</div>
+
+<script id="trTemplateText" type="text/x-handlebars-template">
+
+{{#each data}}
+<div class="uk-thumbnail uk-thumbnail-medium">
+      <img src="http://vignette4.wikia.nocookie.net/pokemon/images/3/38/183%EB%A7%88%EB%A6%B4.png/revision/latest?cb=20101021034506&path-prefix=ko" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <div class="uk-thumbnail-caption">
+        <p><b>{{title}}</b></p>
+        <p>{{contents}}</p>
+      </div>
+    </div>
+{{/each}}
+</script>
+
+<!-- 리스트 -->
+  <div class="w3-center w3-padding-32">
+    <ul class="w3-pagination">
+      <li><a class="w3-black" href="#">1</a></li>
+      <li><a class="w3-hover-black" href="#">2</a></li>
+      <li><a class="w3-hover-black" href="#">3</a></li>
+      <li><a class="w3-hover-black" href="#">4</a></li>
+      <li><a class="w3-hover-black" href="#">»</a></li>
+    </ul>
+  </div>
+
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/bit.js"></script>
+<script type="text/javascript" src="complainApp.js"></script>
+<script>
+/* ajaxLoginUser() // 로그인 유저 정보 가져오기 */
+ajaxComplainList() // 게시물 목록 가져오기
+</script>
+
+
+</body>
+</html>
+
+

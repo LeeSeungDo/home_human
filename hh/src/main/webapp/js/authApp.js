@@ -20,11 +20,10 @@ function ajaxLogin(user) {
 	            alert("로그인 실패입니다.\n이메일 또는 암호를 확인하세요.")
 	            return
 	        }
-	        window.location.href = "../subMain/L_main.html"
+	        window.location.href = "../html/subMain/L_main.html"
 		},
 		error: function(msg) {
-			console.log(result)
-			//alert(msg)
+			alert(msg)
 		}
 	})
 }
