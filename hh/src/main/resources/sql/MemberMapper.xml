@@ -6,21 +6,23 @@
 	<resultMap type="member" id="memberMap">
 		<id column="EMAIL" property="email" />
 		<result column="PWD" property="password" />
+		<result column="GEND" property="gender" />
 	</resultMap>
 
-	<select id="selectOneByEmailAndPassword" resultMap="memberMap" parameterType="map">
+	<select id="selectOneByEmailAndPassword" resultMap="memberMap"
+		parameterType="map">
 		select EMAIL, NAME, TEL, GEND, BIRTH, AUTH
 		from MEMBS
 		where EMAIL=#{email} and PWD=#{password}
 	</select>
-	
-	<insert id="insert" parameterType="member">
-    insert into membs(EMAIL, NAME, PWD, TEL, GEND, BIRTH, AUTH)
-    values(#{email}, #{name}, PWD(#{password}), #{tel}, #{gender}, now(), #{auth})
-  </insert>
-	
-	
-	
+
+	<insert id="insertMember" parameterType="member">
+		insert into MEMBS(EMAIL, NAME, PWD, TEL, GEND, BIRTH, AUTH)
+		values(#{email}, #{name}, PWD(#{password}), #{tel}, #{gender}, #{birth}, #{auth})
+	</insert>
+
+
+
 </mapper>
 
 

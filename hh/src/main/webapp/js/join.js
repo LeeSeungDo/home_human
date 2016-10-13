@@ -13,7 +13,7 @@ $("#joinBtn").click(function(event) {
 	}
 	
 	console.log(member);
-	//ajaxAddMember(member)
+	ajaxAddMember(member)
 });
 
 function ajaxAddMember(member) {

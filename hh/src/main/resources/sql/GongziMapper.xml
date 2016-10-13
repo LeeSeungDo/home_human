@@ -18,17 +18,8 @@
     select BOD_NO,TITLE,CRE_DT,VW_CNT,CONTS
     from board
 
-    order by 
-    <choose>
-      <when test="titleOrder == 'asc'">TITLE asc</when>
-      <when test="titleOrder == 'desc'">TITLE desc</when>
-      <when test="contentsOrder == 'asc'">CONTS asc</when>
-      <when test="contentsOrder == 'desc'">CONTS desc</when>
-      <when test="viewCountOrder == 'asc'">VW_CNT asc</when>
-      <when test="viewCountOrder == 'desc'">VW_CNT desc</when>
-      <when test="noOrder == 'asc'">BOD_NO asc</when>
-      <otherwise>BOD_NO desc</otherwise>
-    </choose>
+    order by BOD_NO desc
+    
     limit #{startIndex}, #{length}
   </select>
   
