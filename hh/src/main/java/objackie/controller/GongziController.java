@@ -31,7 +31,7 @@ public class GongziController {
       
     } catch (Exception e) {
       return JsonResult.fail(e.getMessage());
-    }
+    } 
   }
   
   @RequestMapping(path="add")
