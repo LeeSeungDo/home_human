@@ -1,4 +1,3 @@
-
 $("#cancelBtn").click(function(event) {
 	 var no = location.search.split("=")[1];	 
 	 location.href= serverAddr + "/html/gongziForm.html?no=" + no
