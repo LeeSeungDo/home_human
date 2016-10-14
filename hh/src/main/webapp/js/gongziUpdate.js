@@ -5,7 +5,11 @@ $("#updateBtn").click(function(event) {
 	    email: $("email").val(),
 	    no: $("#no").val()
 				  }
-  ajaxUpdateGongzi(gongzi)
+  if (confirm("정말 변경하시겠습니까?") == true) {
+    ajaxUpdateGongzi(gongzi)
+  } else {
+	  return;
+  }
 });
 
 
