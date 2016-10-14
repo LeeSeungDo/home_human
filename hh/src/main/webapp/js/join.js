@@ -11,12 +11,6 @@ $("#joinBtn").click(function(event) {
 	  birth: $("#birth1").val() + '-' + $("#birth2").val() + '-' + $("#birth3").val(),
 	  auth: $("#auth").is(":checked") ? 0 : 1
 	}
-	
-<<<<<<< HEAD
-	console.log(member);
-=======
-	//console.log(member);
->>>>>>> branch 'master' of https://github.com/tessajun/hh.git
 	ajaxAddMember(member)
 });
 

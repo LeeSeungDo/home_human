@@ -184,7 +184,7 @@ body {
 }
 
 #member [name="user_birth_year"], #member [name="user_birth_month"], #member [name="user_birth_day"] {
-  width: 130px;
+  width: 129.5px;
   height: 40px;
   positon: relative;
   margin-top: 7px;

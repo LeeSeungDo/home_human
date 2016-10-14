@@ -1,3 +1,7 @@
+$("#logoutBtn").click(function(event) {
+	location.href = serverAddr + "/html/index.html"
+});
+
 function ajaxLoginUser() {
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
