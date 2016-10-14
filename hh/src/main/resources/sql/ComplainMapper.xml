@@ -11,7 +11,7 @@
   </resultMap>
   
   <select id="selectList" resultMap="complainMap" parameterType="map">
-    select 	BOD_NO, TITLE, CONTS, CRE_DT, VW_CNT, WRITER 
+    select BOD_NO, TITLE, CONTS, CRE_DT, VW_CNT, WRITER 
     from BOARD
     where TYPE=1
     
@@ -23,7 +23,7 @@
  <select id="selectOne" resultMap="complainMap" parameterType="int">
     select bod_no,title,cre_dt,vw_cnt,conts
     from BOARD
-    where bod_no = #{value}
+    where bod_no = #{value} and type=1
    </select>
   
     <insert id="insert" parameterType="complain">
@@ -36,7 +36,7 @@
     update board set 
       TITLE=#{title}, 
       CONTS=#{contents} 
-    where BOD_NO=#{no}
+    where BOD_NO=#{no} and type=1
   </update>
 
 <!--  <select id="selectOneByPassword" resultMap="complainMap" parameterType="map">
@@ -47,7 +47,7 @@
   
   <delete id="delete" parameterType="int">
     delete from board
-    where BOD_NO=#{no}
+    where BOD_NO=#{no} and type=1
   </delete>  
 </mapper>
 
