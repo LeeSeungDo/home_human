@@ -10,17 +10,19 @@ import objackie.vo.Member;
 
 
 @Controller
-@RequestMapping("/member/")
+@RequestMapping("/Member/")
 public class JoinController {
   @Autowired JoinDao joinDao;
 
   @RequestMapping(path="add")
   public Object add(Member member) throws Exception {
     try {
+      System.out.println(member);
       joinDao.insert(member);
       return JsonResult.success();
 
     } catch (Exception e) {
+      e.printStackTrace();
       return JsonResult.fail(e.getMessage());
     }
   }
