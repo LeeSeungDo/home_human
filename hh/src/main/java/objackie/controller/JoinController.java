@@ -8,16 +8,15 @@ import objackie.dao.JoinDao;
 import objackie.vo.JsonResult;
 import objackie.vo.Member;
 
-
 @Controller
 @RequestMapping("/Member/")
 public class JoinController {
-  @Autowired JoinDao joinDao;
+  @Autowired
+  JoinDao joinDao;
 
-  @RequestMapping(path="add")
+  @RequestMapping(path = "add")
   public Object add(Member member) throws Exception {
     try {
-      System.out.println(member);
       joinDao.insert(member);
       return JsonResult.success();
 

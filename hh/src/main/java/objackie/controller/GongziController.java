@@ -30,6 +30,7 @@ public class GongziController {
       return JsonResult.success(gongziDao.selectList(map));
       
     } catch (Exception e) {
+      e.printStackTrace();
       return JsonResult.fail(e.getMessage());
     } 
   }

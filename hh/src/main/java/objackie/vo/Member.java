@@ -1,3 +1,8 @@
+/* <회원>
+ * 작성자 : 이승도
+ * 작성일 : 2016-10-03
+ */
+
 package objackie.vo;
 
 import java.io.Serializable;
@@ -8,17 +13,17 @@ public class Member implements Serializable {
   private static final long serialVersionUID = 1L;
   static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
-  protected String email;
-  protected String name;
-  protected String tel;
-  protected int gender;
-  protected Date birth;
-  protected char postNo;
-  protected String basicAddr;
-  protected String detailAddr;
-  protected String phoPath;
-  protected int auth;
-  protected transient String password;
+  protected String email;       // 이메일 [Primary-key]
+  protected String name;        // 이름
+  protected String tel;         // 전화번호
+  protected int gender;         // 성별 [0:남자 / 1:여자]
+  protected Date birth;         // 생년월일
+  protected char postNo;        // 우편번호
+  protected String basicAddr;   // 기본주소
+  protected String detailAddr;  // 상세주소
+  protected String phoPath;     // 사진
+  protected int auth;           // 권한 [0:임대인 / 1:임차인]
+  protected transient String password; // 비밀번호
 
   public String getPassword() {
     return password;

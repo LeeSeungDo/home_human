@@ -12,7 +12,11 @@ $("#joinBtn").click(function(event) {
 	  auth: $("#auth").is(":checked") ? 0 : 1
 	}
 	
+<<<<<<< HEAD
+	console.log(member);
+=======
 	//console.log(member);
+>>>>>>> branch 'master' of https://github.com/tessajun/hh.git
 	ajaxAddMember(member)
 });
 

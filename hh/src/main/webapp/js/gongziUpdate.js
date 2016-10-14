@@ -18,6 +18,7 @@ $("#updateBtn").click(function(event) {
 }); 
 
 
+
 function ajaxLoadGongzi(no) {
 	$.getJSON(serverAddr + "/gongzi/detail.json?no=" + no, function(obj) {
 		var result = obj.jsonResult
@@ -43,8 +44,8 @@ function ajaxUpdateGongzi(gongzi) {
 			alert("변경 실패입니다.")
 			return
 		}
-		 var no = location.search.split("=")[1];
-	     location.href = serverAddr + "/html/gongziForm.html?no=" + no
+		var no = location.search.split("=")[1];
+		location.href = serverAddr + "/html/gongziForm.html?no=" + no
 	}, "json")
 }
 

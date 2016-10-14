@@ -6,14 +6,15 @@
 	<resultMap type="member" id="memberMap">
 		<id column="EMAIL" property="email" />
 		<result column="PWD" property="password" />
+		<result column="GEND" property="gender" />
 	</resultMap>
 
-	<select id="selectOneByEmailAndPassword" resultMap="memberMap" parameterType="map">
+	<select id="selectOneByEmailAndPassword" resultMap="memberMap"
+		parameterType="map">
 		select EMAIL, NAME, TEL, GEND, BIRTH, AUTH
 		from MEMBS
 		where EMAIL=#{email} and PWD=#{password}
 	</select>
-	
 </mapper>
 
 
