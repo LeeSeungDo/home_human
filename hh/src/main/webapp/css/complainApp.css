@@ -17,7 +17,7 @@ html {
 
 *, *:before, *:after {
 	box-sizing: inherit
-} 
+}
 
 .uk-tab {
 	position:relative;
@@ -43,3 +43,15 @@ body {
 	padding: 31px;
 	background: #fafafa;
 }
+
+.titleLink {
+	color:black; 
+	text-decoration:none !important;
+	}
+	
+ .write_com {
+	position:absolute; 
+	top:20px; 
+	right:-30px;
+	margin-right: 200px;
+} 

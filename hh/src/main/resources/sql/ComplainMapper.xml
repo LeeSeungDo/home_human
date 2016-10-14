@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="objackie.dao.ComplainDao">
+  <resultMap type="complain" id="complainMap">
+    <id column="bod_no" property="no"/> 
+    <result column="conts" property="contents"/>
+    <result column="cre_dt" property="createdDate"/>
+    <result column="vw_cnt" property="viewCount"/>
+  </resultMap>
+  
+  <select id="selectList" resultMap="complainMap" parameterType="map">
+    select 	BOD_NO, TITLE, CONTS, CRE_DT, VW_CNT, WRITER 
+    from BOARD
+    where TYPE=1
+    
+    order by BOD_NO desc
+
+    limit #{startIndex}, #{length}
+  </select>
+  
+ <select id="selectOne" resultMap="complainMap" parameterType="int">
+    select bod_no,title,cre_dt,vw_cnt,conts
+    from BOARD
+    where bod_no = #{value}
+   </select>
+  
+    <insert id="insert" parameterType="complain">
+    insert into BOARD(EMAIL, TYPE, TITLE, CONTS, VW_CNT, CRE_DT, WRITER)
+    values("ryu@bit.com", 1, #{title}, #{contents}, 0, now(), #{writer})
+  </insert>
+  
+
+  <update id="update" parameterType="complain">
+    update board set 
+      TITLE=#{title}, 
+      CONTS=#{contents} 
+    where BOD_NO=#{no}
+  </update>
+
+<!--  <select id="selectOneByPassword" resultMap="complainMap" parameterType="map">
+    select no,title,conts,cre_dt,vw_cnt 
+    from BOARD
+    where no=#{no} and password=password(#{password})
+  </select> -->
+  
+  <delete id="delete" parameterType="int">
+    delete from board
+    where BOD_NO=#{no}
+  </delete>  
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
