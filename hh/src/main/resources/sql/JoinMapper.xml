@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="objackie.dao.JoinDao">
+  <resultMap type="Member" id="MemberMap">
+    <id column="EMAIL" property="email" />
+    <result column="PWD" property="password" />
+    <result column="GEND" property="gender" />
+    <result column="AUTH" property="auth" />
+  </resultMap>
+  
+  <insert id="insert" parameterType="Member">
+    insert into MEMBS(EMAIL, NAME, PWD, TEL, GEND, BIRTH, AUTH)
+    values(#{email}, #{name}, #{password}, #{tel}, #{gender}, #{birth}, #{auth})
+  </insert>
+  
+</mapper>
+
