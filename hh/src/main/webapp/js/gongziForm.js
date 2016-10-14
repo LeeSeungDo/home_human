@@ -1,5 +1,9 @@
 $("#deleteBtn").click(function(event) {
-  ajaxDeleteGongzi($("#no").text())
+	if (confirm("정말 삭제하시겠습니까?") == true) {
+		ajaxDeleteGongzi($("#no").text())
+	} else {
+		return;
+	}  
 });
 
 function ajaxLoadGongzi(no) {

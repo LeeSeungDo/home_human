@@ -5,7 +5,11 @@ $("#updateBtn").click(function(event) {
 	    email: $("email").val(),
 	    no: $("#no").val()
 				  }
-  ajaxUpdateGongzi(gongzi)
+  if (confirm("정말 변경하시겠습니까?") == true) {
+    ajaxUpdateGongzi(gongzi)
+  } else {
+	  return;
+  }
 });
 
 
@@ -34,7 +38,8 @@ function ajaxUpdateGongzi(gongzi) {
 			alert("변경 실패입니다.")
 			return
 		}
-		location.href = "gongzi.html"
+		 var no = location.search.split("=")[1];
+	     location.href = serverAddr + "/gongzi/gongziForm.html?no=" + no
 	}, "json")
 }
 
