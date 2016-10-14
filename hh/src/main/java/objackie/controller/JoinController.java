@@ -9,7 +9,7 @@ import objackie.vo.JsonResult;
 import objackie.vo.Member;
 
 @Controller
-@RequestMapping("/member/")
+@RequestMapping("/Member/")
 public class JoinController {
   @Autowired
   JoinDao joinDao;
@@ -17,10 +17,7 @@ public class JoinController {
   @RequestMapping(path = "add")
   public Object add(Member member) throws Exception {
     try {
-      System.out.println("?????");
-      System.out.println(member);
-      joinDao.insertMember(member);
-      System.out.println("aaaa");
+      joinDao.insert(member);
       return JsonResult.success();
 
     } catch (Exception e) {

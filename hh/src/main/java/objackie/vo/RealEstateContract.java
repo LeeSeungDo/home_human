@@ -16,11 +16,6 @@ public class RealEstateContract implements Serializable {
   protected int contractNo; // 게시판 글번호 [Primary-key / Auto-increment]
   protected int buindingNo; // 임대건물번호 [Foreign-key]
   protected String tenantEmail; // 임차인 이메일 [Foreign-key]
-  protected 
-  protected 
-  protected 
-  protected 
-  protected 
-  protected 
+  
 
 }

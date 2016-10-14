@@ -12,25 +12,26 @@ $("#joinBtn").click(function(event) {
 	  auth: $("#auth").is(":checked") ? 0 : 1
 	}
 	
+<<<<<<< HEAD
 	console.log(member);
+=======
+	//console.log(member);
+>>>>>>> branch 'master' of https://github.com/tessajun/hh.git
 	ajaxAddMember(member)
 });
 
 function ajaxAddMember(member) {
-	$.post(serverAddr + "/member/add.json", member, function(obj) {
+	$.post(serverAddr + "/Member/add.json", member, function(obj) {
 		var result = obj.jsonResult
 		if (result.state != "success") {
 	    	 alert("회원 가입 실패입니다.")
-	    	 return window.location.href = "../html/join.html"
+	    	 return location.href = location.href;
 	    } 
-	    window.location.href = severAddr + "../html/index.html"
+	    window.location.href = serverAddr + "/html/index.html"
 	}, "json")
 }
 
-
-
 //radio
-
 ;(function ($) {
   'use strict';
   var instance = 0;
