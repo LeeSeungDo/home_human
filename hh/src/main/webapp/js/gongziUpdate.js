@@ -1,3 +1,8 @@
+$("#cancelBtn").click(function(event) {
+	 var no = location.search.split("=")[1];	 
+	 location.href= serverAddr + "/html/gongziForm.html?no=" + no
+})
+
 $("#updateBtn").click(function(event) {
   var gongzi = {
 	    title: $("#title").val(),
@@ -10,7 +15,7 @@ $("#updateBtn").click(function(event) {
   } else {
 	  return;
   }
-});
+}); 
 
 
 
@@ -39,9 +44,7 @@ function ajaxUpdateGongzi(gongzi) {
 			alert("변경 실패입니다.")
 			return
 		}
-		//console.log(window.location.href)
 		var no = location.search.split("=")[1];
-		//console.log(no)
 		location.href = serverAddr + "/html/gongziForm.html?no=" + no
 	}, "json")
 }
