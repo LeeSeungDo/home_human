@@ -15,7 +15,7 @@ $("#updateBtn").click(function(event) {
   } else {
 	  return;
   }
-});
+}); 
 
 
 function ajaxLoadGongzi(no) {
