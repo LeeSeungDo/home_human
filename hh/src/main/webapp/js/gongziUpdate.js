@@ -1,3 +1,8 @@
+$("#cancelBtn").click(function(event) {
+	 var no = location.search.split("=")[1];	 
+	 location.href= serverAddr + "/html/gongziForm.html?no=" + no
+})
+
 $("#updateBtn").click(function(event) {
   var gongzi = {
 	    title: $("#title").val(),
@@ -39,7 +44,7 @@ function ajaxUpdateGongzi(gongzi) {
 			return
 		}
 		 var no = location.search.split("=")[1];
-	     location.href = serverAddr + "/gongzi/gongziForm.html?no=" + no
+	     location.href = serverAddr + "/html/gongziForm.html?no=" + no
 	}, "json")
 }
 
