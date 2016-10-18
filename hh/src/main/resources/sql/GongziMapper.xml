@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="example.dao.GongziDao">
+<mapper namespace="objackie.dao.GongziDao">
   <resultMap type="gongzi" id="gongziMap">
     <id column="BOD_NO" property="no"/> 
     <result column="TYPE" property="type"/>
