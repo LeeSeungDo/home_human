@@ -1,7 +1,7 @@
 $("#cancelBtn").click(function(event) {
 	 var no = location.search.split("=")[1];	 
-	 location.href= serverAddr + "/html/gongziForm.html?no=" + no
-})
+	 location.href= serverAddr + "/gongzi/gongziForm.html?no=" + no
+});
 
 $("#updateBtn").click(function(event) {
   var gongzi = {
@@ -15,8 +15,7 @@ $("#updateBtn").click(function(event) {
   } else {
 	  return;
   }
-}); 
-
+});
 
 
 function ajaxLoadGongzi(no) {
@@ -39,13 +38,12 @@ function ajaxLoadGongzi(no) {
 function ajaxUpdateGongzi(gongzi) {
 	$.post(serverAddr + "/gongzi/update.json", gongzi, function(obj) {
 		var result = obj.jsonResult
-		console.log(result)
 		if (result.state != "success") {
 			alert("변경 실패입니다.")
 			return
 		}
-		var no = location.search.split("=")[1];
-		location.href = serverAddr + "/html/gongziForm.html?no=" + no
+		 var no = location.search.split("=")[1];
+	     location.href = serverAddr + "/gongzi/gongziForm.html?no=" + no
 	}, "json")
 }
 

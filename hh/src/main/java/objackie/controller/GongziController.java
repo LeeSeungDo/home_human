@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import objackie.dao.GongziDao;
-import objackie.vo.Gongzi;
-import objackie.vo.JsonResult;
+import example.dao.GongziDao;
+import example.vo.Gongzi;
+import example.vo.JsonResult;
 
 @Controller 
 @RequestMapping("/gongzi/")
@@ -30,9 +30,8 @@ public class GongziController {
       return JsonResult.success(gongziDao.selectList(map));
       
     } catch (Exception e) {
-      e.printStackTrace();
       return JsonResult.fail(e.getMessage());
-    } 
+    }
   }
   
   @RequestMapping(path="add")
@@ -90,7 +89,6 @@ public class GongziController {
     }
   }
 }
-
 
 
 
