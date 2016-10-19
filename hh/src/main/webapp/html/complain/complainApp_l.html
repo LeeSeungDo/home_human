@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>민원사항</title>
+<link id="data-uikit-theme" rel="stylesheet"
+	href="../node_modules/uikit/dist/css/uikit.almost-flat.min.css">
+<link rel="stylesheet" href="../css/complainApp.css" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+
+</head>
+<body>
+
+	<!-- 헤더 -->
+	<header>
+		<span><i></i></span>
+		<h1>
+			<b>민원사항</b>
+		</h1>
+		<div>
+			<ul class="uk-tab" data-uk-tab>
+				<li class="uk-active"><a href="">처리</a></li>
+				<li class="uk-disabled"><a href="">미처리</a></li>
+			</ul>
+		</div>
+	</header>
+	<br>
+	<br>
+
+	<div id="complainTable">
+		<div class="king"></div>
+	</div>
+
+	<script id="trTemplateText" type="text/x-handlebars-template">
+{{#each data}}
+<div class="uk-thumbnail uk-thumbnail-medium"><a href="#my_read" data-uk-modal></a> 
+      <img src="http://vignette4.wikia.nocookie.net/pokemon/images/3/38/183%EB%A7%88%EB%A6%B4.png/revision/latest?cb=20101021034506&path-prefix=ko" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <div class="uk-thumbnail-caption">
+        <p><b>{{title}}</b></p>
+		<!-- 모달 트리거 -->
+		<button type="button" class="uk-button card1" id="modalbutton" 
+		data-toggle="modal" data-val="{{no}}" data-target=".bs-example-modal-lg">전체 읽기</button>
+</div>
+    </div>
+{{/each}}
+</script>
+<!-------------------------------------------------- 모달 시작 -------------------------------------------------------------->
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+		aria-labelledby="myLargeModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<!-- header -->
+				<div class="modal-header">
+					<!-- 닫기(x) 버튼 -->
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<!-- 헤더 타이틀 -->
+					<h4 class="modal-title">
+						<p id="title"></p>
+					</h4>
+				</div>
+				<!-- 바디 -->
+				<div class="modal-body" id="body">
+					<textarea id="contents" class="form-control" cols="50" rows="10"
+						placeholder="내용입니다." style="background: white" readonly></textarea>
+				</div>
+				<!-- 푸터 -->
+				<div class="modal-footer">
+					<div class="uk-form-row">
+						<div class="uk-form-controls">
+							<input type="radio" id="form-s-r1" name="radio"> <label
+								for="form-s-r1">처리</label> <label><input type="radio"
+								name="radio"> 미처리</label>
+						</div>
+					</div>
+					<div class="uk-button-group">
+						<a class="uk-button" href="">수정</a> <a class="uk-button" href="">닫기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-------------------------------------------------- 모달 끝 -------------------------------------------------------------->
+	<!-- 리스트 -->
+	<div>
+		<ul class="uk-pagination">
+			<li class="uk-disabled"><span>이전</span></li>
+			<li class="uk-active"><span>1</span></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">다음</a></li>
+
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/bit.js"></script>
+	<script type="text/javascript" src="complainApp_l.js"></script>
+
+	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--------------------------------------------------------- 모달 load 자바스크립트 코드------------------------------------------------->
+	<script type="text/javascript">
+		$(function() {
+			$(document.body).on('click', '.card1', function() {
+				var no = $(this).attr("data-val");
+				console.log(no);
+				ajaxLoadComplain(no)
+			})
+		})
+	</script>
+
+	<script>
+		ajaxComplainList() // 게시물 목록 가져오기
+	</script>
+
+	<script>
+	function ajaxLoadComplain(no) {
+		$.getJSON(serverAddr + "/complain/detail.json?no=" + no, function(obj) {
+			var result = obj.jsonResult
+			if (result.state != "success") {
+				alert("조회 실패입니다.")
+				return
+			}
+			$("#no").val(result.data.no);
+			$("#title").text(result.data.title);
+			$("#contents").text(result.data.contents);
+			$("#createdDate").text(result.data.createdDate);
+			$("#viewCount").text(result.data.viewCount);
+		          
+		})
+	}
+	</script>
+
+</body>
+</html>
+
+
