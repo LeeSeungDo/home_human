@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <title>index</title>
 
-<link rel="stylesheet"
-	href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-<link href="../css/common.css" rel="stylesheet" type="text/css" />
-<link href="../css/authApp.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link href="../css/index.css" rel="stylesheet" type="text/css" />
+<link href="../css/login.css" rel="stylesheet" type="text/css">
+<link href="../css/join.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -21,11 +21,32 @@
 				<a href=""><img src="../images/logo.png"></a>
 			</div>
 
-			<div id="btn">
-				<a href="join.html"><button type="button" class="btn btn-info">회원가입</button></a>
-				<button type="button" class="btn btn-primary" data-toggle="modal"
-					data-target="#loginModal">로그인</button>
+			<ul>
+				<li><a data-toggle="modal" data-target="#joinModal"
+					href="../html/modal/join.html">회원가입</a></li>
+				<li><a data-toggle="modal" data-target="#loginModal"
+					href="../html/modal/login.html">로그인</a></li>
+			</ul>
+
+
+			<!-- Modal 회원가입 -->
+			<div class="modal fade" id="joinModal" role="dialog">
+				<div class="modal-dialog">
+					<div id="join-modal-content" class="modal-content">
+						<div class="modal-header"></div>
+					</div>
+				</div>
 			</div>
+
+			<!-- Modal 로그인 -->
+			<div class="modal fade" id="loginModal" role="dialog">
+				<div class="modal-dialog">
+					<div id="login-modal-content" class="modal-content">
+						<div class="modal-header"></div>
+					</div>
+				</div>
+			</div>
+
 
 		</div>
 
@@ -37,70 +58,18 @@
 
 	</div>
 
-
-	<!------------------------------------------------------ 모달 ------------------------------------------------------>
-	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-
-					<div class="row">
-						<div class="col-xs-6 col-sm-6 col-md-6">
-							<a href="#" class="btn btn-lg btn-danger btn-block">Google +</a>
-						</div>
-						<div class="col-xs-6 col-sm-6 col-md-6">
-						<!-- 카카오 로그인 -->
-							<a href="#" class="btn btn-lg btn-warning btn-block">Kakao</a>
-						</div>
-					</div>
-					<div class="login-or">
-						<hr class="hr-or">
-						<span class="span-or">또는</span>
-					</div>
-
-				</div>
-				<div class="modal-body">
-
-					<form role="form">
-						<div class="form-group">
-							<label for="inputUsernameEmail">이메일</label> <input type="text"
-								class="form-control" id="email">
-						</div>
-						<div class="form-group">
-							<label for="inputPassword">패스워드</label> <input
-								type="password" class="form-control" id="password">
-						</div>
-						<div class="checkbox">
-							<label> <input type="checkbox" id="saveEmail">
-								아이디 저장
-							</label>
-						</div>
-						
-					</form>
-
-				</div>
-				<div class="modal-footer">
-					<button type="button" id="loginBtn"
-							class="btn btn btn-primary my-btn-size">로그인</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!------------------------------------------------------ /모달 ------------------------------------------------------>
-
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/bit.js"></script>
 	<script type="text/javascript" src="../js/common.js"></script>
 	<script type="text/javascript" src="../js/authApp.js"></script>
+	<script type="text/javascript" src="../js/join.js"></script>
 	<script src="../js/index.js"></script>
 	<script>
-		init() // 화면을 준비시킨다.
-		ajaxLogout() // 로그아웃을 무조건 실행
-	</script>
+    init() // 화면을 준비시킨다.
+    ajaxLogout() // 로그아웃을 무조건 실행
+  </script>
 
 </body>
 </html>
-

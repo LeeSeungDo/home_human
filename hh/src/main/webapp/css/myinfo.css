@@ -1,0 +1,105 @@
+@CHARSET "UTF-8";
+
+html {
+	width: 100%;
+  position: relative;
+}
+
+#wrap {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#header {
+  height: 80px;
+  border-bottom: 2.5px solid gray;
+}
+
+#content {
+	width: 1000px;
+	height: 750px;
+	margin: 0 auto;
+	/* border: 1px solid #dadada; */
+	position: relative;
+}
+
+#profile {
+	width: 450px;
+	height: 300px;
+	border: 1px solid #dadada;
+	margin-top: 35px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	margin-left: 35px;
+	padding-left: 30px;
+	float: left;
+}
+
+ul {
+	list-style: none;
+	margin-left: -40px;
+}
+
+/* 
+btn {
+	width: 80px;
+}
+ */
+
+#pro_group {
+	top: 15%;
+	left: 230px;
+	position: absolute;
+}
+
+#pro_img {
+	width: 150px;
+	height: 150px;
+	margin-top: 15px;
+	background-position: 0 0;
+	position: absolute;
+}
+
+#proBtn {
+	top: 38%;
+	/* left: 115px; */
+	position: absolute;
+}
+
+#contact {
+	width: 450px;
+  height: 300px;
+  border: 1px solid #dadada;
+  margin-top: 35px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  float: left;
+  padding-left: 30px;
+  padding-right: 30px;
+  float: left;
+}
+
+#buildinfo {
+  width: 450px;
+  height: 300px;
+  border: 1px solid #dadada;
+  /* margin-top: 20px; */
+  margin-right: 20px;
+  margin-bottom: 20px;
+  margin-left: 35px;
+  padding-left: 30px;
+  padding-right: 30px;
+  float: left;
+}
+
+#membleave {
+	width: 450px;
+  height: 300px;
+  border: 1px solid #dadada;
+  /* margin-top: 35px; */
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  float: left;
+}
