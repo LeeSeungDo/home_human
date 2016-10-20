@@ -4,12 +4,15 @@
 <meta charset="UTF-8">
 <title>index</title>
 
-<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet"
+	href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css"
+	rel="stylesheet" type="text/css">
 <link href="../css/index.css" rel="stylesheet" type="text/css" />
-<link href="../css/login.css" rel="stylesheet" type="text/css">
-<link href="../css/join.css" rel="stylesheet" type="text/css">
+<link href="../css/auth/login.css" rel="stylesheet" type="text/css">
+<link href="../css/auth/join.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -58,18 +61,29 @@
 
 	</div>
 
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/bit.js"></script>
 	<script type="text/javascript" src="../js/common.js"></script>
-	<script type="text/javascript" src="../js/authApp.js"></script>
-	<script type="text/javascript" src="../js/join.js"></script>
+	<script type="text/javascript" src="../js/auth/join.js"></script>
 	<script src="../js/index.js"></script>
+
 	<script>
-    init() // 화면을 준비시킨다.
-    ajaxLogout() // 로그아웃을 무조건 실행
-  </script>
+		function init() {
+			var cookieMap = bit.cookieToObject()
+
+			if ("email" in cookieMap) { // cookieMap 객체에 email 이라는 이름의 프로퍼티가 있는가?
+				$("#email").val(cookieMap["email"])
+				$("#saveEmail").attr("checked", true)
+			}
+		}
+	</script>
+
+	<script>
+		init() // 화면을 준비시킨다.
+		ajaxLogout() // 로그아웃을 무조건 실행
+	</script>
 
 </body>
 </html>

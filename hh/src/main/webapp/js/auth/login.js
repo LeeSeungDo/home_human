@@ -5,7 +5,7 @@ $("#loginBtn").click(function(event) {
     password: $("#password").val(),
     saveEmail: $("#saveEmail").is(":checked")
   }
-	//alert("로그인")
+	alert("로그인");
   ajaxLogin(user)
 });
 
@@ -21,7 +21,7 @@ function ajaxLogin(user) {
 	            alert("로그인 실패입니다.\n이메일 또는 암호를 확인하세요.")
 	            return
 	        }
-	        window.location.href = "../html/subMain/L_main.html"
+	        window.location.href = serverAddr + "/html/dashboard/dashboard.html"
 		},
 		error: function(msg) {
 			alert(msg)
@@ -37,13 +37,6 @@ function ajaxLogout(user) {
     })
 }
 
-function init() {
-	var cookieMap = bit.cookieToObject()
-	
-	if ("email" in cookieMap) { // cookieMap 객체에 email 이라는 이름의 프로퍼티가 있는가?
-		$("#email").val(cookieMap["email"])
-		$("#saveEmail").attr("checked", true)
-	}
-}
+
 
 ///////////////////////////////////////////____Login 처리___//////////////////////////////////////////
