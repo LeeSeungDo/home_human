@@ -10,7 +10,7 @@ $("#updateBtn").click(function(event) {
 	  } else {
 		  return;
 	  }
-});
+}); 
 
 $("#deleteBtn").click(function(event) {
 	if (confirm("정말 삭제하시겠습니까?") == true) {

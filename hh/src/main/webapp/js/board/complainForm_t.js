@@ -10,7 +10,7 @@ $("#deleteBtn").click(function(event) {
 
 function ajaxAddComplain(complain) {
 	$.post(serverAddr + "/complain/add.json", complain, function(obj) {
-		var result = obj.jsonResult
+		var result = obj.jsonResult 
 		if (result.state != "success") {
 	    	 alert("등록 실패입니다.")
 	    	 return

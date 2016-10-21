@@ -7,7 +7,7 @@ $("#logoutBtn").click(function(event) {
 });*/
 
 $("#addBtn").click(function(event) {
-	var complain = {
+	var complain = { 
 	  title: $("#title").val(),
 	  contents: $("#contents").val(),
 	  writer: $("#writer").val()

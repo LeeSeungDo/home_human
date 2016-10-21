@@ -7,7 +7,7 @@ $("#logoutBtn").click(function(event) {
 });
 
 function ajaxComplainList() {
-	$.getJSON(serverAddr + "/complain/list.json", function(obj) {
+	$.getJSON(serverAddr + "/complain/list.json", function(obj) { 
 		var result = obj.jsonResult
 		console.log(result)
 		if (result.state != "success") {
