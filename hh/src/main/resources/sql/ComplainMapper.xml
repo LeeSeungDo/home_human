@@ -8,22 +8,33 @@
     <result column="conts" property="contents"/>
     <result column="cre_dt" property="createdDate"/>
     <result column="vw_cnt" property="viewCount"/>
+    <result column="rsvd" property="isResolved"/>
   </resultMap>
   
   <select id="selectList" resultMap="complainMap" parameterType="map">
-    select BOD_NO, TITLE, CONTS, CRE_DT, VW_CNT, WRITER 
+    select 	BOD_NO, TITLE, CONTS, CRE_DT, VW_CNT, WRITER 
     from BOARD
-    where TYPE=1
+    where TYPE=1 and RSVD=1
     
     order by BOD_NO desc
 
     limit #{startIndex}, #{length}
   </select>
   
+<select id="selectListbyRsvd" resultMap="complainMap" parameterType="map">
+    select 	BOD_NO, TITLE, CONTS, CRE_DT, VW_CNT, WRITER 
+    from BOARD
+    where TYPE=1 and RSVD=0
+    
+    order by BOD_NO desc
+
+    limit #{startIndex}, #{length}
+</select>
+  
  <select id="selectOne" resultMap="complainMap" parameterType="int">
     select bod_no,title,cre_dt,vw_cnt,conts
     from BOARD
-    where bod_no = #{value} and type=1
+    where bod_no = #{value}
    </select>
   
     <insert id="insert" parameterType="complain">
@@ -35,8 +46,9 @@
   <update id="update" parameterType="complain">
     update board set 
       TITLE=#{title}, 
-      CONTS=#{contents} 
-    where BOD_NO=#{no} and type=1
+      CONTS=#{contents},
+      RSVD=#{isResolved} 
+    where BOD_NO=#{no}
   </update>
 
 <!--  <select id="selectOneByPassword" resultMap="complainMap" parameterType="map">
@@ -47,8 +59,20 @@
   
   <delete id="delete" parameterType="int">
     delete from board
-    where BOD_NO=#{no} and type=1
+    where BOD_NO=#{no}
   </delete>  
+  
+   <select id="countAll" resultType="int">
+    select count(*)
+    from board
+    where TYPE=1
+ 	 </select>
+ 
+    <select id="countAllRsvd" resultType="int">
+    select count(*)
+    from board
+    where TYPE=1 and RSVD=0
+ 	 </select>
 </mapper>
 
 
