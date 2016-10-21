@@ -23,7 +23,7 @@ function ajaxLoadGongzi(no) {
 		$("#viewCount").text(result.data.viewCount);
 
 		$("#updateBtn").click(function(event) {
-			window.location.href = "gongziUpdate.html?no=" + no
+			window.location.href = serverAddr + "/html/board/gongziUpdate.html?no=" + no
 		})
 	})
 }
@@ -37,7 +37,7 @@ function ajaxDeleteGongzi(no) {
 			alert("삭제 실패입니다.")
 			return
 		}
-		location.href = "gongzi.html"
+		location.href = serverAddr + "/html/board/gongzi.html"
 	})
 }
 

@@ -10,7 +10,7 @@ function ajaxGongziList() {
 	    $("#gongziTable").html(template(result))
 	    
 	    $(document.body).on('click', '.card1', function(event) {
-		    window.location.href = "gongziForm.html?no=" + $(this).attr("data-no")
+		    window.location.href = serverAddr + "/html/board/gongziForm.html?no=" + $(this).attr("data-no")
 	    })
     })
 }
