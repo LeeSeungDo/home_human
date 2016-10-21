@@ -46,7 +46,7 @@ function ajaxUpdateComplain(complain) {
 			alert("변경 실패입니다.")
 			return
 		}
-		window.location.href = "complainApp_t.html"
+		window.location.href = "complain_t.html"
 	}, "json")
 }
 
@@ -59,6 +59,6 @@ function ajaxDeleteComplain(no) {
 			console.log("삭제 실패입니다.")
 			return
 		}
-		location.href = "complainApp_t.html"
+		location.href = "complain_t.html"
 	})
 }

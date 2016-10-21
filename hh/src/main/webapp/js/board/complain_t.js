@@ -45,7 +45,7 @@ function ajaxComplainList() {
 	    $("#complainTable .king").html(template(result.data))
 	    
 	    $(".titleLink").click(function(event) {
-		    window.location.href = "complainForm_t.html?no=" + $(this).attr("data-no")
+		    window.location.href = serverAddr + "/html/board/complainForm_t.html?no=" + $(this).attr("data-no")
 	    })
 	    
 	    // 현재 페이지 번호를 span 태그에 출력한다.
@@ -77,7 +77,7 @@ function ajaxAddComplain(complain) {
 	    	 alert("등록 실패입니다.")
 	    	 return
 	    } 
-	    window.location.href = "complainApp_t.html"
+	    window.location.href = serverAddr + "/html/board/complain_t.html"
 	}, "json")
 }
 

@@ -15,7 +15,7 @@ function ajaxAddComplain(complain) {
 	    	 alert("등록 실패입니다.")
 	    	 return
 	    } 
-	    window.location.href = "complainApp_t.html"
+	    window.location.href = serverAddr + "/html/board/complain_t.html"
 	}, "json")
 }
 
@@ -37,7 +37,7 @@ function ajaxLoadComplain(no) {
 		$("#viewCount").text(result.data.viewCount);
 		
 		$("#updateBtn").click(function(event) {
-	          window.location.href = "complainUForm_t.html?no=" + no
+	          window.location.href = serverAddr + "/html/board/complainUpdate_t.html?no=" + no
 	          })
 	})
 }
@@ -51,7 +51,7 @@ function ajaxDeleteComplain(no) {
 			console.log("삭제 실패입니다.")
 			return
 		}
-		location.href = "complainApp_t.html"
+		location.href = serverAddr + "/html/board/complain_t.html"
 	})
 }
 

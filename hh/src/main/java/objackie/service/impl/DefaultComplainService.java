@@ -60,10 +60,7 @@ public class DefaultComplainService implements ComplainService {
     HashMap<String,Object> paramMap = new HashMap<>();
     paramMap.put("no", complain.getNo());
     paramMap.put("email", complain.getEmail());
-    
-    if (complainDao.selectOneByPassword(paramMap) == null) {
-      throw new Exception("해당 게시물이 없거나 암호가 일치하지 않습니다!");
-    }
+
     complainDao.update(complain);
   }
   
