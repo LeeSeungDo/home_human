@@ -2,7 +2,7 @@ package objackie.dao;
 
 import java.util.List;
 
-import example.vo.Reply;
+import objackie.vo.Reply;
 
 public interface ReplyDao {
   List<Reply> selectList(int no) throws Exception;

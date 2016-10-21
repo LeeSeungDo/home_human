@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import example.dao.GongziDao;
-import example.vo.Gongzi;
-import example.vo.JsonResult;
+import objackie.dao.GongziDao;
+import objackie.vo.Gongzi;
+import objackie.vo.JsonResult;
 
 @Controller 
 @RequestMapping("/gongzi/")

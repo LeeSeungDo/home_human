@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import example.dao.ReplyDao;
-import example.vo.JsonResult;
-import example.vo.Reply;
+import objackie.dao.ReplyDao;
+import objackie.vo.JsonResult;
+import objackie.vo.Reply;
 
 @Controller 
 @RequestMapping("/reply/")
