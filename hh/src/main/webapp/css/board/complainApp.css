@@ -1,12 +1,11 @@
 @CHARSET "UTF-8";
 
-#complainTable .king {
-	width: 92%;
-	margin: auto;
+*, *:before, *:after {
+	box-sizing: inherit
 }
 
-#complainTable .king > div {
-	margin: 0 5px 20px 5px;
+.uk-tab {
+	position:relative;
 }
 
 html {
@@ -15,13 +14,6 @@ html {
 	box-sizing: border-box
 }
 
-*, *:before, *:after {
-	box-sizing: inherit
-}
-
-.uk-tab {
-	position:relative;
-}
 
 body {
 	max-width: 1024px; height : 100%;
@@ -52,6 +44,30 @@ body {
  .write_com {
 	position:absolute; 
 	top:20px; 
-	right:8.6%;
+	right:-30px;
 	margin-right: 200px;
 } 
+
+ 
+#complainTable .king {
+	width: 92%;
+	margin: auto;
+}
+
+#complainTable2 .kingking {
+	width: 92%;
+	margin: auto;
+}
+
+
+#complainTable .king > div {
+	margin: 0 5px 20px 5px;
+}
+
+#complainTable2 .kingking > div {
+	margin: 0 5px 20px 5px;
+}
+
+.complain_pagination {
+ 	text-align:center;
+}
