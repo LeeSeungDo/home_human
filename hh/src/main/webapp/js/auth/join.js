@@ -1,7 +1,81 @@
 // 회원가입 //
 
-$("#joinBtn").click(function(event) {
+///////////////////////////////// 체크 시작 /////////////////////////////////
+// 이메일 체크
+$('#email').blur(function() {
+	if (validateEmail($("#email").val())) {
+		$("#email-check").text("사용 가능한 이메일 입니다.");
+		$("#email-check").css("color", "blue");
+	} else if (!$("#email").val()) {
+		$("#email-check").text("필수 항목입니다.");
+		$("#email-check").css("color", "red");
+	} else {
+		$("#email-check").text("형식에 맞지 않는 이메일 입니다.");
+		$("#email-check").css("color", "red");
+	}
+});
+
+function validateEmail(email) {
+	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	return re.test(email);
+}
+
+// 패스워드 체크
+$('#password').blur(function() {
+	if ($("#password").val().length >= 8) {
+		$("#password-check").text("사용 가능한 패스워드 입니다.");
+		$("#password-check").css("color", "blue");
+	} else if (!$("#password").val()) {
+		$("#password-check").text("필수 항목입니다.");
+		$("#password-check").css("color", "red");
+	} else {
+		$("#password-check").text("패스워드는 8자리 이상 필요합니다.");
+		$("#password-check").css("color", "red");
+	}
+});
+
+// 이름 체크
+function validateName(name) {
+	var kor = /([^가-힣ㄱ-ㅎㅏ-ㅣ\x20])/i;
+	return kor.test(name);
+}
+
+$('#name').blur(function() {
+	if (!$("#name").val()) {
+		$("#name-check").text("필수 항목입니다.");
+		$("#name-check").css("color", "red");
+	} else if (validateName($("#name").val())) {
+		$("#name-check").text("한글만 입력 가능합니다.");
+		$("#name-check").css("color", "red");
+	} else {
+		$("#name-check").text("사용 가능한 이름 입니다.");
+		$("#name-check").css("color", "blue");
+	}
+});
+
+// 전화번호 체크
+function validateTel(tel) {
+	var num = /^[0-9]*$/;
+	return !num.test(tel);
+}
+
+$('#tel').blur(function() {
+	var tel = $("#tel").val();
+	if (!tel) {
+		$("#tel-check").text("필수 항목입니다.");
+		$("#tel-check").css("color", "red");
+	} else if (validateTel(tel)) {
+		$("#tel-check").text("숫자만 입력해 주세요.");
+		$("#tel-check").css("color", "red");
+	} else {
+		$("#tel-check").text("사용 가능한 전화번호 입니다.");
+		$("#tel-check").css("color", "blue");
+	}
+});
 	
+///////////////////////////////// 체크 끝 /////////////////////////////////
+
+$("#joinBtn").click(function(event) {
 	var member = {
 	  email: $("#email").val(),
 	  name: $("#name").val(),
@@ -14,13 +88,16 @@ $("#joinBtn").click(function(event) {
 	ajaxAddMember(member)
 });
 
+
+
 function ajaxAddMember(member) {
-	$.post(serverAddr + "/Member/add.json", member, function(obj) {
+	$.post(serverAddr + "/auth/add.json", member, function(obj) {
 		var result = obj.jsonResult
 		if (result.state != "success") {
-	    	 alert("회원 가입 실패입니다.")
+	    	 alert("회원 가입 실패입니다.");
 	    	 return location.href = location.href;
-	    } 
+	    }
+		alert("회원 가입 성공했습니다.");
 	    window.location.href = serverAddr + "/html/index.html"
 	}, "json")
 }

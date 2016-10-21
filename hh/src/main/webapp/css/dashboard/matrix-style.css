@@ -94,7 +94,7 @@ hr{ border-top-color:#dadada;}
 	margin-right: 10px;
 }
 #sidebar > ul > li.active > a {
-	background: url("../img/menu-active.png") no-repeat scroll right center transparent !important;
+	background: url("../dashboard/img/menu-active.png") no-repeat scroll right center transparent !important;
 	text-decoration:none;
 }
 #sidebar > ul > li > a > .label {

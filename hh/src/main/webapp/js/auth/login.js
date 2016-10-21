@@ -5,7 +5,6 @@ $("#loginBtn").click(function(event) {
     password: $("#password").val(),
     saveEmail: $("#saveEmail").is(":checked")
   }
-	alert("로그인");
   ajaxLogin(user)
 });
 

@@ -9,7 +9,7 @@ import objackie.vo.JsonResult;
 import objackie.vo.Member;
 
 @Controller
-@RequestMapping("/Member/")
+@RequestMapping("/auth/")
 public class JoinController {
   @Autowired
   JoinDao joinDao;

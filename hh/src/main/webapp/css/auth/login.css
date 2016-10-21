@@ -50,8 +50,8 @@ h3 {
 .main .my-btn-size {
 	width: 200px;
 }
-.modal-dialog  {
-	width: 300px;
+#login-modal-content {
+	margin: 0 auto;
 }
 
 .modal.fade.in {

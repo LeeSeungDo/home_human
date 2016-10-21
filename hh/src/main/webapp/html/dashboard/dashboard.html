@@ -28,20 +28,20 @@
 		<ul>
 			<li><div class="" style="margin-top: 15px;">
 					<div class="user-wrapper bg-dark">
-						<a class="user_pho" href="#"> <img
+						<a class="user_pho" href="#" id="myInfo"> <img
 							style="margin: 0 10px; vertical-align: middle; display: inline-block; max-width: 100%; height: auto; padding: 4px; line-height: 1.42857143; background-color: #fff; border: 1px solid #ddd; border-radius: 4px;"
 							class="media-object img-thumbnail user-img" alt="User Picture"
-							src="user.gif">
-						</a> <span><a href="#"
+							src="../../css/dashboard/img/user.gif">
+						</a> <span id="logout"><a href="#"
 							style="position: absolute; font-size: 14px; right: 20px;">로그아웃</a></span>
 
 						<div class="" style="margin: 10px; color: white;">
-							<h4>전도연<span style="font-size: 10px; margin-left: 7px; font-">임대인</span></h4>
+							<h4><span id="userName"></span><span id="authLevel"style="font-size: 10px; margin-left: 7px; font-"></span></h4>
 							<!-- <h6><span class="icon-envelope" style="margin-right: 7px;"></span>jun@bit.com</h6> -->
 						</div>
 					</div>
 				</div></li>
-			<li style="background-color: #1f262d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+			<li style="background-color: #1f262d">&nbsp;</li>
 			<li class="active"><a href="#"><i class="icon icon-home"></i>
 					<span>메인</span></a></li>
 			<li><a href="#"><i class="icon icon-signal"></i> <span>관리비
@@ -276,7 +276,7 @@
 <!--Footer-part-->
 
 <div class="row-fluid">
-  <div id="footer" class="span12"> Objackie 프로젝트 화이팅!! </div>
+  <div id="footer" class="span12"> ⓒ COPYRIGHT OBJACKIE ALL RIGHTS RESERVED </div>
 </div>
 
 <!--end-Footer-part-->
@@ -284,6 +284,7 @@
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+<!-- 
 <script src="js/notify.min.js"></script>
 	
 	<script type="text/javascript">
@@ -298,7 +299,13 @@
 			})
 		});
 	</script>
-
+ -->
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/bit.js"></script>
+<script type="text/javascript" src="../../js/dashboard.js"></script>
+	<script>
+		ajaxLoginUser();
+	</script>
 
 	<script type="text/javascript">
   // This function is called from the pop-up menus to transfer to
