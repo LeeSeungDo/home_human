@@ -76,6 +76,12 @@
 		}
 	</script>
 
+	<script type="text/javascript">
+		$('#joinModal').on('hidden.bs.modal', function() {
+			$(this).removeData('bs.modal');
+		});
+	</script>
+
 	<script>
 		init() // 화면을 준비시킨다.
 		ajaxLogout() // 로그아웃을 무조건 실행
