@@ -3,7 +3,7 @@ package objackie.dao;
 import java.util.List;
 import java.util.Map;
 
-import objackie.vo.Gongzi;
+import example.vo.Gongzi;
 
 public interface GongziDao {
   List<Gongzi> selectList(Map<String,Object> paramMap) throws Exception;

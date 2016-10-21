@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import objackie.dao.ReplyDao;
-import objackie.vo.JsonResult;
-import objackie.vo.Reply;
+import example.dao.ReplyDao;
+import example.vo.JsonResult;
+import example.vo.Reply;
 
 @Controller 
 @RequestMapping("/reply/")
@@ -43,7 +43,7 @@ public class ReplyController {
   public Object detail(int no) throws Exception {
     try {
 
-      return JsonResult.success(replyDao.selectList(no));
+      return JsonResult.success(replyDao.selectOne(no));
       
     } catch (Exception e) {
       return JsonResult.fail(e.getMessage());
@@ -54,9 +54,8 @@ public class ReplyController {
   public Object update(Reply reply) throws Exception {
     try {
       HashMap<String,Object> paramMap = new HashMap<>();
-      paramMap.put("no", reply.getNo());
+      paramMap.put("reno", reply.getReno());
       paramMap.put("email", reply.getEmail());
-        
       replyDao.update(reply);
       return JsonResult.success();
       
@@ -69,7 +68,7 @@ public class ReplyController {
   
   @RequestMapping(path="delete2")
   public Object delete(int no) throws Exception {
-    try {      
+    try {
       replyDao.delete(no);
       return JsonResult.success();
       
