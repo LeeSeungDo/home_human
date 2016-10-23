@@ -7,7 +7,7 @@ $("#logoutBtn").click(function(event) {
 });
 
 function ajaxComplainList() {
-	$.getJSON(serverAddr + "/complain/list.json", function(obj) {
+	$.getJSON(serverAddr + "/complain/list.json", function(obj) { 
 		var result = obj.jsonResult
 		console.log(result)
 		if (result.state != "success") {
@@ -19,7 +19,7 @@ function ajaxComplainList() {
 	    $("#complainTable .king").html(template(result))
 	    
 	    $(".titleLink").click(function(event) {
-		    window.location.href = "complainForm.html?no=" + $(this).attr("data-no")
+		    window.location.href = serverAddr + "/html/board/complainForm_t.html?no=" + $(this).attr("data-no")
 	    })
     })
 }

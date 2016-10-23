@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>민원사항</title>
+<link id="data-uikit-theme" rel="stylesheet"
+	href="../../node_modules/uikit/dist/css/uikit.almost-flat.min.css">
+<link rel="stylesheet" href="../../css/board/complain.css" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+ 
+</head>
+<body>
+
+	<!-- 헤더 -->
+	<header>
+		<span><i></i></span>
+		<h1>
+			<b>민원사항</b>
+		</h1>
+		<div>
+			<ul class="uk-tab tabs" data-uk-tab>
+				<li class="uk-active" rel="tab1"><a href="#">미처리</a></li>
+				<li rel="tab2"><a href="#">처리</a></li>
+			</ul>
+		</div>
+	</header>
+	
+	<br>
+	<br>
+
+	<div class="tab_container">
+		<div id="tab1" class="tab_content">
+			<div id="complainTable">
+				<div class="king"></div>
+			</div>
+
+			<script id="trTemplateText" type="text/x-handlebars-template">
+{{#each list}}
+	<div class="uk-thumbnail uk-thumbnail-medium">
+<img src="../../images/camera-icon.png" alt="please upload an image" style="width:100%">
+<br><br>
+		<div class="uk-thumbnail-caption">
+        <p id="title">{{title}}</p>
+		<button type="button" class="uk-button card1" id="modalbutton" 
+		data-toggle="modal" data-val="{{no}}" data-target=".bs-example-modal-lg">전체 읽기</button>
+      </div>
+    </div>
+{{/each}}
+</script>
+<!-- 리스트 -->
+	<div class="complain_pagination">
+		<button id="prevBtn" type="button" class="uk-button uk-button-primary">이전</button>
+		<span id="pageNo">1</span>
+		<button id="nextBtn" type="button" class="uk-button uk-button-primary">다음</button>
+	</div>
+		</div>
+<!---------------------------------------------------- #tab1 --------------------------------------------->
+	  <div id="tab2" class="tab_content">
+	<div id="complainTable2">
+				<div class="kingking"></div>
+			</div>
+			<script id="trTemplateText2" type="text/x-handlebars-template">
+{{#each list}}
+	<div class="uk-thumbnail uk-thumbnail-medium">
+      <img src="../../images/camera-icon.png" alt="please upload an image" style="width:100%">
+<br><br>
+		<div class="uk-thumbnail-caption">
+        <p id="tab2-title">{{title}}</p>
+		<button type="button" class="uk-button card1" id="modalbutton" 
+		data-toggle="modal" data-val="{{no}}" data-target=".bs-example-modal-lg">전체 읽기</button>
+      </div>
+    </div>
+{{/each}}
+</script>
+	<!-- 리스트 -->
+	<div class="complain_pagination">
+		<button id="prevBtn2" type="button" class="uk-button uk-button-primary">이전</button>
+		<span id="pageNo_tab2">1</span>
+		<button id="nextBtn2" type="button" class="uk-button uk-button-primary">다음</button>
+	</div>
+	  </div>
+<!---------------------------------------------------- #tab2 --------------------------------------------->
+	
+</div><!-- tab container -->
+<!-------------------------------------------------- 모달 시작 -------------------------------------------------------------->
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+		aria-labelledby="myLargeModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<!-- header -->
+				<div class="modal-header">
+					<!-- 닫기(x) 버튼 -->
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<!-- 헤더 타이틀 -->
+					<h4 class="modal-title">
+						<p id="modal-title"></p>
+					</h4>
+				</div>
+				<!-- 바디 -->
+				<div class="modal-body" id="body">
+					<textarea id="contents" class="form-control" cols="50" rows="10"
+						placeholder="내용입니다." style="background: white" readonly></textarea>
+				</div>
+				<!-- 푸터 -->
+				<div class="modal-footer">
+					<div class="uk-form-row">
+						<div class="uk-form-controls">
+							<input type="radio" id="form-s-r1" name="radio"> <label
+								for="form-s-r1">처리</label> <label><input type="radio"
+								name="radio"> 미처리</label>
+						</div>
+					</div>
+					<div class="uk-button-group">
+						<a class="uk-button" href="">수정</a> <a class="uk-button" href="">닫기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-------------------------------------------------- 모달 끝 -------------------------------------------------------------->
+
+	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+	<script src="../../node_modules/uikit/dist/js/uikit.min.js"></script>
+	<script src="../../node_modules/uikit/dist/js/core/tab.min.js"></script>
+	
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/bit.js"></script>
+	<script type="text/javascript" src="../../js/board/complain_l.js"></script>
+	
+
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--------------------------------------------------------- 모달 load 자바스크립트 코드------------------------------------------------->
+
+	<script>
+		ajaxComplainList()
+		ajaxComplainListRsvd() 
+	</script>
+
+	<script type="text/javascript">
+		$(function() {
+			$(document.body).on('click', '.card1', function() {
+				var no = $(this).attr("data-val");
+				console.log(no);
+				ajaxLoadComplain(no)
+			})
+		})
+	</script>
+
+	<script>
+	function ajaxLoadComplain(no) {
+		$.getJSON(serverAddr + "/complain/detail.json?no=" + no, function(obj) {
+			var result = obj.jsonResult
+			if (result.state != "success") {
+				alert("조회 실패입니다.")
+				return
+			}
+			$("#modal-title").text(result.data.title);
+			$("#contents").text(result.data.contents);
+		          
+		})
+	}
+	</script>
+
+</body>
+</html>
+
+

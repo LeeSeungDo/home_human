@@ -128,7 +128,7 @@ body {
   height: 155px;
   position: absolute;
   left: 135px;
-  top: 20%;
+  top: 15%;
   margin-left: -110px;
   margin-top: -75px;
   animation: login 1s ease-in-out;
@@ -221,8 +221,8 @@ body {
 
 #join-modal-content {
   width: 450px;
-  height: 675px;
-  top: -50px;
+  height: 650px;
+  top: -100px;
   margin-left: 85px;
 }
 
