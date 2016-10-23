@@ -49,9 +49,7 @@ public class LoginController {
       HashMap<String, Object> paramMap = new HashMap<>();
       paramMap.put("email", email);
       paramMap.put("password", password);
-      System.out.println("1111");
       Member member = memberDao.selectOneByEmailAndPassword(paramMap);
-      System.out.println("2222");
       
       if (member == null) {
         sessionStatus.setComplete(); // 스프링이 관리하는 세션 값을 무효화시킨다.

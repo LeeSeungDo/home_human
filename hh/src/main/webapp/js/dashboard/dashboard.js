@@ -18,9 +18,9 @@ function ajaxLoginUser() {
 		
 	    var auth = result.data.auth;
 	    if (auth == 0) {
-	    	$("#authLevel").html("(임대인)");
+	    	$("#authLevel").html("[임대인]");
 	    } else {
-	    	$("#authLevel").html("(임차인)");
+	    	$("#authLevel").html("[임차인]");
 	    }
     })
 }
