@@ -1,3 +1,12 @@
+$(document.body).ready(function() {
+    $('.limitation').on('keyup', function() {
+        if($(this).val().length > 200) {
+        	 alert("글자수는 200자 이내로 제한됩니다.!");  
+            $(this).val($(this).val().substring(0, 200));
+        }
+    });
+});
+
 function ajaxLoginUser() {
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
