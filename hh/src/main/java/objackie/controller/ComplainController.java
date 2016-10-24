@@ -50,8 +50,30 @@ public class ComplainController {
       @RequestParam(defaultValue="6") int length) throws Exception {
     
     try {
-      List<Complain> list = complainService.getComplainListbyRsvd(pageNo, length);
-      int totalPage = complainService.getTotalPage(length);
+      List<Complain> list = complainService.getComplainListbyRsvd0(pageNo, length);
+      int totalPage = complainService.getTotalPageRsvd0(length);
+      
+      HashMap<String,Object> data = new HashMap<>();
+      data.put("list", list);
+      data.put("totalPage", totalPage);
+      data.put("pageNo", pageNo);
+      data.put("length", length);
+      
+      return JsonResult.success(data);
+      
+    } catch (Exception e) {
+      return JsonResult.fail(e.getMessage());
+    }
+  }
+
+  @RequestMapping(path="list3")
+  public Object list3(
+      @RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="6") int length) throws Exception {
+    
+    try {
+      List<Complain> list = complainService.getComplainListbyRsvd1(pageNo, length);
+      int totalPage = complainService.getTotalPageRsvd1(length);
       
       HashMap<String,Object> data = new HashMap<>();
       data.put("list", list);
@@ -101,14 +123,20 @@ public class ComplainController {
       paramMap.put("no", complain.getNo());
       paramMap.put("email", complain.getEmail());
       
+      System.out.println(complain.getNo());
+      System.out.println(complain.getTitle());
+      System.out.println(complain.getContents());
+      System.out.println(complain.getRsvd());
+      System.out.println(complain.getEmail());
       complainService.updateComplain(complain);
+      System.out.println("성공");
       return JsonResult.success();
       
     } catch (Exception e) {
       return JsonResult.fail(e.getMessage());
     }
   } 
-  
+
   @RequestMapping(path="delete")
   public Object delete(int no) throws Exception {
     try {
