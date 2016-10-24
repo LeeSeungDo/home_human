@@ -18,14 +18,14 @@ $("#updateBtn1").click(function(event) {
 		    contents: $("#contents1").val(),
 		    email: $("#email").val(),
 		    rsvd: $("#rsvd1").is(":checked") ? 1 : 0,
-		    no: $(".card1").attr("data-val")
+		    no: $(".card1").attr("data-val1")
 		  }
 	
 	// console.log(complain.title);
 		  if (confirm("정말 변경하시겠습니까?") == true) {
 			  ajaxUpdateComplain(complain)
 			  } else {
-				  alert("업데이트 실패")
+				  alert("변경 실패")
 				  return;
 			  }
 	});
@@ -36,14 +36,14 @@ $("#updateBtn0").click(function(event) {
 		    contents: $("#contents0").val(),
 		    email: $("#email").val(),
 		    rsvd: $("#rsvd0").is(":checked") ? 0 : 1,
-		    no: $(".card0").attr("data-val")
+		    no: $(".card0").attr("data-val0")
 		  }
 	
-	console.log(complain.rsvd);
+	//console.log(complain.rsvd);
 		  if (confirm("정말 변경하시겠습니까?") == true) {
 			  ajaxUpdateComplain(complain)
 			  } else {
-				  alert("업데이트 실패")
+				  alert("변경 실패")
 				  return;
 			  }
 	});
