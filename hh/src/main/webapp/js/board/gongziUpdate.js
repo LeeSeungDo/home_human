@@ -6,7 +6,7 @@ $(document.body).ready(function() {
         }
     });
 });
-ㄴ
+
 
 $("#cancelBtn").click(function(event) {
 	 var no = location.search.split("=")[1];	 

@@ -24,13 +24,13 @@ public class Complain implements Serializable {
   protected int viewCount;
   protected transient String password; // 보안상 암호는 직렬화 대상에서 제외하는 것이 좋다.
   protected String createdDate2; // 클라이언트가 사용할 문자열 형식(yyyy-MM-dd)의 날짜 
-  protected int isResolved;
-  
-  public int getIsResolved() {
-    return isResolved;
+  protected int rsvd;
+
+  public int getRsvd() {
+    return rsvd;
   }
-  public void setIsResolved(int isResolved) {
-    this.isResolved = isResolved;
+  public void setRsvd(int rsvd) {
+    this.rsvd = rsvd;
   }
   public String getEmail() {
     return email;

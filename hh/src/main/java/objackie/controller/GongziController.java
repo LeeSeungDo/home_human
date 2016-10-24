@@ -17,6 +17,23 @@ public class GongziController {
   
   @Autowired GongziDao gongziDao;
   
+  @RequestMapping(path="firstlist")
+  public Object firstlist(
+      @RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="1") int length) throws Exception {
+    
+    try {
+      HashMap<String,Object> map = new HashMap<>();
+      map.put("startIndex", (pageNo - 1) * length);
+      map.put("length", length);
+      
+      return JsonResult.success(gongziDao.selectList(map));
+      
+    } catch (Exception e) {
+      return JsonResult.fail(e.getMessage());
+    }
+  }
+  
   @RequestMapping(path="list")
   public Object list(
       @RequestParam(defaultValue="1") int pageNo,
