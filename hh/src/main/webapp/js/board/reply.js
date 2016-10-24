@@ -76,7 +76,7 @@ $(document.body).on("click",".bit-update-btn",function(event) {
 
 $(document.body).on("click",".bit-save-btn",function(event) {
 	var reply = {
-			reno: $(".saveReno").val(),  
+			reno: $(this).attr("data-no"),
 			reContents: $(".update-contents").val()
 	}
 	if (confirm("정말 변경하시겠습니까?") == true) {
@@ -95,16 +95,17 @@ function ajaxLoadReply(no) {
 			alert("조회 실패입니다.")
 			return
 		} else {
-			$(".update-contents").val(result.data.reContents);
-			$(".saveReno").val(result.data.reno);
+			$("#replyTable tr[data-no=" + no + "]").find("td:eq(2)").html(
+			"<textarea type='text' class='update-contents reUpdateLimit'></textarea>");
+			$("#replyTable tr[data-no=" + no + "]").find("td:eq(5)").html(
+					"<button type='button' class='bit-save-btn' data-no=" + no + ">저장</button>" +
+			"<button type='button' class='bit-cancel-btn' data-no=" + no + ">취소</button>");
+			
+			$("#replyTable tr[data-no=" + no + "]").find(".update-contents").val(result.data.reContents);
 		}
 	})	
 	
-	$("#replyTable tr[data-no=" + no + "]").find("td:eq(2)").html(
-	"<textarea type='text' class='update-contents reUpdateLimit'></textarea>");
-	$("#replyTable tr[data-no=" + no + "]").find("td:eq(5)").html(
-			"<button type='button' class='bit-save-btn saveReno'>저장</button>" +
-	"<button type='button' class='bit-cancel-btn saveReno'>취소</button>");
+	
 }
 
 
@@ -131,7 +132,7 @@ function ajaxUpdateReply(reply) {
 
 
 $(document.body).on("click",".bit-cancel-btn",function(event) {
-	var reno = $(".saveReno").val()  
+	var reno = $(this).attr("data-no")
 	ajaxCancelReply(reno)
 });
 
