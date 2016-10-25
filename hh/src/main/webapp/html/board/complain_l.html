@@ -49,7 +49,7 @@
         <p id="title">{{title}}</p>
 <br>
 		<button type="button" class="uk-button card1" id="modalbutton1" 
-		data-toggle="modal" data-val="{{no}}" data-target=".bs-example-modal-lg1">전체 읽기</button>
+		data-toggle="modal" data-val1="{{no}}" data-target=".bs-example-modal-lg1">전체 읽기</button>
       </div>
     </div>
 {{/each}}
@@ -110,7 +110,7 @@
 		<div class="uk-thumbnail-caption">
         <p id="tab2-title">{{title}}</p>
 		<button type="button" class="uk-button card0" id="modalbutton0" 
-		data-toggle="modal" data-val="{{no}}" data-target=".bs-example-modal-lg0">전체 읽기</button>
+		data-toggle="modal" data-val0="{{no}}" data-target=".bs-example-modal-lg0">전체 읽기</button>
       </div>
     </div>
 {{/each}}
@@ -179,7 +179,7 @@
 	<script type="text/javascript">
 		$(function() {
 			$(document.body).on('click', '.card1', function() {
-				var no = $(this).attr("data-val");
+				var no = $(this).attr("data-val1");
 				console.log(no);
 				ajaxLoadComplain(no)
 			})
@@ -188,7 +188,7 @@
 	<script type="text/javascript">
 		$(function() {
 			$(document.body).on('click', '.card0', function() {
-				var no = $(this).attr("data-val");
+				var no = $(this).attr("data-val0");
 				console.log(no);
 				ajaxLoadComplain(no)
 			})
