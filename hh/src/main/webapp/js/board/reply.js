@@ -96,7 +96,7 @@ function ajaxLoadReply(no) {
 			return
 		} else {
 			$("#replyTable tr[data-no=" + no + "]").find("td:eq(2)").html(
-			"<textarea type='text' class='update-contents reUpdateLimit'></textarea>");
+			"<textarea cols='75' rows='2' class='update-contents reAddLimit' id='reUpdateLimit'></textarea>");
 			$("#replyTable tr[data-no=" + no + "]").find("td:eq(5)").html(
 					"<button type='button' class='bit-save-btn' data-no=" + no + ">저장</button>" +
 			"<button type='button' class='bit-cancel-btn' data-no=" + no + ">취소</button>");
