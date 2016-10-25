@@ -102,6 +102,7 @@ function ajaxLoadReply(no) {
 			"<button type='button' class='bit-cancel-btn' data-no=" + no + ">취소</button>");
 			
 			$("#replyTable tr[data-no=" + no + "]").find(".update-contents").val(result.data.reContents);
+			
 		}
 	})	
 	
