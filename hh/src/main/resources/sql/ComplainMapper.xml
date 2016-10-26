@@ -25,7 +25,7 @@
     from BOARD
     where TYPE=1 and RSVD=0
     
-    order by lastUpdated desc
+    order by lastUpdated desc 
 
     limit #{startIndex}, #{length}
 </select>
