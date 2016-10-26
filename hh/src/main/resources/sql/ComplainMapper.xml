@@ -5,7 +5,7 @@
 <mapper namespace="objackie.dao.ComplainDao">
   <resultMap type="complain" id="complainMap">
     <id column="bod_no" property="no"/> 
-    <result column="conts" property="contents"/>
+    <result column="conts" property="contents"/> 
     <result column="cre_dt" property="createdDate"/>
     <result column="vw_cnt" property="viewCount"/>
   </resultMap>
@@ -13,7 +13,7 @@
   <select id="selectList" resultMap="complainMap" parameterType="map">
     select 	BOD_NO, TITLE, CONTS, CRE_DT, VW_CNT, WRITER 
     from BOARD
-    where TYPE=1 and RSVD=1
+    where TYPE=1
     
     order by BOD_NO desc
 
@@ -25,7 +25,7 @@
     from BOARD
     where TYPE=1 and RSVD=0
     
-    order by BOD_NO desc
+    order by lastUpdated desc
 
     limit #{startIndex}, #{length}
 </select>
@@ -35,7 +35,7 @@
     from BOARD
     where TYPE=1 and RSVD=1
     
-    order by BOD_NO desc
+    order by lastUpdated desc
 
     limit #{startIndex}, #{length}
 </select>
