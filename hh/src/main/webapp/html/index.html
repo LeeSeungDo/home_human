@@ -24,8 +24,8 @@
 			<ul>
 				<li><a data-toggle="modal" data-target="#joinModal"
 					href="../html/auth/join.html">회원가입</a></li>
-				<li><a data-toggle="modal" data-target="#loginModal"
-					href="../html/auth/login.html">로그인</a></li>
+				<!-- <li><a data-toggle="modal" data-target="#loginModal"
+					href="../html/auth/login.html">로그인</a></li> -->
 			</ul>
 
 
@@ -38,7 +38,8 @@
 				</div>
 			</div>
 
-			<!-- Modal 로그인 -->
+<!-- 
+			Modal 로그인
 			<div class="modal fade" id="loginModal" role="dialog">
 				<div class="modal-dialog">
 					<div id="login-modal-content" class="modal-content">
@@ -46,14 +47,41 @@
 					</div>
 				</div>
 			</div>
-
+ -->
 
 		</div>
 
 		<div id="contents">
-			<img id="clogo" src="../images/clogo.png">
-			<p id="mp">main title</p>
-			<p id="sp">sub title</p>
+		  <div id="main1">
+				<!-- <img id="clogo" src="../images/clogo.png"> -->
+				<p id="mp">main title</p>
+				<p id="sp">sub title</p>
+		  </div>
+		</div>
+		
+		<div id="main2">
+			
+			<div class="subLogin">
+			  <a href="#"><img id="KaKaoBtn" src="../images/KAKAOBtn.png"></a>
+			  <a href="#"><img id="googleBtn" src="../images/googleBtn.png"></a>
+			</div>
+		  
+		  <div class="login">
+			  <label for="inputUserEmail"></label>
+			  <input type="text" class="form-control" id="email" placeholder="아이디를 입력하세요 (이메일 형식)">
+			  
+			  <label for="inputUserPassword"></label>
+			  <input type="password" class="form-control" id="password" placeholder="비밀번호를 입력하세요">
+		  </div>
+		  
+		  <div class="checkbox">
+      <label>
+        <input type="checkbox"> 아이디 저장
+      </label>
+    </div>
+
+		  <button type="button" id="loginBtn" class="btn btn-default">로그인</button>
+		  
 		</div>
 
 	</div>
@@ -63,6 +91,7 @@
 	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/bit.js"></script>
 	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/auth/login.js"></script>
 	<script src="../js/index.js"></script>
 
 	<script>
@@ -86,6 +115,7 @@
 		init() // 화면을 준비시킨다.
 		ajaxLogout() // 로그아웃을 무조건 실행
 	</script>
+
 
 </body>
 </html>
