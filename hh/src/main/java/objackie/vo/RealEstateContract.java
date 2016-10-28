@@ -14,6 +14,9 @@ public class RealEstateContract implements Serializable {
   protected int contractStatus;
   protected String tenantEmail;
   protected String contractPhoto;
+  protected String email;
+  protected String name;
+  protected String detailAddress;
   protected Date contractDate;
   protected Date endDate;
   protected Date rentPayDate;
@@ -114,7 +117,31 @@ public class RealEstateContract implements Serializable {
   
   public void setUtilityPayDate(Date utilityPayDate) {
     this.utilityPayDate = utilityPayDate;
-  }  
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getDetailAddress() {
+    return detailAddress;
+  }
+
+  public void setDetailAddress(String detailAddress) {
+    this.detailAddress = detailAddress;
+  }   
 }
 
 
