@@ -21,7 +21,8 @@ function ajaxLoadGongzi(no) {
 		$("#contents").text(result.data.contents);
 		$("#createdDate").text(result.data.createdDate);
 		$("#viewCount").text(result.data.viewCount);
-
+		URL.createObjectURL(result.data.filename)
+		$("#file1").attr('src', "../upload/" + result.data.filename);
 		$("#updateBtn").click(function(event) {
 			window.location.href = serverAddr + "/html/board/gongziUpdate.html?no=" + no
 		})

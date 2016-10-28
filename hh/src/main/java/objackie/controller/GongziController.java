@@ -2,12 +2,18 @@ package objackie.controller;
 
 import java.util.HashMap;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import objackie.dao.GongziDao;
+import objackie.service.GongziService;
 import objackie.vo.Gongzi;
 import objackie.vo.JsonResult;
 
@@ -15,7 +21,9 @@ import objackie.vo.JsonResult;
 @RequestMapping("/gongzi/")
 public class GongziController {
   
+  @Autowired ServletContext sc;
   @Autowired GongziDao gongziDao;
+  @Autowired GongziService gongziService;
   
   @RequestMapping(path="firstlist")
   public Object firstlist(
@@ -52,9 +60,18 @@ public class GongziController {
   }
   
   @RequestMapping(path="add")
-  public Object add(Gongzi gongzi) throws Exception {
+  @ResponseBody
+  public Object add(@ModelAttribute Gongzi gongzi, MultipartFile file) throws Exception {
+    String uploadDir = sc.getRealPath("/upload") + "/";
+    System.out.println("-----------------------파일 업로드--------------------------------");
+    System.out.println(gongzi.getEmail());
+    System.out.println(gongzi.getTitle());
+    System.out.println(gongzi.getContents());
+    System.out.println(file);
+    System.out.println(uploadDir);
+    System.out.println("-----------------------/파일 업로드--------------------------------");
     try {
-      gongziDao.insert(gongzi);
+      gongziService.insertGongzi(gongzi, file, uploadDir);
       return JsonResult.success();
       
     } catch (Exception e) {
