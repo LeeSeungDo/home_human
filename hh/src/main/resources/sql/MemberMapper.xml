@@ -7,32 +7,17 @@
 		<id column="EMAIL" property="email" />
 		<result column="PWD" property="password" />
 		<result column="GEND" property="gender" />
+		<result column="POSTNO" property="postNo" />
+		<result column="BAS_ADDR" property="basicAddr" />
+		<result column="DIT_ADDR" property="detailAddr" />
+		<result column="PHO_PATH" property="phoPath" />
+		<result column="AUTH" property="auth" />
 	</resultMap>
 
-	<select id="selectOneByEmailAndPassword" resultMap="memberMap"
-		parameterType="map">
-		select EMAIL, NAME, TEL, GEND, BIRTH, AUTH
+	<select id="selectOneByEmailAndPassword" resultMap="memberMap" parameterType="map">
+		select EMAIL, NAME, TEL, GEND, BIRTH, POSTNO, BAS_ADDR, DIT_ADDR, PHO_PATH, AUTH
 		from MEMBS
 		where EMAIL=#{email} and PWD=#{password}
 	</select>
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
