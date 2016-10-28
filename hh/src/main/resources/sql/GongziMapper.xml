@@ -12,6 +12,7 @@
     <result column="VW_CNT" property="viewCount"/>
     <result column="TITLE" property="title"/>
     <result column="WRITER" property="writer"/>
+    <result column="PHO_PATH" property="filename"/>
   </resultMap>
   
   <select id="selectList" resultMap="gongziMap" parameterType="map">
@@ -24,12 +25,13 @@
   </select>
   
  <select id="selectOne" resultMap="gongziMap" parameterType="int">
-    select BOD_NO,WRITER,EMAIL,TITLE,CRE_DT,VW_CNT,CONTS
-    from board
-    where BOD_NO = #{value} and type=0
+    select A.BOD_NO, A.WRITER, A.EMAIL, A.TITLE, A.CRE_DT, A.VW_CNT, A.CONTS, B.PHO_PATH
+    from BOARD A INNER JOIN BOD_PHO B
+    on A.BOD_NO = B.BOD_NO
+    where A.BOD_NO = #{value} and A.TYPE = 0
   </select>  
   
-  <insert id="insert" parameterType="gongzi">
+  <insert id="insert" parameterType="gongzi" useGeneratedKeys="true" keyColumn="no" keyProperty="no">
     insert into board(EMAIL, TYPE, TITLE, CONTS, VW_CNT, CRE_DT, WRITER)
     values(#{email}, 0, #{title}, #{contents}, 0, now(), #{writer})
   </insert>

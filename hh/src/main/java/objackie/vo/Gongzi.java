@@ -17,6 +17,7 @@ public class Gongzi implements Serializable {
   protected Date createdDate; 
   protected int viewCount;
   private String createdDate2; 
+  protected String filename;
   
   public int getNo() {
     return no;
@@ -73,6 +74,13 @@ public class Gongzi implements Serializable {
   }
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public String getFilename() {
+    return filename;
+  }
+  public void setFilename(String filename) {
+    this.filename = filename;
   }
   
 }
