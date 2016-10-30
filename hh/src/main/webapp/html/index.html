@@ -13,9 +13,7 @@
 
 </head>
 <body>
-
 	<div id="wrap">
-
 		<div id="header">
 			<div id="logo">
 				<a href=""><img src="../images/logo.png"></a>
@@ -37,6 +35,7 @@
 					</div>
 				</div>
 			</div>
+			<!-- /Modal 회원가입 -->
 
 			<!-- Modal 로그인 -->
 			<div class="modal fade" id="loginModal" role="dialog">
@@ -46,7 +45,7 @@
 					</div>
 				</div>
 			</div>
-
+			<!-- /Modal 로그인 -->
 
 		</div>
 
@@ -61,31 +60,22 @@
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/bit.js"></script>
 	<script type="text/javascript" src="../js/common.js"></script>
-	<script src="../js/index.js"></script>
-
-	<script>
-		function init() {
-			var cookieMap = bit.cookieToObject()
-
-			if ("email" in cookieMap) { // cookieMap 객체에 email 이라는 이름의 프로퍼티가 있는가?
-				$("#email").val(cookieMap["email"])
-				$("#saveEmail").attr("checked", true)
-			}
-		}
-	</script>
-
-	<script type="text/javascript">
-		$('#joinModal').on('hidden.bs.modal', function() {
-			$(this).removeData('bs.modal');
-		});
-	</script>
+	<script type="text/javascript" src="../js/bit.js"></script>
+	<script type="text/javascript" src="../js/index.js"></script>
 
 	<script>
 		init() // 화면을 준비시킨다.
 		ajaxLogout() // 로그아웃을 무조건 실행
 	</script>
+	
+	<!-- 회원가입 모달 초기화 -->
+	<script type="text/javascript">
+		$('#joinModal').on('hidden.bs.modal', function() {
+			$(this).removeData('bs.modal');
+		});
+	</script>
+	<!-- /회원가입 모달 초기화 -->
 
 </body>
 </html>

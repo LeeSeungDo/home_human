@@ -20,7 +20,7 @@ function ajaxLogin(user) {
 	            alert("로그인 실패입니다.\n이메일 또는 암호를 확인하세요.")
 	            return
 	        }
-			//console.log(obj.member.auth);
+
 			var category = obj.member.auth;
 			if (category == 0) {
 				window.location.href = serverAddr + "/html/dashboard/dashboard.html"
@@ -41,6 +41,8 @@ function ajaxLogout(user) {
 	        console.log("로그아웃 실패입니다.")
     })
 }
+
+
 
 
 
