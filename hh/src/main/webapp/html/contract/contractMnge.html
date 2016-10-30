@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>세입자 정보</title>
+<link rel="stylesheet"
+	href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../../css/contract/contractMnge.css">
+</head>
+<body>
+	<header>
+		<h1>입주자 관리</h1>
+	</header>
+	<section>
+		<div class="crud-bar">
+			<button class="button_1 button_1 btn btn-warning" type="button">등록</button>
+		</div>
+		<div class="row">
+			<div id="contractTable"></div>
+			<script id="crTemplateText" type="text/x-handlebars-template">
+{{#each list}}
+<div class="col-sm-6 col-md-4 contractForm" data-no={{contractNo}}>
+<div class="thumbnail">
+<img src="../../images/bang.jpg" alt="계약사진">
+<div class="caption">
+<h4>{{name}}</h4>
+</div>
+</div>
+</div>
+{{/each}}
+</script>
+		</div>
+		<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+		<script type="text/javascript" src="../../js/common.js"></script>
+		<script type="text/javascript" src="../../js/bit.js"></script>
+		<script type="text/javascript" src="../../js/contract/contractMnge.js"></script>
+		<script>
+		ajaxRealEstateContractList()
+    </script>
+	</section>
+	<footer>
+		<h1>Footer</h1>
+	</footer>
+</body>
+</html>

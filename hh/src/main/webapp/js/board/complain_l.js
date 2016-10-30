@@ -12,32 +12,77 @@ $(function () {
     });
 });
 
+$("#updateBtn1").click(function(event) {
+	var complain = {
+		    title: $("#modal-title1").text(),
+		    contents: $("#contents1").val(),
+		    email: $("#email").val(),
+		    rsvd: $("#rsvd1").is(":checked") ? 1 : 0,
+		    no: $(".card1").attr("data-val1")
+		  }
+	
+	// console.log(complain.title);
+		  if (confirm("정말 변경하시겠습니까?") == true) {
+			  ajaxUpdateComplain(complain)
+			  } else {
+				  alert("변경 실패")
+				  return;
+			  }
+	});
+
+$("#updateBtn0").click(function(event) {
+	var complain = {
+		    title: $("#modal-title0").text(),
+		    contents: $("#contents0").val(),
+		    email: $("#email").val(),
+		    rsvd: $("#rsvd0").is(":checked") ? 0 : 1,
+		    no: $(".card0").attr("data-val0")
+		  }
+	
+	//console.log(complain.rsvd);
+		  if (confirm("정말 변경하시겠습니까?") == true) {
+			  ajaxUpdateComplain(complain)
+			  } else {
+				  alert("변경 실패")
+				  return;
+			  }
+	});
+
+
+$("#cancelBtn0").click(function(event) {
+			location.href = "complain_l.html"
+		});
+
+$("#cancelBtn1").click(function(event) {
+	location.href = "complain_l.html"
+});
+
 $("#prevBtn").click(function(event) {
 	pageNo--;
-	ajaxComplainList();
+	ajaxComplainListRsvd1();
 });
 
 $("#nextBtn").click(function(event) {
 	pageNo++;
-	ajaxComplainList();
+	ajaxComplainListRsvd1();
 });
 
 $("#prevBtn2").click(function(event) {
 	pageNo--;
-	ajaxComplainListRsvd();
+	ajaxComplainListRsvd0();
 });
 
 $("#nextBtn2").click(function(event) {
 	pageNo++;
-	ajaxComplainListRsvd();
+	ajaxComplainListRsvd0();
 }); 
 
 //글로벌 변수 = window 프로퍼티 
 var pageNo = 1, /* window.pageNo */
     pageLength = 6; /* window.pageLength */
 
-function ajaxComplainList() {
-	$.getJSON(serverAddr + "/complain/list.json", {
+function ajaxComplainListRsvd1() {
+	$.getJSON(serverAddr + "/complain/list3.json", {
 		"pageNo": pageNo,
 		"length": pageLength
 	}, function(obj) {
@@ -72,7 +117,7 @@ function ajaxComplainList() {
     })
 }
 
-function ajaxComplainListRsvd() {
+function ajaxComplainListRsvd0() {
 	$.getJSON(serverAddr + "/complain/list2.json", {
 		"pageNo": pageNo,
 		"length": pageLength
@@ -108,4 +153,13 @@ function ajaxComplainListRsvd() {
     })
 }
 
-
+function ajaxUpdateComplain(complain) {
+	$.post(serverAddr + "/complain/update.json", complain, function(obj) {
+		var result = obj.jsonResult
+		if (result.state != "success") {
+			alert("변경 실패입니다.")
+			return
+		}
+		window.location.href = "complain_l.html"
+	}, "json")
+}

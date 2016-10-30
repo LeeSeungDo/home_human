@@ -14,11 +14,13 @@ import objackie.vo.Complain;
 public interface ComplainService {
   
  List<Complain> getComplainList(int pageNo, int length) throws Exception;
- List<Complain> getComplainListbyRsvd(int pageNo, int length) throws Exception;
+ List<Complain> getComplainListbyRsvd0(int pageNo, int length) throws Exception;
+ List<Complain> getComplainListbyRsvd1(int pageNo, int length) throws Exception;
  void insertComplain(Complain complain, MultipartFile file, String uploadDir) throws Exception; 
  Complain getComplain(int no) throws Exception;
  int getTotalPage(int pageSize) throws Exception;
- int getTotalPageRsvd(int pageSize) throws Exception;
+ int getTotalPageRsvd0(int pageSize) throws Exception;
+ int getTotalPageRsvd1(int pageSize) throws Exception;
  void updateComplain(Complain complain) throws Exception;
  void deleteComplain(int no) throws Exception;
  

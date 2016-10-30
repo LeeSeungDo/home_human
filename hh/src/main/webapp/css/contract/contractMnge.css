@@ -1,0 +1,74 @@
+@CHARSET "UTF-8";
+
+html {
+	height: 100%;
+	display: table;
+	margin: auto;
+}
+
+body {
+	width: 1024px;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+hr {
+	color: black;
+}
+header {
+	border: 1px solid black;
+	width: 1020px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+section {
+	width: 960px;
+	margin: 0 auto;
+}
+
+button {
+	width: 70px;
+	height: 35px;
+	margin: 0 auto;
+	float: right;
+}
+
+
+
+.thumbnail {
+	padding: 0;
+}
+
+.caption {
+	background-color: #d3d3d3;
+}
+
+.text_title {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.contract_photo {
+	border: 1px solid black;	
+	float: left;
+}
+
+.col-md-4:hover {
+	opacity: .40;
+}
+
+.button_1 {
+	float: right;
+	margin: 0px 70px 0px 0px;
+}
+
+.crud-bar {
+	width: 1020px;
+	height: 35px;
+}
+
+.header_color {
+	background-color: #d3d3d3;
+}

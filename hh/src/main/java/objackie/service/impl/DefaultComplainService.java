@@ -27,11 +27,18 @@ public class DefaultComplainService implements ComplainService {
     return complainDao.selectList(map);
   }
   
-  public List<Complain> getComplainListbyRsvd(int pageNo, int length) throws Exception {
+  public List<Complain> getComplainListbyRsvd0(int pageNo, int length) throws Exception {
     HashMap<String,Object> map = new HashMap<>();
     map.put("startIndex", (pageNo - 1) * length);
     map.put("length", length);
-    return complainDao.selectListbyRsvd(map);
+    return complainDao.selectListbyRsvd0(map);
+  }
+ 
+  public List<Complain> getComplainListbyRsvd1(int pageNo, int length) throws Exception {
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("startIndex", (pageNo - 1) * length);
+    map.put("length", length);
+    return complainDao.selectListbyRsvd1(map);
   }
   
   public void insertComplain(Complain complain, 
@@ -59,7 +66,7 @@ public class DefaultComplainService implements ComplainService {
   public void updateComplain(Complain complain) throws Exception {
     HashMap<String,Object> paramMap = new HashMap<>();
     paramMap.put("no", complain.getNo());
-    paramMap.put("email", complain.getEmail());
+    paramMap.put("rsvd", complain.getRsvd());
 
     complainDao.update(complain);
   }
@@ -78,15 +85,29 @@ public class DefaultComplainService implements ComplainService {
     return totalPage;
   }
 
-  public int getTotalPageRsvd(int pageSize) throws Exception {
-    int countAllRsvd = complainDao.countAllRsvd();
+  public int getTotalPageRsvd0(int pageSize) throws Exception {
+    int countAllRsvd0 = complainDao.countAllRsvd0();
     
-    int totalPage = countAllRsvd / pageSize;
-    if ((countAllRsvd % pageSize) > 0) {
+    int totalPage = countAllRsvd0 / pageSize;
+    if ((countAllRsvd0 % pageSize) > 0) {
       totalPage++;
     }
     return totalPage;
   }
+
+  public int getTotalPageRsvd1(int pageSize) throws Exception {
+    int countAllRsvd1 = complainDao.countAllRsvd1();
+    
+    int totalPage = countAllRsvd1 / pageSize;
+    if ((countAllRsvd1 % pageSize) > 0) {
+      totalPage++;
+    }
+    return totalPage;
+  }
+
+
+  
+  
 
  
 }

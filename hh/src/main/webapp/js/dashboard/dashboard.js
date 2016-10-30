@@ -6,6 +6,10 @@ $("#logout").click(function(event) {
 	window.location.href = serverAddr + "/html/index.html"
 });
 
+$("#gongziLink").click(function(event) {
+	window.location.href = serverAddr + "/html/board/gongziInput.html"
+});
+
 function ajaxLoginUser() {
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult

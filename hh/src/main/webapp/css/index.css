@@ -35,12 +35,47 @@ html {
   position: absolute;
 }
 
-#contents {
-  top: 350%;
-  left: 38%;
+#main1 {
+  top: 425%;
+  left: 10%;
+  /* border: 1px solid gray; */
   margin: -50px 0 0 -50px;
   text-align: center;
   position: absolute;
+}
+
+#main2 {
+	width: 354px;
+	top: 380%;
+	right: 10%;
+	position: absolute;
+}
+
+#email {
+	width: 100%;
+	height: 50px;
+}
+
+#password {
+	width: 100%;
+	height: 50px;
+}
+
+#KaKaoBtn {
+	margin-right: 10px;
+	float: left;
+}
+
+#googleBtn {
+	float: left;
+}
+
+#loginBtn {
+	width: 100%;
+	height: 50px;
+	background: #00aceb;
+	color: #fff;
+	font-size: 20px;
 }
 
 #clogo {
@@ -67,12 +102,12 @@ img {
 #mp {
   font-family: 'CODE Bold';
   text-align:center;
-  font-size: 700%;
+  font-size: 1000%;
 }
 
 #sp {
   font-family: 'Adam';
-  font-size: 700%;
+  font-size: 1000%;
 }
 
 ul {

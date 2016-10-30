@@ -1,5 +1,5 @@
 // 회원가입 //
-
+ 
 ///////////////////////////////// 체크 시작 /////////////////////////////////
 // 이메일 체크
 $('#email').blur(function() {
@@ -54,8 +54,9 @@ $('#name').blur(function() {
 });
 
 // 전화번호 체크
+
 function validateTel(tel) {
-	var num = /^[0-9]*$/;
+	var num = /^\(?([0-1]{3})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/; 
 	return !num.test(tel);
 }
 
@@ -65,10 +66,10 @@ $('#tel').blur(function() {
 		$("#tel-check").text("필수 항목입니다.");
 		$("#tel-check").css("color", "red");
 	} else if (validateTel(tel)) {
-		$("#tel-check").text("숫자만 입력해 주세요.");
+		$("#tel-check").text("유효한 번호가 아닙니다.");
 		$("#tel-check").css("color", "red");
 	} else {
-		$("#tel-check").text("사용 가능한 전화번호 입니다.");
+		$("#tel-check").text("사용 가능한 번호 입니다.");
 		$("#tel-check").css("color", "blue");
 	}
 });
