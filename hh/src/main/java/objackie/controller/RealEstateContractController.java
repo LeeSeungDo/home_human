@@ -1,4 +1,4 @@
-package objackie.controller.json;
+package objackie.controller;
 
 import java.util.HashMap;
 import java.util.List;
