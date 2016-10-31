@@ -34,10 +34,13 @@ public class DefaultComplainService implements ComplainService {
     return complainDao.selectListbyRsvd0(map);
   }
  
-  public List<Complain> getComplainListbyRsvd1(int pageNo, int length) throws Exception {
+  public List<Complain> getComplainListbyRsvd1(int pageNo, int length, String email) throws Exception {
+    System.out.println("service : " + email);
     HashMap<String,Object> map = new HashMap<>();
     map.put("startIndex", (pageNo - 1) * length);
     map.put("length", length);
+    map.put("email", email);
+    System.out.println(map.get("email"));
     return complainDao.selectListbyRsvd1(map);
   }
   

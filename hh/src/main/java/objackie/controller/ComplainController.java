@@ -1,14 +1,21 @@
 package objackie.controller;
 
+import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import objackie.service.ComplainService;
@@ -69,10 +76,13 @@ public class ComplainController {
   @RequestMapping(path="list3")
   public Object list3(
       @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="6") int length) throws Exception {
+      @RequestParam(defaultValue="6") int length,
+      String email) throws Exception {
     
     try {
-      List<Complain> list = complainService.getComplainListbyRsvd1(pageNo, length);
+      System.out.println("1controller - 1email : " + email);
+      List<Complain> list = complainService.getComplainListbyRsvd1(pageNo, length, email);
+      System.out.println("2controller - 2email : " + email);
       int totalPage = complainService.getTotalPageRsvd1(length);
       
       HashMap<String,Object> data = new HashMap<>();
@@ -88,7 +98,7 @@ public class ComplainController {
     }
   }
   
-  @RequestMapping(path="add")
+  @RequestMapping(value = "add", method = RequestMethod.POST)
   public Object add(Complain complain,
                     MultipartFile file) throws Exception {
     String uploadDir = sc.getRealPath("/upload") + "/";

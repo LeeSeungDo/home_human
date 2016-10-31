@@ -81,10 +81,16 @@ $("#nextBtn2").click(function(event) {
 var pageNo = 1, /* window.pageNo */
     pageLength = 6; /* window.pageLength */
 
+
 function ajaxComplainListRsvd1() {
+	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
+		var result = obj.jsonResult
+		var userEmail = obj.member.email
+    
 	$.getJSON(serverAddr + "/complain/list3.json", {
 		"pageNo": pageNo,
-		"length": pageLength
+		"length": pageLength,
+		"email" : userEmail
 	}, function(obj) {
 		var result = obj.jsonResult
 		console.log(result.data)
@@ -115,6 +121,7 @@ function ajaxComplainListRsvd1() {
 	    	$('#nextBtn').removeAttr('disabled');
 	    }
     })
+	})
 }
 
 function ajaxComplainListRsvd0() {
