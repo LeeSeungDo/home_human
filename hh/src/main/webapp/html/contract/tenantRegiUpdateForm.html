@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항</title>
+<title>세입자 정보</title>
 
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
@@ -93,9 +93,8 @@
 
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button id="addBtn" type="button" class="btn btn-default my-new">저장</button>
-          <button id="cancelBtn" type="button" class="btn btn-default"
-            onclick="location.href='contractMnge.html'">취소</button>
+          <button id="updateBtn" type="button" class="btn btn-default my-new">저장</button>
+          <button id="cancelBtn" type="button" class="btn btn-default">취소</button>
         </div>
       </div>
   
@@ -111,7 +110,13 @@
 <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../js/common.js"></script>
 <script type="text/javascript" src="../../js/bit.js"></script>
-<script type="text/javascript" src="../../js/contract/tenantRegiForm.js"></script>
+<script type="text/javascript" src="../../js/contract/tenantRegiUpdateForm.js"></script>
+<script>
+    if (location.search.startsWith("?")) {
+      var contractNo = location.search.split("=")[1];
+      ajaxLoadContract(contractNo)
+    }
+  </script>
 
 </body>
 </html>

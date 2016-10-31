@@ -10,19 +10,41 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/contract/contractMnge.css">
 </head>
+
 <body>
+	<!-- 헤더 -->
 	<header>
-		<h1>입주자 관리</h1>
+		<h1>
+			<b>입주자 정보</b>
+		</h1>
 	</header>
+
+
 	<section>
+
 		<div class="crud-bar">
-			<button class="button_1 button_1 btn btn-warning" type="button">등록</button>
+			<button class="button_1 button_1 btn btn-warning" type="button"
+			onclick="location.href='tenantRegiForm.html'">등록</button>
 		</div>
-		<div class="row">
-			<div id="contractTable"></div>
-			<script id="crTemplateText" type="text/x-handlebars-template">
+
+		<div>
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#home"
+					aria-controls="home" role="tab" data-toggle="tab">계약대기</a></li>
+				<li role="presentation"><a href="#profile"
+					aria-controls="profile" role="tab" data-toggle="tab">계약중</a></li>
+				<li role="presentation"><a href="#messages"
+					aria-controls="messages" role="tab" data-toggle="tab">계약만료</a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="home">
+					<div class="row">
+						<div id="contractTable1"></div>
+						<script id="crTemplateText1" type="text/x-handlebars-template">
 {{#each list}}
-<div class="col-sm-6 col-md-4 contractForm" data-no={{contractNo}}>
+<div class="col-sm-6 col-md-4 contractForm1" data-no={{contractNo}}>
 <div class="thumbnail">
 <img src="../../images/bang.jpg" alt="계약사진">
 <div class="caption">
@@ -32,19 +54,63 @@
 </div>
 {{/each}}
 </script>
+					</div>
+				</div>
+				
+
+				<div role="tabpanel" class="tab-pane" id="profile">
+					<div class="row">
+						<div id="contractTable2"></div>
+						<script id="crTemplateText2" type="text/x-handlebars-template">
+{{#each list}}
+<div class="col-sm-6 col-md-4 contractForm2" data-no={{contractNo}}>
+<div class="thumbnail">
+<img src="../../images/bang.jpg" alt="계약사진">
+<div class="caption">
+<h4>{{name}}</h4>
+</div>
+</div>
+</div>
+{{/each}}
+</script>
+					</div>
+				</div>
+				
+
+				<div role="tabpanel" class="tab-pane" id="messages">
+					<div class="row">
+						<div id="contractTable3"></div>
+						<script id="crTemplateText3" type="text/x-handlebars-template">
+{{#each list}}
+<div class="col-sm-6 col-md-4 contractForm3" data-no={{contractNo}}>
+<div class="thumbnail">
+<img src="../../images/bang.jpg" alt="계약사진">
+<div class="caption">
+<h4>{{name}}</h4>
+</div>
+</div>
+</div>
+{{/each}}
+</script>
+					</div>
+				</div>
+			</div>
 		</div>
-		<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-		<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-		<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
-		<script type="text/javascript" src="../../js/common.js"></script>
-		<script type="text/javascript" src="../../js/bit.js"></script>
-		<script type="text/javascript" src="../../js/contract/contractMnge.js"></script>
-		<script>
-		ajaxRealEstateContractList()
-    </script>
 	</section>
-	<footer>
-		<h1>Footer</h1>
-	</footer>
+
+
+
+	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/bit.js"></script>
+	<script type="text/javascript" src="../../js/contract/contractMnge.js"></script>
+	<script>
+	  ajaxRealEstateContractList1()
+    ajaxRealEstateContractList2()
+    ajaxRealEstateContractList3()
+    </script>
+
 </body>
 </html>
