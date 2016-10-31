@@ -7,7 +7,9 @@ import org.springframework.web.multipart.MultipartFile;
 import objackie.vo.RealEstateContract;
 
 public interface RealEstateContractService {
-  List<RealEstateContract> getRealEstateContractList(int pageNo, int length) throws Exception;
+  List<RealEstateContract> getRealEstateContractList1(int pageNo, int length) throws Exception;
+  List<RealEstateContract> getRealEstateContractList2(int pageNo, int length) throws Exception;
+  List<RealEstateContract> getRealEstateContractList3(int pageNo, int length) throws Exception;
   void insertRealEstateContract(RealEstateContract realEstateContract, MultipartFile file1, MultipartFile file2, String uploadDir) throws Exception;
   RealEstateContract getRealEstateContract(int no) throws Exception;
   void updateRealEstateContract(RealEstateContract realEstateContract) throws Exception;

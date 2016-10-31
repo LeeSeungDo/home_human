@@ -1,4 +1,4 @@
-package objackie.controller;
+package objackie.controller.json;
 
 import java.util.HashMap;
 import java.util.List;
@@ -18,13 +18,53 @@ public class RealEstateContractController {
   
   @Autowired RealEstateContractService realEstateContractService;
      
-  @RequestMapping(path="list")
-  public Object list(
+  @RequestMapping(path="list1")
+  public Object list1(
       @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="9") int length) throws Exception {
+      @RequestParam(defaultValue="12") int length) throws Exception {
     
     try {
-      List<RealEstateContract> list = realEstateContractService.getRealEstateContractList(pageNo, length);
+      List<RealEstateContract> list = realEstateContractService.getRealEstateContractList1(pageNo, length);
+      
+      HashMap<String,Object> data = new HashMap<>();
+      data.put("list", list);
+      data.put("pageNo", pageNo);
+      data.put("length", length);
+      
+      return JsonResult.success(data);
+      
+    } catch (Exception e) {
+      return JsonResult.fail(e.getMessage());
+    }
+  }
+
+  @RequestMapping(path="list2")
+  public Object list2(
+      @RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="12") int length) throws Exception {
+    
+    try {
+      List<RealEstateContract> list = realEstateContractService.getRealEstateContractList2(pageNo, length);
+      
+      HashMap<String,Object> data = new HashMap<>();
+      data.put("list", list);
+      data.put("pageNo", pageNo);
+      data.put("length", length);
+      
+      return JsonResult.success(data);
+      
+    } catch (Exception e) {
+      return JsonResult.fail(e.getMessage());
+    }
+  }
+  
+  @RequestMapping(path="list3")
+  public Object list3(
+      @RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="12") int length) throws Exception {
+    
+    try {
+      List<RealEstateContract> list = realEstateContractService.getRealEstateContractList3(pageNo, length);
       
       HashMap<String,Object> data = new HashMap<>();
       data.put("list", list);
@@ -67,7 +107,7 @@ public class RealEstateContractController {
   @RequestMapping(path="update")
   public Object update(RealEstateContract realEstateContract) throws Exception {
     try {
-      if (realEstateContractService.getRealEstateContract(realEstateContract.getContractNo()) == null) {
+      if (realEstateContractService.getRealEstateContract(realEstateContract.getBuildNo()) == null) {
         throw new Exception("해당 게시물이 없거나 암호가 일치하지 않습니다!");
       }
       realEstateContractService.updateRealEstateContract(realEstateContract);

@@ -20,11 +20,25 @@ public class DefaultRealEstateContractService implements RealEstateContractServi
   @Autowired RealEstateContractDao realEstateContractDao;
   @Autowired RealEstateContractFileDao realEstateContractFileDao;
   
-  public List<RealEstateContract> getRealEstateContractList(int pageNo, int length) throws Exception {
+  public List<RealEstateContract> getRealEstateContractList1(int pageNo, int length) throws Exception {
     HashMap<String,Object> map = new HashMap<>();
     map.put("startIndex", (pageNo - 1) * length);
     map.put("length", length);
-    return realEstateContractDao.selectList(map);
+    return realEstateContractDao.selectList1(map);
+  }
+  
+  public List<RealEstateContract> getRealEstateContractList2(int pageNo, int length) throws Exception {
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("startIndex", (pageNo - 1) * length);
+    map.put("length", length);
+    return realEstateContractDao.selectList2(map);
+  }
+  
+  public List<RealEstateContract> getRealEstateContractList3(int pageNo, int length) throws Exception {
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("startIndex", (pageNo - 1) * length);
+    map.put("length", length);
+    return realEstateContractDao.selectList3(map);
   }
   
   public void insertRealEstateContract(RealEstateContract realEstateContract, 
@@ -62,8 +76,8 @@ public class DefaultRealEstateContractService implements RealEstateContractServi
     
   public void updateRealEstateContract(RealEstateContract realEstateContract) throws Exception {
     HashMap<String,Object> paramMap = new HashMap<>();
-    paramMap.put("no", realEstateContract.getContractNo());
-    paramMap.put("email", realEstateContract.getTenantEmail());
+    paramMap.put("contractNo", realEstateContract.getContractNo());
+    paramMap.put("tenantEmail", realEstateContract.getTenantEmail());
     
     realEstateContractDao.update(realEstateContract);
   }
