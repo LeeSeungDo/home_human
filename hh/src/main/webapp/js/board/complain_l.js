@@ -125,9 +125,14 @@ function ajaxComplainListRsvd1() {
 }
 
 function ajaxComplainListRsvd0() {
+	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
+		var result = obj.jsonResult
+		var userEmail = obj.member.email
+    
 	$.getJSON(serverAddr + "/complain/list2.json", {
 		"pageNo": pageNo,
-		"length": pageLength
+		"length": pageLength,
+		"email" : userEmail
 	}, function(obj) {
 		var result = obj.jsonResult
 		console.log(result.data)
@@ -136,28 +141,29 @@ function ajaxComplainListRsvd0() {
 	    	 return
 	    }
 		
-	    var template = Handlebars.compile($('#trTemplateText2').html())
+		var template = Handlebars.compile($('#trTemplateText2').html())
 	    $("#complainTable2 .kingking").html(template(result.data))
 	  	    
 	    // 현재 페이지 번호를 span 태그에 출력한다.
 	    pageNo = result.data.pageNo;
 	    totalPage = result.data.totalPage;
-	    $('#pageNo_tab2').text(pageNo);
+	    $('#pageNo').text(pageNo);
 	    
 	    // 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
 	    if (pageNo <= 1) {
-	    	$('#prevBtn2').attr('disabled', true);
+	    	$('#prevBtn').attr('disabled', true);
 	    } else {
-	    	$('#prevBtn2').removeAttr('disabled');
+	    	$('#prevBtn').removeAttr('disabled');
 	    } 
 	    
 	    // 페이지 번호가 마지막 페이지라면 [다음] 버튼을 비활성화시킨다.
 	    if (pageNo >= totalPage) {
-	    	$('#nextBtn2').attr('disabled', true);
+	    	$('#nextBtn').attr('disabled', true);
 	    } else {
-	    	$('#nextBtn2').removeAttr('disabled');
+	    	$('#nextBtn').removeAttr('disabled');
 	    }
     })
+	})
 }
 
 function ajaxUpdateComplain(complain) {

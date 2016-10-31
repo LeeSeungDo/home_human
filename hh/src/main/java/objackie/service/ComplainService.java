@@ -9,7 +9,7 @@ import objackie.vo.Complain;
 public interface ComplainService {
   
  List<Complain> getComplainList(int pageNo, int length) throws Exception;
- List<Complain> getComplainListbyRsvd0(int pageNo, int length) throws Exception;
+ List<Complain> getComplainListbyRsvd0(int pageNo, int length, String email) throws Exception;
  List<Complain> getComplainListbyRsvd1(int pageNo, int length, String email) throws Exception;
  void insertComplain(Complain complain, MultipartFile file, String uploadDir) throws Exception; 
  Complain getComplain(int no) throws Exception;

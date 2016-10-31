@@ -54,10 +54,11 @@ public class ComplainController {
   @RequestMapping(path="list2")
   public Object list2(
       @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="6") int length) throws Exception {
+      @RequestParam(defaultValue="6") int length,
+      String email) throws Exception {
     
     try {
-      List<Complain> list = complainService.getComplainListbyRsvd0(pageNo, length);
+      List<Complain> list = complainService.getComplainListbyRsvd0(pageNo, length, email);
       int totalPage = complainService.getTotalPageRsvd0(length);
       
       HashMap<String,Object> data = new HashMap<>();
