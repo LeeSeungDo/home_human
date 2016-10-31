@@ -38,14 +38,18 @@ public class LoginController {
       SessionStatus sessionStatus) throws Exception {
     
   	try {
+  		System.out.println("login.json");
+  		
       Cookie cookie = new Cookie("email", email);
       if (!saveEmail) {
-        cookie.setMaxAge(0); 
+        cookie.setMaxAge(0);
+        cookie.setPath("/"); 
       } else {
-        cookie.setMaxAge(60 * 60 * 24 * 7);
+				cookie.setMaxAge(60 * 60 * 24 * 7);            // 쿠키 유지 기간 - 1년
+        cookie.setPath("/");                               // 모든 경로에서 접근 가능하도록 
       }
-      response.addCookie(cookie);
-      
+      response.addCookie(cookie); 
+       
 //      response.addCookie(new Cookie("test", "okok"));
 //      cookie = new Cookie("test2", "nono");
 //      cookie.setMaxAge(120);
@@ -70,6 +74,7 @@ public class LoginController {
         
       } else {
         model.addAttribute("member", member); // Model 객체에 로그인 회원 정보를 담는다.
+        System.out.println("member : " + member + ", cookie : " + cookie.getValue());
         return JsonResult.success();
       }
       
@@ -81,6 +86,8 @@ public class LoginController {
   @RequestMapping(path="logout")
   public Object logout(HttpSession session, SessionStatus sessionStatus) throws Exception {
     try {
+    	System.out.println("logout.json");
+    	
       sessionStatus.setComplete();
       session.invalidate();
       return JsonResult.success();
@@ -94,6 +101,8 @@ public class LoginController {
   public Object loginUser(HttpSession session) throws Exception {
     
     try {
+    	System.out.println("loginUser.json");
+    	
       Member member = (Member)session.getAttribute("member");
       if (member == null) {
         throw new Exception("로그인이 되지 않았습니다.");

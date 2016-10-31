@@ -4,9 +4,12 @@
 <meta charset="UTF-8">
 <title>index</title>
 
-<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet"
+	href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css"
+	rel="stylesheet" type="text/css">
 <link href="../css/index.css" rel="stylesheet" type="text/css" />
 <link href="../css/auth/login.css" rel="stylesheet" type="text/css">
 <link href="../css/auth/join.css" rel="stylesheet" type="text/css">
@@ -38,7 +41,7 @@
 				</div>
 			</div>
 
-<!-- 
+			<!-- 
 			Modal 로그인
 			<div class="modal fade" id="loginModal" role="dialog">
 				<div class="modal-dialog">
@@ -52,69 +55,57 @@
 		</div>
 
 		<div id="contents">
-		  <div id="main1">
+			<div id="main1">
 				<!-- <img id="clogo" src="../images/clogo.png"> -->
 				<p id="mp">main title</p>
 				<p id="sp">sub title</p>
-		  </div>
-		</div>
-		
-		<div id="main2">
-			
-			<div class="subLogin">
-			  <a href="#"><img id="KaKaoBtn" src="../images/KAKAOBtn.png"></a>
-			  <a href="#"><img id="googleBtn" src="../images/googleBtn.png"></a>
 			</div>
-		  
-		  <div class="login">
-			  <label for="inputUserEmail"></label>
-			  <input type="text" class="form-control" id="email" placeholder="아이디를 입력하세요 (이메일 형식)">
-			  
-			  <label for="inputUserPassword"></label>
-			  <input type="password" class="form-control" id="password" placeholder="비밀번호를 입력하세요">
-		  </div>
-		  
-		  <div class="checkbox">
-      <label>
-        <input type="checkbox"> 아이디 저장
-      </label>
-    </div>
+		</div>
 
-		  <button type="button" id="loginBtn" class="btn btn-default">로그인</button>
-		  
+		<div id="main2">
+
+			<div class="subLogin">
+				<a href="#"><img id="KaKaoBtn" src="../images/KAKAOBtn.png"></a>
+				<a href="#"><img id="googleBtn" src="../images/googleBtn.png"></a>
+			</div>
+
+			<div class="login">
+				<label for="inputUserEmail"></label>
+				<input type="text" class="form-control" id="email" placeholder="아이디를 입력하세요 (이메일 형식)">
+
+				<label for="inputUserPassword"></label>
+				<input type="password" class="form-control" id="password" placeholder="비밀번호를 입력하세요">
+			</div>
+
+			<div class="checkbox">
+				<label> <input type="checkbox" id="saveEmail"> 아이디
+					저장
+				</label>
+			</div>
+
+			<button type="button" id="loginBtn" class="btn btn-default">로그인</button>
+
 		</div>
 
 	</div>
 
-	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/bit.js"></script>
 	<script type="text/javascript" src="../js/common.js"></script>
-	<script type="text/javascript" src="../js/auth/login.js"></script>
+	<script type="text/javascript" src="../js/bit.js"></script>
 	<script src="../js/index.js"></script>
-
-	<script>
-		function init() {
-			var cookieMap = bit.cookieToObject()
-			if ("email" in cookieMap) { // cookieMap 객체에 email 이라는 이름의 프로퍼티가 있는가?
-				$("#email").val(cookieMap["email"])
-				$("#saveEmail").attr("checked", true)
-			}
-		}
+	
+	<script type="text/javascript">
+	init()
+	ajaxLogout()
 	</script>
+	
 
 	<script type="text/javascript">
 		$('#joinModal').on('hidden.bs.modal', function() {
 			$(this).removeData('bs.modal');
 		});
 	</script>
-
-	<script>
-		init() // 화면을 준비시킨다.
-		ajaxLogout() // 로그아웃을 무조건 실행
-	</script>
-
 
 </body>
 </html>
