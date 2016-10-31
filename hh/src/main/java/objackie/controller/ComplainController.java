@@ -124,7 +124,7 @@ public class ComplainController {
     } catch (Exception e) {
       return JsonResult.fail(e.getMessage());
     }
-  }
+  } 
   
   @RequestMapping(path="update")
   public Object update(Complain complain) throws Exception {

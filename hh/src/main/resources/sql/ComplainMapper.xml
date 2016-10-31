@@ -71,7 +71,7 @@ where A.L_EMAIL=#{email} and D.TYPE=1 and D.RSVD=1
   <delete id="delete" parameterType="int">
     delete from board
     where BOD_NO=#{no}
-  </delete>  
+  </delete>   
   
    <select id="countAll" resultType="int">
     select count(*)

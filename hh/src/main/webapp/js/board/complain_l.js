@@ -1,4 +1,4 @@
-$(function () {
+$(function () { 
     $(".tab_content").hide();
     $(".tab_content:first").show();
 
