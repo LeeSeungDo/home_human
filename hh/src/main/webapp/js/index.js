@@ -5,7 +5,6 @@ $("#loginBtn").click(function(event) {
 		password : $("#password").val(),
 		saveEmail : $("#saveEmail").is(":checked")
 	}
-	console.log(user);
 	ajaxLogin(user)
 });
 
@@ -22,8 +21,6 @@ function ajaxLogin(user) {
 				return
 			}
 			
-			console.log(result);
-
 			var category = obj.member.auth;
 			if (category == 0) {
 				window.location.href = serverAddr
