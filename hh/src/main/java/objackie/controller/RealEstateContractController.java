@@ -1,4 +1,4 @@
-package objackie.controller;
+package objackie.controller.json;
 
 import java.util.HashMap;
 import java.util.List;
@@ -107,7 +107,7 @@ public class RealEstateContractController {
   @RequestMapping(path="update")
   public Object update(RealEstateContract realEstateContract) throws Exception {
     try {
-      if (realEstateContractService.getRealEstateContract(realEstateContract.getBuildNo()) == null) {
+      if (realEstateContractService.getRealEstateContract(realEstateContract.getContractNo()) == null) {
         throw new Exception("해당 게시물이 없거나 암호가 일치하지 않습니다!");
       }
       realEstateContractService.updateRealEstateContract(realEstateContract);

@@ -56,8 +56,8 @@
 
 	<select id="selectOne" resultMap="realestatecontractMap"
 		parameterType="int">
-		select T1.CRCT_NO, T1.T_EMAIL, T1.CRCT_TYPE, T1.CRCT_DT, T1.END_DT,
-		T1.RTPAY_DT, T1.CRCT_STAT, T2.DIT_ADDR
+		select T1.CRCT_NO, T1.BUILD_NO, T1.T_EMAIL, T1.CRCT_TYPE, T1.CRCT_DT, T1.END_DT, T1.DPST,
+		T1.UTPAY_DT, T1.RTPAY_DT, T1.CRCT_STAT, T2.DIT_ADDR
 		from RE_CRCT as T1 LEFT OUTER JOIN MEMBS as T2
 		on T1.T_EMAIL = T2.EMAIL
 		where T1.CRCT_NO= #{value} and T2.AUTH=1;
@@ -72,7 +72,7 @@
 
 	<update id="update" parameterType="realestatecontract">
 		update RE_CRCT set
-		BUILD_NO=#{buildNo}, T_EMAIL=#{tenantEmail}, CRCT_TYPE=#{contractType}, DPST=#{deposit},
+		BUILD_NO=#{buildNo}, CRCT_TYPE=#{contractType}, DPST=#{deposit},
 		CRCT_DT=#{contractDate}, END_DT=#{endDate}, RTPAY_DT=#{rentPayDate}, 
 		UTPAY_DT=#{utilityPayDate}, CRCT_STAT=#{contractStatus}
 		where CRCT_NO=#{contractNo}

@@ -18,12 +18,16 @@ function ajaxLoadContract(no) {
 		}
 
 		$("#email").val(result.data.tenantEmail);
-		$("#detailAddress").val(result.data.detailAddress);
-		$("#contractType").val(result.data.contractType);
+		$("#detailAddress").val(result.data.detailAddress);		
 		$("#contractDate").val(result.data.contractDate);
 		$("#endDate").val(result.data.endDate);
 		$("#rentPayDate").val(result.data.rentPayDate);
 		$("#contractNo").val(result.data.contractNo);
+		if ((result.data.contractType) == 0) {
+			$("#contractType").val("월세");
+		} else {
+			$("#contractType").val("전세");
+		}
 		$(".updateBtn").click(function(event) {
 			window.location.href = serverAddr + "/html/contract/tenantRegiUpdateForm.html?no=" + no
 		})			
