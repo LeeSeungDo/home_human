@@ -1,7 +1,27 @@
-//홈버튼
 $("#logoBtn").click(function(event) {
 	window.location.href = serverAddr + "/html/index.html"
 });
+
+
+$("#proUpBtn").click(function(event) {
+	window.location.href = serverAddr + "/html/auth/profileupdate.html"
+});
+
+
+$("#contactUpBtn").click(function(event) {
+	window.location.href = serverAddr + "/html/auth/contactupdate.html"
+});
+
+$("#buildUpBtn").click(function(event) {
+	alert("건물 정보 수정")
+	//window.location.href = serverAddr + ""
+});
+
+$("#memberUpBtn").click(function(event) {
+	alert("탈퇴")
+	//window.location.href = serverAddr + ""
+});
+
 
 
 // 회원정보수정 회원데이터 출력
