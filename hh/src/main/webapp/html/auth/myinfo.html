@@ -22,7 +22,7 @@
 	<div id="content">
 		<div id="profile"><h3>프로필</h3>
 			<div id="phoPath"><a href="#">
-			  <img src="../../images/default.png" style="width: 100%; max-width: 760px; vertical-align: middle" /></a></th>
+			  <img src="../../images/default.png" style="width: 100%; max-width: 760px; vertical-align: middle" /></a>
 		  </div>
 
 	    <div id="pro_group">
@@ -47,7 +47,7 @@
 	     </table>
 			</div>
 		  
-		  <button id="proBtn" type="button" class="btn btn-default">수정</button>
+		  <button id="proUpBtn" type="button" class="btn btn-default">수정</button>
 			
 		</div>
 
@@ -76,64 +76,30 @@
          </thead>
        </table>
        
-       <button id="contactBtn" type="button" class="btn btn-default">수정</button>
+       <div>
+       <button id="contactUpBtn" type="button">수정</button>
+       </div>
         
 			</div>
 		</div>
 		
 
 		<div id="buildinfo">
-		
 		  <h3>건물정보</h3>
-
-			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingOne">
-						<h4 class="panel-title">
-							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> 건물정보 #1 </a>
-						</h4>
-					</div>
-
-					<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-						<div class="panel-body">건물 #1</div>
-					</div>
-				</div>
-
-				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingTwo">
-						<h4 class="panel-title">
-							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">건물정보 #2</a>
-						</h4>
-					</div>
-
-					<div id="collapseTwo" class="panel-collapse collapse"
-						role="tabpanel" aria-labelledby="headingTwo">
-						<div class="panel-body">-</div>
-					</div>
-				</div>
-				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingThree">
-						<h4 class="panel-title">
-							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">건물정보	#3</a>
-						</h4>
-					</div>
-					<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-						<div class="panel-body">-</div>
-					</div>
-				</div>
-			</div>
-			
-			<button id="" type="button" class="btn btn-default">수정</button>
-
+		  <table>
+		  <tr>
+		  <td>건물정보</td><td id="BUILD_NO"></td>
+		  </tr>
+		  </table>
+		  <div>
+			<button id="buildUpBtn" type="button">수정</button>
+		  </div>
 		</div>
-
-		<div id="membleave">
-		<h3>회원탈퇴</h3>
-		<ul>
-		  <li><a href="#">회원탈퇴</a></li>
-		</ul>
-		<button type="button" class="btn btn-default">탈퇴</button>
-		</div>
+   
+   <div class="membleave">
+   <span>더 이상 이용하지 않는다면</span>
+   <a href="#">회원탈퇴 바로가기</a>
+   </div>
 	</div>
 
 </form>

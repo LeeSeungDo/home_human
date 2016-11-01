@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>프로필 수정</title>
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+<link href="../../css/auth/profileupdate.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+	<form>
+		<div id="header">
+			<div id="logo">
+				<span class="sptext" id="title">홈로고</span>
+				<a id="logoBtn" href="#"><img src="../../images/logo.png"></a>
+				<span class="sptext">내정보</span>
+			</div>
+		</div>
+
+
+		<div id="content">
+			<h3>프로필 수정</h3>
+			<span>프로필과 비밀번호를 수정하실 수 있습니다.</span>
+			<div class="main">
+					<table>
+						<tr>
+							<th class="th_cell1">프로필 사진</th>
+							<td class="td_cell1">
+							<div id="phoPath">
+								<a href="#">
+	              <img src="../../images/default.png" style="width: 100%; max-width: 760px; vertical-align: middle" />
+	              </a>
+							</div>
+								<button id="phoApplyBtn" type="button">사진변경</button>
+								<button id="phoDeleteBtn" type="button">삭제</button>
+							</td>
+						</tr>
+					</table>
+
+					<table>
+						<tr>
+							<th class="th_cell2">비밀번호</th>
+							<td class="td_cell2">
+							 <input type="password" class="form-control" id="password" placeholder="변경하실 비밀번호를 입력하세요.">
+							</td>
+						</tr>
+					</table>
+			</div>
+			
+			<button id="applyBtn" type="button">적용</button>
+      <button id="cancelBtn" type="button">취소</button>
+		</div>
+	</form>
+
+</body>
+</html>

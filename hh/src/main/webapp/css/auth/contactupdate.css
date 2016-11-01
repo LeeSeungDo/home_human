@@ -1,0 +1,145 @@
+@CHARSET "UTF-8";
+
+html {
+  width: 100%;
+  position: relative;
+}
+
+#wrap {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#header {
+  height: 80px;
+  border-bottom: 2.5px solid gray;
+  overflow: hidden;
+  position: relative;
+}
+
+#title {
+  display: none;
+}
+
+#logoBtn {
+  top: 8px;
+  left: 10px;
+  position: absolute;
+}
+
+.sptext {
+  margin-top: 17px;
+  margin-left: 110px;
+  width: 100px;
+  font-size: 200%;
+  position: absolute;
+}
+
+img {
+  max-width: 70%;
+  height: auto ;
+}
+
+#content {
+  width: 1000px;
+  height: 750px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.main {
+  margin-top: 50px;
+}
+
+.th_cell1 {
+  width: 300px;
+  height: 250px;
+  background: #f9f9f9;
+  border-right: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
+  padding-left: 20px;
+  font-size: 120%;
+}
+
+.td_cell1 {
+  width: 700px;
+  height: 250px;
+  border-top: 1px solid #cccccc;
+  padding-left: 20px;
+}
+
+.th_cell2 {
+  width: 300px;
+  height: 250px;
+  background: #f9f9f9;
+  border-right: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  padding-left: 20px;
+  font-size: 120%;
+}
+
+.td_cell2 {
+  width: 700px;
+  height: 250px;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  padding-left: 20px;
+}
+
+#postcode {
+	margin-top: 30px;
+	width: 100px;
+	height: 30px;
+	border: 1px solid #cccccc;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#postBtn {
+	width: 100px;
+  height: 31px;
+	border: 1px solid #cccccc;
+  border-radius: 5px 5px 5px 5px;
+  background: #fff;
+}
+
+#address {
+	margin-top: 10px;
+	width: 400px;
+  height: 30px;
+	border: 1px solid #cccccc;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#address2 {
+	width: 200px;
+  height: 30px;
+  border: 1px solid #cccccc;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.form-control {
+  width: 350px;
+}
+
+
+#applyBtn {
+  margin-top: 30px;
+  margin-left: 350px;
+  margin-right: 10px;
+  background: #00aceb;
+  width: 100px;
+  height: 40px;
+  border: 1px solid #00aceb; 
+  color: #fff;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#cancelBtn {
+  margin-top: 30px;
+  width: 100px;
+  height: 40px;
+  background: #fff;
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid gray;
+}

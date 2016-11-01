@@ -44,14 +44,13 @@ img {
 	width: 1000px;
 	height: 750px;
 	margin: 0 auto;
-	/* border: 1px solid #dadada; */
 	position: relative;
 }
 
 #profile {
 	width: 450px;
 	height: 300px;
-	border: 1px solid #dadada;
+	border: 1px solid #cccccc;
 	margin-top: 35px;
 	margin-right: 20px;
 	margin-bottom: 20px;
@@ -72,16 +71,21 @@ ul {
 }
 
 #phoPath {
-	width: 150px;
-	height: 150px;
+	width: 100px;
+	height: 100px;
 	margin-top: 15px;
 	background-position: 0 0;
 	position: absolute;
 }
 
-#proBtn {
-	top: 38%;
+#proUpBtn {
+	top: 283px;
+	width: 100px;
+	height: 40px;
 	position: absolute;
+	border: 1px solid #cccccc;
+  background: #fff;
+  border-radius: 5px 5px 5px 5px;
 }
 
 #contact {
@@ -91,16 +95,24 @@ ul {
   margin-top: 35px;
   margin-right: 20px;
   margin-bottom: 20px;
-  float: left;
   padding-left: 30px;
   padding-right: 30px;
   float: left;
 }
 
+#contactUpBtn {
+	margin-top: 110px;
+	width: 100px;
+  height: 40px;
+	border: 1px solid #cccccc;
+	background: #fff;
+	border-radius: 5px 5px 5px 5px;
+}
+
 #buildinfo {
-  width: 450px;
+  width: 920px;
   height: 300px;
-  border: 1px solid #dadada;
+  border: 1px solid #cccccc;
   margin-right: 20px;
   margin-bottom: 20px;
   margin-left: 35px;
@@ -109,13 +121,17 @@ ul {
   float: left;
 }
 
-#membleave {
-	width: 450px;
-  height: 300px;
-  border: 1px solid #dadada;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  padding-left: 30px;
-  padding-right: 30px;
-  float: left;
+#buildUpBtn {
+  margin-top: 170px;
+  width: 100px;
+  height: 40px;
+  border: 1px solid #cccccc;
+  background: #fff;
+  border-radius: 5px 5px 5px 5px;
+  position: fixed;
+}
+
+.membleave {
+	clear: both;
+	margin-left: 35px; 
 }

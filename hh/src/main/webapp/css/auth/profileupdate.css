@@ -1,0 +1,139 @@
+@CHARSET "UTF-8";
+
+html {
+  width: 100%;
+  position: relative;
+}
+
+#wrap {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#header {
+  height: 80px;
+  border-bottom: 2.5px solid gray;
+  overflow: hidden;
+  position: relative;
+}
+
+#title {
+  display: none;
+}
+
+#logoBtn {
+  top: 8px;
+  left: 10px;
+  position: absolute;
+}
+
+.sptext {
+  margin-top: 17px;
+  margin-left: 110px;
+  width: 100px;
+  font-size: 200%;
+  position: absolute;
+}
+
+img {
+  max-width: 70%;
+  height: auto ;
+}
+
+#content {
+  width: 1000px;
+  height: 750px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.main {
+	margin-top: 50px;
+}
+
+.th_cell1 {
+  width: 300px;
+  height: 250px;
+  background: #f9f9f9;
+  border-right: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
+  padding-left: 20px;
+  font-size: 120%;
+}
+
+.td_cell1 {
+  width: 700px;
+  height: 250px;
+  border-top: 1px solid #cccccc;
+  padding-left: 20px;
+}
+
+.th_cell2 {
+  width: 300px;
+  height: 250px;
+  background: #f9f9f9;
+  border-right: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  padding-left: 20px;
+  font-size: 120%;
+}
+
+.td_cell2 {
+  width: 700px;
+  height: 250px;
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  padding-left: 20px;
+}
+
+.form-control {
+	width: 350px;
+}
+
+#phoPath {
+  width: 100px;
+  height: 100px;
+  background-position: 0 0;
+}
+
+#phoApplyBtn {
+	margin-top: 30px;
+	margin-right: 10px;
+	width: 100px;
+	height: 40px;
+	background: #00aceb;
+	border: 1px solid #00aceb; 
+	color: #fff;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#phoDeleteBtn {
+	margin-top: 30px;
+  width: 100px;
+  height: 40px;
+  background: #fff;
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid #cccccc;
+}
+
+#applyBtn {
+	margin-top: 30px;
+	margin-left: 350px;
+	margin-right: 10px;
+	background: #00aceb;
+	width: 100px;
+	height: 40px;
+	border: 1px solid #00aceb; 
+  color: #fff;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#cancelBtn {
+	margin-top: 30px;
+	width: 100px;
+  height: 40px;
+  background: #fff;
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid #cccccc;
+}
