@@ -40,7 +40,7 @@ function ajaxLoadGongzi(no) {
 		$("#writer").val(result.data.writer);
 		$("#title").val(result.data.title);
 		$("#contents").text(result.data.contents);
-		$("#createdDate").text(result.data.createdDate);
+		$("#createdDate").text(result.data.createDate);
 		$("#viewCount").text(result.data.viewCount);		
 	})
 }

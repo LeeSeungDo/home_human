@@ -8,7 +8,7 @@
     <result column="TYPE" property="type"/>
     <result column="EMAIL" property="email"/>
     <result column="CONTS" property="contents"/>
-    <result column="CRE_DT" property="createdDate"/>
+    <result column="CRE_DT" property="createDate"/>
     <result column="VW_CNT" property="viewCount"/>
     <result column="TITLE" property="title"/>
     <result column="WRITER" property="writer"/>
