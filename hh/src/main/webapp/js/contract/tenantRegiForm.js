@@ -11,15 +11,15 @@ $("#addBtn").click(function(event) {
 	var contract = {
 			buildNo: $("#buildNo").val(),
 			tenantEmail: $("#tenantEmail").val(),
-			contractType: $("#contractType").val(),
+			contractType: $("#contractType input:checked").val(),
 			deposit: $("#deposit").val(),
 			contractDate: $("#contractDate").val(),
 			endDate: $("#endDate").val(),
 			rentPayDate: $("#rentPayDate").val(),
 			utilityPayDate: $("#utilityPayDate").val(),
-			contractStatus: $("#contractStatus").val()	  
+			contractStatus: $("#contractStatus input:checked").val()
 	}	
-	ajaxAddContract(contract)
+	 ajaxAddContract(contract)
 });
 
 function ajaxAddContract(contract) {

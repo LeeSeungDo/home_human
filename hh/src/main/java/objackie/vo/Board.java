@@ -21,6 +21,7 @@ public class Board implements Serializable {
   protected int viewCount;    // 조회수
   protected Date createDate;  // 작성일
   protected String writer;    // 작성자
+  protected String filename;
 
   public int getBoardNo() {
     return boardNo;
@@ -84,6 +85,15 @@ public class Board implements Serializable {
 
   public void setWriter(String writer) {
     this.writer = writer;
+  }
+    
+
+  public String getFilename() {
+    return filename;
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
   }
 
   @Override

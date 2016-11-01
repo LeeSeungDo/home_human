@@ -2,12 +2,14 @@ package objackie.vo;
 
 import java.io.Serializable;
 
-public class GongziFile implements Serializable {
+public class BoardFile implements Serializable {
   private static final long serialVersionUID = 1L;
 
   protected int no;
-  protected int gongziNo;
+  protected int boardNo;
   protected String filename;
+
+  
 
   public int getNo() {
     return no;
@@ -17,12 +19,12 @@ public class GongziFile implements Serializable {
     this.no = no;
   }
 
-  public int getGongziNo() {
-    return gongziNo;
+  public int getBoardNo() {
+    return boardNo;
   }
 
-  public void setGongziNo(int gongziNo) {
-    this.gongziNo = gongziNo;
+  public void setBoardNo(int boardNo) {
+    this.boardNo = boardNo;
   }
 
   public String getFilename() {
@@ -33,9 +35,10 @@ public class GongziFile implements Serializable {
     this.filename = filename;
   }
 
+
   @Override
   public String toString() {
-    return "GongziFile [no=" + no + ", gongziNo=" + gongziNo + ", filename=" + filename + "]";
+    return "BoardFile [no=" + no + ", boardNo=" + boardNo + ", filename=" + filename + "]";
   }
 
 }

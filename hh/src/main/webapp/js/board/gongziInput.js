@@ -50,7 +50,7 @@ function ajaxAddGongzi(gongzi) {
 
 function ajaxAddGongziFile(formData) {
 	$.ajax({
-	    url: serverAddr + "/gongzi/add.json",
+	    url: serverAddr + "/board/add.json",
 	    data: formData,
 	    processData: false,
 	    contentType: false,

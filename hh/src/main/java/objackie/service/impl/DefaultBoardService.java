@@ -6,36 +6,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import objackie.dao.GongziDao;
-import objackie.dao.GongziFileDao;
-import objackie.service.GongziService;
+import objackie.dao.BoardDao;
+import objackie.dao.BoardFileDao;
+import objackie.service.BoardService;
 import objackie.util.FileUploadUtil;
-import objackie.vo.Gongzi;
-import objackie.vo.GongziFile;
+import objackie.vo.Board;
+import objackie.vo.BoardFile;
 
 @Service
-public class DefaultGongziService implements GongziService {
+public class DefaultBoardService implements BoardService {
 
   @Autowired
-  GongziDao gongziDao;
+  BoardDao boardDao;
   @Autowired
-  GongziFileDao gongziFileDao;
+  BoardFileDao boardFileDao;
 
   @Override
-  public void insertGongzi(Gongzi gongzi, MultipartFile file, String uploadDir) throws Exception {
+  public void insertBoard(Board board, MultipartFile file, String uploadDir) throws Exception {
     System.out.println("여기부터");
     try {
-      gongziDao.insert(gongzi);
+      boardDao.insert(board);
 
       String newFilename = null;
       if (file != null && !file.isEmpty()) {
         newFilename = FileUploadUtil.getNewFilename(file.getOriginalFilename());
         file.transferTo(new File(uploadDir + newFilename));
-        GongziFile gongziFile = new GongziFile();
-        gongziFile.setFilename(newFilename);
-        gongziFile.setGongziNo(gongzi.getNo());
+        BoardFile boardFile = new BoardFile();
+        boardFile.setFilename(newFilename);
+        boardFile.setBoardNo(board.getBoardNo());
         // boardFile.setBoardNo(10200); //트랜잭션 테스트 용
-        gongziFileDao.insert(gongziFile);
+        boardFileDao.insert(boardFile);
       }
     } catch (Exception e) {
       e.printStackTrace();

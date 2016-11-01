@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import objackie.dao.GongziDao;
-import objackie.service.GongziService;
-import objackie.vo.Gongzi;
+import objackie.dao.BoardDao;
+import objackie.service.BoardService;
+import objackie.vo.Board;
 import objackie.vo.JsonResult;
 
 @Controller 
-@RequestMapping("/gongzi/")
-public class GongziController {
+@RequestMapping("/board/")
+public class BoardController {
   
   @Autowired ServletContext sc;
-  @Autowired GongziDao gongziDao;
-  @Autowired GongziService gongziService;
+  @Autowired BoardDao boardDao;
+  @Autowired BoardService boardService;
   
   @RequestMapping(path="firstlist")
   public Object firstlist(
@@ -35,7 +35,7 @@ public class GongziController {
       map.put("startIndex", (pageNo - 1) * length);
       map.put("length", length);
       
-      return JsonResult.success(gongziDao.selectList(map));
+      return JsonResult.success(boardDao.selectList(map));
       
     } catch (Exception e) {
       return JsonResult.fail(e.getMessage());
@@ -52,7 +52,7 @@ public class GongziController {
       map.put("startIndex", (pageNo - 1) * length);
       map.put("length", length);
       
-      return JsonResult.success(gongziDao.selectList(map));
+      return JsonResult.success(boardDao.selectList(map));
       
     } catch (Exception e) {
       return JsonResult.fail(e.getMessage());
@@ -61,17 +61,17 @@ public class GongziController {
   
   @RequestMapping(path="add")
   @ResponseBody
-  public Object add(@ModelAttribute Gongzi gongzi, MultipartFile file) throws Exception {
+  public Object add(@ModelAttribute Board board, MultipartFile file) throws Exception {
     String uploadDir = sc.getRealPath("/upload") + "/";
     System.out.println("-----------------------파일 업로드--------------------------------");
-    System.out.println(gongzi.getEmail());
-    System.out.println(gongzi.getTitle());
-    System.out.println(gongzi.getContents());
+    System.out.println(board.getEmail());
+    System.out.println(board.getTitle());
+    System.out.println(board.getContents());
     System.out.println(file);
     System.out.println(uploadDir);
     System.out.println("-----------------------/파일 업로드--------------------------------");
     try {
-      gongziService.insertGongzi(gongzi, file, uploadDir);
+      boardService.insertBoard(board, file, uploadDir);
       return JsonResult.success();
       
     } catch (Exception e) {
@@ -82,12 +82,12 @@ public class GongziController {
   @RequestMapping(path="detail")
   public Object detail(int no) throws Exception {
     try {
-      Gongzi gongzi = gongziDao.selectOne(no);
+      Board board = boardDao.selectOne(no);
       
-      if (gongzi == null) 
+      if (board == null) 
         throw new Exception("해당 번호의 게시물이 존재하지 않습니다.");
       
-      return JsonResult.success(gongzi);
+      return JsonResult.success(board);
       
     } catch (Exception e) {
       return JsonResult.fail(e.getMessage());
@@ -95,13 +95,13 @@ public class GongziController {
   }
   
   @RequestMapping(path="update")
-  public Object update(Gongzi gongzi) throws Exception {
+  public Object update(Board board) throws Exception {
     try {
       HashMap<String,Object> paramMap = new HashMap<>();
-      paramMap.put("no", gongzi.getNo());
-      paramMap.put("email", gongzi.getEmail());
+      paramMap.put("no", board.getBoardNo());
+      paramMap.put("email", board.getEmail());
         
-      gongziDao.update(gongzi);
+      boardDao.update(board);
       return JsonResult.success();
       
     } catch (Exception e) {
@@ -114,7 +114,7 @@ public class GongziController {
   @RequestMapping(path="delete")
   public Object delete(int no) throws Exception {
     try {      
-      gongziDao.delete(no);
+      boardDao.delete(no);
       return JsonResult.success();
       
     } catch (Exception e) {

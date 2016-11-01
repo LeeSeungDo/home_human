@@ -7,7 +7,7 @@ $("#deleteBtn").click(function(event) {
 });
 
 function ajaxLoadGongzi(no) {
-	$.getJSON(serverAddr + "/gongzi/detail.json?no=" + no, function(obj) {
+	$.getJSON(serverAddr + "/board/detail.json?no=" + no, function(obj) {
 		var result = obj.jsonResult
 		if (result.state != "success") {
 			alert("조회 실패입니다.")
@@ -19,7 +19,7 @@ function ajaxLoadGongzi(no) {
 		$("#writer").text(result.data.writer);
 		$("#title").val(result.data.title);
 		$("#contents").text(result.data.contents);
-		$("#createdDate").text(result.data.createdDate);
+		$("#createdDate").text(result.data.createDate);
 		$("#viewCount").text(result.data.viewCount);
 		URL.createObjectURL(result.data.filename)
 		$("#file1").attr('src', "../upload/" + result.data.filename);
@@ -30,7 +30,7 @@ function ajaxLoadGongzi(no) {
 }
 
 function ajaxDeleteGongzi(no) {
-	$.getJSON(serverAddr + "/gongzi/delete.json", {
+	$.getJSON(serverAddr + "/board/delete.json", {
 		no: no,
 	}, function(obj) {
 		var result = obj.jsonResult
