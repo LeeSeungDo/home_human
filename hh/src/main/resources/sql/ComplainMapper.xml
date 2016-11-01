@@ -21,27 +21,33 @@
   </select>
   
 <select id="selectListbyRsvd0" resultMap="complainMap" parameterType="map">
-    select 	BOD_NO, TITLE, CONTS, CRE_DT, VW_CNT, WRITER 
-    from BOARD
-    where TYPE=1 and RSVD=0
-    
-    order by lastUpdated desc 
+
+select distinct D.BOD_NO, D.TITLE, D.CONTS, D.CRE_DT, D.VW_CNT, D.WRITER 
+from re A left join re_crct B on A.build_no = B.build_no 
+left join membs C on B.T_EMAIL = C.EMAIL 
+left join board D on C.EMAIL = D.EMAIL 
+where A.L_EMAIL=#{email} and D.TYPE=1 and D.RSVD=0
+
+    order by lastUpdated desc
 
     limit #{startIndex}, #{length}
 </select>
 
 <select id="selectListbyRsvd1" resultMap="complainMap" parameterType="map">
-    select 	BOD_NO, TITLE, CONTS, CRE_DT, VW_CNT, WRITER 
-    from BOARD
-    where TYPE=1 and RSVD=1
-    
+
+select distinct D.BOD_NO, D.TITLE, D.CONTS, D.CRE_DT, D.VW_CNT, D.WRITER 
+from re A left join re_crct B on A.build_no = B.build_no 
+left join membs C on B.T_EMAIL = C.EMAIL 
+left join board D on C.EMAIL = D.EMAIL 
+where A.L_EMAIL=#{email} and D.TYPE=1 and D.RSVD=1
+
     order by lastUpdated desc
 
     limit #{startIndex}, #{length}
 </select>
   
 <select id="selectOne" resultMap="complainMap" parameterType="int">
-    select bod_no,title,cre_dt,vw_cnt,conts
+    select bod_no,title,cre_dt,vw_cnt,conts,writer
     from BOARD
     where bod_no = #{value}
 </select>
@@ -59,16 +65,10 @@
     where BOD_NO=#{no}
   </update>
 
-<!--  <select id="selectOneByPassword" resultMap="complainMap" parameterType="map">
-    select no,title,conts,cre_dt,vw_cnt 
-    from BOARD
-    where no=#{no} and password=password(#{password})
-  </select> -->
-  
   <delete id="delete" parameterType="int">
     delete from board
     where BOD_NO=#{no}
-  </delete>  
+  </delete>   
   
    <select id="countAll" resultType="int">
     select count(*)

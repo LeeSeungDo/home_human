@@ -1,21 +1,10 @@
-<!-- 2016.10.11 문성룡
-구글,카카오 로그인 인덱스 구글 로그인만 되고 로그아웃 안됨.
-       카카오 로그인 가능. 로그아웃은 뒤로가기후 가능.......... -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-
-
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-
-
-
 <!-- google meta -->
 <meta name="google-signin-client_id"
 	content="85947496013-ummqnfedrei9gg1rf3kgperob0hnoi03.apps.googleusercontent.com">
-
 <title>index</title>
 
 <link rel="stylesheet"
@@ -86,9 +75,6 @@
         console.log("ID Token: " + id_token);
       };
     </script>
-    
-    
-    
 						<!-- 로그아웃 스크립트 
 						<a href="#" onclick="signOut();">Sign out</a>
 						<script>
@@ -98,12 +84,10 @@
 								  console.log('User signed out.');
 								  });
 							  }
-						  </script>  -->
+						  </script> -->
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
-					 <div id="kakao-logged-group"></div>
-  <div id="kakao-profile"></div>
-						<!-- <a href="a.kakao-login-btn" class="btn btn-lg btn-warning btn-block">Kakao</a> -->
+						<a href="#" class="btn btn-lg btn-warning btn-block">Kakao</a>
 					</div>
 				</div>
 				<div class="login-or">
@@ -152,81 +136,6 @@
 		init() // 화면을 준비시킨다.
 		ajaxLogout() // 로그아웃을 무조건 실행
 	</script>
-
-
-
-
-
-
-
-
-
-
-
-<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      Kakao.init("bfb48672ff68dbf137c2daffb44adfb0");
-      function getKakaotalkUserProfile(){
-        Kakao.API.request({
-          url: '/v1/user/me',
-          success: function(res) {
-        	  window.location.href = "../html/subMain/L_main.html";
-          },
-          fail: function(error) {
-            console.log(error);
-          }
-        });
-      }
-      function createKakaotalkLogin(){
-        $("#kakao-logged-group .kakao-logout-btn,#kakao-logged-group .kakao-login-btn").remove();
-        var loginBtn = $("<a/>",{"class":"kakao-login-btn","text":"로그인"});
-        loginBtn.click(function(){
-          Kakao.Auth.login({
-            persistAccessToken: true,
-            persistRefreshToken: true,
-            success: function(authObj) {
-              getKakaotalkUserProfile();
-              createKakaotalkLogout();
-            },
-            fail: function(err) {
-              console.log(err);
-            }
-          });
-        });
-        $("#kakao-logged-group").prepend(loginBtn)
-      }
-      function createKakaotalkLogout(){
-        $("#kakao-logged-group .kakao-logout-btn,#kakao-logged-group .kakao-login-btn").remove();
-        var logoutBtn = $("<a/>",{"class":"kakao-logout-btn","text":"로그아웃"});
-        logoutBtn.click(function(){
-          Kakao.Auth.logout();
-          createKakaotalkLogin();
-          $("#kakao-profile").text("");
-        });
-        $("#kakao-logged-group").prepend(logoutBtn);
-      }
-      if(Kakao.Auth.getRefreshToken()!=undefined&&Kakao.Auth.getRefreshToken().replace(/ /gi,"")!=""){
-        createKakaotalkLogout();
-        getKakaotalkUserProfile();
-      }else{
-        createKakaotalkLogin();
-      }
-    });
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

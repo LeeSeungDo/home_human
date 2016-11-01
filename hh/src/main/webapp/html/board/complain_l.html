@@ -47,7 +47,6 @@
 <br>
 		<div class="uk-thumbnail-caption">
         <p id="title">{{title}}</p>
-<br>
 		<button type="button" class="uk-button card1" id="modalbutton1" 
 		data-toggle="modal" data-val1="{{no}}" data-target=".bs-example-modal-lg1">전체 읽기</button>
       </div>
@@ -72,7 +71,7 @@
 					<button type="button" class="close" data-dismiss="modal">×</button>
 					<!-- 헤더 타이틀 -->
 					<h4 class="modal-title1">
-						<p id="modal-title1"></p>
+						<p id="modal-title1"></p><h5 id="modal-writer1"></h5>
 					</h4>
 				</div>
 				<!-- 바디 -->
@@ -133,7 +132,7 @@
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">×</button>
 					<h4 class="modal-title0">
-						<p id="modal-title0"></p>
+						<p id="modal-title0"></p><h5 id="modal-writer0"></h5>
 					</h4>
 				</div>
 				<div class="modal-body" id="body">
@@ -171,7 +170,7 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--------------------------------------------------------- 모달 load 자바스크립트 코드------------------------------------------------->
 
-	<script>
+	<script type="text/javascript">
 		ajaxComplainListRsvd1()
 		ajaxComplainListRsvd0() 
 	</script>
@@ -182,7 +181,7 @@
 				var no = $(this).attr("data-val1");
 				console.log(no);
 				ajaxLoadComplain(no)
-			})
+			}) 
 		})
 	</script>
 	<script type="text/javascript">
@@ -207,6 +206,8 @@
 			$("#modal-title0").text(result.data.title);
 			$("#contents1").text(result.data.contents);
 			$("#contents0").text(result.data.contents);
+			$("#modal-writer0").text(result.data.writer);
+			$("#modal-writer1").text(result.data.writer);
 		          
 		})
 	}
