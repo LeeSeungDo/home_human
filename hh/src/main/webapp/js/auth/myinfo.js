@@ -13,8 +13,7 @@ $("#contactUpBtn").click(function(event) {
 });
 
 $("#buildUpBtn").click(function(event) {
-	alert("건물 정보 수정")
-	//window.location.href = serverAddr + ""
+	window.location.href = serverAddr + "/html/auth/buildupdate.html"
 });
 
 $("#memberUpBtn").click(function(event) {
