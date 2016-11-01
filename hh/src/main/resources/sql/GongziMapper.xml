@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="objackie.dao.GongziDao">
-  <resultMap type="gongzi" id="gongziMap">
-    <id column="BOD_NO" property="no"/> 
+<mapper namespace="objackie.dao.BoardDao">
+  <resultMap type="board" id="boardMap">
+    <id column="BOD_NO" property="boardNo"/> 
     <result column="TYPE" property="type"/>
     <result column="EMAIL" property="email"/>
     <result column="CONTS" property="contents"/>
@@ -15,7 +15,7 @@
     <result column="PHO_PATH" property="filename"/>
   </resultMap>
   
-  <select id="selectList" resultMap="gongziMap" parameterType="map">
+  <select id="selectList" resultMap="boardMap" parameterType="map">
     select BOD_NO,TITLE,CRE_DT,VW_CNT,CONTS
     from board
   where type=0
@@ -24,28 +24,28 @@
     limit #{startIndex}, #{length}
   </select>
   
- <select id="selectOne" resultMap="gongziMap" parameterType="int">
+ <select id="selectOne" resultMap="boardMap" parameterType="int">
     select A.BOD_NO, A.WRITER, A.EMAIL, A.TITLE, A.CRE_DT, A.VW_CNT, A.CONTS, B.PHO_PATH
     from BOARD A INNER JOIN BOD_PHO B
     on A.BOD_NO = B.BOD_NO
     where A.BOD_NO = #{value} and A.TYPE = 0
   </select>  
   
-  <insert id="insert" parameterType="gongzi" useGeneratedKeys="true" keyColumn="no" keyProperty="no">
+  <insert id="insert" parameterType="board" useGeneratedKeys="true" keyColumn="no" keyProperty="no">
     insert into board(EMAIL, TYPE, TITLE, CONTS, VW_CNT, CRE_DT, WRITER)
     values(#{email}, 0, #{title}, #{contents}, 0, now(), #{writer})
   </insert>
   
-  <update id="update" parameterType="gongzi">
+  <update id="update" parameterType="board">
     update board set 
       TITLE=#{title}, 
       CONTS=#{contents} 
-    where BOD_NO=#{no} and type=0
+    where BOD_NO=#{boardNo} and type=0
   </update>
   
   <delete id="delete" parameterType="int">
     delete from board
-    where BOD_NO=#{no} and type=0
+    where BOD_NO=#{boardNo} and type=0
   </delete> 
 </mapper>
 
