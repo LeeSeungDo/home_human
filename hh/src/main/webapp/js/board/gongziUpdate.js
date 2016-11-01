@@ -29,7 +29,7 @@ $("#updateBtn").click(function(event) {
 
 
 function ajaxLoadGongzi(no) {
-	$.getJSON(serverAddr + "/gongzi/detail.json?no=" + no, function(obj) {
+	$.getJSON(serverAddr + "/board/detail.json?no=" + no, function(obj) {
 		var result = obj.jsonResult
 		if (result.state != "success") {
 			alert("조회 실패입니다.")
@@ -46,7 +46,7 @@ function ajaxLoadGongzi(no) {
 }
 
 function ajaxUpdateGongzi(gongzi) {
-	$.post(serverAddr + "/gongzi/update.json", gongzi, function(obj) {
+	$.post(serverAddr + "/board/update.json", gongzi, function(obj) {
 		var result = obj.jsonResult
 		if (result.state != "success") {
 			alert("변경 실패입니다.")

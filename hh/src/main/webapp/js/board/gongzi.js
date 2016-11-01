@@ -1,5 +1,5 @@
 function ajaxFirstList() {
-	$.getJSON(serverAddr + "/gongzi/firstlist.json", function(obj) {
+	$.getJSON(serverAddr + "/board/firstlist.json", function(obj) {
 		var result = obj.jsonResult
 		if (result.state != "success") {
 			alert("서버에서 데이터를 가져오는데 실패했습니다.")
@@ -14,7 +14,7 @@ function ajaxFirstList() {
 
 
 function ajaxGongziList() {
-	$.getJSON(serverAddr + "/gongzi/list.json", function(obj) {
+	$.getJSON(serverAddr + "/board/list.json", function(obj) {
 		var result = obj.jsonResult
 		if (result.state != "success") {
 	    	 alert("서버에서 데이터를 가져오는데 실패했습니다.")
