@@ -14,7 +14,7 @@ function ajaxLoadContract(no) {
 		var result = obj.jsonResult
 		if (result.state != "success") {
 			alert("조회 실패입니다.")
-			return
+	 		return
 		}
 
 		$("#email").val(result.data.tenantEmail);

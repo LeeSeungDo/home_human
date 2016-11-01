@@ -19,7 +19,7 @@ $("#addBtn").click(function(event) {
 			utilityPayDate: $("#utilityPayDate").val(),
 			contractStatus: $("#contractStatus input:checked").val()
 	}	
-	ajaxAddContract(contract)
+	 ajaxAddContract(contract)
 });
 
 function ajaxAddContract(contract) {

@@ -26,7 +26,7 @@ $(".updateBtn").click(function(event) {
 			utilityPayDate: $("#utilityPayDate").val(),
 			contractStatus: $("#contractStatus input:checked").val()
 	}  
-		ajaxUpdateContract(contract);  
+		 ajaxUpdateContract(contract);  
 });
 
 

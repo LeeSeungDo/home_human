@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="objackie.dao.RealEstateContractDao">
 	<resultMap type="realestatecontract" id="realestatecontractMap">
-		<id column="CRCT_NO" property="contractNo" />
+		 <id column="CRCT_NO" property="contractNo" />
 		<result column="BUILD_NO" property="buildNo" />
 		<result column="T_EMAIL" property="tenantEmail" />
 		<result column="CRCT_TYPE" property="contractType" />
