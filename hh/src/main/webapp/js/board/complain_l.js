@@ -85,6 +85,7 @@ var pageNo = 1, /* window.pageNo */
 function ajaxComplainListRsvd1() {
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
+		console.log(obj.member.email)
 		var userEmail = obj.member.email
     
 	$.getJSON(serverAddr + "/complain/list3.json", {

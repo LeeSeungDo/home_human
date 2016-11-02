@@ -9,6 +9,8 @@ public interface ComplainDao {
   List<Complain> selectList(Map<String,Object> paramMap) throws Exception;
   List<Complain> selectListbyRsvd0(Map<String,Object> paramMap) throws Exception;
   List<Complain> selectListbyRsvd1(Map<String,Object> paramMap) throws Exception;
+  List<Complain> selectListbyRsvd0_t(Map<String,Object> paramMap) throws Exception;
+  List<Complain> selectListbyRsvd1_t(Map<String,Object> paramMap) throws Exception;
   Complain selectOne(int no) throws Exception;
   Complain selectOneByPassword(Map<String,Object> paramMap) throws Exception;
   int insert(Complain complain) throws Exception;

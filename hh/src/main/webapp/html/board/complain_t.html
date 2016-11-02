@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html> 
+<html>
 <head>
-<meta charset="UTF-8"> 
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>나의 민원</title>
 <link id="data-uikit-theme" rel="stylesheet"
 	href="../../node_modules/uikit/dist/css/uikit.almost-flat.min.css">
-<link id="data-uikit-theme" rel="stylesheet"
-	href="../../node_modules/uikit/dist/css/components/upload.min.css">
 <link rel="stylesheet" href="../../css/board/complain.css" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+ 
+</head>
 <body>
 
 	<!-- 헤더 -->
@@ -17,121 +21,104 @@
 		<h1>
 			<b>나의 민원</b>
 		</h1>
-	<div class="write_com">
+		<div class="write_com">
+		<!-- <img id="file1" src=""> -->
 		<a href="#my-id" data-uk-modal></a>
 		<p>
-			<button type="button" class="uk-button uk-button-primary"
-				data-uk-modal="{target:'#my-id'}">민원 등록</button>
+			<button id="addBtn" type="button" onclick="location.href='complainCreate.html'"
+			class="uk-button uk-button-primary">
+			민원 등록</button>
 		</p>
 	</div>
 	</header>
-<!------------------------------------------------------------ 모달 시작 ----------------------------------------------------------->
 
-	<div id="my-id" class="uk-modal">
-		<div class="uk-modal-dialog">
-			<form class="uk-form uk-form-horizontal">
-				<div class="xclose">
-					<a class="uk-modal-close uk-close"></a>
-				</div>
-				<br> <br>
-
-				<!------------------------------------------------------------ 업로드 --------------------------------------------->
-
-				<div id="upload-drop" class="uk-placeholder uk-text-center">
-
-					<i for="upload-select"
-						class="uk-icon-cloud-upload uk-icon-medium uk-text-muted uk-margin-small-right"></i>
-
-					<label for="upload-select"></label><input class="upload-hidden"
-						id="upload-select" type="file">
-
-				</div>
-
-				<!------------------------------------------------------------ 업로드 --------------------------------------------->
-
-				<div class="uk-form-row">
-					<label for="title" class="uk-form-label" for="form-h-it">제목</label> 
-					<div class="uk-form-controls">
-						<input type="text" id="title" placeholder="제목을 입력하세요">
-					</div>
-				</div>
-				
-				<div class="uk-form-row">
-					<label for="writer" class="uk-form-label" for="form-h-it">작성자</label> 
-					<div class="uk-form-controls">
-						<input type="text" id="writer" placeholder="작성자를 입력하세요">
-					</div>
-				</div>
-
-				<div class="uk-form-row">
-					<label for="contents" class="uk-form-label" for="form-h-t">민원 내용</label>
-					<div class="uk-form-controls">
-						<textarea id="contents" cols="30" rows="5"
-							placeholder="민원 내용을 입력하세요."></textarea>
-					</div>
-				</div>
-
-				<br>
-				<br>
-				<br>
-				<button id="addBtn" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">등록하기</button>
-			</form>
+		<div>
+			<ul class="uk-tab tabs" data-uk-tab>
+				<li class="uk-active" rel="tab1"><a href="#">미처리 민원</a></li>
+				<li rel="tab2"><a href="#">처리된 민원</a></li>
+			</ul>
 		</div>
-	</div>
+	</header>
+	
+	<br>
+	<br>
 
-	<!---------------------------------------------------------- 모달 끝 ----------------------------------------------------------->
-
+	<div class="tab_container">
+<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
+		<div id="tab1" class="tab_content">
 
 	<div id="complainTable">
 		<div class="king"></div>
 	</div>
-
 	<script id="trTemplateText" type="text/x-handlebars-template">
 {{#each list}}
 	<div class="uk-thumbnail uk-thumbnail-medium">
-    <a class="titleLink" href="#" data-no="{{no}}">
-      <img src="http://www.endlessicons.com/wp-content/uploads/2012/11/camera-icon-614x460.png" alt="Norway" style="width:100%">
+    <a class="titleLink1" href="#" data-no1="{{no}}" style="text-decoration: none; color:black;" >
+      <img src="../../upload/{{filename}}" alt="Canada" 
+		onerror="this.onerror=null;this.src='../../images/camera.png';"
+		 style="width:290.8px; height:217.86px;">
 		<br><br>
 		<div class="uk-thumbnail-caption">
-        <p id="title">{{title}}</p>
+        <p id="title">{{title}}</p> <p id="writer">{{writer}}</p>
 		</a>
       </div>
     </div>
 {{/each}}
 </script>
-<div id="my_read" class="uk-modal">
-    <div class="uk-modal-dialog">
-        <div id="modal-title" class="uk-modal-header"></div>
-        <p></p>
-        <div class="uk-modal-footer"></div>
-    </div>
-</div>
-
-	<!-- 리스트 -->
-	<div class="complain_pagination" >
+			<!-- 리스트 -->
+	<div class="complain_pagination">
 		<button id="prevBtn" type="button" class="uk-button uk-button-primary">이전</button>
 		<span id="pageNo">1</span>
 		<button id="nextBtn" type="button" class="uk-button uk-button-primary">다음</button>
 	</div>
+		</div>
+		
+<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
+	  <div id="tab2" class="tab_content">
+	<div id="complainTable2">
+				<div class="kingking"></div>
+			</div>
+			<script id="trTemplateText2" type="text/x-handlebars-template">
+{{#each list}}
+	<div class="uk-thumbnail uk-thumbnail-medium">
+    <a class="titleLink0" href="#" data-no0="{{no}}" style="text-decoration: none; color:black;">
+      <img src="../../upload/{{filename}}" alt="Canada" 
+		onerror="this.onerror=null;this.src='../../images/camera.png';"
+		 style="width:290.8px; height:217.86px;">
+		<br><br>
+		<div class="uk-thumbnail-caption">
+        <p id="title">{{title}}</p> <p id="writer">{{writer}}</p>
+		</a>
+      </div>
+    </div>
+{{/each}}
+</script>
+	<!-- 리스트 -->
+	<div class="complain_pagination">
+		<button id="prevBtn2" type="button" class="uk-button uk-button-primary">이전</button>
+		<span id="pageNo_tab2">1</span>
+		<button id="nextBtn2" type="button" class="uk-button uk-button-primary">다음</button>
+	</div>
+	  </div>
+	
+</div><!-- tab container -->
 
 
 	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
-
 	<script src="../../node_modules/uikit/dist/js/uikit.min.js"></script>
-	<script src="../../node_modules/uikit/dist/js/components/upload.js"></script>
-	<script src="../../node_modules/uikit/vendor/jquery.js"></script>
-	<script src="../../node_modules/uikit/dist/js/uikit.min.js"></script>
-	<script src="../../node_modules/uikit/vendor/highlight/highlight.js"></script>
-	<script src="../../node_modules/uikit/docs/js/docs.js"></script>
-	<script src="../../node_modules/uikit/dist/js/components/upload.js"></script>
-
+	<script src="../../node_modules/uikit/dist/js/core/tab.min.js"></script>
+	
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../js/bit.js"></script>
 	<script type="text/javascript" src="../../js/board/complain_t.js"></script>
-	<script>
-		ajaxComplainList() // 게시물 목록 가져오기
-		ajaxComplainListRsvd()
+	
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+	ajaxComplainListRsvd1_t()
+	ajaxComplainListRsvd0_t()
 	</script>
 
 </body>

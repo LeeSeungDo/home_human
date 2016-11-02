@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import objackie.dao.ComplainDao;
 import objackie.service.ComplainService;
 import objackie.vo.Complain;
 import objackie.vo.JsonResult;
@@ -81,9 +82,7 @@ public class ComplainController {
       String email) throws Exception {
     
     try {
-      System.out.println("1controller - 1email : " + email);
       List<Complain> list = complainService.getComplainListbyRsvd1(pageNo, length, email);
-      System.out.println("2controller - 2email : " + email);
       int totalPage = complainService.getTotalPageRsvd1(length);
       
       HashMap<String,Object> data = new HashMap<>();
@@ -98,11 +97,62 @@ public class ComplainController {
       return JsonResult.fail(e.getMessage());
     }
   }
+  @RequestMapping(path="list4")
+  public Object list4(
+      @RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="6") int length,
+      String email) throws Exception {
+    
+    try {
+      List<Complain> list = complainService.getComplainListbyRsvd0_t(pageNo, length, email);
+      int totalPage = complainService.getTotalPageRsvd0(length);
+      
+      HashMap<String,Object> data = new HashMap<>();
+      data.put("list", list);
+      data.put("totalPage", totalPage);
+      data.put("pageNo", pageNo);
+      data.put("length", length);
+      
+      return JsonResult.success(data);
+      
+    } catch (Exception e) {
+      return JsonResult.fail(e.getMessage());
+    }
+  }
   
-  @RequestMapping(value = "add", method = RequestMethod.POST)
-  public Object add(Complain complain,
-                    MultipartFile file) throws Exception {
+  @RequestMapping(path="list5")
+  public Object list5(
+      @RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="6") int length,
+      String email) throws Exception {
+    
+    try {
+      List<Complain> list = complainService.getComplainListbyRsvd1_t(pageNo, length, email);
+      int totalPage = complainService.getTotalPageRsvd1(length);
+      HashMap<String,Object> data = new HashMap<>();
+      data.put("list", list);
+      data.put("totalPage", totalPage);
+      data.put("pageNo", pageNo);
+      data.put("length", length);
+      
+      return JsonResult.success(data);
+      
+    } catch (Exception e) {
+      return JsonResult.fail(e.getMessage());
+    }
+  }
+  
+  @RequestMapping(path="add")
+  @ResponseBody
+  public Object add(@ModelAttribute Complain complain, MultipartFile file) throws Exception {
     String uploadDir = sc.getRealPath("/upload") + "/";
+    System.out.println("-----------------------파일 업로드--------------------------------");
+    System.out.println(complain.getEmail());
+    System.out.println(complain.getTitle());
+    System.out.println(complain.getContents());
+    System.out.println(file);
+    System.out.println(uploadDir);
+    System.out.println("-----------------------/파일 업로드--------------------------------");
     try {
       complainService.insertComplain(complain, file, uploadDir);
       return JsonResult.success();
