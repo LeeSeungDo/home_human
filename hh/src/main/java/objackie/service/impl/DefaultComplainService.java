@@ -36,33 +36,54 @@ public class DefaultComplainService implements ComplainService {
   }
  
   public List<Complain> getComplainListbyRsvd1(int pageNo, int length, String email) throws Exception {
-    System.out.println("service : " + email);
     HashMap<String,Object> map = new HashMap<>();
     map.put("startIndex", (pageNo - 1) * length);
     map.put("length", length);
     map.put("email", email); 
-    System.out.println(map.get("email"));
     return complainDao.selectListbyRsvd1(map);
   }
   
-  public void insertComplain(Complain complain, 
-      MultipartFile file, String uploadDir) throws Exception {
-        
-    complainDao.insert(complain);
-    
-    String newFilename = null;
-    if (!file.isEmpty()) {
-      newFilename = FileUploadUtil.getNewFilename(file.getOriginalFilename());
+  public List<Complain> getComplainListbyRsvd0_t(int pageNo, int length, String email) throws Exception {
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("startIndex", (pageNo - 1) * length);
+    map.put("length", length);
+    map.put("email", email);
+    return complainDao.selectListbyRsvd0_t(map);
+  }
+  
+  public List<Complain> getComplainListbyRsvd1_t(int pageNo, int length, String email) throws Exception {
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("startIndex", (pageNo - 1) * length);
+    map.put("length", length);
+    map.put("email", email); 
+    return complainDao.selectListbyRsvd1_t(map);
+  }
+  
+
+  @Override
+  public void insertComplain(Complain complain, MultipartFile file, String uploadDir) throws Exception {
+    System.out.println("여기부터");
+    try {
+      complainDao.insert(complain);
+
+      String newFilename = null;
+      if (file != null && !file.isEmpty()) {
+        newFilename = FileUploadUtil.getNewFilename(file.getOriginalFilename());
         file.transferTo(new File(uploadDir + newFilename));
         ComplainFile complainFile = new ComplainFile();
         complainFile.setFilename(newFilename);
-        //complainFile.setComplainNo(complain.getNo());
-        complainFile.setComplainNo(10200);
+        complainFile.setComplainNo(complain.getNo());
+        // boardFile.setBoardNo(10200); //트랜잭션 테스트 용
         complainFileDao.insert(complainFile);
-       }
-    
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+    System.out.println("여기까지");
   }
-  
+
+
   public Complain getComplain(int no) throws Exception {
     return complainDao.selectOne(no);
   }
