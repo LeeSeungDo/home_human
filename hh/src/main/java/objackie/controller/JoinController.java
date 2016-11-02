@@ -14,7 +14,7 @@ public class JoinController {
   @Autowired
   JoinDao joinDao;
 
-  @RequestMapping(path = "add")
+  @RequestMapping(path = "join")
   public Object add(Member member) throws Exception {
     try {
       joinDao.insert(member);
