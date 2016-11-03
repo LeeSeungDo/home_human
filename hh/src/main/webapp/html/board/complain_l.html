@@ -5,6 +5,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>민원사항</title>
+<style>
+.uk-thumbnail {
+  position: relative;
+  width: 290px;
+  height: 218px;
+  overflow: hidden;
+}
+.uk-thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+.uk-thumbnail img.portrait {
+  width: 100%;
+  height: auto;
+}
+</style>
 <link id="data-uikit-theme" rel="stylesheet"
 	href="../../node_modules/uikit/dist/css/uikit.almost-flat.min.css">
 <link rel="stylesheet" href="../../css/board/complain.css" />
@@ -45,13 +67,14 @@
 	<div class="uk-thumbnail uk-thumbnail-medium">
  <img src="../../upload/{{filename}}" alt="Canada" 
 		onerror="this.onerror=null;this.src='../../images/camera.png';"
-		 style="width:290.8px; height:217.86px;">
-<br>
+		 class="portrait">
+		<br>
+      </div>
 		<div class="uk-thumbnail-caption">
-        <p id="title">{{title}}</p>
+        <p id="title">{{title}}</p><p>({{writer}})</p>
 		<button type="button" class="uk-button card1" id="modalbutton1" 
 		data-toggle="modal" data-val1="{{no}}" data-target=".bs-example-modal-lg1">전체 읽기</button>
-      </div>
+	</div>
     </div>
 {{/each}}
 </script>
@@ -113,9 +136,10 @@
 	<div class="uk-thumbnail uk-thumbnail-medium">
        <img src="../../upload/{{filename}}" alt="Canada" 
 		onerror="this.onerror=null;this.src='../../images/camera.png';"
-		 style="width:290.8px; height:217.86px;">
+		class="portrait">
+		</div>
 		<div class="uk-thumbnail-caption">
-        <p id="tab2-title">{{title}}</p>
+        <p id="tab2-title">{{title}}</p><p>({{writer}})</p>
 		<button type="button" class="uk-button card0" id="modalbutton0" 
 		data-toggle="modal" data-val0="{{no}}" data-target=".bs-example-modal-lg0">전체 읽기</button>
       </div>
