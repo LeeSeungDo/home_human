@@ -32,11 +32,12 @@
 							style="margin: 0 10px; vertical-align: middle; display: inline-block; max-width: 100%; height: auto; padding: 4px; line-height: 1.42857143; background-color: #fff; border: 1px solid #ddd; border-radius: 4px;"
 							class="media-object img-thumbnail user-img" alt="User Picture"
 							src="../../css/dashboard/img/user.gif">
-						</a> <span id="logout"><a href="#"
-							style="position: absolute; font-size: 14px; right: 20px;">로그아웃</a></span>
+						</a>
+						<span id="logout"><a href="#" style="position: absolute; font-size: 14px; right: 20px;">로그아웃</a></span><br>
+						<span id="getOut"><a href="#" style="position: absolute; font-size: 14px; right: 20px;">kakao탈퇴</a></span>
 
 						<div class="" style="margin: 10px; color: white;">
-							<h4><span id="userName"></span><span id="authLevel"style="font-size: 10px; margin-left: 7px; font-"></span></h4>
+							<h4><span id="userName"></span><span id="authLevel" style="font-size: 10px; margin-left: 7px;"></span></h4>
 							<!-- <h6><span class="icon-envelope" style="margin-right: 7px;"></span>jun@bit.com</h6> -->
 						</div>
 					</div>
@@ -281,31 +282,14 @@
 
 <!--end-Footer-part-->
 
-
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-<!-- 
-<script src="js/notify.min.js"></script>
-	
-	<script type="text/javascript">
-		$.notify.defaults({
-			autoHide : false
-		})
-
-		$(".aa").click(function(event) {
-			console.log("aa");
-			$(".aa").notify("s", {
-				position : "top"
-			})
-		});
-	</script>
- -->
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="../../js/common.js"></script>
 <script type="text/javascript" src="../../js/bit.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript" src="../../js/dashboard/dashboard.js"></script>
 
 	<script>
-		console.log("document.cookie : " + document.cookie);
+		//console.log("document.cookie : " + document.cookie);
 		ajaxLoginUser();
 	</script>
 

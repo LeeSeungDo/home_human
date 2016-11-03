@@ -65,16 +65,15 @@
 		<div id="main2">
 
 			<div class="subLogin">
-				<a href="#"><img id="KaKaoBtn" src="../images/KAKAOBtn.png"></a>
-				<a href="#"><img id="googleBtn" src="../images/googleBtn.png"></a>
+				<a href="#"><img id="kakaoLoginBtn" src="../images/kakao_account_login_btn_large_wide.png"></a>
 			</div>
 
 			<div class="login">
-				<label for="inputUserEmail"></label>
-				<input type="text" class="form-control" id="email" placeholder="아이디를 입력하세요 (이메일 형식)">
+				<label for="inputUserEmail"></label> <input type="text"
+					class="form-control" id="email" placeholder="아이디를 입력하세요 (이메일 형식)">
 
-				<label for="inputUserPassword"></label>
-				<input type="password" class="form-control" id="password" placeholder="비밀번호를 입력하세요">
+				<label for="inputUserPassword"></label> <input type="password"
+					class="form-control" id="password" placeholder="비밀번호를 입력하세요">
 			</div>
 
 			<div class="checkbox">
@@ -84,28 +83,27 @@
 			</div>
 
 			<button type="button" id="loginBtn" class="btn btn-default">로그인</button>
-
 		</div>
 
 	</div>
 
 	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 	<script type="text/javascript" src="../js/common.js"></script>
 	<script type="text/javascript" src="../js/bit.js"></script>
 	<script src="../js/index.js"></script>
-	
+
 	<script type="text/javascript">
-	init()
-	ajaxLogout()
+		init()
+		ajaxLogout()
 	</script>
-	
 
 	<script type="text/javascript">
 		$('#joinModal').on('hidden.bs.modal', function() {
 			$(this).removeData('bs.modal');
 		});
 	</script>
-
+	
 </body>
 </html>

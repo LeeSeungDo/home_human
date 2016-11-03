@@ -89,6 +89,10 @@ img {
   height: auto ;
 }
 
+#kakaoLoginBtn {
+	max-width: 354px;
+}
+
 @font-face{
   font-family:'CODE Bold';
   src: url('../fonts/CODE Bold.otf')
