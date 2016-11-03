@@ -53,6 +53,7 @@ public class MyinfoController {
     try {
      
       myinfoDao.update(member);
+      System.out.println(member);
       sessionStatus.setComplete();
       session.setAttribute("member", member);
       return JsonResult.success();

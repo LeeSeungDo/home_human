@@ -11,12 +11,12 @@
 
 	<form>
 		<div id="header">
-			<div id="logo">
-				<span class="sptext" id="title">홈로고</span>
-				<a id="logoBtn" href="#"><img src="../../images/logo.png"></a>
-				<span class="sptext">내정보</span>
-			</div>
-		</div>
+    <div id="logo">
+     <span class="sptext" id="title">홈로고</span>
+       <a id="logoBtn" href="#"><img src="../../images/logo.png"></a>
+     <a id="myinfo" href="#"><span class="sptext">내정보</span></a>
+    </div>
+  </div>
 
 
 		<div id="content">
@@ -27,10 +27,11 @@
 						<tr>
 							<th class="th_cell1">프로필 사진</th>
 							<td class="td_cell1">
-							<div id="phoPath">
+							<div id="profilePhoto">
 								<a href="#">
-	              <img src="../../images/default.png" style="width: 100%; max-width: 760px; vertical-align: middle" />
-	              </a>
+	              <img id="phoPath" src="../../images/default.png" onerror="myFunction()"
+                     style="border-radius: 50px;" />
+                </a>
 							</div>
 								<button id="phoApplyBtn" type="button">사진변경</button>
 								<button id="phoDeleteBtn" type="button">삭제</button>
@@ -42,16 +43,24 @@
 						<tr>
 							<th class="th_cell2">비밀번호</th>
 							<td class="td_cell2">
-							 <input type="password" class="form-control" id="password" placeholder="변경하실 비밀번호를 입력하세요.">
+							 <span>기존 비밀번호 입니다.</span>
+							 <input id="password" type="text" class="form-control"><br>
+							 <span>변경하실 비밀번호를 입력하세요.</span>
+							 <input id="updatePassword" type="password" class="form-control" placeholder="변경하실 비밀번호를 입력하세요.">
 							</td>
 						</tr>
 					</table>
 			</div>
 			
-			<button id="applyBtn" type="button">적용</button>
-      <button id="cancelBtn" type="button">취소</button>
+			<a href="#"><button id="updateBtn" type="button">적용</button></a>
+      <a href="#"><button id="cancelBtn" type="button">취소</button></a>
 		</div>
 	</form>
+	
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/auth/profileupdate.js"></script>
+
 
 </body>
 </html>

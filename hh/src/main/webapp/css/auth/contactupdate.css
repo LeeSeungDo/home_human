@@ -87,7 +87,7 @@ img {
   padding-left: 20px;
 }
 
-#postcode {
+#postNo {
 	margin-top: 30px;
 	width: 100px;
 	height: 30px;
@@ -103,7 +103,7 @@ img {
   background: #fff;
 }
 
-#address {
+#basicAddr {
 	margin-top: 10px;
 	width: 400px;
   height: 30px;
@@ -111,7 +111,7 @@ img {
   border-radius: 5px 5px 5px 5px;
 }
 
-#address2 {
+#detailAddr {
 	width: 200px;
   height: 30px;
   border: 1px solid #cccccc;
@@ -123,7 +123,7 @@ img {
 }
 
 
-#applyBtn {
+#updateBtn {
   margin-top: 30px;
   margin-left: 350px;
   margin-right: 10px;

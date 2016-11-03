@@ -1,9 +1,18 @@
 @CHARSET "UTF-8";
 
+@font-face{
+  font-family:'NanumGothic';
+  src:url('../fonts/NanumGothic.otf')
+}
+
 html {
 	width: 100%;
   position: relative;
 }
+
+/* body {
+	font-family: 'NanumGothic';
+} */
 
 #wrap {
   width: 100%;
@@ -73,9 +82,8 @@ ul {
 #phoPath {
 	width: 100px;
 	height: 100px;
-	margin-top: 15px;
+	margin-top: 25px;
 	background-position: 0 0;
-	position: absolute;
 }
 
 #proUpBtn {
