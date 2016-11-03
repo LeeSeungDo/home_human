@@ -65,7 +65,6 @@ function ajaxComplainListRsvd0_t() {
 		"email" : userEmail
 	}, function(obj) {
 		var result = obj.jsonResult;
-		var test = result.data.list[0].filename;
 		if (result.state != "success") {
 	    	 alert("서버에서 데이터를 가져오는데 실패했습니다.")
 	    	 return
@@ -113,7 +112,6 @@ function ajaxComplainListRsvd1_t() {
 		"email" : userEmail
 	}, function(obj) {
 		var result = obj.jsonResult;
-		var test = result.data.list[0].filename;
 		if (result.state != "success") {
 	    	 alert("서버에서 데이터를 가져오는데 실패했습니다.")
 	    	 return
