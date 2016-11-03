@@ -15,14 +15,15 @@
 	  <div id="logo">
 	   <span class="sptext" id="title">홈로고</span>
 	     <a id="logoBtn" href="#"><img src="../../images/logo.png"></a>
-	   <span class="sptext">내정보</span>
+	   <a id="myinfo" href="#"><span class="sptext">내정보</span></a>
 	  </div>
 	</div>
 
 	<div id="content">
 		<div id="profile"><h3>프로필</h3>
-			<div id="phoPath"><a href="#">
-			  <img src="../../images/default.png" style="width: 100%; max-width: 760px; vertical-align: middle" /></a>
+			<div id="profilephoto"><a href="#">
+			  <img  id="phoPath" src="../../images/default.png" onerror="myFunction()"
+			       style="border-radius: 50px;" /></a>
 		  </div>
 
 	    <div id="pro_group">
@@ -98,7 +99,7 @@
    
    <div class="membleave">
    <span>더 이상 이용하지 않는다면</span>
-   <a href="#">회원탈퇴 바로가기</a>
+   <a id="memberUpBtn" href="#">회원탈퇴 바로가기</a>
    </div>
 	</div>
 
