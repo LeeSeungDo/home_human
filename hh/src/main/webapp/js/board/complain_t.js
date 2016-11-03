@@ -105,6 +105,7 @@ function ajaxComplainListRsvd1_t() {
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
 		var userEmail = obj.member.email
+		console.log(userEmail);
 		
 	$.getJSON(serverAddr + "/complain/list5.json", {
 		"pageNo": pageNo,
@@ -116,9 +117,15 @@ function ajaxComplainListRsvd1_t() {
 	    	 alert("서버에서 데이터를 가져오는데 실패했습니다.")
 	    	 return
 	    }
+		console.log("서버에서 데이터를 잘 가져옵니다.");
+		console.log("핸들바스를 시작합니다.");
+		console.log(result.data);
 		
 	    var template = Handlebars.compile($('#trTemplateText').html())
+	    console.log(template);
 	    $("#complainTable .king").html(template(result.data))
+	    
+	    console.log("핸들바스가 끝났습니다.");
 	    
 	  	
 	    $(".titleLink1").click(function(event) {
