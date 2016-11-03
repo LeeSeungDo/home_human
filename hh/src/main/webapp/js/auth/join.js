@@ -92,7 +92,7 @@ $("#joinBtn").click(function(event) {
 
 
 function ajaxAddMember(member) {
-	$.post(serverAddr + "/auth/add.json", member, function(obj) {
+	$.post(serverAddr + "/auth/join.json", member, function(obj) {
 		var result = obj.jsonResult
 		if (result.state != "success") {
 	    	 alert("회원 가입 실패입니다.");
