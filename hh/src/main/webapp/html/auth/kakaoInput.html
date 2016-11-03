@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+[최초 설정]<br><br><br>
+카카오 아이디 : 
+<input type="text" id="id" readonly><br><br>
+
+카카오 이름 : 
+<input type="text" id="name"><br><br>
+
+	성별 :
+	<input type="radio" id="GEND" name="gend" checked>(남)
+	<input type="radio" name="gend">(여)<br><br>
+	
+	권한 :
+	<input type="radio" id="AUTH" name="auth" checked>(관리자)
+	<input type="radio" name="auth">(세입자)<br><br>
+	
+	생일 :
+	<input type="text" id="birth1">
+	<input type="text" id="birth2">
+	<input type="text" id="birth3">
+	<br><br>
+	
+	전화번호 :
+	<input type="text" id="TEL">
+	<br><br>
+	
+	<button type="button" id="kakaoUpdate">승인</button>
+	<button type="button" id="logoutBtn">취소</button>
+
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	
+	<script type="text/javascript">
+		
+	</script>
+	
+	
+<!-- 카카오 최초 설정 -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			Kakao.init("bfb48672ff68dbf137c2daffb44adfb0"); <!-- 카카오 핀 번호 -->
+			
+			<!-- 카카오 회원 값 가져오기 -->
+			Kakao.API.request({
+				url : '/v1/user/me',
+				success : function(res) {
+					// console.log(res)
+					// console.log(res.id + " 님이 로그인 합니다.")
+					// console.log(res.properties.nickname + " 님이 로그인 합니다.")
+					$("#id").val(res.id);
+					$("#name").val(res.properties.nickname);
+				},
+				fail : function(error) {
+					console.log(error);
+				}
+			});
+			
+			<!-- 카카오 최초 설정 값 입력하기 -->
+			$("#kakaoUpdate").click(function(event) {
+				var member = {
+				  email: $("#id").val(),
+				  name: $("#name").val(),
+				  password: (Math.floor(Math.random() * 100000000)).toString(),
+				  tel: $("#TEL").val(),
+				  gender: $("#GEND").is(":checked") ? 0 : 1,
+				  birth: $("#birth1").val() + '-' + $("#birth2").val() + '-' + $("#birth3").val(),
+				  auth: $("#AUTH").is(":checked") ? 0 : 1
+				}
+				
+				if ((member.tel != "") && ($("#birth1").val() != "") && ($("#birth2").val() != "") && ($("#birth3").val() != "")) {
+					//console.log("-----------" + member.email);
+					var password = member.password;
+					var gender = member.gender;
+					var auth = member.auth;
+					var birth = member.birth;
+					var tel = member.tel;
+					
+					Kakao.API.request({
+						url : '/v1/user/update_profile',
+						data : {properties : {GEND : gender, AUTH : auth, BIRTH : birth, TEL : tel, PASSWORD : password}},
+						success : function(res) {
+							//console.log("카카오 DB에 저장 성공");
+							ajaxAddKakao(member);
+							
+						},
+						fail : function(error) {
+							alert(error);
+						}
+					});
+					
+				} else {
+					/* ------------------- 에러 출력 메시지 ------------------- */
+					console.log("빈 공간이 있습니다.");
+				}
+				
+			});
+			
+			function ajaxAddKakao(member) {
+				$.post(serverAddr + "/auth/join.json", member, function(obj) {
+					console.log(member);
+					var result = obj.jsonResult
+					if (result.state != "success") {
+				    	alert("오류!");
+				    } else {
+				    	alert("[ Home & Human ] 가입을 환영합니다. 로그인 해주세요.");
+				    	ajaxKakaoAutoLogout();
+				    	//window.location.href = serverAddr + "/html/index.html";
+				    }
+				}, "json")
+			}
+			
+			function ajaxKakaoAutoLogout() {
+				//alert("로그아웃 준비1");
+				Kakao.Auth.logout(function(data) {
+					//alert("로그아웃 준비2");
+					if(data){	//정상적으로 로그아웃이 되면 true가 떨어져서 처리하였습니다.
+			              window.location.href = serverAddr + "/html/index.html";
+			        }
+				});
+			}
+			
+			<!-- 카카오 로그아웃 -->
+			$("#logoutBtn").click(function(event) {
+				console.log("로그아웃");
+				Kakao.Auth.logout(function(data) {
+					if(data){	//정상적으로 로그아웃이 되면 true가 떨어져서 처리하였습니다.
+			              window.location.href = serverAddr + "/html/index.html";
+			        }
+				});
+			});
+		});
+	</script>
+
+</body>
+</html>

@@ -1,12 +1,46 @@
 $("#myInfo").click(function(event) {
+	alert("내정보");
 	window.location.href = serverAddr + "/html/auth/myinfo.html"
 });
 
-$("#logout").click(function(event) {
-	window.location.href = serverAddr + "/html/index.html"
+$(document).ready(function() {
+	Kakao.init("bfb48672ff68dbf137c2daffb44adfb0");
+
+	$("#logout").click(function(event) {
+		alert("로그아웃");
+		Kakao.Auth.logout(function(data) {
+			if (data) { // 정상적으로 로그아웃이 되면 true가 떨어져서 처리하였습니다.
+				window.location.href = serverAddr + "/html/index.html";
+			}
+		});
+	});
+
+	$("#getOut").click(function(event) {
+		alert("탈퇴");
+		Kakao.API.request({
+			url : '/v1/user/unlink',
+			success : function(res) {
+				alert("탈퇴성공");
+				kakaoOut();
+				//window.location.href = serverAddr + "/html/index.html";
+			}
+		});
+	});
+	
+	function kakaoOut() {
+		alert("로그아웃 중...");
+		Kakao.Auth.logout(function(data) {
+			if (data) { // 정상적으로 로그아웃이 되면 true가 떨어져서 처리하였습니다.
+				alert("로그아웃 됨!");
+				window.location.href = serverAddr + "/html/index.html";
+			}
+		});
+	}
 });
 
+
 $("#gongziLink").click(function(event) {
+	alert("공지");
 	window.location.href = serverAddr + "/html/board/gongziInput.html"
 });
 
