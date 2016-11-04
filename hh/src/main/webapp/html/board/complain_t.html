@@ -86,6 +86,7 @@
 		</a>
 	{{/each}}
 </script>
+<br><br>
 				<!-- 리스트 -->
 				<div class="complain_pagination">
 					<button id="prevBtn" type="button"
@@ -103,18 +104,18 @@
 				</div>
 				<script id="trTemplateText2" type="text/x-handlebars-template">
 {{#each list}}
-	<div class="uk-thumbnail uk-thumbnail-medium">
-    <a class="titleLink0" href="#" data-no0="{{no}}" style="text-decoration: none; color:black;">
-      <img src="../../upload/{{filename}}" alt="Canada" 
+    <a class="uk-thumbnail uk-thumbnail-medium titleLink0" href="#" data-no0="{{no}}" style="text-decoration: none; color:black;">
+<div class="photoCut">      
+<img src="../../upload/{{filename}}" alt="Canada" 
 		onerror="this.onerror=null;this.src='../../images/camera.png';" class="portrait">
-		<br><br>
 		</div>
 		<div class="uk-thumbnail-caption">
         <p id="title">{{title}}</p> <p id="writer">{{writer}}</p>
-		</a>
       </div>
+		</a>
 {{/each}}
 </script>
+<br><br>
 				<!-- 리스트 -->
 				<div class="complain_pagination">
 					<button id="prevBtn2" type="button"
