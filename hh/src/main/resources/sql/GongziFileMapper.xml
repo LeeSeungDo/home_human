@@ -5,13 +5,13 @@
 <mapper namespace="objackie.dao.BoardFileDao">
   <resultMap type="boardFile" id="boardFileMap">
     <id column="PHO_NO" property="no"/> 
-    <result column="BOD_NO" property="gongziNo"/>
+    <result column="BOD_NO" property="boardNo"/>
     <result column="PHO_PATH" property="filename"/>
   </resultMap>
   
   <insert id="insert" parameterType="board">
     insert into BOD_PHO (BOD_NO, PHO_PATH)
-    values(#{gongziNo}, #{filename})
+    values(#{boardNo}, #{filename})
   </insert>
 </mapper>
 
