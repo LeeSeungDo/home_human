@@ -7,7 +7,7 @@ function ajaxFirstList() {
 		}
 
 		var template = Handlebars.compile($('#frTemplateText').html())	    
-		$("#firstTable").html(template(result))	    
+		$("#firstTable").html(template(result.data))	    
 	})
 }
 
@@ -21,7 +21,7 @@ function ajaxGongziList() {
 	    	 return
 	    }
 	    var template = Handlebars.compile($('#trTemplateText').html())	    
-	    $("#gongziTable").html(template(result))
+	    $("#gongziTable").html(template(result.data))
 	    
 	    $(document.body).on('click', '.card1', function(event) {
 		    window.location.href = serverAddr + "/html/board/gongziForm.html?no=" + $(this).attr("data-no")

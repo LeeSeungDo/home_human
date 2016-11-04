@@ -18,8 +18,8 @@ $("#updateBtn").click(function(event) {
 	    title: $("#title").val(),
 	    contents: $("#contents").val(),
 	    email: $("email").val(),
-	    no: $("#no").val()
-				  }
+	    boardNo: $("#no").val()
+		}
   if (confirm("정말 변경하시겠습니까?") == true) {
     ajaxUpdateGongzi(gongzi)
   } else {
@@ -35,7 +35,7 @@ function ajaxLoadGongzi(no) {
 			alert("조회 실패입니다.")
 			return
 		}
-		$("#no").val(result.data.no);
+		$("#no").val(result.data.boardNo);
 		$("#email").val(result.data.email);
 		$("#writer").val(result.data.writer);
 		$("#title").val(result.data.title);

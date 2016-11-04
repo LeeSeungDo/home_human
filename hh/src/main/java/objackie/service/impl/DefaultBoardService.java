@@ -63,7 +63,10 @@ public class DefaultBoardService implements BoardService {
 
   @Override
   public int getTotalPage(int pageSize) throws Exception {
+    System.out.println("getTotalPage 들어옵니다.");
     int countAll = boardDao.countAll();
+    System.out.println("countAll 출력합니다");
+    System.out.println(countAll);
     int totalPage = countAll / pageSize;
     if ((countAll % pageSize) > 0) {
       totalPage++;
@@ -81,8 +84,11 @@ public class DefaultBoardService implements BoardService {
   }
 
   public void deleteBoard(int no) throws Exception {
+    System.out.println("deleteBoard 들어옵니다.");
     boardFileDao.delete(no);
+    System.out.println("boardFileDao 완료");
     boardDao.delete(no);
+    System.out.println("boardDao 완료");
   }
 }
 

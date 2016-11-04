@@ -33,11 +33,11 @@ public class BoardController {
 
     try {
       List<Board> list = boardService.getBoardList(pageNo, length);
-      int totalPage = boardService.getTotalPage(length);
+      //int totalPage = boardService.getTotalPage(length);
 
       HashMap<String,Object> data = new HashMap<>();      
       data.put("list", list);
-      data.put("totalPage", totalPage);
+      //data.put("totalPage", totalPage);
       data.put("pageNo", pageNo);
       data.put("length", length);
 
@@ -54,12 +54,14 @@ public class BoardController {
       @RequestParam(defaultValue="6") int length) throws Exception {
 
     try {
+      System.out.println("board list controller 들어왔어요.");
       List<Board> list = boardService.getBoardList(pageNo, length);
-      int totalPage = boardService.getTotalPage(length);
+      //int totalPage = boardService.getTotalPage(length);
+      System.out.println(list);
 
       HashMap<String,Object> data = new HashMap<>();      
       data.put("list", list);
-      data.put("totalPage", totalPage);
+      //data.put("totalPage", totalPage);
       data.put("pageNo", pageNo);
       data.put("length", length);
 
@@ -127,6 +129,8 @@ public class BoardController {
       if (boardService.getBoard(no) == null) {
         throw new Exception("해당 게시물이 없거나 암호가 일치하지 않습니다!");
       }
+      System.out.println("delete Controller 들어옵니다.");
+      System.out.println(no);
       boardService.deleteBoard(no);
       return JsonResult.success();
       

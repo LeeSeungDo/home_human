@@ -1,6 +1,6 @@
 $("#deleteBtn").click(function(event) {
 	if (confirm("정말 삭제하시겠습니까?") == true) {
-		ajaxDeleteGongzi($("#no").text())
+		ajaxDeleteGongzi($("#boardNo").text())
 	} else {
 		return;
 	}  
@@ -21,7 +21,6 @@ function ajaxLoadGongzi(no) {
 		$("#contents").text(result.data.contents);
 		$("#createdDate").text(result.data.createDate);
 		$("#viewCount").text(result.data.viewCount);
-		URL.createObjectURL(result.data.filename)
 		$("#file1").attr('src', "../upload/" + result.data.filename);
 		$("#updateBtn").click(function(event) {
 			window.location.href = serverAddr + "/html/board/gongziUpdate.html?no=" + no

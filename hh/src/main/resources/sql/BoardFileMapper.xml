@@ -13,10 +13,13 @@
     insert into BOD_PHO (BOD_NO, PHO_PATH)
     values(#{boardNo}, #{filename})
   </insert>
+
+ <delete id="delete" parameterType="int">
+ 	delete from bod_pho
+ 	where bod_no=#{boardNo}
+ </delete>
+
 </mapper>
-
-
-
 
 
 
