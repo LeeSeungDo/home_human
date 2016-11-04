@@ -20,7 +20,7 @@ function ajaxAddComplain(complain) {
 }
 
 
-function ajaxLoadComplain(no) {
+function ajaxLoadComplain(no, rsvd) {
 	$.getJSON(serverAddr + "/complain/detail.json?no=" + no, function(obj) {
 		var result = obj.jsonResult
 		if (result.state != "success") {
@@ -28,6 +28,7 @@ function ajaxLoadComplain(no) {
 			return
 		}
 		
+		//console.log(rsvd);
 		$("#no").val(result.data.no);
 		$("#title").val(result.data.title);
 		$("#title").text(result.data.title);
@@ -37,7 +38,7 @@ function ajaxLoadComplain(no) {
 		$("#viewCount").text(result.data.viewCount);
 		
 		$("#updateBtn").click(function(event) {
-	          window.location.href = serverAddr + "/html/board/complainUpdate_t.html?no=" + no
+	          window.location.href = serverAddr + "/html/board/complainUpdate_t.html?no=" + no + "=" + rsvd;
 	          })
 	})
 }
