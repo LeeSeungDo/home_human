@@ -14,7 +14,6 @@ import objackie.service.BoardService;
 import objackie.util.FileUploadUtil;
 import objackie.vo.Board;
 import objackie.vo.BoardFile;
-import objackie.vo.Board;
 
 @Service
 public class DefaultBoardService implements BoardService {
