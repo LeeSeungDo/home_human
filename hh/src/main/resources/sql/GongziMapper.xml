@@ -25,10 +25,10 @@
   </select>
   
  <select id="selectOne" resultMap="boardMap" parameterType="int">
-    select A.BOD_NO, A.WRITER, A.EMAIL, A.TITLE, A.CRE_DT, A.VW_CNT, A.CONTS, B.PHO_PATH
+    select A.BOD_NO, A.WRITER, A.EMAIL, A.TITLE, A.CRE_DT, A.VW_CNT, A.CONTS, A.TYPE, B.PHO_PATH
     from BOARD A INNER JOIN BOD_PHO B
     on A.BOD_NO = B.BOD_NO
-    where A.BOD_NO = #{value} and A.TYPE = 0
+    where A.BOD_NO = #{boardNo} and A.TYPE = 0
   </select>  
   
   <insert id="insert" parameterType="board" useGeneratedKeys="true" keyColumn="boardNo" keyProperty="boardNo">
