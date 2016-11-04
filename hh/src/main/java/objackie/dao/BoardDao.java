@@ -11,6 +11,7 @@ public interface BoardDao {
   int insert(Board board) throws Exception;
   int update(Board board) throws Exception;
   int delete(int no) throws Exception;
+  int countAll() throws Exception;
 }
 
 

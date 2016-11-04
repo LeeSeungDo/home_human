@@ -1,6 +1,7 @@
 package objackie.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 
@@ -20,45 +21,55 @@ import objackie.vo.JsonResult;
 @Controller 
 @RequestMapping("/board/")
 public class BoardController {
-  
+
   @Autowired ServletContext sc;
   @Autowired BoardDao boardDao;
   @Autowired BoardService boardService;
-  
+
   @RequestMapping(path="firstlist")
   public Object firstlist(
       @RequestParam(defaultValue="1") int pageNo,
       @RequestParam(defaultValue="1") int length) throws Exception {
-    
+
     try {
-      HashMap<String,Object> map = new HashMap<>();
-      map.put("startIndex", (pageNo - 1) * length);
-      map.put("length", length);
-      
-      return JsonResult.success(boardDao.selectList(map));
-      
+      List<Board> list = boardService.getBoardList(pageNo, length);
+      int totalPage = boardService.getTotalPage(length);
+
+      HashMap<String,Object> data = new HashMap<>();      
+      data.put("list", list);
+      data.put("totalPage", totalPage);
+      data.put("pageNo", pageNo);
+      data.put("length", length);
+
+      return JsonResult.success(data);
+
     } catch (Exception e) {
       return JsonResult.fail(e.getMessage());
     }
-  }
-  
+  } 
+
   @RequestMapping(path="list")
   public Object list(
       @RequestParam(defaultValue="1") int pageNo,
       @RequestParam(defaultValue="6") int length) throws Exception {
-    
+
     try {
-      HashMap<String,Object> map = new HashMap<>();
-      map.put("startIndex", (pageNo - 1) * length);
-      map.put("length", length);
-      
-      return JsonResult.success(boardDao.selectList(map));
-      
+      List<Board> list = boardService.getBoardList(pageNo, length);
+      int totalPage = boardService.getTotalPage(length);
+
+      HashMap<String,Object> data = new HashMap<>();      
+      data.put("list", list);
+      data.put("totalPage", totalPage);
+      data.put("pageNo", pageNo);
+      data.put("length", length);
+
+      return JsonResult.success(data);
+
     } catch (Exception e) {
       return JsonResult.fail(e.getMessage());
     }
-  }
-  
+  }  
+
   @RequestMapping(path="add")
   @ResponseBody
   public Object add(@ModelAttribute Board board, MultipartFile file) throws Exception {
@@ -73,16 +84,16 @@ public class BoardController {
     try {
       boardService.insertBoard(board, file, uploadDir);
       return JsonResult.success();
-      
+
     } catch (Exception e) {
       return JsonResult.fail(e.getMessage());
     }
   }
-  
+
   @RequestMapping(path="detail")
   public Object detail(int no) throws Exception {
     try {
-      Board board = boardDao.selectOne(no);
+      Board board = boardService.getBoard(no);
       
       if (board == null) 
         throw new Exception("해당 번호의 게시물이 존재하지 않습니다.");
@@ -97,11 +108,10 @@ public class BoardController {
   @RequestMapping(path="update")
   public Object update(Board board) throws Exception {
     try {
-      HashMap<String,Object> paramMap = new HashMap<>();
-      paramMap.put("no", board.getBoardNo());
-      paramMap.put("email", board.getEmail());
-        
-      boardDao.update(board);
+      if (boardService.getBoard(board.getBoardNo()) == null) {
+        throw new Exception("해당 게시물이 없거나 암호가 일치하지 않습니다!");
+      }
+      boardService.updateBoard(board);
       return JsonResult.success();
       
     } catch (Exception e) {
@@ -114,7 +124,10 @@ public class BoardController {
   @RequestMapping(path="delete")
   public Object delete(int no) throws Exception {
     try {      
-      boardDao.delete(no);
+      if (boardService.getBoard(no) == null) {
+        throw new Exception("해당 게시물이 없거나 암호가 일치하지 않습니다!");
+      }
+      boardService.deleteBoard(no);
       return JsonResult.success();
       
     } catch (Exception e) {

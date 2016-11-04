@@ -1,6 +1,8 @@
 package objackie.service.impl;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,7 @@ import objackie.service.BoardService;
 import objackie.util.FileUploadUtil;
 import objackie.vo.Board;
 import objackie.vo.BoardFile;
+import objackie.vo.Board;
 
 @Service
 public class DefaultBoardService implements BoardService {
@@ -20,6 +23,14 @@ public class DefaultBoardService implements BoardService {
   BoardDao boardDao;
   @Autowired
   BoardFileDao boardFileDao;
+
+
+  public List<Board> getBoardList(int pageNo, int length) throws Exception {
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("startIndex", (pageNo - 1) * length);
+    map.put("length", length);
+    return boardDao.selectList(map);
+  }
 
   @Override
   public void insertBoard(Board board, MultipartFile file, String uploadDir) throws Exception {
@@ -44,4 +55,34 @@ public class DefaultBoardService implements BoardService {
     System.out.println("여기까지");
   }
 
+
+
+  public Board getBoard(int no) throws Exception {
+    return boardDao.selectOne(no);
+  }
+
+  @Override
+  public int getTotalPage(int pageSize) throws Exception {
+    int countAll = boardDao.countAll();
+    int totalPage = countAll / pageSize;
+    if ((countAll % pageSize) > 0) {
+      totalPage++;
+    }
+    return totalPage;
+  }
+
+
+  public void updateBoard(Board Board) throws Exception {
+    HashMap<String,Object> paramMap = new HashMap<>();
+    paramMap.put("boardNo", Board.getBoardNo());
+    paramMap.put("email", Board.getEmail());
+
+    boardDao.update(Board);
+  }
+
+  public void deleteBoard(int no) throws Exception {
+    boardFileDao.delete(no);
+    boardDao.delete(no);
+  }
 }
+
