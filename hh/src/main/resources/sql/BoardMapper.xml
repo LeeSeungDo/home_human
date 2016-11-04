@@ -28,7 +28,7 @@
     select A.BOD_NO, A.WRITER, A.EMAIL, A.TITLE, A.CRE_DT, A.VW_CNT, A.CONTS, A.TYPE, B.PHO_PATH
     from BOARD A LEFT OUTER JOIN BOD_PHO B
     on A.BOD_NO = B.BOD_NO
-    where A.BOD_NO = #{value} 
+    where A.BOD_NO = #{value}  
   </select>  
   
   <insert id="insert" parameterType="board" useGeneratedKeys="true" keyColumn="boardNo" keyProperty="boardNo">
