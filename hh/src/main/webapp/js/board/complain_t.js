@@ -70,12 +70,15 @@ function ajaxComplainListRsvd0_t() {
 	    	 return
 	    }
 		
+		var rsvd = result.data.list[0].rsvd;
+		
 	    var template = Handlebars.compile($('#trTemplateText2').html())
 	    $("#complainTable2 .kingking").html(template(result.data))
 	    
 	  	
 	    $(".titleLink0").click(function(event) {
-		    window.location.href = serverAddr + "/html/board/complainForm_t.html?no=" + $(this).attr("data-no0")
+		    window.location.href = serverAddr + "/html/board/complainForm_t.html?no=" + 
+		    $(this).attr("data-no0") + "&rsvd=" + rsvd;
 	    })
 	    // 현재 페이지 번호를 span 태그에 출력한다.
 	    pageNo = result.data.pageNo;
@@ -130,7 +133,8 @@ function ajaxComplainListRsvd1_t() {
 	    
 	  	
 	    $(".titleLink1").click(function(event) {
-		    window.location.href = serverAddr + "/html/board/complainForm_t.html?no=" + $(this).attr("data-no1") + "&rsvd=" + rsvd;
+		    window.location.href = serverAddr + "/html/board/complainForm_t.html?no=" + 
+		    $(this).attr("data-no1") + "&rsvd=" + rsvd;
 	    })
 	    // 현재 페이지 번호를 span 태그에 출력한다.
 	    pageNo = result.data.pageNo;
