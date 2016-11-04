@@ -52,23 +52,8 @@
 			</div>
 		</form>
 
-		<form class="form-inline">
-			<div class="form-group">
-				<label for="reContents" class="col-sm-2 control-label">내용</label>
-				<div class="col-sm-10">
-					<textarea id="reContents" class="form-control" cols="100" rows="5"
-						placeholder="내용입니다."></textarea>
-					<button id="reAddBtn" type="button" class="btn btn-default">등록</button>
-				</div>
-			</div>
-		</form>
 
-		<table id="replyTable" class="table table-hover">
-			<tbody></tbody>
-		</table>
-
-
-	</section>
+		</section>
 
 	<footer>
 		<h1 style="text-align: center">footer</h1>
@@ -79,30 +64,8 @@
 	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../js/bit.js"></script>
-	<script type="text/javascript" src="../../js/board/gongziForm.js"></script>
-	<script type="text/javascript" src="../../js/board/reply.js"></script>
-	<script id="rrTemplateText" type="text/x-handlebars-template">
-{{#each data}}
-<tr data-no="{{reno}}">
-  <td>{{reno}}</td>
-  <td>{{email}}</td>
-  <td>{{reContents}}</td>
-  <td>{{createDate}}</td>
-  <td>{{boardNo}}</td>
-  <td>
-    <button type="button" class="btn btn-primary btn-sm bit-update-btn" data-no="{{reno}}">수정</button>
-    <button type="button" class="btn btn-primary btn-sm bit-delete-btn" data-no="{{reno}}">삭제</button>
-  </td>
-</tr>
-{{/each}}
-</script>
-
-	<script>
-		if (location.search.startsWith("?")) {
-			var no = location.search.split("=")[1];
-			ajaxReplyList(no)
-		}
-	</script>
+	<script type="text/javascript" src="../../js/board/gongziForm.js"></script>	
+	
 	<script>
 		if (location.search.startsWith("?")) {
 			var no = location.search.split("=")[1];
