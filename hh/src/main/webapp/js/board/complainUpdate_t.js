@@ -1,10 +1,19 @@
+var rsvdAll;
+
+function rsvdCall(rsvd) {
+	rsvdAll = rsvd;
+}
+
+
 $("#updateBtn").click(function(event) {
   var complain = {
     title: $("#title").val(),
     contents: $("#contents").val(),
     email: $("#email").val(),
-    no: $("#no").val()
+    no: $("#no").val(),
+    rsvd: rsvdAll
   }
+  console.log(complain);
   if (confirm("정말 변경하시겠습니까?") == true) {
 	  ajaxUpdateComplain(complain)
 	  } else {
@@ -21,7 +30,7 @@ $("#deleteBtn").click(function(event) {
 });
 
 
-function ajaxLoadComplain(no) {
+function ajaxLoadComplain(no, rsvd) {
 	$.getJSON(serverAddr + "/complain/detail.json?no=" + no, function(obj) {
 		var result = obj.jsonResult
 		if (result.state != "success") {

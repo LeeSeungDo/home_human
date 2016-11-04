@@ -89,6 +89,7 @@ SELECT distinct
        B.VW_CNT,
        B.CRE_DT,
        B.WRITER,
+       B.RSVD,
        P.PHO_PATH
 FROM   board B
     LEFT JOIN BOD_PHO P

@@ -5,27 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>나의 민원</title>
 <style>
-.uk-thumbnail {
-  position: relative;
-  width: 290px;
-  height: 218px;
-  overflow: hidden; 
+.photoCut {
+	position: relative;
+	width: 290px;
+	height: 220px;
+	overflow: hidden;
 }
-.uk-thumbnail img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  height: 100%;
-  width: auto;
-  -webkit-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
+
+.photoCut img {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 100%;
+	width: auto;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
-.uk-thumbnail img.portrait {
-  width: 100%;
-  height: auto;
+
+.photoCut .portrait {
+	max-width: 100%;
+	height: auto;
 }
 </style>
+
 <link id="data-uikit-theme" rel="stylesheet"
 	href="../../node_modules/uikit/dist/css/uikit.almost-flat.min.css">
 <link rel="stylesheet" href="../../css/board/complain.css" />
@@ -33,7 +36,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
- 
+
 </head>
 <body>
 
@@ -44,63 +47,60 @@
 			<b>나의 민원</b>
 		</h1>
 		<div class="write_com">
-		<!-- <img id="file1" src=""> -->
-		<a href="#my-id" data-uk-modal></a>
-		<p>
-			<button id="addBtn" type="button" onclick="location.href='complainCreate.html'"
-			class="uk-button uk-button-primary">
-			민원 등록</button>
-		</p>
-	</div>
+			<!-- <img id="file1" src=""> -->
+			<a href="#my-id" data-uk-modal></a>
+			<p>
+				<button id="addBtn" type="button"
+					onclick="location.href='complainCreate.html'"
+					class="uk-button uk-button-primary">민원 등록</button>
+			</p>
+		</div>
 	</header>
 
+	<section>
 		<div>
 			<ul class="uk-tab tabs" data-uk-tab>
 				<li class="uk-active" rel="tab1"><a href="#">미처리 민원</a></li>
 				<li rel="tab2"><a href="#">처리된 민원</a></li>
 			</ul>
 		</div>
-	</header>
-	
-	<br>
-	<br>
 
-	<div class="tab_container">
-<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
-		<div id="tab1" class="tab_content">
+		<br> <br>
 
-	<div id="complainTable">
-		<div class="king"></div>
-	</div>
-	<script id="trTemplateText" type="text/x-handlebars-template">
-{{#each list}}
-	<div class="uk-thumbnail uk-thumbnail-medium">
-    <a class="titleLink1" href="#" data-no1="{{no}}" style="text-decoration: none; color:black;">
-      <img src="../../upload/{{filename}}" alt="Canada" 
-		onerror="this.onerror=null;this.src='../../images/camera.png';" 
-		class="portrait">
-		<br><br>
-		</div>
-		<div class="uk-thumbnail-caption">
-        <p id="title">{{title}}</p> <p id="writer">{{writer}}</p>
-		</a>
-      </div> 
-{{/each}}
-</script>
-			<!-- 리스트 --> 
-	<div class="complain_pagination">
-		<button id="prevBtn" type="button" class="uk-button uk-button-primary">이전</button>
-		<span id="pageNo">1</span>
-		<button id="nextBtn" type="button" class="uk-button uk-button-primary">다음</button>
-	</div>
-		</div>
-		
-<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
-	  <div id="tab2" class="tab_content">
-	<div id="complainTable2">
-				<div class="kingking"></div>
+		<div class="tab_container">
+			<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
+			<div id="tab1" class="tab_content">
+
+				<div id="complainTable">
+					<div class="king"></div>
+				</div>
+<script id="trTemplateText" type="text/x-handlebars-template">
+	{{#each list}}
+		<a class="uk-thumbnail uk-thumbnail-medium titleLink1" href="#" data-no1="{{no}}">
+			<div class="photoCut">
+	      		<img src="../../upload/{{filename}}" alt="Canada" 
+					onerror="this.onerror=null;this.src='../../images/camera.png';" class="portrait">
 			</div>
-			<script id="trTemplateText2" type="text/x-handlebars-template">
+			<div class="uk-thumbnail-caption"><p id="title">{{title}}</p> <p id="writer">{{writer}}</p></div>
+		</a>
+	{{/each}}
+</script>
+				<!-- 리스트 -->
+				<div class="complain_pagination">
+					<button id="prevBtn" type="button"
+						class="uk-button uk-button-primary">이전</button>
+					<span id="pageNo">1</span>
+					<button id="nextBtn" type="button"
+						class="uk-button uk-button-primary">다음</button>
+				</div>
+			</div>
+
+			<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
+			<div id="tab2" class="tab_content">
+				<div id="complainTable2">
+					<div class="kingking"></div>
+				</div>
+				<script id="trTemplateText2" type="text/x-handlebars-template">
 {{#each list}}
 	<div class="uk-thumbnail uk-thumbnail-medium">
     <a class="titleLink0" href="#" data-no0="{{no}}" style="text-decoration: none; color:black;">
@@ -114,34 +114,39 @@
       </div>
 {{/each}}
 </script>
-	<!-- 리스트 -->
-	<div class="complain_pagination">
-		<button id="prevBtn2" type="button" class="uk-button uk-button-primary">이전</button>
-		<span id="pageNo_tab2">1</span>
-		<button id="nextBtn2" type="button" class="uk-button uk-button-primary">다음</button>
-	</div>
-	  </div>
-	
-</div><!-- tab container -->
+				<!-- 리스트 -->
+				<div class="complain_pagination">
+					<button id="prevBtn2" type="button"
+						class="uk-button uk-button-primary">이전</button>
+					<span id="pageNo_tab2">1</span>
+					<button id="nextBtn2" type="button"
+						class="uk-button uk-button-primary">다음</button>
+				</div>
+			</div>
+
+		</div>
+		<!-- tab container -->
+
+	</section>
 
 
 	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 	<script src="../../node_modules/uikit/dist/js/uikit.min.js"></script>
 	<script src="../../node_modules/uikit/dist/js/core/tab.min.js"></script>
-	
+
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../js/bit.js"></script>
 	<script type="text/javascript" src="../../js/board/complain_t.js"></script>
-	
 
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript">
-	ajaxComplainListRsvd1_t()
-	ajaxComplainListRsvd0_t()
+		ajaxComplainListRsvd1_t()
+		ajaxComplainListRsvd0_t()
 	</script>
-
 </body>
 </html>
 

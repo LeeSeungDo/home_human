@@ -117,19 +117,20 @@ function ajaxComplainListRsvd1_t() {
 	    	 alert("서버에서 데이터를 가져오는데 실패했습니다.")
 	    	 return
 	    }
-		console.log("서버에서 데이터를 잘 가져옵니다.");
-		console.log("핸들바스를 시작합니다.");
-		console.log(result.data);
+		// console.log("서버에서 데이터를 잘 가져옵니다.");
+		// console.log("핸들바스를 시작합니다.");
+		var rsvd = result.data.list[0].rsvd;
+		//console.log(rsvd);
 		
 	    var template = Handlebars.compile($('#trTemplateText').html())
-	    console.log(template);
+	    //console.log(template);
 	    $("#complainTable .king").html(template(result.data))
 	    
-	    console.log("핸들바스가 끝났습니다.");
+	    //console.log("핸들바스가 끝났습니다.");
 	    
 	  	
 	    $(".titleLink1").click(function(event) {
-		    window.location.href = serverAddr + "/html/board/complainForm_t.html?no=" + $(this).attr("data-no1")
+		    window.location.href = serverAddr + "/html/board/complainForm_t.html?no=" + $(this).attr("data-no1") + "&rsvd=" + rsvd;
 	    })
 	    // 현재 페이지 번호를 span 태그에 출력한다.
 	    pageNo = result.data.pageNo;

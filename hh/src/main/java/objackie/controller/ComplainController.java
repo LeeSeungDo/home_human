@@ -134,6 +134,7 @@ public class ComplainController {
       data.put("totalPage", totalPage);
       data.put("pageNo", pageNo);
       data.put("length", length);
+      System.out.println(data.toString());
       
       return JsonResult.success(data);
       
