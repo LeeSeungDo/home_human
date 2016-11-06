@@ -36,8 +36,14 @@
 		<div class="col-lg-12">
 			<div class="well text-center">전체 공지 보기</div>
 		</div>
-
+<div class="container">     
 		<div id="gongziTable"></div>
+
+
+<button id="prevBtn" type="button" class="btn btn-default btn-sm">이전</button>
+<span id="pageNo">1</span>
+<button id="nextBtn" type="button" class="btn btn-default btn-sm">다음</button>
+</div>
 
 		<script id="trTemplateText" type="text/x-handlebars-template">
 {{#each list}}
@@ -48,8 +54,13 @@
   <button class="card1" data-no="{{boardNo}}" type="button" class="btn btn-default my-view">전체 보기</button>
 </div>
 {{/each}}
-
 </script>
+      
+<script id="pagination" type="text/x-handlebars-template">
+{{#each data}}
+<p data-no="{{pageNo}}>{{pageNo}}</p>
+{{/each}}
+</script>  
 		<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 		<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>

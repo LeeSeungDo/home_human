@@ -17,7 +17,7 @@
 	</header>
 	<section>
 		<div>
-			
+
 			<div id="firstTable"></div>
 
 			<script id="frTemplateText" type="text/x-handlebars-template">
@@ -36,7 +36,14 @@
 			<div class="well text-center">전체 공지 보기</div>
 		</div>
 
-		<div id="gongziTable"></div>
+		<div class="container">
+			<div id="gongziTable"></div>
+
+
+			<button id="prevBtnT" type="button" class="btn btn-default btn-sm">이전</button>
+			<span id="pageNoT">1</span>
+			<button id="nextBtnT" type="button" class="btn btn-default btn-sm">다음</button>
+		</div>
 
 		<script id="trTemplateText" type="text/x-handlebars-template">
 {{#each list}}
@@ -49,6 +56,12 @@
 {{/each}}
 
 </script>
+
+		<script id="pagination" type="text/x-handlebars-template">
+{{#each data}}
+<p data-no="{{pageNo}}>{{pageNo}}</p>
+{{/each}}
+</script>
 		<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 		<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
@@ -56,7 +69,7 @@
 		<script type="text/javascript" src="../../js/bit.js"></script>
 		<script type="text/javascript" src="../../js/board/gongzi.js"></script>
 		<script>
-		  ajaxFirstList()
+			ajaxFirstList()
 		</script>
 		<script>
 			ajaxGongziList_T()
