@@ -66,21 +66,19 @@ function ajaxGongziList() {
 
 
 $("#prevBtnT").click(function(event) {
-	pageNoT--;
+	pageNo--;
 	ajaxGongziList_T();
 });
 
 $("#nextBtnT").click(function(event) {
-	pageNoT++;
+	pageNo++;
 	ajaxGongziList_T();
 });
 
-//글로벌 변수 = window 프로퍼티 
-var pageNoT = 1, /* window.pageNo */
-    pageLengthT = 6; /* window.pageLength */
+
 
 function ajaxGongziList_T() {
-	$.getJSON(serverAddr + "/board/list.json", function(obj) {
+	$.getJSON(serverAddr + "/board/list.json", {"pageNo": pageNo, "length": pageLength}, function(obj) {
 		var result = obj.jsonResult
 		if (result.state != "success") {
 	    	 alert("서버에서 데이터를 가져오는데 실패했습니다.")
