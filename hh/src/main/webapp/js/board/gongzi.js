@@ -96,7 +96,7 @@ function ajaxGongziList_T() {
 	    // 현재 페이지 번호를 span 태그에 출력한다.
 	    pageNoT = result.data.pageNo;
 	    totalPageT = result.data.totalPage;
-	    $('#pageNoT').text(pageNo);
+	    $('#pageNoT').text(pageNoT);
 	    
 	    // 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
 	    if (pageNoT <= 1) {
