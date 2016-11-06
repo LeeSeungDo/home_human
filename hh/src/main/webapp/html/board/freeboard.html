@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자유 게시판</title>
+
+<link rel="stylesheet"
+	href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/board/freeboard.css">
+
+</head>
+<body>
+	<header>
+		<h1 style="text-align: center">header</h1>
+	</header>
+	<section>
+	<div class="container">     
+		<h1>자유 게시판</h1>
+<p><button type="button" class="btn btn-primary btn-sm" 
+           onclick="location.href='freeboardInput.html'">새 글</button></p>
+
+<table id="freeboardTable" class="table table-hover">
+<thead>
+<tr>
+  <th>번호</th>
+  <th>제목</th>
+  <th>작성자</th>
+  <th>등록일</th>
+  <th>조회수</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+      
+<button id="prevBtn" type="button" class="btn btn-default btn-sm">이전</button>
+<span id="pageNo">1</span>
+<button id="nextBtn" type="button" class="btn btn-default btn-sm">다음</button>
+</div>
+      
+<script id="pagination" type="text/x-handlebars-template">
+{{#each data}}
+<p data-no="{{pageNo}}>{{pageNo}}</p>
+{{/each}}
+</script>     
+ 
+<script id="frTemplateText" type="text/x-handlebars-template">
+{{#each list}}
+<tr>
+  <td>{{boardNo}}</td>
+  <td><a class="freeForm" href="#" data-no1="{{boardNo}}">{{title}}</a></td>
+  <td>{{writer}}</td>
+  <td>{{createDate}}</td>
+  <td>{{viewCount}}</td>
+</tr>
+{{/each}}
+</script>
+
+		<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+		<script type="text/javascript" src="../../js/common.js"></script>
+		<script type="text/javascript" src="../../js/bit.js"></script>
+		<script type="text/javascript" src="../../js/board/freeboard.js"></script>
+		<script>		  
+			ajaxFreeBoardList()
+		</script>
+	</section>
+	<footer>
+		<h1 style="text-align: center">footer</h1>
+	</footer>
+
+
+</body>
+</html>
+
+
+
