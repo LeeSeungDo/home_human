@@ -13,7 +13,6 @@ import objackie.dao.RealEstateContractFileDao;
 import objackie.service.RealEstateContractService;
 import objackie.util.FileUploadUtil;
 import objackie.vo.RealEstateContract;
-import objackie.vo.RealEstateContractFile;
 
 @Service 
 public class DefaultRealEstateContractService implements RealEstateContractService {
@@ -41,32 +40,28 @@ public class DefaultRealEstateContractService implements RealEstateContractServi
     return realEstateContractDao.selectList3(map);
   }
   
-  public void insertRealEstateContract(RealEstateContract realEstateContract, 
-      MultipartFile file1,
-      MultipartFile file2,
+  public void insertRealEstateContract(RealEstateContract realEstateContract, MultipartFile file,
       String uploadDir) throws Exception {
     
+    try{
+      
     realEstateContractDao.insert(realEstateContract);
     
     String newFilename = null;
-    if (file1 != null && !file1.isEmpty()) {
-      newFilename = FileUploadUtil.getNewFilename(file1.getOriginalFilename());
-      file1.transferTo(new File(uploadDir + newFilename));
-      RealEstateContractFile realEstateContractFile = new RealEstateContractFile();
-      realEstateContractFile.setPhopath(newFilename);
-      realEstateContractFile.setNo(realEstateContract.getContractNo());
+    if (file != null && !file.isEmpty()) {
+      newFilename = FileUploadUtil.getNewFilename(file.getOriginalFilename());
+      file.transferTo(new File(uploadDir + newFilename));
+      RealEstateContract realEstateContractFile = new RealEstateContract();
+      realEstateContractFile.setContractPhoto(newFilename);
+      realEstateContractFile.setContractNo(realEstateContract.getContractNo());
       //realEstateContractFile.setrealEstateContractNo(10200); //트랜잭션 테스트 용 
-      realEstateContractFileDao.insert(realEstateContractFile);
+      realEstateContractDao.insert(realEstateContractFile);
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
     }
-    
-    if (file2 != null && !file2.isEmpty()) {
-      newFilename = FileUploadUtil.getNewFilename(file2.getOriginalFilename());
-      file2.transferTo(new File(uploadDir + newFilename));
-      RealEstateContractFile realEstateContractFile = new RealEstateContractFile();
-      realEstateContractFile.setPhopath(newFilename);
-      realEstateContractFile.setNo(realEstateContract.getContractNo());
-      realEstateContractFileDao.insert(realEstateContractFile);
-    }
+
+    System.out.println("여기까지");
   }
   
   public RealEstateContract getRealEstateContract(int no) throws Exception {
