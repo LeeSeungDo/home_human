@@ -48,6 +48,12 @@
     delete from board
     where BOD_NO=#{boardNo} and type=0
   </delete> 
+  
+  <select id="countAll" resultType="int">
+    select count(*) 
+    from board 
+    where type=0
+  </select>
 </mapper>
 
 

@@ -56,12 +56,12 @@ public class BoardController {
     try {
       System.out.println("board list controller 들어왔어요.");
       List<Board> list = boardService.getBoardList(pageNo, length);
-      //int totalPage = boardService.getTotalPage(length);
+      int totalPage = boardService.getTotalPage(length);
       System.out.println(list);
 
       HashMap<String,Object> data = new HashMap<>();      
       data.put("list", list);
-      //data.put("totalPage", totalPage);
+      data.put("totalPage", totalPage);
       data.put("pageNo", pageNo);
       data.put("length", length);
 
