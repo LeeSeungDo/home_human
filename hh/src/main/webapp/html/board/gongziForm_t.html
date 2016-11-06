@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <title>공지 사항</title>
 <link rel="stylesheet"
-  href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet"
-  href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/board/gongziForm.css">
+	href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../../css/board/gongziForm.css">
 </head>
 <body>
 	<header>
@@ -34,18 +35,20 @@
 				</ul>
 			</div>
 
+			<img id="file1" src="" width="500"><br>
+
 			<div>
 				<p id="contents" class="textWrap"></p>
 			</div>
 
-			<div class="btn_group">				
+			<div class="btn_group">
 				<div class="sort_right">
 					<button id="cancelBtn" type="button" class="btn btn-primary btn-lg"
 						onclick="location.href='gongzi_t.html'">목록</button>
 				</div>
 			</div>
 		</form>
-				
+
 	</section>
 
 	<footer>
@@ -53,12 +56,12 @@
 	</footer>
 
 	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
-  <script type="text/javascript" src="../../js/common.js"></script>
-  <script type="text/javascript" src="../../js/bit.js"></script>
-  <script type="text/javascript" src="../../js/board/gongziForm.js"></script>
-		
+	<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/bit.js"></script>
+	<script type="text/javascript" src="../../js/board/gongziForm.js"></script>
+
 	<script>
 		if (location.search.startsWith("?")) {
 			var no = location.search.split("=")[1];

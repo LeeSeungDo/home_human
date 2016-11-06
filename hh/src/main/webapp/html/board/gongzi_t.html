@@ -5,9 +5,9 @@
 <title>공지 사항</title>
 
 <link rel="stylesheet"
-  href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet"
-  href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+	href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
 <link rel="stylesheet" type="text/css" href="../../css/board/gongzi.css">
 
 </head>
@@ -17,12 +17,13 @@
 	</header>
 	<section>
 		<div>
-			<img style="width: 600px" class="main_photo" src="../../images/army.PNG" alt="예비군사진">
+			
 			<div id="firstTable"></div>
 
-    <script id="frTemplateText" type="text/x-handlebars-template">
+			<script id="frTemplateText" type="text/x-handlebars-template">
 {{#each list}}
 <div>
+  <img style="width: 500px" class="main_photo" src="../../upload/{{filename}}" alt="사진입니다."> 
   <h1>{{title}}</h1>
   <p>{{contents}}</p>  
 </div>
@@ -30,7 +31,7 @@
 
 </script>
 		</div>
-		
+
 		<div class="col-lg-12">
 			<div class="well text-center">전체 공지 보기</div>
 		</div>
@@ -49,11 +50,11 @@
 
 </script>
 		<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
-    <script type="text/javascript" src="../../js/common.js"></script>
-    <script type="text/javascript" src="../../js/bit.js"></script>
-    <script type="text/javascript" src="../../js/board/gongzi.js"></script>
+		<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+		<script type="text/javascript" src="../../js/common.js"></script>
+		<script type="text/javascript" src="../../js/bit.js"></script>
+		<script type="text/javascript" src="../../js/board/gongzi.js"></script>
 		<script>
 		  ajaxFirstList()
 		</script>
