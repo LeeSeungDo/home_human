@@ -16,9 +16,10 @@
   </resultMap>
   
   <select id="selectList" resultMap="boardMap" parameterType="map">
-    select BOD_NO,TITLE,CRE_DT,VW_CNT,CONTS
-    from board
-  where type=0
+    select A.BOD_NO, A.TITLE, A.CRE_DT, A.VW_CNT, A.CONTS, B.PHO_PATH
+    from BOARD A LEFT OUTER JOIN BOD_PHO B
+    on A.BOD_NO = B.BOD_NO
+    where type=0
     order by BOD_NO desc
     
     limit #{startIndex}, #{length}
