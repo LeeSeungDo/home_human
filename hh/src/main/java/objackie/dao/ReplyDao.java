@@ -10,6 +10,7 @@ public interface ReplyDao {
   int insert(Reply reply) throws Exception;
   int update(Reply reply) throws Exception;
   int delete(int no) throws Exception;
+  int delete1(int no) throws Exception;
 }
 
 

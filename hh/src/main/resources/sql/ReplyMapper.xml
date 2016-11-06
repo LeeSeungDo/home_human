@@ -39,6 +39,11 @@
     delete from bod_rply
     where RPLY_NO=#{value}
   </delete> 
+  
+  <delete id="delete1" parameterType="int">
+    delete from bod_rply
+    where BOD_NO=#{BOD_NO}
+  </delete> 
 </mapper>
 
 
