@@ -1,72 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-body {
-	font-family: Nanum Gothic, Malgun Gothic, 맑은 고딕, dotum, 돋움,
-		Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
-}
-
-section {
-	width: 320px;
-	margin: 35px auto;
-}
-
-.header {
-	margin: 0;
-	line-height: 61px;
-	height: 55px;
-	font-size: 18px;
-	padding-left: 30px;
-	border-bottom: 1px solid #ddd;
-	border-top: 4px solid #ffde00;
-}
-
-.login-area-wrap {
-	text-align: left;
-	vertical-align: top;
-	display: inline-block;
-	border: 1px solid #ddd;
-	width: 270px;
-	height: 420px;
-	padding: 0 25px;
-}
-
-div {
-	margin: 0 auto;
-}
-
-.login-area {
-	position: relative;
-	width: 270px;
-	height: 372px;
-}
-
-#kakaoUpdate {
-	position: relative;
-	vertical-align: top;
-	width: 100%;
-	height: 45px;
-	padding: 0;
-	font-size: 15px;
-	color: black;
-	text-align: center;
-	background: #ffef3f;
-	border: 0;
-	cursor: pointer;
-	-webkit-box-shadow: inset 0 -2px #ffef3f;
-	box-shadow: inset 0 -2px #ffef3f;
-	border-radius: 10px;
-}
-
-#logoutBtn {
-	color: black;
-	font-size: 13px;
-	margin-left: 6px;
-	padding-left: 6px;
-	margin-right: 0;
-}
-</style>
+<link href="../../css/auth/kakaoInput.css" rel="stylesheet" type="text/css" />
 <meta charset="UTF-8">
 <title>회원가입 최초 설정</title>
 </head>
@@ -88,25 +23,19 @@ div {
 							value="https://yellowid.kakao.com/join">
 						<div class="email_tooltip" style="top: 70px; display: none;">
 							<span class="arr" style="left: auto; right: 10px"></span>
-							<div class="bn_box">
-								<a
-									href="/weblogin/find_account_guide?continue=https%3A%2F%2Fyellowid.kakao.com%2Fjoin"
-									class="link_find">카카오계정 찾기 &gt;</a>
-							</div>
 						</div>
 
-						<input type="hidden" id="id" readonly><br> <br>
-						이름 : <input type="text" id="name"><br> <br>
-						성별 : <input type="radio" id="GEND" name="gend" checked>(남)
-						<input type="radio" name="gend">(여)<br> <br> 권한
-						: <input type="radio" id="AUTH" name="auth" checked>(관리자)
-						<input type="radio" name="auth">(세입자)<br> <br>
-						생일 : <input type="text" id="birth1"> <input type="text"
-							id="birth2"> <input type="text" id="birth3"> <br>
-						<br> 전화번호 : <input type="text" id="TEL"> <br> <br>
-
+						<input type="text" id="name" placeholder="이름"><br> <br>
 						
-						<!-- <button type="button" id="logoutBtn">취소</button> -->
+						<input type="radio" id="GEND" name="gend" checked>남
+						<input type="radio" name="gend">여<br> <br>
+						
+						<input type="radio" id="AUTH" name="auth" checked>임대인
+						<input type="radio" name="auth">세입자<br> <br>
+						<input type="text" id="birth1" placeholder="생일 ex) 1980-02-12"> 
+						 <br>
+						<br><input type="text" id="TEL" placeholder="전화번호 ( ' - ' 제외)"> <br> <br>
+
 						<div><button type="button" id="kakaoUpdate">회원가입</button></div>
 						<hr>
 						<a id="logoutBtn">취소</a>
@@ -151,7 +80,7 @@ div {
 				  password: (Math.floor(Math.random() * 100000000)).toString(),
 				  tel: $("#TEL").val(),
 				  gender: $("#GEND").is(":checked") ? 0 : 1,
-				  birth: $("#birth1").val() + '-' + $("#birth2").val() + '-' + $("#birth3").val(),
+				  birth: $("#birth1").val(),
 				  auth: $("#AUTH").is(":checked") ? 0 : 1
 				}
 				
