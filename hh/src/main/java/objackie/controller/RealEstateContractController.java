@@ -14,9 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import objackie.service.RealEstateContractService;
-import objackie.vo.RealEstateContract;
-import objackie.vo.Board;
 import objackie.vo.JsonResult;
+import objackie.vo.RealEstateContract;
 
 @Controller 
 @RequestMapping("/contract/")
