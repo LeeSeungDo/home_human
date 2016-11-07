@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import objackie.dao.RealEstateContractDao;
-import objackie.dao.RealEstateContractFileDao;
 import objackie.service.RealEstateContractService;
 import objackie.util.FileUploadUtil;
 import objackie.vo.RealEstateContract;
@@ -17,7 +16,6 @@ import objackie.vo.RealEstateContract;
 @Service 
 public class DefaultRealEstateContractService implements RealEstateContractService {
   @Autowired RealEstateContractDao realEstateContractDao;
-  @Autowired RealEstateContractFileDao realEstateContractFileDao;
   
   public List<RealEstateContract> getRealEstateContractList1(int pageNo, int length) throws Exception {
     HashMap<String,Object> map = new HashMap<>();
