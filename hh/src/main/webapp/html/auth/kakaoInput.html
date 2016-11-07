@@ -1,48 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+section {
+    width: 320px;
+	margin: 35px auto;
+}
+
+.header {
+	margin: 0;
+	line-height: 61px;
+	height: 55px;
+	font-size: 18px;
+	padding-left: 30px;
+	border-bottom: 1px solid #ddd;
+	border-top: 4px solid #ffde00;
+}
+
+.login-area-wrap {
+	text-align: left;
+	vertical-align: top;
+	display: inline-block;
+	border: 1px solid #ddd;
+	width: 270px;
+	height: 420px;
+	padding: 0 25px;
+}
+
+div {
+	margin: 0 auto;
+}
+
+.login-area a.btn-login {
+	display: inline-block;
+	font-weight: bold;
+	border-radius: 5px;
+	outline: none;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #ffef3f;
+	border: 1px solid #ffde00;
+	line-height: 38px;
+	padding-top: 5px;
+	width: 268px;
+}
+
+.login-area {
+	position: relative;
+	width: 270px;
+	height: 372px;
+}
+</style>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원가입 최초 설정</title>
 </head>
 <body>
-[최초 설정]<br><br><br>
-카카오 아이디 : 
-<input type="text" id="id" readonly><br><br>
+	<header>
+		<div class="header">
+			<img alt="Logo_kakao" src="../../images/logo_kakao.png"> <span
+				class="right"> </span>
+		</div>
+	</header>
+	<section>
+		<div class="login-area-wrap">
+			<div class="login-area">
+				<div class="subtitle"></div>
+				<div class="container">
+					<form method="POST" id="login-form" style="align: right">
+						<input type="hidden" name="type" value="w"> <input
+							type="hidden" name="continue"
+							value="https://yellowid.kakao.com/join">
+						<div class="email_tooltip" style="top: 70px; display: none;">
+							<span class="arr" style="left: auto; right: 10px"></span>
+							<div class="bn_box">
+								<a
+									href="/weblogin/find_account_guide?continue=https%3A%2F%2Fyellowid.kakao.com%2Fjoin"
+									class="link_find">카카오계정 찾기 &gt;</a>
+							</div>
+						</div>
 
-카카오 이름 : 
-<input type="text" id="name"><br><br>
+						카카오 아이디 : <input type="text" id="id" readonly><br> <br>
+						카카오 이름 : <input type="text" id="name"><br> <br>
+						성별 : <input type="radio" id="GEND" name="gend" checked>(남)
+						<input type="radio" name="gend">(여)<br> <br> 권한
+						: <input type="radio" id="AUTH" name="auth" checked>(관리자)
+						<input type="radio" name="auth">(세입자)<br> <br>
+						생일 : <input type="text" id="birth1"> <input type="text"
+							id="birth2"> <input type="text" id="birth3"> <br>
+						<br> 전화번호 : <input type="text" id="TEL"> <br> <br>
 
-	성별 :
-	<input type="radio" id="GEND" name="gend" checked>(남)
-	<input type="radio" name="gend">(여)<br><br>
-	
-	권한 :
-	<input type="radio" id="AUTH" name="auth" checked>(관리자)
-	<input type="radio" name="auth">(세입자)<br><br>
-	
-	생일 :
-	<input type="text" id="birth1">
-	<input type="text" id="birth2">
-	<input type="text" id="birth3">
-	<br><br>
-	
-	전화번호 :
-	<input type="text" id="TEL">
-	<br><br>
-	
-	<button type="button" id="kakaoUpdate">승인</button>
-	<button type="button" id="logoutBtn">취소</button>
+						<button type="button" id="kakaoUpdate">승인</button>
+						<button type="button" id="logoutBtn">취소</button>
+						<a href="#" id="btn_login" class="btn-login"><img
+							alt="Pc_login_text" src="../../images/pc_join.gif"></a><input
+							type="submit" style="visibility: hidden;">
+						<div class="error">
+							<span id="error-message"></span>
+
+						</div>
+	</section>
+
 
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-	
+
 	<script type="text/javascript">
 		
 	</script>
-	
-	
-<!-- 카카오 최초 설정 -->
+
+
+	<!-- 카카오 최초 설정 -->
 	<script type="text/javascript">
 		$(document).ready(function() {
 			Kakao.init("bfb48672ff68dbf137c2daffb44adfb0"); <!-- 카카오 핀 번호 -->
@@ -137,6 +205,5 @@
 			});
 		});
 	</script>
-
 </body>
 </html>
