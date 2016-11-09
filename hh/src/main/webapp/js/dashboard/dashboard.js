@@ -3,6 +3,8 @@ $("#myInfo").click(function(event) {
 	window.location.href = serverAddr + "/html/auth/myinfo.html"
 });
 
+
+
 $(document).ready(function() {
 	Kakao.init("bfb48672ff68dbf137c2daffb44adfb0");
 
@@ -44,6 +46,7 @@ $("#gongziLink").click(function(event) {
 	window.location.href = serverAddr + "/html/board/gongzi.html"
 });
 
+/*----------------------------------------------------- 로그인 정보 불러오기 -----------------------------------------------------*/
 function ajaxLoginUser() {
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
@@ -52,13 +55,59 @@ function ajaxLoginUser() {
 	         return
 	    }
 
-		$("#userName").html(result.data.name);
+		$("#userName1").html(result.data.name);
+		$("#userName2").html(result.data.name);
 		
 	    var auth = result.data.auth;
 	    if (auth == 0) {
-	    	$("#authLevel").html("[임대인]");
+	    	$("#authLevel").html("임대인");
 	    } else {
 	    	$("#authLevel").html("[임차인]");
 	    }
     })
 }
+/*----------------------------------------------------- /로그인 정보 불러오기 -----------------------------------------------------*/
+
+
+
+/*----------------------------------------------------- 공지사항 불러오기 -----------------------------------------------------*/
+function ajaxFirstList() {
+	$.getJSON(serverAddr + "/board/firstlist.json", function(obj) {
+		var result = obj.jsonResult
+		if (result.state != "success") {
+			alert("서버에서 데이터를 가져오는데 실패했습니다.")
+			return
+		}
+		console.log(result.data.list[0]);
+		var title = result.data.list[0].title;
+		var contents = result.data.list[0].contents;
+		var boardNo = result.data.list[0].boardNo;
+		$("#gongzi_title").html(title);
+		$("#gongzi_contents").html(contents);
+		
+		$("#gongzi_detail").click(function(event) {
+			alert("공지 디테일");
+			window.location.href = serverAddr + "/html/board/gongziForm.html?no=" + boardNo;
+		});
+	})
+}
+/*----------------------------------------------------- /공지사항 불러오기 -----------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

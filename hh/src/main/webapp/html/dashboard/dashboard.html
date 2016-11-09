@@ -131,12 +131,12 @@
                 </li>
                 <li class="user">
                     <a class="dropdown-button" data-activates="user-dropdown" href="#!">
-                        <img src="../../bower_components/assets/_con/images/user.jpg" alt="내 사진" class="circle"> John Doe <i class="mdi-navigation-expand-more right"></i>
+                        <img src="../../bower_components/assets/_con/images/user.jpg" alt="내 사진" class="circle"><span id="userName1"></span><i class="mdi-navigation-expand-more right"></i>
                     </a>
 
                     <ul id="user-dropdown" class="dropdown-content">
                         <li>
-                            <a href="page-profile.html">
+                            <a href="../auth/myinfo.html">
                                 <i class="fa fa-user"></i> 내 정보
                             </a>
                         </li>
@@ -148,13 +148,13 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#">
-                                <i class="fa fa-sign-out"></i><span id="logout"> 로그아웃 </span>
+                            <a href="#" id="logout">
+                                <i class="fa fa-sign-out"></i><span> 로그아웃 </span>
                             </a>
                         </li>
                         <li>
-                        	<a href="#">
-                                <i class="fa fa-sign-out"></i><span id="getOut"> 카톡탈퇴 </span>
+                        	<a href="#" id="getOut">
+                                <i class="fa fa-sign-out"></i><span> 카톡탈퇴 </span>
                             </a>
                         </li>
                     </ul>
@@ -210,9 +210,9 @@
                     <li class="yay-user-info">
                         <a href="page-profile.html">
                             <img src="../../bower_components/assets/_con/images/user.jpg" alt="John Doe" class="circle">
-                            <h3 class="yay-user-info-name">John Doe</h3>
+                            <h3 class="yay-user-info-name"><span id="userName2"></span></h3>
                             <div class="yay-user-location">
-                                <i class="fa fa-map-marker"></i> Las Vegas, NV
+                                <i class="fa fa-map-marker"></i><span id="authLevel"></span>
                             </div>
                         </a>
                     </li>
@@ -223,7 +223,7 @@
 						class=" waves-effect waves-blue"><i class="fa fa-tachometer"></i> Home &#38; Human </a>
 					</li>
 					<li>
-                        <a href="#" class=" waves-effect waves-blue"> <i class="fa fa-check"></i><span id="gongziLink"> 공지사항 </span></a>
+                        <a href="#" class=" waves-effect waves-blue" id="gongziLink"> <i class="fa fa-check"></i><span> 공지사항 </span></a>
                     </li>
 					<li>
                         <a href="#" class=" waves-effect waves-blue"> <i class="fa fa-bullhorn"></i> 민원사항 </a>
@@ -259,7 +259,7 @@
 			<div class="row">
 				<div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
 					<a href="../../html/index.html" class="hh-logo-black">
-                		<img src="../../images/hhlogo_black.png" alt="Home & Human">
+                		<!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
             		</a>
             		<h1>Home &#38; Human</h1>
 				</div>
@@ -269,6 +269,8 @@
 		<!-- /Breadcrumb -->
 
 		<div class="row sortable">
+		
+		<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
 			<!-- 공지사항 Card -->
 			<div class="col l12 s12">
 				<div class="card">
@@ -281,10 +283,10 @@
 						</a>
 					</div>
 					<div class="content orders-card">
-
-						<h6>공지사항 뿌리기</h6>
-						<br>
-
+						<a href="#" id="gongzi_detail">
+							<span id="gongzi_title" class="card-title activator grey-text text-darken-4"></span>
+							<p id="gongzi_contents"></p>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -450,6 +452,7 @@
 				</div>
 			</div>
 			<!-- /차트 Card -->
+			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 		</div>
 	</section>
 	<!-- /Main Content -->
@@ -671,6 +674,7 @@
 	<script>
 		//console.log("document.cookie : " + document.cookie);
 		ajaxLoginUser();
+      	ajaxFirstList();
 	</script>
 
 </body>
