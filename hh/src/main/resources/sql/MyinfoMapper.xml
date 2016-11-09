@@ -35,6 +35,11 @@
     where EMAIL=#{email} and PWD=#{password}
   </select>
   
+  <insert id="insert" parameterType="Member">
+    insert into MEMBS(EMAIL, PHO_PATH)
+    values(#{email})
+  </insert>
+  
   <update id="update" parameterType="member">
     update MEMBS set
       PWD=#{password},

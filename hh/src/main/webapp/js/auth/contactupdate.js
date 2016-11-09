@@ -16,13 +16,15 @@ $("#updateBtn").click(function(event) {
 			password: myPassword,
 			name: myName,
 			birth: myBirth,
+			gender: myGender,
 			postNo: $("#postNo").val(),
 			basicAddr: $("#basicAddr").val(),
 			detailAddr: $("#detailAddr").val(),
 			tel: $("#tel").val()
 	}
+	//console.log(member)
 	ajaxUpdateMember(member)
-	
+
 });
 
 function ajaxUpdateMember(member) {
@@ -36,26 +38,29 @@ function ajaxUpdateMember(member) {
 		window.location.href = serverAddr + "/html/auth/myinfo.html"
 	}, "json")
 }
-	
-	var myEmail;
-	var myPassword;
-	var myName;
-	var myBirth;
-	
+
 //회원정보수정 회원데이터 출력
+var myEmail;
+var myPassword;
+var myName;
+var myBirth;
+var myGender;
+
 function ajaxLoginUser() {
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
+		
 		if (result.state != "success") { // 로그아웃 상태일 경우 로그인 상태와 관련된 태그를 감춘다.
 			window.location.href = serverAddr + "/html/index.html"
 			return
 		}
-		
+
 		myEmail = result.data.email;
 		myPassword = result.data.password;
 		myName = result.data.name;
 		myBirth = result.data.birth;
-		
+		myGender = result.data.gender;
+
 		$("#postNo").val(result.data.postNo);
 		$("#basicAddr").val(result.data.basicAddr);
 		$("#detailAddr").val(result.data.detailAddr);

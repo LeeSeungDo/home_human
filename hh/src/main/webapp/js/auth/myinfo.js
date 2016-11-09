@@ -2,11 +2,13 @@ $("#logoBtn").click(function(event) {
 	window.location.href = serverAddr + "/html/index.html"
 });
 
+$("#phoPath").click(function(event) {
+	window.location.href = serverAddr + "/html/auth/profileupdate.html"
+});
 
 $("#proUpBtn").click(function(event) {
 	window.location.href = serverAddr + "/html/auth/profileupdate.html"
 });
-
 
 $("#contactUpBtn").click(function(event) {
 	window.location.href = serverAddr + "/html/auth/contactupdate.html"
@@ -31,7 +33,7 @@ function ajaxLoginUser() {
 			window.location.href = serverAddr + "/html/index.html"
 			return
 		}
-
+		
 		$("#email").html(result.data.email);
 		$("#name").html(result.data.name);
 		$("#gender").html(result.data.gender);
@@ -40,6 +42,7 @@ function ajaxLoginUser() {
 		$("#basicAddr").html(result.data.basicAddr);
 		$("#detailAddr").html(result.data.detailAddr);
 		$("#tel").html(result.data.tel);
+		$("#phoPath").html(result.data.phoPath);
 
 		var gender = result.data.gender;
 	    if (gender == 0) {

@@ -2,8 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
- <link rel="shortcut icon" href="../../images/favicon.ico">
-<title>Human & Home</title>
+<title>MyInfo</title>
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
 <link href="../../css/auth/myinfo.css" rel="stylesheet" type="text/css" />
@@ -31,25 +30,25 @@
 	     <table>
 	       <thead>
 	         <tr>
-             <td>아이디</td><td id="email"></td>
+             <td class="td_cell1">아이디</td><td class="td_cell2" id="email"></td>
            </tr>
            
            <tr>
-             <td>이름</td><td id="name"></td>
+             <td class="td_cell1">이름</td><td class="td_cell2" id="name"></td>
            </tr>
            
            <tr>
-             <td>성별</td><td id="gender"></td>
+             <td class="td_cell1">성별</td><td class="td_cell2" id="gender"></td>
            </tr>
            
            <tr>
-             <td>생일</td><td id="birth"></td>
+             <td class="td_cell1">생일</td><td class="td_cell2" id="birth"></td>
            </tr>
 	       </thead>
 	     </table>
 			</div>
 		  
-		  <button id="proUpBtn" type="button" class="btn btn-default">수정</button>
+		  <button id="proUpBtn" type="button" class="btn btn-default">변경</button>
 			
 		</div>
 
@@ -58,28 +57,28 @@
 				
 				<h3>연락처 및 주소</h3>
 				
-				<table>
+				<table id="contable">
          <thead>
            <tr>
-             <td>우편번호</td><td id="postNo"></td>
+             <td class="td_cell3">우편번호</td><td class="td_cell5" id="postNo"></td>
            </tr>
            
            <tr>
-             <td>기본주소</td><td id="basicAddr"></td>
+             <td class="td_cell4">기본주소</td><td class="td_cell6" id="basicAddr"></td>
            </tr>
            
            <tr>
-             <td>상세주소</td><td id="detailAddr"></td>
+             <td class="td_cell4">상세주소</td><td class="td_cell6" id="detailAddr"></td>
            </tr>
            
            <tr>
-             <td>전화번호</td><td id="tel"></td>
+             <td class="td_cell4">전화번호</td><td class="td_cell6" id="tel"></td>
            </tr>
          </thead>
        </table>
        
        <div>
-       <button id="contactUpBtn" type="button">수정</button>
+       <button id="contactUpBtn" type="button">변경</button>
        </div>
         
 			</div>
@@ -94,7 +93,7 @@
 		  </tr>
 		  </table>
 		  <div>
-			<button id="buildUpBtn" type="button">수정</button>
+			<button id="buildUpBtn" type="button">변경</button>
 		  </div>
 		</div>
    
