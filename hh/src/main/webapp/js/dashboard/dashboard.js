@@ -41,7 +41,7 @@ $(document).ready(function() {
 
 $("#gongziLink").click(function(event) {
 	alert("공지");
-	window.location.href = serverAddr + "/html/board/gongziInput.html"
+	window.location.href = serverAddr + "/html/board/gongzi.html"
 });
 
 function ajaxLoginUser() {
