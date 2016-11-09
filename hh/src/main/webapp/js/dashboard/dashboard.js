@@ -47,6 +47,12 @@ $("#gongziLink").click(function(event) {
    window.location.href = serverAddr + "/html/board/gongzi.html"
 });
 
+$("#complainLink").click(function(event) {
+	   alert("공지");
+	   window.location.href = serverAddr + "/html/board/complain_l.html"
+	});
+
+
 /*----------------------------------------------------- 로그인 정보 불러오기 -----------------------------------------------------*/
 function ajaxLoginUser() {
    $.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
