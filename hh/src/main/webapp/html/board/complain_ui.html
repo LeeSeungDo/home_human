@@ -40,17 +40,13 @@
 	<!-- Full Calendar -->
     <link rel="stylesheet" type="text/css" href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
 
-	<!-- sseung -->
-    <link rel="stylesheet" type="text/css" href="../../css/dashboard/sseung.css" />  
-    
     <!-- dossierbit -->
     <link rel="stylesheet" type="text/css" href="../../css/dashboard/dossierbit.css" />
-    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-		<link href="../../css/auth/myinfo.css" rel="stylesheet" type="text/css" />  
-    
-    
-    <!--[if lt IE 9]>
+
+	<!-- complain css -->
+    <link rel="stylesheet" type="text/css" href="../../css/board/complain_ui.css" />
+
+<!--[if lt IE 9]>
         <script src="../../bower_components/html5shiv/dist/html5shiv.min.js"></script>
     <![endif]-->
 
@@ -211,7 +207,7 @@
 
                 <ul>
                     <li class="yay-user-info">
-                        <a href="../auth/myinfo.html">
+                        <a href="page-profile.html">
                             <img src="../../bower_components/assets/_con/images/user.jpg" alt="John Doe" class="circle">
                             <h3 class="yay-user-info-name"><span id="userName2"></span></h3>
                             <div class="yay-user-location">
@@ -219,6 +215,7 @@
                             </div>
                         </a>
                     </li>
+
                     <li class="label">메뉴</li>
 
 					<li class="active"><a href="dashboard-v1.html"
@@ -228,7 +225,7 @@
                         <a href="#" class=" waves-effect waves-blue" id="gongziLink"> <i class="fa fa-check"></i><span> 공지사항 </span></a>
                     </li>
 					<li>
-                        <a href="#" class=" waves-effect waves-blue"> <i class="fa fa-bullhorn"></i> 민원사항 </a>
+                        <a href="../board/complain_ui.html" class=" waves-effect waves-blue"> <i class="fa fa-bullhorn"></i> 민원사항 </a>
                     </li>
                     <li>
                         <a href="#" class=" waves-effect waves-blue"> <i class="fa fa-building-o"></i> 건물정보 </a>
@@ -263,7 +260,7 @@
 					<a href="../../html/index.html" class="hh-logo-black">
                 		<!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
             		</a>
-            		<h1>Home &#38; Human</h1>
+            		<h1>임차인이 보낸 민원들을 보세요</h1>
 				</div>
 			</div>
 
@@ -273,90 +270,135 @@
 		<div class="row sortable">
 		
 		<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
-  
-    <div id="main">
-    <div id="profile"><h3>프로필</h3>
-      <div id="profilephoto"><a href="#">
-        <img  id="phoPath" src="../../images/default.png" onerror="myFunction()"
-             style="border-radius: 50px;" /></a>
-      </div>
+			<div class="row">
+				<div class="col s12">
+					<ul class="tabs">
+						<li class="tab col s3" rel="complain1"><a href="#test1">
+						미처리 민원</a></li>
+						<li class="tab col s3" rel="complain2"><a class="active" href="#test2">
+						처리된 민원</a></li>
+					</ul>
+					</div>
+					</div>
 
-      <div id="pro_group">
-       <table>
-         <thead>
-           <tr>
-             <td class="td_cell1">아이디</td><td class="td_cell2" id="email"></td>
-           </tr>
-           
-           <tr>
-             <td class="td_cell1">이름</td><td class="td_cell2" id="name"></td>
-           </tr>
-           
-           <tr>
-             <td class="td_cell1">성별</td><td class="td_cell2" id="gender"></td>
-           </tr>
-           
-           <tr>
-             <td class="td_cell1">생일</td><td class="td_cell2" id="birth"></td>
-           </tr>
-         </thead>
-       </table>
-      </div>
-      
-      <button id="proUpBtn" type="button" class="btn btn-default">변경</button>
-      
-    </div>
+	<br>
+	<br>
 
-    <div id="contact">
-      <div>
-        
-        <h3>연락처 및 주소</h3>
-        
-        <table id="contable">
-         <thead>
-           <tr>
-             <td class="td_cell3">우편번호</td><td class="td_cell5" id="postNo"></td>
-           </tr>
-           
-           <tr>
-             <td class="td_cell4">기본주소</td><td class="td_cell6" id="basicAddr"></td>
-           </tr>
-           
-           <tr>
-             <td class="td_cell4">상세주소</td><td class="td_cell6" id="detailAddr"></td>
-           </tr>
-           
-           <tr>
-             <td class="td_cell4">전화번호</td><td class="td_cell6" id="tel"></td>
-           </tr>
-         </thead>
-       </table>
-       
-       <div>
-       <button id="contactUpBtn" type="button">변경</button>
-       </div>
-        
-      </div>
-    </div>
-    
+	<div class="tab_container">
+		<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
+		<div id="complain1" class="tab_content">
+			<div class="row" id="complainTable">
+			</div>
 
-    <div id="buildinfo">
-      <h3>건물정보</h3>
-      <table>
-      <tr>
-      <td>건물정보</td><td id="BUILD_NO"></td>
-      </tr>
-      </table>
-      <div>
-      <button id="buildUpBtn" type="button">변경</button>
-      </div>
-    </div>
-   
-   <div class="membleave">
-   <span>더 이상 이용하지 않는다면</span>
-   <a id="memberUpBtn" href="#">회원탈퇴 바로가기</a>
-   </div>
+			<script id="trTemplateText" type="text/x-handlebars-template">
+{{#each list}}
+	<div class="col l4 s12">
+	<div class="card of-h">
+  <div class="card-image waves-effect waves-block waves-light">
+    <img src="../../upload/{{filename}}" alt="Canada" 
+		onerror="this.onerror=null;this.src='../../images/camera.png';"
+		 class="portrait activator">
   </div>
+  <div class="content">
+    <span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title">{{title}}</p>
+     <p class="tenant-writer">{{writer}} 세입자</p>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
+		<p>{{contents}}</p>
+	<div class="button-group">
+							<a class="btn" id="updateBtn1">수정</a>
+						</div>
+  </div>
+</div>
+</div>
+
+{{/each}}
+</script>
+			<!-- 리스트 -->	
+			<div class="complain_pagination">
+			<ul class="pagination">
+				<li class="disabled" id="prevBtn"><a href="#!">
+				<i class="mdi-navigation-chevron-left"></i></a></li>
+				 <li class="waves-effect" id="pageNo">1</li>
+					<li id="nextBtn" class="waves-effect"><a href="#!">
+					<i class="mdi-navigation-chevron-right"></i></a></li>
+		</ul>
+			</div>
+
+		<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
+		<div id="complain2" class="tab_content">
+			<div class="row" id="complainTable2">
+			</div>
+<script id="trTemplateText2" type="text/x-handlebars-template">
+{{#each list}}
+	<div class="col l4 s12">
+	<div class="card of-h">
+  <div class="card-image waves-effect waves-block waves-light">
+    <img src="../../upload/{{filename}}" alt="Canada" 
+		onerror="this.onerror=null;this.src='../../images/camera.png';"
+		 class="portrait activator">
+  </div>
+  <div class="content">
+    <span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title">{{title}}</p>
+     <p class="tenant-writer">{{writer}} 세입자</p>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
+		<p>{{contents}}</p>
+	<div class="button-group">
+							<a class="btn" id="updateBtn1">수정</a>
+						</div>
+  </div>
+</div>
+</div>
+
+{{/each}}
+	</script>
+<!-- 리스트 -->
+			<div class="complain_pagination">
+			<ul class="pagination">
+				<li class="disabled" id="prevBtn2"><a href="#!">
+				<i class="mdi-navigation-chevron-left"></i></a></li>
+				 <li class="waves-effect" id="pageNo2">1</li>
+					<li id="nextBtn2" class="waves-effect"><a href="#!">
+					<i class="mdi-navigation-chevron-right"></i></a></li>
+		</ul>
+			</div>
+	<!-- tab container -->
+
+	<!-------------------------------------------------- 모달 시작(처리) -------------------------------------------------------------->
+	<div class="modal fade bs-example-modal-lg0" tabindex="-1"
+		role="dialog" aria-labelledby="myLargeModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<h4 class="modal-title0">
+						<p id="modal-title0"></p>
+						<h5 id="modal-writer0"></h5>
+					</h4>
+				</div>
+				<div class="modal-body" id="body">
+					<textarea id="contents0" class="form-control" cols="50" rows="10"
+						placeholder="내용입니다." style="background: white" readonly></textarea>
+				</div>
+				<div class="modal-footer">
+					<div class="uk-form-row">
+						<div class="uk-form-controls">
+							<input type="radio" name="rsvdMaterial0" value="미처리">미처리
+							<input id="rsvd0" type="radio" name="rsvdMaterial0" value="처리"
+								checked>처리
+						</div>
+						<br>
+					</div>
+					<div class="uk-button-group">
+						<a class="uk-button" id="updateBtn0">수정</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 			
 			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 		</div>
@@ -511,7 +553,26 @@
 
     <!-- Google Prettify -->
     <script type="text/javascript" src="../../bower_components/code-prettify/src/prettify.js"></script>
+	
+		<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+	<script src="../../node_modules/uikit/dist/js/uikit.min.js"></script>
+	<script src="../../node_modules/uikit/dist/js/core/tab.min.js"></script>
 
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/bit.js"></script>
+	<script type="text/javascript" src="../../js/board/complain_l.js"></script>
+
+
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!--------------------------------------------------------- 모달 load 자바스크립트 코드------------------------------------------------->
+
+	<script type="text/javascript">
+		ajaxComplainListRsvd1()
+		ajaxComplainListRsvd0() 
+	</script>
+	
 <script>
     /* 
      * Init Calendar
@@ -572,12 +633,10 @@
     });
     </script>
     
-
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" charset="UTF-8"></script>
-<script type="text/javascript" src="//cdn.poesis.kr/post/search.min.js" charset="UTF-8"></script>
-<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../js/common.js"></script>
-<script type="text/javascript" src="../../js/auth/myinfo.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/bit.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script type="text/javascript" src="../../js/dashboard/dashboard.js"></script>
 	
 	<script>
 		//console.log("document.cookie : " + document.cookie);

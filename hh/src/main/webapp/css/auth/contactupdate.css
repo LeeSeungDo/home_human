@@ -1,48 +1,16 @@
 @CHARSET "UTF-8";
 
 html {
-  width: 100%;
-  position: relative;
+  font-size: 82%;
 }
 
-#wrap {
-  width: 100%;
-  margin: 0 auto;
+.yaybar ul > li.yay-user-info > a, .yaybar ul > li.yay-user-info > .sp-cancel {
+  height: 87.97px;
 }
 
-#header {
-  height: 80px;
-  border-bottom: 2.5px solid gray;
-  overflow: hidden;
-  position: relative;
-}
-
-#title {
-  display: none;
-}
-
-#logoBtn {
-  top: 8px;
-  left: 10px;
-  position: absolute;
-}
-
-.sptext {
-  margin-top: 17px;
-  margin-left: 110px;
-  width: 100px;
-  font-size: 200%;
-  position: absolute;
-}
-
-img {
-  max-width: 70%;
-  height: auto ;
-}
-
-#content {
+#main {
   width: 1000px;
-  height: 750px;
+  height: 500px;
   margin: 0 auto;
   position: relative;
 }
@@ -52,8 +20,8 @@ img {
 }
 
 .th_cell1 {
-  width: 300px;
-  height: 250px;
+  width: 200px;
+  height: 180px;
   background: #f9f9f9;
   border-right: 1px solid #cccccc;
   border-top: 1px solid #cccccc;
@@ -63,14 +31,14 @@ img {
 
 .td_cell1 {
   width: 700px;
-  height: 250px;
+  height: 180px;
   border-top: 1px solid #cccccc;
   padding-left: 20px;
 }
 
 .th_cell2 {
-  width: 300px;
-  height: 250px;
+  width: 200px;
+  height: 180px;
   background: #f9f9f9;
   border-right: 1px solid #cccccc;
   border-top: 1px solid #cccccc;
@@ -81,7 +49,7 @@ img {
 
 .td_cell2 {
   width: 700px;
-  height: 250px;
+  height: 180px;
   border-top: 1px solid #cccccc;
   border-bottom: 1px solid #cccccc;
   padding-left: 20px;
@@ -124,22 +92,26 @@ img {
 
 
 #updateBtn {
-  margin-top: 30px;
+  margin-top: 10px;
   margin-left: 350px;
   margin-right: 10px;
   background: #00aceb;
   width: 100px;
   height: 40px;
-  border: 1px solid #00aceb; 
+  border: 1px solid #00aceb;
   color: #fff;
-  border-radius: 5px 5px 5px 5px;
+  border-radius: 5px;
+  position: absolute;
 }
 
 #cancelBtn {
-  margin-top: 30px;
+	margin-top: 10px;
+	margin-left: 460px;
   width: 100px;
   height: 40px;
   background: #fff;
-  border-radius: 5px 5px 5px 5px;
+  border-radius: 5px;
   border: 1px solid gray;
+  position: absolute;
+  
 }
