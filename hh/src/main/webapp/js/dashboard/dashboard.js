@@ -14,6 +14,10 @@ $("#complainLink").click(function(event) {
 	window.location.href = serverAddr + "/html/board/complain_l.html"
 });
 
+$("#myinfoLink").click(function(event) {
+	alert("내정보");
+	window.location.href = serverAddr + "/html/auth/myinfo.html"
+});
 
 $(document).ready(function() {
    Kakao.init("bfb48672ff68dbf137c2daffb44adfb0");
