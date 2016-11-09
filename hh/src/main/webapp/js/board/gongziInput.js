@@ -7,6 +7,7 @@ $(document.body).ready(function() {
     });
 });
 
+
 function ajaxLoginUser() {
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
