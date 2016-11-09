@@ -8,15 +8,23 @@ html {
   height: 87.97px;
 }
 
-#main {
+thead {
+	border: 0;
+}
+
+#main1 {
   width: 1000px;
   height: 500px;
   margin: 0 auto;
   position: relative;
 }
 
-.main {
-  margin-top: 50px;
+#main2 {
+  margin-top: -35px;
+}
+
+#main3 {
+  margin-top: 10px;
 }
 
 .th_cell1 {
@@ -56,7 +64,7 @@ html {
 }
 
 #postNo {
-	margin-top: 30px;
+	margin-top: 20px;
 	width: 100px;
 	height: 30px;
 	border: 1px solid #cccccc;
@@ -86,32 +94,38 @@ html {
   border-radius: 5px 5px 5px 5px;
 }
 
-.form-control {
-  width: 350px;
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+	margin-top: 20px;
+	width: 350px;
+  height: 30px;
+	border: 1px solid #cccccc;
+  border-radius: 5px 5px 5px 5px;
 }
 
-
 #updateBtn {
-  margin-top: 10px;
+  margin-top: 23px;
   margin-left: 350px;
   margin-right: 10px;
-  background: #00aceb;
   width: 100px;
   height: 40px;
-  border: 1px solid #00aceb;
-  color: #fff;
+  border: 1px solid #00aceb; 
   border-radius: 5px;
+  background: #00aceb;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
   position: absolute;
 }
 
 #cancelBtn {
-	margin-top: 10px;
+	margin-top: 23px;
 	margin-left: 460px;
   width: 100px;
   height: 40px;
   background: #fff;
   border-radius: 5px;
-  border: 1px solid gray;
+  border: 1px solid #cccccc;
+  color: #4a4a4a;
   position: absolute;
   
 }
