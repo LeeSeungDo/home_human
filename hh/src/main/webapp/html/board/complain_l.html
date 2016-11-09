@@ -1,257 +1,649 @@
-
 <!DOCTYPE html>
-<html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="shortcut icon" href="../../images/favicon.ico">
-<title>민원사항</title>
-<style>
-.uk-thumbnail {
-  position: relative;
-  width: 290px;
-  height: 218px; 
-  overflow: hidden;
-}
-.uk-thumbnail img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  height: 100%;
-  width: auto;
-  -webkit-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
-}
-.uk-thumbnail img.portrait {
-  width: 100%;
-  height: auto;
-}
-</style>
-<link id="data-uikit-theme" rel="stylesheet"
-	href="../../node_modules/uikit/dist/css/uikit.almost-flat.min.css">
-<link rel="stylesheet" href="../../css/board/complain.css" />
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="_nK">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    
+    <title>Home &#38; Human</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+
+    <!-- nanoScroller -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/nanoscroller/bin/css/nanoscroller.css" />
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/fontawesome/css/font-awesome.min.css" />
+
+    <!-- Material Design Icons -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/assets/material-design-icons/css/material-design-icons.min.css" />
+
+    <!-- IonIcons -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/ionicons/css/ionicons.min.css" />
+
+    <!-- WeatherIcons -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/weather-icons/css/weather-icons.min.css" />
+
+
+
+    <!-- nvd3 -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/nvd3/build/nv.d3.min.css" />
+
+    <!-- Main -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/assets/_con/css/con-base.css" />
+
+
+
+   <!-- Full Calendar -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
+
+    <!-- dossierbit -->
+    <link rel="stylesheet" type="text/css" href="../../css/dashboard/dossierbit.css" />
+
+   <!-- complain css -->
+    <link rel="stylesheet" type="text/css" href="../../css/board/complain_ui.css" />
+
+<!--[if lt IE 9]>
+        <script src="../../bower_components/html5shiv/dist/html5shiv.min.js"></script>
+    <![endif]-->
 
 
 </head>
+
+<!--
+  Body
+    Options:
+      .boxed - boxed layout for content
+-->
+
 <body>
+   <!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
+    <!--
+     Top Navbar
+       Options:
+         .navbar-dark - dark color scheme
+         .navbar-static - static navbar
+         .navbar-under - under sidebar
+   -->
+    <nav class="navbar-top">
+        <div class="nav-wrapper">
 
-	<!-- 헤더 -->
-	<header>
-		<span><i></i></span>
-		<h1>
-			<b>민원사항</b>
-		</h1>
-		<div>
-			<ul class="uk-tab tabs" data-uk-tab>
-				<li class="uk-active" rel="tab1"><a href="#">미처리 민원</a></li>
-				<li rel="tab2"><a href="#">처리된 민원</a></li>
-			</ul>
-		</div>
-	</header>
+            <!-- Sidebar toggle -->
+            <a href="#" class="yay-toggle">
+                <div class="burg1"></div>
+                <div class="burg2"></div>
+                <div class="burg3"></div>
+            </a>
+            <!-- Sidebar toggle -->
 
-	<br>
-	<br>
+            <!-- Logo -->
+            <a href="../../html/index.html" class="hh-logo">
+                <img src="../../images/hhlogo.png" alt="Home & Human">
+            </a>
+            <!-- /Logo -->
 
-	<div class="tab_container">
-		<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
-		<div id="tab1" class="tab_content">
-			<div id="complainTable">
-				<div class="king"></div>
-			</div>
+            <!-- Menu -->
+            <ul>
+                <li>
+                    <a class="dropdown-button" data-activates="test-dropdown" href="#!">
+                        <i class="mdi-communication-email"></i>
+                        <span class="badge new">2</span>
+                    </a>
+                    <div id="test-dropdown" class="dropdown-content dropdown-media">
+                        <div class="card-panel">
 
-			<script id="trTemplateText" type="text/x-handlebars-template">
-{{#each list}}
-	<div class="uk-thumbnail uk-thumbnail-medium">
- <img src="../../upload/{{filename}}" alt="Canada" 
-		onerror="this.onerror=null;this.src='../../images/camera.png';"
-		 class="portrait">
-		<br>
+                            <div class="media-heading">Messages <a href="mail-compose.html"><i class="mdi-content-add-circle-outline"></i></a></div>
+
+                            <div class="media-footer"><a href="mail-inbox.html"><i class="mdi-hardware-keyboard-control"></i></a></div>
+
+                            <div class="row mt-0">
+                                <div class="col s2">
+                                    <img src="../../bower_components/assets/_con/images/user2.jpg" alt="" class="circle responsive-img">
+                                </div>
+                                <div class="col s10">
+                                    <span class="media-date">9:02 AM</span>
+                                    <a href="#" class="media-title">Dianne Chambers</a>
+                                    <span>
+                                        Ut feugiat tempus felis, sit amet mattis dolor accumsan quis...
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s2">
+                                    <img src="../../bower_components/assets/_con/images/user3.jpg" alt="" class="circle responsive-img">
+                                </div>
+                                <div class="col s10">
+                                    <span class="media-date">Dec 19</span>
+                                    <a href="#" class="media-title">Joanne Stephens</a>
+                                    <span>
+                                        Proin suscipit lobortis porta. Interdum et malesuada fames ac ante ipsum primis in faucibus...
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+                <li class="user">
+                    <a class="dropdown-button" data-activates="user-dropdown" href="#!">
+                        <img src="../../bower_components/assets/_con/images/user.jpg" alt="내 사진" class="circle"><span id="userName1"></span><i class="mdi-navigation-expand-more right"></i>
+                    </a>
+
+                    <ul id="user-dropdown" class="dropdown-content">
+                        <li>
+                            <a href="../auth/myinfo.html">
+                                <i class="fa fa-user"></i> 내 정보
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mail-inbox.html">
+                                <i class="fa fa-envelope"></i> 알림
+                                <span class="badge new">2</span>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#" id="logout">
+                                <i class="fa fa-sign-out"></i><span> 로그아웃 </span>
+                            </a>
+                        </li>
+                        <li>
+                           <a href="#" id="getOut">
+                                <i class="fa fa-sign-out"></i><span> 카톡탈퇴 </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- /Menu -->
+
+        </div>
+    </nav>
+    <!-- /Top Navbar -->
+    <!---------------------------------------------------------/탑 nav 부분------------------------------------------------------------>
+    
+    
+   <!---------------------------------------------------------사이드바 부분----------------------------------------------------------->
+   <!--
+  Yay Sidebar
+  Options [you can use all of theme classnames]:
+    .yay-hide-to-small         - no hide menu, just set it small with big icons
+    .yay-static                - stop using fixed sidebar (will scroll with content)
+    .yay-gestures              - to show and hide menu using gesture swipes
+    .yay-light                 - light color scheme
+    .yay-hide-on-content-click - hide menu on content click
+
+  Effects [you can use one of these classnames]:
+    .yay-overlay  - overlay content
+    .yay-push     - push content to right
+    .yay-shrink   - shrink content width
+-->
+   <aside class="yaybar yay-shrink yay-hide-to-small yay-gestures">
+
+        <div class="top">
+            <div>
+                <!-- Sidebar toggle -->
+                <a href="#" class="yay-toggle">
+                    <div class="burg1"></div>
+                    <div class="burg2"></div>
+                    <div class="burg3"></div>
+                </a>
+                <!-- Sidebar toggle -->
+
+                <!-- Logo -->
+                <a href="#!" class="brand-logo">
+                    <img src="../../images/hhlogo.png" alt="Home & Human">
+                </a>
+                <!-- /Logo -->
+            </div>
+        </div>
+
+        <div class="nano">
+            <div class="nano-content">
+
+                <ul>
+                    <li class="yay-user-info">
+                        <a href="page-profile.html">
+                            <img src="../../bower_components/assets/_con/images/user.jpg" alt="John Doe" class="circle">
+                            <h3 class="yay-user-info-name"><span id="userName2"></span></h3>
+                            <div class="yay-user-location">
+                                <i class="fa fa-map-marker"></i><span id="authLevel"></span>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="label">메뉴</li>
+
+               <li class="active"><a href="dashboard-v1.html"
+                  class=" waves-effect waves-blue"><i class="fa fa-tachometer"></i> Home &#38; Human </a>
+               </li>
+               <li>
+                        <a href="#" class=" waves-effect waves-blue" id="gongziLink"> <i class="fa fa-check"></i><span> 공지사항 </span></a>
+                    </li>
+               <li>
+                        <a href="../board/complain_l.html" class=" waves-effect waves-blue"> <i class="fa fa-bullhorn"></i> 민원사항 </a>
+                    </li>
+                    <li>
+                        <a href="#" class=" waves-effect waves-blue"> <i class="fa fa-building-o"></i> 건물정보 </a>
+                    </li>
+                    <li>
+                        <a href="#" class=" waves-effect waves-blue"> <i class="fa fa-users"></i> 세입자관리 </a>
+                    </li>
+                    <li>
+                        <a href="#" class=" waves-effect waves-blue"> <i class="fa fa-credit-card"></i> 관리비내역 </a>
+                    </li>
+                    <li>
+                        <a href="#" class=" waves-effect waves-blue"> <i class="fa fa-hand-o-right"></i> 자유게시판 </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </aside>
+    <!-- /Yay Sidebar -->
+    <!---------------------------------------------------------/사이드바 부분------------------------------------------------------------>
+
+
+   <!------------------------------------------------------------메인 부분-------------------------------------------------------------->
+   <!-- Main Content -->
+   <section class="content-wrap">
+
+      <!-- Breadcrumb -->
+      <div class="page-title" style="height: 80px;">
+
+         <div class="row">
+            <div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
+               <a href="../../html/index.html" class="hh-logo-black">
+                      <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
+                  </a>
+                  <h1>임차인이 보낸 민원들을 보세요</h1>
+            </div>
+         </div>
+
       </div>
-		<div class="uk-thumbnail-caption">
-        <p id="title">{{title}}</p><p>({{writer}})</p>
-		<button type="button" class="uk-button card1" id="modalbutton1" 
-		data-toggle="modal" data-val1="{{no}}" data-target=".bs-example-modal-lg1">전체 읽기</button>
-	</div>
-    </div>
+      <!-- /Breadcrumb -->
+
+      <div class="row sortable">
+      
+      <!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
+         <div class="row">
+            <div class="col s12">
+               <ul class="tabs">
+                  <li class="tab col s3" rel="complain1"><a href="#test1">
+                  미처리 민원</a></li>
+                  <li class="tab col s3" rel="complain2"><a class="active" href="#test2">
+                  처리된 민원</a></li>
+               </ul>
+               </div>
+               </div>
+
+   <br>
+   <br>
+
+   <div class="tab_container">
+      <!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
+      <div id="complain1" class="tab_content">
+         <div class="row" id="complainTable">
+         </div>
+
+         <script id="trTemplateText" type="text/x-handlebars-template">
+{{#each list}}
+   <div class="col l4 s12">
+   <div class="card of-h">
+  <div class="card-image waves-effect waves-block waves-light">
+    <img src="../../upload/{{filename}}" alt="Canada" 
+      onerror="this.onerror=null;this.src='../../images/camera.png';"
+       class="portrait activator">
+  </div>
+  <div class="content">
+    <span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title">{{title}}</p>
+     <p class="tenant-writer">{{writer}} 세입자</p>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
+      <p>{{contents}}</p>
+   <div class="button-group">
+                     <a class="btn" id="updateBtn1">수정</a>
+                  </div>
+  </div>
+</div>
+</div>
+
 {{/each}}
 </script>
-			<!-- 리스트 -->
-			<div class="complain_pagination">
-				<button id="prevBtn" type="button"
-					class="uk-button uk-button-primary">이전</button>
-				<span id="pageNo">1</span>
-				<button id="nextBtn" type="button"
-					class="uk-button uk-button-primary">다음</button>
-			</div>
-		</div>
-		<!-------------------------------------------------- 모달 시작(미처리) -------------------------------------------------------------->
-		<div class="modal fade bs-example-modal-lg1" tabindex="-1"
-			role="dialog" aria-labelledby="myLargeModalLabel">
-			<div class="modal-dialog modal-lg" role="document">
-				<div class="modal-content">
-					<!-- header -->
-					<div class="modal-header">
-						<!-- 닫기(x) 버튼 -->
-						<button type="button" class="close" data-dismiss="modal">×</button>
-						<!-- 헤더 타이틀 -->
-						<h4 class="modal-title1">
-							<p id="modal-title1"></p>
-							<h5 id="modal-writer1"></h5>
-						</h4>
-					</div>
-					<!-- 바디 -->
-					<div class="modal-body" id="body">
-						<textarea id="contents1" class="form-control" cols="50" rows="10"
-							placeholder="내용입니다." style="background: white" readonly></textarea>
-					</div>
-					<!-- 푸터 -->
-					<div class="modal-footer">
-						<div class="uk-form-row">
-							<div class="uk-form-controls">
-								<input id="rsvd_1" type="radio" name="rsvdMaterial1" value="미처리"
-									checked>미처리 <input type="radio" name="rsvdMaterial1"
-									value="처리">처리
-							</div>
-							<br>
-						</div>
-						<div class="uk-button-group">
-							<a class="uk-button" id="updateBtn1">수정</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-------------------------------------------------- 모달 끝 ---------------------------------------------------------------------->
-
-		<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
-		<div id="tab2" class="tab_content">
-			<div id="complainTable2">
-				<div class="kingking"></div>
-			</div>
-			<script id="trTemplateText2" type="text/x-handlebars-template">
-{{#each list}}
-	<div class="uk-thumbnail uk-thumbnail-medium">
-       <img src="../../upload/{{filename}}" alt="Canada" 
-		onerror="this.onerror=null;this.src='../../images/camera.png';"
-		class="portrait">
-		</div>
-		<div class="uk-thumbnail-caption">
-        <p id="tab2-title">{{title}}</p><p>({{writer}})</p>
-		<button type="button" class="uk-button card0" id="modalbutton0" 
-		data-toggle="modal" data-val0="{{no}}" data-target=".bs-example-modal-lg0">전체 읽기</button>
+         <!-- 리스트 -->
+         <div class="complain_pagination">
+            <button id="prevBtn" type="button"
+               class="uk-button uk-button-primary">이전</button>
+            <span id="pageNo">1</span>
+            <button id="nextBtn" type="button"
+               class="uk-button uk-button-primary">다음</button>
+         </div>
       </div>
-    </div>
+
+      <!---------------------------------------------------- #tab2 처리 --------------------------------------------->
+      <div id="complain2" class="tab_content">
+         <div class="row" id="complainTable2">
+         </div>
+<script id="trTemplateText2" type="text/x-handlebars-template">
+{{#each list}}
+   <div class="col l4 s12">
+   <div class="card of-h">
+  <div class="card-image waves-effect waves-block waves-light">
+    <img src="../../upload/{{filename}}" alt="Canada" 
+      onerror="this.onerror=null;this.src='../../images/camera.png';"
+       class="portrait activator">
+  </div>
+  <div class="content">
+    <span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title">{{title}}</p>
+     <p class="tenant-writer">{{writer}} 세입자</p>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
+      <p>{{contents}}</p>
+   <div class="button-group">
+                     <a class="btn" id="updateBtn1">수정</a>
+                  </div>
+  </div>
+</div>
+</div>
+
 {{/each}}
-</script>
-			<!-- 리스트 -->
-			<div class="complain_pagination">
-				<button id="prevBtn2" type="button"
-					class="uk-button uk-button-primary">이전</button>
-				<span id="pageNo_tab2">1</span>
-				<button id="nextBtn2" type="button"
-					class="uk-button uk-button-primary">다음</button>
-			</div>
-		</div>
+   </script>
+<!-- 리스트 -->
+         <div class="complain_pagination">
+            <button id="prevBtn2" type="button"
+               class="uk-button uk-button-primary">이전</button>
+            <span id="pageNo_tab2">1</span>
+            <button id="nextBtn2" type="button"
+               class="uk-button uk-button-primary">다음</button>
+         </div>
+      </div>
 
-	</div>
-	<!-- tab container -->
+   </div>
+   <!-- tab container -->
 
-	<!-------------------------------------------------- 모달 시작(처리) -------------------------------------------------------------->
-	<div class="modal fade bs-example-modal-lg0" tabindex="-1"
-		role="dialog" aria-labelledby="myLargeModalLabel">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h4 class="modal-title0">
-						<p id="modal-title0"></p>
-						<h5 id="modal-writer0"></h5>
-					</h4>
-				</div>
-				<div class="modal-body" id="body">
-					<textarea id="contents0" class="form-control" cols="50" rows="10"
-						placeholder="내용입니다." style="background: white" readonly></textarea>
-				</div>
-				<div class="modal-footer">
-					<div class="uk-form-row">
-						<div class="uk-form-controls">
-							<input type="radio" name="rsvdMaterial0" value="미처리">미처리
-							<input id="rsvd0" type="radio" name="rsvdMaterial0" value="처리"
-								checked>처리
-						</div>
-						<br>
-					</div>
-					<div class="uk-button-group">
-						<a class="uk-button" id="updateBtn0">수정</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-------------------------------------------------- 모달 끝 -------------------------------------------------------------->
+   <!-------------------------------------------------- 모달 시작(처리) -------------------------------------------------------------->
+   <div class="modal fade bs-example-modal-lg0" tabindex="-1"
+      role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">×</button>
+               <h4 class="modal-title0">
+                  <p id="modal-title0"></p>
+                  <h5 id="modal-writer0"></h5>
+               </h4>
+            </div>
+            <div class="modal-body" id="body">
+               <textarea id="contents0" class="form-control" cols="50" rows="10"
+                  placeholder="내용입니다." style="background: white" readonly></textarea>
+            </div>
+            <div class="modal-footer">
+               <div class="uk-form-row">
+                  <div class="uk-form-controls">
+                     <input type="radio" name="rsvdMaterial0" value="미처리">미처리
+                     <input id="rsvd0" type="radio" name="rsvdMaterial0" value="처리"
+                        checked>처리
+                  </div>
+                  <br>
+               </div>
+               <div class="uk-button-group">
+                  <a class="uk-button" id="updateBtn0">수정</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+         
+         <!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+      </div>
+   </section>
+   <!-- /Main Content -->
+   <!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
 
-	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
-	<script src="../../node_modules/uikit/dist/js/uikit.min.js"></script>
-	<script src="../../node_modules/uikit/dist/js/core/tab.min.js"></script>
+    <div class="chat">
+   <!--------------------------------------------------------메세지 부분---------------------------------------------------------->
+            <!-- Messages -->
+            <div class="messages">
 
-	<script type="text/javascript" src="../../js/common.js"></script>
-	<script type="text/javascript" src="../../js/bit.js"></script>
-	<script type="text/javascript" src="../../js/board/complain_l.js"></script>
+                <!-- Top Bar with back link -->
+                <div class="topbar">
+                    <a href="#!" class="chat-toggle"><i class="mdi-navigation-close"></i></a>
+                    <a href="#!" class="chat-back"><i class="mdi-hardware-keyboard-arrow-left"></i> Back</a>
+                </div>
+                <!-- /Top Bar with back link -->
+
+                <!-- All messages list -->
+                <div class="list">
+                    <div class="nano scroll-bottom">
+                        <div class="nano-content">
+
+                            <div class="date">Monday, Feb 23, 8:23 pm</div>
+
+                            <div class="from-me">
+                                Hi, Felicia.
+                                <br> How are you?
+                            </div>
+
+                            <div class="clear"></div>
+
+                            <div class="from-them">
+                                <img src="../../bower_components/assets/_con/images/user2.jpg" alt="John Doe" class="circle photo"> Hi! I am good!
+                            </div>
+
+                            <div class="clear"></div>
+
+                            <div class="from-me">
+                                Glad to see you :)
+                                <br> This long text is intended to show how the chat will display it.
+                            </div>
+
+                            <div class="clear"></div>
+
+                            <div class="from-them">
+                                <img src="../../bower_components/assets/_con/images/user2.jpg" alt="John Doe" class="circle photo"> Also, we will send the longest word to show how it will fit in the chat window:
+                                <strong>Pneumonoultramicroscopicsilicovolcanoconiosis</strong>
+                            </div>
+
+                            <div class="date">Friday, Mar 10, 5:07 pm</div>
+
+                            <div class="from-me">
+                                Hi again!
+                            </div>
+
+                            <div class="clear"></div>
+
+                            <div class="from-them">
+                                <img src="../../bower_components/assets/_con/images/user2.jpg" alt="John Doe" class="circle photo"> Hi! Glad to see you.
+                            </div>
+
+                            <div class="clear"></div>
+
+                            <div class="from-me">
+                                I want to add you in my Facebook.
+                            </div>
+
+                            <div class="clear"></div>
+
+                            <div class="from-me">
+                                Can you give me your page?
+                            </div>
+
+                            <div class="clear"></div>
+
+                            <div class="from-them">
+                                <img src="../../bower_components/assets/_con/images/user2.jpg" alt="John Doe" class="circle photo"> I do not use Facebook. But you can follow me in Twitter.
+                            </div>
+
+                            <div class="clear"></div>
+
+                            <div class="from-me">
+                                It's good idea!
+                            </div>
+
+                            <div class="clear"></div>
+
+                            <div class="from-them">
+                                <img src="../../bower_components/assets/_con/images/user2.jpg" alt="John Doe" class="circle photo"> You can find me here - <a href="https://twitter.com/nkdevv">https://twitter.com/nkdevv</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /All messages list -->
+
+                <!-- Send message -->
+                <div class="send">
+                    <form action="#!">
+                        <div class="input-field">
+                            <input id="chat-message" type="text" name="chat-message">
+                        </div>
+
+                        <button class="btn waves-effect z-depth-0"><i class="mdi-content-send"></i></button>
+                    </form>
+                </div>
+                <!-- /Send message -->
+
+            </div>
+            <!-- /Messages -->
+            <!-----------------------------------------------------/메세지 부분-------------------------------------------------------->
+        </div>
+    <!-- /Chat -->
+    
+    <!---------------------------------------------------------푸터 부분---------------------------------------------------------->
+    <footer>&copy; 2016 
+        <strong>Objackie</strong> Java85.
+    </footer>
+    <!--------------------------------------------------------/푸터 부분---------------------------------------------------------->
+
+    <!-- DEMO [REMOVE IT ON PRODUCTION] -->
+    <script type="text/javascript" src="../../bower_components/assets/_con/js/_demo.js"></script>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- jQuery RAF (improved animation performance) -->
+    <script type="text/javascript" src="../../bower_components/jquery-requestAnimationFrame/dist/jquery.requestAnimationFrame.min.js"></script>
+
+    <!-- nanoScroller -->
+    <script type="text/javascript" src="../../bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
+
+    <!-- Materialize -->
+    <script type="text/javascript" src="../../bower_components/materialize/bin/materialize.js"></script>
 
 
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<!--------------------------------------------------------- 모달 load 자바스크립트 코드------------------------------------------------->
 
-	<script type="text/javascript">
-		ajaxComplainListRsvd1()
-		ajaxComplainListRsvd0() 
-	</script>
+   <!-- Full Calendar -->
+    <script type="text/javascript" src="../../bower_components/moment/min/moment.min.js"></script>
+       
+    <script type="text/javascript" src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../../bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 
-	<script type="text/javascript">
-		$(function() {
-			$(document.body).on('click', '.card1', function() {
-				var no = $(this).attr("data-val1");
-				console.log(no);
-				ajaxLoadComplain(no)
-			}) 
-		})
-	</script>
-	<script type="text/javascript">
-		$(function() {
-			$(document.body).on('click', '.card0', function() {
-				var no = $(this).attr("data-val0");
-				console.log(no);
-				ajaxLoadComplain(no)
-			})
-		})
-	</script>
 
-	<script>
-	function ajaxLoadComplain(no) {
-		$.getJSON(serverAddr + "/complain/detail.json?no=" + no, function(obj) {
-			var result = obj.jsonResult
-			if (result.state != "success") {
-				alert("조회 실패입니다.")
-				return
-			}
-			$("#modal-title1").text(result.data.title);
-			$("#modal-title0").text(result.data.title);
-			$("#contents1").text(result.data.contents);
-			$("#contents0").text(result.data.contents);
-			$("#modal-writer0").text(result.data.writer);
-			$("#modal-writer1").text(result.data.writer);
-		          
-		})
-	}
-	</script>
+    <!-- Sortable -->
+    <script type="text/javascript" src="../../bower_components/Sortable/Sortable.min.js"></script>
+
+    <!-- Main -->
+    <script type="text/javascript" src="../../bower_components/assets/_con/js/_con.js"></script>
+
+    <!-- Google Prettify -->
+    <script type="text/javascript" src="../../bower_components/code-prettify/src/prettify.js"></script>
+   
+      <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+   <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+   <script src="../../node_modules/uikit/dist/js/uikit.min.js"></script>
+   <script src="../../node_modules/uikit/dist/js/core/tab.min.js"></script>
+
+   <script type="text/javascript" src="../../js/common.js"></script>
+   <script type="text/javascript" src="../../js/bit.js"></script>
+   <script type="text/javascript" src="../../js/board/complain_l.js"></script>
+
+
+   <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <!--------------------------------------------------------- 모달 load 자바스크립트 코드------------------------------------------------->
+
+   <script type="text/javascript">
+      ajaxComplainListRsvd1()
+      ajaxComplainListRsvd0() 
+   </script>
+   
+<script>
+    /* 
+     * Init Calendar
+     */
+    $('#calendar').fullCalendar({
+        height: 700,
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
+        defaultDate: '2015-02-12',
+        editable: true,
+        droppable: true,
+        drop: function() {
+            // is the "remove after drop" checkbox checked?
+            if (removeDraggable.is(':checked')) {
+                // if so, remove the element from the "Draggable Events" list
+                $(this).remove();
+            }
+        }
+        /* 
+        events: [{
+            title: 'All Day Event',
+            start: '2015-02-01'
+        }, {
+            title: 'Long Event',
+            start: '2015-02-07',
+            end: '2015-02-10'
+        }, {
+            id: 999,
+            title: 'Repeating Event',
+            start: '2015-02-09T16:00:00'
+        }, {
+            id: 999,
+            title: 'Repeating Event',
+            start: '2015-02-16T16:00:00'
+        }, {
+            title: 'Conference',
+            start: '2015-02-11',
+            end: '2015-02-13'
+        }, {
+            title: 'Meeting',
+            start: '2015-02-12T10:30:00',
+            end: '2015-02-12T12:30:00'
+        }, {
+            title: 'Lunch',
+            start: '2015-02-12T12:00:00'
+        }, {
+            title: 'Meeting',
+            start: '2015-02-12T14:30:00'
+        }, {
+            title: 'Click for Google',
+            url: 'http://google.com/',
+            start: '2015-02-28'
+        }]
+        */
+    });
+    </script>
+    
+   <script type="text/javascript" src="../../js/common.js"></script>
+   <script type="text/javascript" src="../../js/bit.js"></script>
+   <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+   <script type="text/javascript" src="../../js/dashboard/dashboard.js"></script>
+   
+   <script>
+      //console.log("document.cookie : " + document.cookie);
+      ajaxLoginUser();
+         ajaxFirstList();
+   </script>
 
 </body>
+
 </html>
-
-
