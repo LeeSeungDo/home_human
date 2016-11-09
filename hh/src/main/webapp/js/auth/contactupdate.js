@@ -65,7 +65,18 @@ function ajaxLoginUser() {
 		$("#basicAddr").val(result.data.basicAddr);
 		$("#detailAddr").val(result.data.detailAddr);
 		$("#tel").val(result.data.tel);
+		$("#userName1").html(result.data.name);
+		$("#userName2").html(result.data.name);
+		$("authLevel").html(result.data.name);
 
+		var auth = result.data.auth;
+
+		if (auth == 0) {
+			$("#authLevel").html("임대인");
+		} else {
+			$("#authLevel").html("임차인");
+		}
+		
 	})
 }
 
