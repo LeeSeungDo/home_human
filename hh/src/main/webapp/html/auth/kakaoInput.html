@@ -6,146 +6,154 @@
 <title>회원가입 최초 설정</title>
 </head>
 <body>
-	<header>
-		<div class="header">
-			<img alt="Logo_kakao" src="../../images/logo_kakao.png"> <span
-				class="right"> </span>
-		</div>
-	</header>
-	<section>
-		<div class="login-area-wrap">
-			<div class="login-area">
-				<div class="subtitle"></div>
-				<div class="container">
-					<form method="POST" id="login-form" style="align: right">
-						<input type="hidden" name="type" value="w"> <input
-							type="hidden" name="continue"
-							value="https://yellowid.kakao.com/join">
-						<div class="email_tooltip" style="top: 70px; display: none;">
-							<span class="arr" style="left: auto; right: 10px"></span>
-						</div>
+   <header>
+      <div class="header">
+         <img alt="Logo_kakao" src="../../images/logo_kakao.png"> <span
+            class="right"> </span>
+      </div>
+   </header>
+   <section>
+      <div class="login-area-wrap">
+         <div class="login-area">
+            <div class="subtitle"></div>
+            <div class="container">
+               <form method="POST" id="login-form" style="align: right">
+                  <input type="hidden" name="type" value="w"> <input
+                     type="hidden" name="continue"
+                     value="https://yellowid.kakao.com/join">
+                  <div class="email_tooltip" style="top: 70px; display: none;">
+                     <span class="arr" style="left: auto; right: 10px"></span>
+                  </div>
+              <input type="hidden" id="id" readonly>
+                  <input type="text" id="name" placeholder="이름"><br> <br>
+                  
+                  <input type="radio" id="GEND" name="gend" checked>남
+                  <input type="radio" name="gend">여<br> <br>
+                  
+                  <input type="radio" id="AUTH" name="auth" checked>임대인
+                  <input type="radio" name="auth">세입자<br> <br>
+                  <input type="text" id="birth1" placeholder="생일 ex) 1980-02-12"> 
+                   <br>
+                  <br><input type="text" id="TEL" placeholder="전화번호 ( ' - ' 제외)"> <br> <br>
 
-						<input type="text" id="name" placeholder="이름"><br> <br>
-						
-						<input type="radio" id="GEND" name="gend" checked>남
-						<input type="radio" name="gend">여<br> <br>
-						
-						<input type="radio" id="AUTH" name="auth" checked>임대인
-						<input type="radio" name="auth">세입자<br> <br>
-						<input type="text" id="birth1" placeholder="생일 ex) 1980-02-12"> 
-						 <br>
-						<br><input type="text" id="TEL" placeholder="전화번호 ( ' - ' 제외)"> <br> <br>
-
-						<div><button type="button" id="kakaoUpdate">회원가입</button></div>
-						<hr>
-						<a id="logoutBtn">취소</a>
-						
-	</section>
-
-
-	<script type="text/javascript" src="../../js/common.js"></script>
-	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-
-	<script type="text/javascript">
-		
-	</script>
+                  <div><button type="button" id="kakaoUpdate">회원가입</button></div>
+                  <hr>
+                  <a id="logoutBtn">취소</a>
+                  
+   </section>
 
 
-	<!-- 카카오 최초 설정 -->
-	<script type="text/javascript">
-		$(document).ready(function() {
-			Kakao.init("bfb48672ff68dbf137c2daffb44adfb0"); <!-- 카카오 핀 번호 -->
-			
-			<!-- 카카오 회원 값 가져오기 -->
-			Kakao.API.request({
-				url : '/v1/user/me',
-				success : function(res) {
-					// console.log(res)
-					// console.log(res.id + " 님이 로그인 합니다.")
-					// console.log(res.properties.nickname + " 님이 로그인 합니다.")
-					$("#id").val(res.id);
-					$("#name").val(res.properties.nickname);
-				},
-				fail : function(error) {
-					console.log(error);
-				}
-			});
-			
-			<!-- 카카오 최초 설정 값 입력하기 -->
-			$("#kakaoUpdate").click(function(event) {
-				var member = {
-				  email: $("#id").val(),
-				  name: $("#name").val(),
-				  password: (Math.floor(Math.random() * 100000000)).toString(),
-				  tel: $("#TEL").val(),
-				  gender: $("#GEND").is(":checked") ? 0 : 1,
-				  birth: $("#birth1").val(),
-				  auth: $("#AUTH").is(":checked") ? 0 : 1
-				}
-				
-				if ((member.tel != "") && ($("#birth1").val() != "") && ($("#birth2").val() != "") && ($("#birth3").val() != "")) {
-					//console.log("-----------" + member.email);
-					var password = member.password;
-					var gender = member.gender;
-					var auth = member.auth;
-					var birth = member.birth;
-					var tel = member.tel;
-					
-					Kakao.API.request({
-						url : '/v1/user/update_profile',
-						data : {properties : {GEND : gender, AUTH : auth, BIRTH : birth, TEL : tel, PASSWORD : password}},
-						success : function(res) {
-							//console.log("카카오 DB에 저장 성공");
-							ajaxAddKakao(member);
-							
-						},
-						fail : function(error) {
-							alert(error);
-						}
-					});
-					
-				} else {
-					/* ------------------- 에러 출력 메시지 ------------------- */
-					console.log("빈 공간이 있습니다.");
-				}
-				
-			});
-			
-			function ajaxAddKakao(member) {
-				$.post(serverAddr + "/auth/join.json", member, function(obj) {
-					console.log(member);
-					var result = obj.jsonResult
-					if (result.state != "success") {
-				    	alert("오류!");
-				    } else {
-				    	alert("[ Home & Human ] 가입을 환영합니다. 로그인 해주세요.");
-				    	ajaxKakaoAutoLogout();
-				    	//window.location.href = serverAddr + "/html/index.html";
-				    }
-				}, "json")
-			}
-			
-			function ajaxKakaoAutoLogout() {
-				//alert("로그아웃 준비1");
-				Kakao.Auth.logout(function(data) {
-					//alert("로그아웃 준비2");
-					if(data){	//정상적으로 로그아웃이 되면 true가 떨어져서 처리하였습니다.
-			              window.location.href = serverAddr + "/html/index.html";
-			        }
-				});
-			}
-			
-			<!-- 카카오 로그아웃 -->
-			$("#logoutBtn").click(function(event) {
-				console.log("로그아웃");
-				Kakao.Auth.logout(function(data) {
-					if(data){	//정상적으로 로그아웃이 되면 true가 떨어져서 처리하였습니다.
-			              window.location.href = serverAddr + "/html/index.html";
-			        }
-				});
-			});
-		});
-	</script>
+   <script type="text/javascript" src="../../js/common.js"></script>
+   <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+   <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+   <script type="text/javascript">
+      
+   </script>
+
+
+   <!-- 카카오 최초 설정 -->
+   <script type="text/javascript">
+      $(document).ready(function() {
+         Kakao.init("bfb48672ff68dbf137c2daffb44adfb0"); <!-- 카카오 핀 번호 -->
+         
+         <!-- 카카오 회원 값 가져오기 -->
+         Kakao.API.request({
+            url : '/v1/user/me',
+            success : function(res) {
+               // console.log(res)
+               // console.log(res.id + " 님이 로그인 합니다.")
+               // console.log(res.properties.nickname + " 님이 로그인 합니다.")
+               $("#id").val(res.id);
+               $("#name").val(res.properties.nickname);
+            },
+            fail : function(error) {
+               console.log(error);
+            }
+         });
+         
+         <!-- 카카오 최초 설정 값 입력하기 -->
+         $("#kakaoUpdate").click(function(event) {
+            if ($("#birth1").val().length != 8) {
+               alert("생일이 형식에 맞지 않습니다.");
+            }
+            
+            var birthMerge1 = $("#birth1").val().substring(0, 4);
+            var birthMerge2 = $("#birth1").val().substring(4, 6);
+              var birthMerge3 = $("#birth1").val().substring(6, 8);
+            
+            var member = {
+              email: $("#id").val(),
+              name: $("#name").val(),
+              password: (Math.floor(Math.random() * 100000000)).toString(),
+              tel: $("#TEL").val(),
+              gender: $("#GEND").is(":checked") ? 0 : 1,
+              birth: birthMerge1 + "-" + birthMerge2 + "-" + birthMerge3,
+              auth: $("#AUTH").is(":checked") ? 0 : 1
+            }
+            
+            if ((member.tel != "") && ($("#birth1").val() != "") && ($("#birth2").val() != "") && ($("#birth3").val() != "")) {
+               //console.log("-----------" + member.email);
+               var password = member.password;
+               var gender = member.gender;
+               var auth = member.auth;
+               var birth = member.birth;
+               var tel = member.tel;
+               
+               Kakao.API.request({
+                  url : '/v1/user/update_profile',
+                  data : {properties : {GEND : gender, AUTH : auth, BIRTH : birth, TEL : tel, PASSWORD : password}},
+                  success : function(res) {
+                     //console.log("카카오 DB에 저장 성공");
+                     ajaxAddKakao(member);
+                     
+                  },
+                  fail : function(error) {
+                     alert(error);
+                  }
+               });
+               
+            } else {
+               /* ------------------- 에러 출력 메시지 ------------------- */
+               console.log("빈 공간이 있습니다.");
+            }
+            
+         });
+         
+         function ajaxAddKakao(member) {
+            $.post(serverAddr + "/auth/join.json", member, function(obj) {
+               console.log(member);
+               var result = obj.jsonResult
+               if (result.state != "success") {
+                   alert("오류!");
+                } else {
+                   alert("[ Home & Human ] 가입을 환영합니다. 로그인 해주세요.");
+                   ajaxKakaoAutoLogout();
+                   //window.location.href = serverAddr + "/html/index.html";
+                }
+            }, "json")
+         }
+         
+         function ajaxKakaoAutoLogout() {
+            //alert("로그아웃 준비1");
+            Kakao.Auth.logout(function(data) {
+               //alert("로그아웃 준비2");
+               if(data){   //정상적으로 로그아웃이 되면 true가 떨어져서 처리하였습니다.
+                       window.location.href = serverAddr + "/html/index.html";
+                 }
+            });
+         }
+         
+         <!-- 카카오 로그아웃 -->
+         $("#logoutBtn").click(function(event) {
+            console.log("로그아웃");
+            Kakao.Auth.logout(function(data) {
+               if(data){   //정상적으로 로그아웃이 되면 true가 떨어져서 처리하였습니다.
+                       window.location.href = serverAddr + "/html/index.html";
+                 }
+            });
+         });
+      });
+   </script>
 </body>
 </html>

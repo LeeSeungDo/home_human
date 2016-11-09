@@ -37,6 +37,7 @@ public class DefaultRealEstateContractService implements RealEstateContractServi
     map.put("length", length);
     return realEstateContractDao.selectList3(map);
   }
+  
 
   public void insertRealEstateContract(RealEstateContract realEstateContract, MultipartFile file,
       String uploadDir) throws Exception {
@@ -79,8 +80,15 @@ public class DefaultRealEstateContractService implements RealEstateContractServi
     realEstateContractDao.delete(no);
   }
 
+  
+  public List<RealEstateContract> getRealEstateContractTenantList(String email) throws Exception {
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("email", email);
+    
+    return realEstateContractDao.tenantList(map);
+  }
+  
 }
-
 
 
 
