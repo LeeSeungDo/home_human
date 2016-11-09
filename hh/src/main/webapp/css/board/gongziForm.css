@@ -1,6 +1,12 @@
 @CHARSET "UTF-8";
 
+html {
+  font-size: 82%;
+}
 
+.yaybar ul > li.yay-user-info > a, .yaybar ul > li.yay-user-info > .sp-cancel {
+  height: 87.97px;
+}
 
 section {
   width: 100%;
