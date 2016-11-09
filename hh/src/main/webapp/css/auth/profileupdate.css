@@ -98,15 +98,30 @@ img {
   background-position: 0 0;
 }
 
-#phoApplyBtn {
+.filebox label {
 	margin-top: 30px;
 	margin-right: 10px;
-	width: 100px;
-	height: 40px;
-	background: #00aceb;
-	border: 1px solid #00aceb; 
-	color: #fff;
-	border-radius: 5px 5px 5px 5px;
+  text-align: center;
+  padding-top: 8px;
+  color: #fff;
+  width: 100px;
+  height: 40px;
+  background: #00aceb;
+  cursor: pointer;
+  border: 1px solid #00aceb; 
+  border-radius: 5px;
+  float: left;
+}
+
+.filebox input[type="file"] {  /* 파일 필드 숨기기 */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
 }
 
 #phoDeleteBtn {
@@ -116,6 +131,7 @@ img {
   background: #fff;
   border-radius: 5px 5px 5px 5px;
   border: 1px solid #cccccc;
+  float: left;
 }
 
 #updateBtn {

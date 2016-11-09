@@ -2,7 +2,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
- <link rel="shortcut icon" href="../../images/favicon.ico">
 <title>프로필 수정</title>
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
@@ -10,7 +9,6 @@
 </head>
 <body>
 
-	<form>
 		<div id="header">
     <div id="logo">
      <span class="sptext" id="title">홈로고</span>
@@ -34,7 +32,12 @@
                      style="border-radius: 50px;" />
                 </a>
 							</div>
-								<button id="phoApplyBtn" type="button">사진변경</button>
+								
+								<div id="phoBtn" class="filebox">
+                <label for="ex_file">사진 선택</label>
+                <input type="file" id="ex_file"> 
+                </div>
+								
 								<button id="phoDeleteBtn" type="button">삭제</button>
 							</td>
 						</tr>
@@ -44,10 +47,19 @@
 						<tr>
 							<th class="th_cell2">비밀번호</th>
 							<td class="td_cell2">
-							 <span>기존 비밀번호 입니다.</span>
-							 <input id="password" type="text" class="form-control"><br>
-							 <span>변경하실 비밀번호를 입력하세요.</span>
-							 <input id="updatePassword" type="password" class="form-control" placeholder="변경하실 비밀번호를 입력하세요.">
+							
+								<span>현재 비밀번호</span>
+								<input id="password" name="password" type="password" class="form-control" value="1111"><br>
+								
+								<form name="password_form">
+							    <span>새 비밀번호</span><br>
+							    <input type="password" name="password1" class="form-control" onkeyup="verify.check()" value="1111"><br>
+							    <span>새 비밀번호 확인</span><br>
+							    <input id="passwordUp" type="password" name="password2" class="form-control" onkeyup="verify.check()" value="1111">
+							      <!-- Display a message if the passwords match or don't match -->
+							    <div id="password_result"></div>
+						    </form>
+                
 							</td>
 						</tr>
 					</table>
@@ -56,11 +68,14 @@
 			<a href="#"><button id="updateBtn" type="button">적용</button></a>
       <a href="#"><button id="cancelBtn" type="button">취소</button></a>
 		</div>
-	</form>
 	
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="../../js/common.js"></script>
 <script type="text/javascript" src="../../js/auth/profileupdate.js"></script>
+
+<script>
+ajaxLoginUser()  // 로그인 유저 정보 가져오기
+</script>
 
 
 </body>

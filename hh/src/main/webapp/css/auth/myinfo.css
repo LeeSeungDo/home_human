@@ -79,6 +79,15 @@ ul {
 	position: absolute;
 }
 
+.td_cell1 {
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+
+.td_cell2 {
+  padding-bottom: 10px;
+}
+
 #phoPath {
 	width: 100px;
 	height: 100px;
@@ -87,7 +96,7 @@ ul {
 }
 
 #proUpBtn {
-	top: 283px;
+	top: 270px;
 	width: 100px;
 	height: 40px;
 	position: absolute;
@@ -108,8 +117,28 @@ ul {
   float: left;
 }
 
+.td_cell3 {
+	padding-top: 20px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+}
+
+.td_cell4 {
+  padding-right: 30px;
+  padding-bottom: 10px;
+}
+
+.td_cell5 {
+	padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.td_cell6 {
+  padding-bottom: 10px;
+}
+
 #contactUpBtn {
-	margin-top: 110px;
+	margin-top: 40px;
 	width: 100px;
   height: 40px;
 	border: 1px solid #cccccc;
@@ -130,7 +159,7 @@ ul {
 }
 
 #buildUpBtn {
-  margin-top: 170px;
+  margin-top: 160px;
   width: 100px;
   height: 40px;
   border: 1px solid #cccccc;

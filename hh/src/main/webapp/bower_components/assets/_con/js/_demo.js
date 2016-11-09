@@ -28,7 +28,7 @@
     this.sidebarLogo = getElementsByClassName(this.sidebar, 'brand-logo')[0].getElementsByTagName('img')[0];
 
     this.navbar = getElementsByClassName(document, 'navbar-top')[0];
-    this.navbarLogo = getElementsByClassName(this.navbar, 'brand-logo')[0].getElementsByTagName('img')[0];
+    //this.navbarLogo = getElementsByClassName(this.navbar, 'brand-logo')[0].getElementsByTagName('img')[0];
 
     this.chat = getElementsByClassName(document, 'chat')[0];
 
@@ -337,7 +337,7 @@
 
                   this.navbarLogo.src = '../../images/hhlogo.png';
                 } else {
-                  this.navbarLogo.src = '../../images/hhlogo.png';
+                  //this.navbarLogo.src = '../../images/hhlogo.png';
                 }
                 break;
 

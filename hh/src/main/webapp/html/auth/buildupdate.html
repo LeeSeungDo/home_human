@@ -2,8 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
- <link rel="shortcut icon" href="../../images/favicon.ico">
-<title>Human & Home</title>
+<title>건물정보 수정</title>
 
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
@@ -14,12 +13,12 @@
 
 	<form>
 		<div id="header">
-			<div id="logo">
-				<span class="sptext" id="title">홈로고</span> <a id="logoBtn" href="#">
-					<img src="../../images/logo.png">
-				</a> <span class="sptext">내정보</span>
-			</div>
-		</div>
+    <div id="logo">
+     <span class="sptext" id="title">홈로고</span>
+       <a id="logoBtn" href="#"><img src="../../images/logo.png"></a>
+     <a id="myinfo" href="#"><span class="sptext">내정보</span></a>
+    </div>
+  </div>
 
 
 		<div id="content">
@@ -43,19 +42,21 @@
 									<input type="text" id="address" placeholder="기본주소">
 									<input type="text" id="address2" placeholder="상세주소"><br>
 									
-									<span>건물 유형</span><br>
+									<div id="buildcategory">
 									<label>원룸</label>
-									<input type="radio" name="material" value="원룸">
+									<input id="studio" name="meterial1" type="radio"value="원룸">
                   <label>오피스텔</label>
-                  <input type="radio" name="material" value="오피스텔">
+                  <input id="efficency" name="meterial1" type="radio"value="오피스텔">
                   <label>다세대</label>
-                  <input type="radio" name="material" value="다세대"><br>
+                  <input id="multiplex" name="meterial1" type="radio"value="다세대"><br>
+									</div>
                   
-                  <span>주차 가능 여부</span><br>
-                  <label>가능</label>
-                  <input type="radio" name="material" value="가능">
-                  <label>불가능</label>
-                  <input type="radio" name="material" value="불가능"><br>
+                  <div id="park">
+                  <label>주차가능</label>
+                  <input id="possible" type="radio" name="meterial2" value="주차가능">
+                  <label>주차불가</label>
+                  <input id="impossible" type="radio" name="meterial2" value="주차불가"><br>
+                  </div>
 									<input id="agreeBtn" type="button" value="등록" />
 									<input id="cancelBtn" type="button" value="취소" />
 								</td>
@@ -73,82 +74,8 @@
 
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
-<script>
-    //load함수를 이용하여 core스크립트의 로딩이 완료된 후, 우편번호 서비스를 실행합니다.
-    daum.postcode.load(function(){
-        new daum.Postcode({
-            oncomplete: function(data) {
-                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
-                // 예제를 참고하여 다양한 활용법을 확인해 보세요.
-            }
-        })/* .open(); */
-    });
-</script>
-
-	<!-- div 동적 추가 -->
-	<script>
-		function add_item() {
-			// pre_set 에 있는 내용을 읽어와서 처리..
-			var div = document.createElement('div');
-			div.innerHTML = document.getElementById('pre_set').innerHTML;
-			document.getElementById('field').appendChild(div);
-		}
-		
-		function remove_item(obj) {
-			// obj.parentNode 를 이용하여 삭제
-			document.getElementById('field').removeChild(obj.parentNode);
-		}
-	</script>
-
-	<!-- 우편번호 API -->
-	<script>
-	
-	
-		function DaumPostcode() {
-			new daum.Postcode({
-				oncomplete : function(data) {
-					// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
-					// 각 주소의 노출 규칙에 따라 주소를 조합한다.
-					// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-					var fullAddr = ''; // 최종 주소 변수
-					var extraAddr = ''; // 조합형 주소 변수
-
-					// 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-					if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-						fullAddr = data.roadAddress;
-
-					} else { // 사용자가 지번 주소를 선택했을 경우(J)
-						fullAddr = data.jibunAddress;
-					}
-
-					// 사용자가 선택한 주소가 도로명 타입일때 조합한다.
-					if (data.userSelectedType === 'R') {
-						//법정동명이 있을 경우 추가한다.
-						if (data.bname !== '') {
-							extraAddr += data.bname;
-						}
-						// 건물명이 있을 경우 추가한다.
-						if (data.buildingName !== '') {
-							extraAddr += (extraAddr !== '' ? ', '
-									+ data.buildingName : data.buildingName);
-						}
-						// 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-						fullAddr += (extraAddr !== '' ? ' (' + extraAddr + ')'
-								: '');
-					}
-
-					console.log(document.getElementById('address').value);
-					// 우편번호와 주소 정보를 해당 필드에 넣는다.
-					document.getElementById('postcode').value = data.zonecode; //5자리 새우편번호 사용
-					document.getElementById('address').value = fullAddr;
-
-					// 커서를 상세주소 필드로 이동한다.
-					document.getElementById('address2').focus();
-				}
-			}).open();
-		}
-	</script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/auth/buildupdate.js"></script>
 
 </body>
 </html>
