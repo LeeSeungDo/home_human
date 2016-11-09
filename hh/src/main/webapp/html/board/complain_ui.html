@@ -225,7 +225,7 @@
                         <a href="#" class=" waves-effect waves-blue" id="gongziLink"> <i class="fa fa-check"></i><span> 공지사항 </span></a>
                     </li>
 					<li>
-                        <a href="../board/complain_ui.html" class=" waves-effect waves-blue"> <i class="fa fa-bullhorn"></i> 민원사항 </a>
+                        <a href="../board/complain_l.html" class=" waves-effect waves-blue"> <i class="fa fa-bullhorn"></i> 민원사항 </a>
                     </li>
                     <li>
                         <a href="#" class=" waves-effect waves-blue"> <i class="fa fa-building-o"></i> 건물정보 </a>
@@ -315,16 +315,15 @@
 
 {{/each}}
 </script>
-			<!-- 리스트 -->	
+			<!-- 리스트 -->
 			<div class="complain_pagination">
-			<ul class="pagination">
-				<li class="disabled" id="prevBtn"><a href="#!">
-				<i class="mdi-navigation-chevron-left"></i></a></li>
-				 <li class="waves-effect" id="pageNo">1</li>
-					<li id="nextBtn" class="waves-effect"><a href="#!">
-					<i class="mdi-navigation-chevron-right"></i></a></li>
-		</ul>
+				<button id="prevBtn" type="button"
+					class="uk-button uk-button-primary">이전</button>
+				<span id="pageNo">1</span>
+				<button id="nextBtn" type="button"
+					class="uk-button uk-button-primary">다음</button>
 			</div>
+		</div>
 
 		<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
 		<div id="complain2" class="tab_content">
@@ -357,14 +356,15 @@
 	</script>
 <!-- 리스트 -->
 			<div class="complain_pagination">
-			<ul class="pagination">
-				<li class="disabled" id="prevBtn2"><a href="#!">
-				<i class="mdi-navigation-chevron-left"></i></a></li>
-				 <li class="waves-effect" id="pageNo2">1</li>
-					<li id="nextBtn2" class="waves-effect"><a href="#!">
-					<i class="mdi-navigation-chevron-right"></i></a></li>
-		</ul>
+				<button id="prevBtn2" type="button"
+					class="uk-button uk-button-primary">이전</button>
+				<span id="pageNo_tab2">1</span>
+				<button id="nextBtn2" type="button"
+					class="uk-button uk-button-primary">다음</button>
 			</div>
+		</div>
+
+	</div>
 	<!-- tab container -->
 
 	<!-------------------------------------------------- 모달 시작(처리) -------------------------------------------------------------->
