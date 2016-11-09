@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="_nK">
     <link rel="shortcut icon" href="../../images/favicon.ico">
-	 
+    
     <title>Home &#38; Human</title>
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
@@ -37,13 +37,13 @@
 
 
 
-	<!-- Full Calendar -->
+   <!-- Full Calendar -->
     <link rel="stylesheet" type="text/css" href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
 
     <!-- dossierbit -->
     <link rel="stylesheet" type="text/css" href="../../css/dashboard/dossierbit.css" />
 
-	<!-- complain css -->
+   <!-- complain css -->
     <link rel="stylesheet" type="text/css" href="../../css/board/complain_ui.css" />
 
 <!--[if lt IE 9]>
@@ -60,14 +60,14 @@
 -->
 
 <body>
-	<!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
+   <!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
     <!--
-  	Top Navbar
-    	Options:
-    	  .navbar-dark - dark color scheme
-    	  .navbar-static - static navbar
-    	  .navbar-under - under sidebar
-	-->
+     Top Navbar
+       Options:
+         .navbar-dark - dark color scheme
+         .navbar-static - static navbar
+         .navbar-under - under sidebar
+   -->
     <nav class="navbar-top">
         <div class="nav-wrapper">
 
@@ -152,7 +152,7 @@
                             </a>
                         </li>
                         <li>
-                        	<a href="#" id="getOut">
+                           <a href="#" id="getOut">
                                 <i class="fa fa-sign-out"></i><span> 카톡탈퇴 </span>
                             </a>
                         </li>
@@ -167,8 +167,8 @@
     <!---------------------------------------------------------/탑 nav 부분------------------------------------------------------------>
     
     
-	<!---------------------------------------------------------사이드바 부분----------------------------------------------------------->
-	<!--
+   <!---------------------------------------------------------사이드바 부분----------------------------------------------------------->
+   <!--
   Yay Sidebar
   Options [you can use all of theme classnames]:
     .yay-hide-to-small         - no hide menu, just set it small with big icons
@@ -182,7 +182,7 @@
     .yay-push     - push content to right
     .yay-shrink   - shrink content width
 -->
-	<aside class="yaybar yay-shrink yay-hide-to-small yay-gestures">
+   <aside class="yaybar yay-shrink yay-hide-to-small yay-gestures">
 
         <div class="top">
             <div>
@@ -218,13 +218,13 @@
 
                     <li class="label">메뉴</li>
 
-					<li class="active"><a href="dashboard-v1.html"
-						class=" waves-effect waves-blue"><i class="fa fa-tachometer"></i> Home &#38; Human </a>
-					</li>
-					<li>
+               <li class="active"><a href="dashboard-v1.html"
+                  class=" waves-effect waves-blue"><i class="fa fa-tachometer"></i> Home &#38; Human </a>
+               </li>
+               <li>
                         <a href="#" class=" waves-effect waves-blue" id="gongziLink"> <i class="fa fa-check"></i><span> 공지사항 </span></a>
                     </li>
-					<li>
+               <li>
                         <a href="../board/complain_l.html" class=" waves-effect waves-blue"> <i class="fa fa-bullhorn"></i> 민원사항 </a>
                     </li>
                     <li>
@@ -248,56 +248,56 @@
     <!---------------------------------------------------------/사이드바 부분------------------------------------------------------------>
 
 
-	<!------------------------------------------------------------메인 부분-------------------------------------------------------------->
-	<!-- Main Content -->
-	<section class="content-wrap">
+   <!------------------------------------------------------------메인 부분-------------------------------------------------------------->
+   <!-- Main Content -->
+   <section class="content-wrap">
 
-		<!-- Breadcrumb -->
-		<div class="page-title" style="height: 80px;">
+      <!-- Breadcrumb -->
+      <div class="page-title" style="height: 80px;">
 
-			<div class="row">
-				<div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
-					<a href="../../html/index.html" class="hh-logo-black">
-                		<!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
-            		</a>
-            		<h1>임차인이 보낸 민원들을 보세요</h1>
-				</div>
-			</div>
+         <div class="row">
+            <div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
+               <a href="../../html/index.html" class="hh-logo-black">
+                      <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
+                  </a>
+                  <h1>임차인이 보낸 민원들을 보세요</h1>
+            </div>
+         </div>
 
-		</div>
-		<!-- /Breadcrumb -->
+      </div>
+      <!-- /Breadcrumb -->
 
-		<div class="row sortable">
-		
-		<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
-			<div class="row">
-				<div class="col s12">
-					<ul class="tabs">
-						<li class="tab col s3" rel="complain1"><a href="#test1">
-						미처리 민원</a></li>
-						<li class="tab col s3" rel="complain2"><a class="active" href="#test2">
-						처리된 민원</a></li>
-					</ul>
-					</div>
-					</div>
+      <div class="row sortable">
+      
+      <!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
+         <div class="row">
+            <div class="col s12">
+               <ul class="tabs">
+                  <li class="tab col s3" rel="complain1"><a href="#test1">
+                  미처리 민원</a></li>
+                  <li class="tab col s3" rel="complain2"><a class="active" href="#test2">
+                  처리된 민원</a></li>
+               </ul>
+               </div>
+               </div>
 
-	<br>
-	<br>
+   <br>
+   <br>
 
-	<div class="tab_container">
-		<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
-		<div id="complain1" class="tab_content">
-			<div class="row" id="complainTable">
-			</div>
+   <div class="tab_container">
+      <!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
+      <div id="complain1" class="tab_content">
+         <div class="row" id="complainTable">
+         </div>
 
-			<script id="trTemplateText" type="text/x-handlebars-template">
+         <script id="trTemplateText" type="text/x-handlebars-template">
 {{#each list}}
-	<div class="col l4 s12">
-	<div class="card of-h">
+   <div class="col l4 s12">
+   <div class="card of-h">
   <div class="card-image waves-effect waves-block waves-light">
     <img src="../../upload/{{filename}}" alt="Canada" 
-		onerror="this.onerror=null;this.src='../../images/camera.png';"
-		 class="portrait activator">
+      onerror="this.onerror=null;this.src='../../images/camera.png';"
+       class="portrait activator">
   </div>
   <div class="content">
     <span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title">{{title}}</p>
@@ -305,38 +305,38 @@
   </div>
   <div class="card-reveal">
     <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
-		<p>{{contents}}</p>
-	<div class="button-group">
-							<a class="btn" id="updateBtn1">수정</a>
-						</div>
+      <p>{{contents}}</p>
+   <div class="button-group">
+                     <a class="btn" id="updateBtn1">수정</a>
+                  </div>
   </div>
 </div>
 </div>
 
 {{/each}}
 </script>
-			<!-- 리스트 -->
-			<div class="complain_pagination">
-				<button id="prevBtn" type="button"
-					class="uk-button uk-button-primary">이전</button>
-				<span id="pageNo">1</span>
-				<button id="nextBtn" type="button"
-					class="uk-button uk-button-primary">다음</button>
-			</div>
-		</div>
+         <!-- 리스트 -->
+         <div class="complain_pagination">
+            <button id="prevBtn" type="button"
+               class="uk-button uk-button-primary">이전</button>
+            <span id="pageNo">1</span>
+            <button id="nextBtn" type="button"
+               class="uk-button uk-button-primary">다음</button>
+         </div>
+      </div>
 
-		<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
-		<div id="complain2" class="tab_content">
-			<div class="row" id="complainTable2">
-			</div>
+      <!---------------------------------------------------- #tab2 처리 --------------------------------------------->
+      <div id="complain2" class="tab_content">
+         <div class="row" id="complainTable2">
+         </div>
 <script id="trTemplateText2" type="text/x-handlebars-template">
 {{#each list}}
-	<div class="col l4 s12">
-	<div class="card of-h">
+   <div class="col l4 s12">
+   <div class="card of-h">
   <div class="card-image waves-effect waves-block waves-light">
     <img src="../../upload/{{filename}}" alt="Canada" 
-		onerror="this.onerror=null;this.src='../../images/camera.png';"
-		 class="portrait activator">
+      onerror="this.onerror=null;this.src='../../images/camera.png';"
+       class="portrait activator">
   </div>
   <div class="content">
     <span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title">{{title}}</p>
@@ -344,70 +344,70 @@
   </div>
   <div class="card-reveal">
     <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
-		<p>{{contents}}</p>
-	<div class="button-group">
-							<a class="btn" id="updateBtn1">수정</a>
-						</div>
+      <p>{{contents}}</p>
+   <div class="button-group">
+                     <a class="btn" id="updateBtn1">수정</a>
+                  </div>
   </div>
 </div>
 </div>
 
 {{/each}}
-	</script>
+   </script>
 <!-- 리스트 -->
-			<div class="complain_pagination">
-				<button id="prevBtn2" type="button"
-					class="uk-button uk-button-primary">이전</button>
-				<span id="pageNo_tab2">1</span>
-				<button id="nextBtn2" type="button"
-					class="uk-button uk-button-primary">다음</button>
-			</div>
-		</div>
+         <div class="complain_pagination">
+            <button id="prevBtn2" type="button"
+               class="uk-button uk-button-primary">이전</button>
+            <span id="pageNo_tab2">1</span>
+            <button id="nextBtn2" type="button"
+               class="uk-button uk-button-primary">다음</button>
+         </div>
+      </div>
 
-	</div>
-	<!-- tab container -->
+   </div>
+   <!-- tab container -->
 
-	<!-------------------------------------------------- 모달 시작(처리) -------------------------------------------------------------->
-	<div class="modal fade bs-example-modal-lg0" tabindex="-1"
-		role="dialog" aria-labelledby="myLargeModalLabel">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h4 class="modal-title0">
-						<p id="modal-title0"></p>
-						<h5 id="modal-writer0"></h5>
-					</h4>
-				</div>
-				<div class="modal-body" id="body">
-					<textarea id="contents0" class="form-control" cols="50" rows="10"
-						placeholder="내용입니다." style="background: white" readonly></textarea>
-				</div>
-				<div class="modal-footer">
-					<div class="uk-form-row">
-						<div class="uk-form-controls">
-							<input type="radio" name="rsvdMaterial0" value="미처리">미처리
-							<input id="rsvd0" type="radio" name="rsvdMaterial0" value="처리"
-								checked>처리
-						</div>
-						<br>
-					</div>
-					<div class="uk-button-group">
-						<a class="uk-button" id="updateBtn0">수정</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-			
-			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
-		</div>
-	</section>
-	<!-- /Main Content -->
-	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
+   <!-------------------------------------------------- 모달 시작(처리) -------------------------------------------------------------->
+   <div class="modal fade bs-example-modal-lg0" tabindex="-1"
+      role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">×</button>
+               <h4 class="modal-title0">
+                  <p id="modal-title0"></p>
+                  <h5 id="modal-writer0"></h5>
+               </h4>
+            </div>
+            <div class="modal-body" id="body">
+               <textarea id="contents0" class="form-control" cols="50" rows="10"
+                  placeholder="내용입니다." style="background: white" readonly></textarea>
+            </div>
+            <div class="modal-footer">
+               <div class="uk-form-row">
+                  <div class="uk-form-controls">
+                     <input type="radio" name="rsvdMaterial0" value="미처리">미처리
+                     <input id="rsvd0" type="radio" name="rsvdMaterial0" value="처리"
+                        checked>처리
+                  </div>
+                  <br>
+               </div>
+               <div class="uk-button-group">
+                  <a class="uk-button" id="updateBtn0">수정</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+         
+         <!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+      </div>
+   </section>
+   <!-- /Main Content -->
+   <!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
 
     <div class="chat">
-	<!--------------------------------------------------------메세지 부분---------------------------------------------------------->
+   <!--------------------------------------------------------메세지 부분---------------------------------------------------------->
             <!-- Messages -->
             <div class="messages">
 
@@ -538,9 +538,9 @@
 
 
 
-	<!-- Full Calendar -->
+   <!-- Full Calendar -->
     <script type="text/javascript" src="../../bower_components/moment/min/moment.min.js"></script>
-    	
+       
     <script type="text/javascript" src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../../bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 
@@ -553,26 +553,26 @@
 
     <!-- Google Prettify -->
     <script type="text/javascript" src="../../bower_components/code-prettify/src/prettify.js"></script>
-	
-		<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
-	<script src="../../node_modules/uikit/dist/js/uikit.min.js"></script>
-	<script src="../../node_modules/uikit/dist/js/core/tab.min.js"></script>
+   
+      <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+   <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+   <script src="../../node_modules/uikit/dist/js/uikit.min.js"></script>
+   <script src="../../node_modules/uikit/dist/js/core/tab.min.js"></script>
 
-	<script type="text/javascript" src="../../js/common.js"></script>
-	<script type="text/javascript" src="../../js/bit.js"></script>
-	<script type="text/javascript" src="../../js/board/complain_l.js"></script>
+   <script type="text/javascript" src="../../js/common.js"></script>
+   <script type="text/javascript" src="../../js/bit.js"></script>
+   <script type="text/javascript" src="../../js/board/complain_l.js"></script>
 
 
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<!--------------------------------------------------------- 모달 load 자바스크립트 코드------------------------------------------------->
+   <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <!--------------------------------------------------------- 모달 load 자바스크립트 코드------------------------------------------------->
 
-	<script type="text/javascript">
-		ajaxComplainListRsvd1()
-		ajaxComplainListRsvd0() 
-	</script>
-	
+   <script type="text/javascript">
+      ajaxComplainListRsvd1()
+      ajaxComplainListRsvd0() 
+   </script>
+   
 <script>
     /* 
      * Init Calendar
@@ -633,16 +633,16 @@
     });
     </script>
     
-	<script type="text/javascript" src="../../js/common.js"></script>
-	<script type="text/javascript" src="../../js/bit.js"></script>
-	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-	<script type="text/javascript" src="../../js/dashboard/dashboard.js"></script>
-	
-	<script>
-		//console.log("document.cookie : " + document.cookie);
-		ajaxLoginUser();
-      	ajaxFirstList();
-	</script>
+   <script type="text/javascript" src="../../js/common.js"></script>
+   <script type="text/javascript" src="../../js/bit.js"></script>
+   <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+   <script type="text/javascript" src="../../js/dashboard/dashboard.js"></script>
+   
+   <script>
+      //console.log("document.cookie : " + document.cookie);
+      ajaxLoginUser();
+         ajaxFirstList();
+   </script>
 
 </body>
 

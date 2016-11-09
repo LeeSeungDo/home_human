@@ -4,6 +4,15 @@ $("#myInfo").click(function(event) {
    window.location.href = serverAddr + "/html/auth/myinfo.html"
 });
 
+$("#gongziLink").click(function(event) {
+	alert("공지");
+	window.location.href = serverAddr + "/html/board/gongzi.html"
+});
+
+$("#complainLink").click(function(event) {
+	alert("민원");
+	window.location.href = serverAddr + "/html/board/complain_l.html"
+});
 
 
 $(document).ready(function() {
@@ -40,17 +49,6 @@ $(document).ready(function() {
       });
    }
 });
-
-
-$("#gongziLink").click(function(event) {
-   alert("공지");
-   window.location.href = serverAddr + "/html/board/gongzi.html"
-});
-
-$("#complainLink").click(function(event) {
-	   alert("공지");
-	   window.location.href = serverAddr + "/html/board/complain_l.html"
-	});
 
 
 /*----------------------------------------------------- 로그인 정보 불러오기 -----------------------------------------------------*/
