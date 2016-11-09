@@ -33,6 +33,6 @@
     "commit": "bdd23d93e5da00fa3ee2eaab36063c572d993f25"
   },
   "_source": "https://github.com/videojs/video.js.git",
-  "_target": "~4.12.11",
+  "_target": "^4.11",
   "_originalSource": "video.js"
 }
