@@ -21,6 +21,15 @@
     <result column="PHO_PATH" property="filename" />
   </resultMap>
 
+    <select id="selectList" resultMap="realestatecontractMap"
+    parameterType="map">
+    select * from re_crct
+    where t_email='lee@bit.com'
+    order by CRCT_NO asc
+
+    limit #{startIndex}, #{length}
+  </select>
+
   <select id="selectList1" resultMap="realestatecontractMap"
     parameterType="map">
     select t1.T_EMAIL, t1.CRCT_NO, t1.CRCT_STAT, t2.NAME, t2.EMAIL
