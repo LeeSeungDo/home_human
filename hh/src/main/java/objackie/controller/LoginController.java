@@ -74,7 +74,7 @@ public class LoginController {
         
       } else {
         model.addAttribute("member", member); // Model 객체에 로그인 회원 정보를 담는다.
-        System.out.println("member : " + member + ", cookie : " + cookie.getValue());
+        System.out.println("member : " + member);
         return JsonResult.success();
       }
       

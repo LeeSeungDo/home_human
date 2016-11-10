@@ -290,18 +290,18 @@
 							<th class="th_cell1">프로필 사진</th>
 							<td class="td_cell1">
 								<form id="profileForm">
-									<input type="hidden" id="loginUserEmail">
+									<input type="hidden" name="email" id="loginUserEmail">
 									<div id="profilePhoto">
-										<a href="#">
-											<img id="phoPath" src="../../images/default.png" style="border-radius: 50px;" />
+										<a href="#"> <img id="phoPath"
+											src="../../images/default.png" style="border-radius: 50px;" />
 										</a>
 									</div>
-								</form>
 
-								<div id="phoBtn" class="filebox">
-									<label for="ex_file">사진 선택</label>
-									<input type="file" id="ex_file">
-								</div>
+									<div id="phoBtn" class="filebox">
+										<label for="ex_file">사진 선택</label> <input type="file"
+											name="file" id="ex_file">
+									</div>
+								</form>
 
 								<button id="phoDeleteBtn" type="button">삭제</button>
 							</td>
@@ -495,7 +495,6 @@
 
 	<script>
 		//console.log("document.cookie : " + document.cookie);
-		console.log("되?");
 		ajaxLoginUser();
 	</script>
 	

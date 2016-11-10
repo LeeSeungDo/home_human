@@ -16,6 +16,10 @@
     values(#{email}, #{name}, #{password}, #{tel}, #{gender}, #{birth}, #{auth}, #{phoPath})
   </insert>
   
+  <update id="updatePhoto" parameterType="Member">
+  	update MEMBS set pho_path=#{phoPath} where email=#{email}
+  </update>
+  
 </mapper>
 
 

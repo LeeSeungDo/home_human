@@ -75,8 +75,8 @@ function ajaxLoginUser() {
       $("#authLevel").html("임대인");
       
       if (result.data.phoPath != null && result.data.phoPath != "") {
-    	  $('#myPhoto1').attr('src', result.data.phoPath);
-    	  $('#myPhoto2').attr('src', result.data.phoPath);
+    	  $('#myPhoto1').attr('src', '../../upload/' + result.data.phoPath);
+    	  $('#myPhoto2').attr('src', '../../upload/' + result.data.phoPath);
       } else {
     	  $('#myPhoto1').attr('src', '../../images/user_default.png');
     	  $('#myPhoto2').attr('src', '../../images/user_default.png');

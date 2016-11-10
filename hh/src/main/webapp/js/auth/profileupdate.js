@@ -71,18 +71,20 @@ function ajaxLoginUser() {
        }
       
       console.log(result.data);
-      //console.log(result.data.phoPath);
+      console.log(result.data.phoPath);
       $("#userName1").html(result.data.name);
       $("#userName2").html(result.data.name);
       $("#authLevel").html("임대인");
       
       if (result.data.phoPath != null && result.data.phoPath != "") {
-    	  $('#myPhoto1').attr('src', result.data.phoPath);
-    	  $('#myPhoto2').attr('src', result.data.phoPath);
+    	  $('#myPhoto1').attr('src', '../../upload/' + result.data.phoPath);
+    	  $('#myPhoto2').attr('src', '../../upload/' + result.data.phoPath);
       } else {
     	  $('#myPhoto1').attr('src', '../../images/user_default.png');
     	  $('#myPhoto2').attr('src', '../../images/user_default.png');
       }
+      
+      ajaxInputUser();
     })
 }
 /*----------------------------------------------------- /로그인 정보 불러오기 -----------------------------------------------------*/
@@ -92,6 +94,29 @@ $("#cancelBtn").click(function(event) {
 	window.location.href = serverAddr + "/html/auth/myinfo.html"
 });
 
+$("#updateBtn").click(function(event) {
+	var form = $('form')[0];
+	var formData = new FormData(form);
+	
+	console.log(formData);
+	ajaxUpdateFile(formData);
+});
+
+function ajaxUpdateFile(formData) {
+	$.ajax({
+	    url: serverAddr + "/auth/updateFile.json",
+	    data: formData,
+	    processData: false,
+	    contentType: false,
+	    type: 'POST',
+	    success: function(data){
+	    	alert("EE");
+	    	window.location.href = serverAddr + "/html/dashboard/dashboard.html"
+	    }
+	  });
+}
+
+/*
 //업데이트 적용
 $("#updateBtn").click(function(event) {
 	var member = {
@@ -107,8 +132,9 @@ $("#updateBtn").click(function(event) {
 			phoPath: $("#phoPath").val(),
 			password: $("#passwordUp").val()
 	}
-	//console.log(member)
-	ajaxUpdateMember(member)
+	console.log(member)
+	
+	//ajaxUpdateMember(member)
 
 });
 
@@ -124,7 +150,7 @@ function ajaxUpdateMember(member) {
 		window.location.href = serverAddr + "/html/auth/myinfo.html"
 	}, "json")
 }
-
+*/
 
 //회원정보수정 회원데이터 출력
 var myEmail;
@@ -138,15 +164,9 @@ var myDetailAddr;
 var myPhoPath;
 var myAuth;
 
-function ajaxUpdateUser() {
+function ajaxInputUser() {
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
-
-		
-		if (result.state != "success") { // 로그아웃 상태일 경우 로그인 상태와 관련된 태그를 감춘다.
-			window.location.href = serverAddr + "/html/index.html"
-			return
-		}
 		
 		myEmail = result.data.email;
 		myName = result.data.name;
@@ -158,9 +178,11 @@ function ajaxUpdateUser() {
 		myDetailAddr = result.data.detailAddr;
 		myPhoPath = result.data.phoPath;
 		
+		console.log(result.data.email);
+		$("#loginUserEmail").val(result.data.email);
 		//console.log(myPhoPath);
 		if (result.data.phoPath != null && result.data.phoPath != "") {
-	    	  $('#phoPath').attr('src', result.data.phoPath);
+	    	  $('#phoPath').attr('src', '../../upload/' + result.data.phoPath);
 	      } else {
 	    	  $('#phoPath').attr('src', '../../images/user_default.png');
 	      }
