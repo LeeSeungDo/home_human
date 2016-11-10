@@ -1,49 +1,29 @@
 @CHARSET "UTF-8";
 
 html {
-  width: 100%;
-  position: relative;
+  font-size: 82%;
 }
 
-#header {
-  height: 80px;
-  border-bottom: 2.5px solid gray;
-  overflow: hidden;
-  position: relative;
+.yaybar ul > li.yay-user-info > a, .yaybar ul > li.yay-user-info > .sp-cancel {
+  height: 87.97px;
 }
 
-#title {
-  display: none;
+thead {
+  border: 0;
 }
 
-#logoBtn {
-  top: 8px;
-  left: 10px;
-  position: absolute;
-}
-
-.sptext {
-  margin-top: 17px;
-  margin-left: 110px;
-  width: 100px;
-  font-size: 200%;
-  position: absolute;
-}
-
-img {
-  max-width: 70%;
-  height: auto ;
-}
-
-#content {
+#main1 {
   width: 1000px;
-  height: 750px;
   margin: 0 auto;
   position: relative;
 }
 
-.main {
-  margin-top: 50px;
+#main2 {
+  margin-top: -35px;
+}
+
+#main3 {
+  margin-top: 10px;
 }
 
 .th_cell {

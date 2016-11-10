@@ -2,6 +2,10 @@ $("#logoBtn").click(function(event) {
 	window.location.href = serverAddr + "/html/index.html"
 });
 
+$("#myinfoLink").click(function(event) {
+	window.location.href = serverAddr + "/html/dashboard/dashboard.html"
+});
+
 $("#myinfo").click(function(event) {
 	window.location.href = serverAddr + "/html/auth/myinfo.html"
 });
@@ -75,11 +79,21 @@ function ajaxLoginUser() {
 		myBasicAddr = result.data.basicAddr;
 		myDetailAddr = result.data.detailAddr;
 		myPhoPath = result.data.phoPath;
-		myAuth = result.data.auth;
+		$("#userName1").html(result.data.name);
+		$("#userName2").html(result.data.name);
+		$("authLevel").html(result.data.name);
 		
 		$("#phoPath").val(result.data.phoPath);
 //		$("#password").val(result.data.password);
+		
+		var auth = result.data.auth;
 
+		if (auth == 0) {
+			$("#authLevel").html("임대인");
+		} else {
+			$("#authLevel").html("임차인");
+		}
+		
 	})
 }
 

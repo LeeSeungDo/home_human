@@ -8,6 +8,10 @@ html {
 	height: 87.97px;
 }
 
+thead {
+	border: 0;
+}
+
 #main {
 	width: 1000px;
 	height: 750px;
@@ -54,8 +58,10 @@ html {
 	width: 100px;
 	height: 40px;
 	position: absolute;
-	border: 1px solid #cccccc;
-  background: #fff;
+	background: #fff;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  color: #4a4a4a;
   border-radius: 5px 5px 5px 5px;
 }
 
@@ -95,9 +101,10 @@ html {
 	margin-top: 40px;
 	width: 100px;
   height: 40px;
-	border: 1px solid #cccccc;
 	background: #fff;
-	border-radius: 5px 5px 5px 5px;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  color: #4a4a4a;
 }
 
 #buildinfo {
@@ -116,9 +123,10 @@ html {
   margin-top: 160px;
   width: 100px;
   height: 40px;
-  border: 1px solid #cccccc;
   background: #fff;
-  border-radius: 5px 5px 5px 5px;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  color: #4a4a4a;
 }
 
 .membleave {

@@ -2,6 +2,10 @@ $("#logoBtn").click(function(event) {
 	window.location.href = serverAddr + "/html/index.html"
 });
 
+$("#myinfoLink").click(function(event) {
+	window.location.href = serverAddr + "/html/dashboard/dashboard.html"
+});
+
 $("#myinfo").click(function(event) {
 	window.location.href = serverAddr + "/html/auth/myinfo.html"
 });
