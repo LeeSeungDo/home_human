@@ -87,7 +87,7 @@ public class RealEstateContractController {
   @RequestMapping(path="add")
   @ResponseBody
   public Object add(@ModelAttribute RealEstateContract realEstateContract, MultipartFile file) throws Exception {
-    String uploadDir = sc.getRealPath("/upload_1") + "/";
+    String uploadDir = sc.getRealPath("/upload") + "/";
     System.out.println("-----------------------파일 업로드--------------------------------");
     System.out.println(realEstateContract.getEmail());
     System.out.println(file);
