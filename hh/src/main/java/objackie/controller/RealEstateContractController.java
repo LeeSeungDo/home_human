@@ -1,4 +1,4 @@
- package objackie.controller;
+package objackie.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -89,13 +89,14 @@ public class RealEstateContractController {
   public Object add(@ModelAttribute RealEstateContract realEstateContract, MultipartFile file) throws Exception {
     String uploadDir = sc.getRealPath("/upload") + "/";
     System.out.println("-----------------------파일 업로드--------------------------------");
+    System.out.println(realEstateContract.getEmail());
     System.out.println(file);
     System.out.println(uploadDir);
     System.out.println("-----------------------/파일 업로드--------------------------------");
     try {
       realEstateContractService.insertRealEstateContract(realEstateContract, file, uploadDir);
       return JsonResult.success();
-
+      
     } catch (Exception e) {
       return JsonResult.fail(e.getMessage());
     }
@@ -146,21 +147,7 @@ public class RealEstateContractController {
       return JsonResult.fail(e.getMessage());
     }
   }
-  
-  @RequestMapping(path="tenantList")
-  public Object tenantList(String email) throws Exception {
-    try {
-      List<RealEstateContract> list = realEstateContractService.getRealEstateContractTenantList(email);
-      
-      HashMap<String,Object> data = new HashMap<>();
-      data.put("list", list);
-
-      return JsonResult.success(data);
-      
-    } catch (Exception e) {
-      return JsonResult.fail(e.getMessage());
-    }
-  }
 }
+
 
 

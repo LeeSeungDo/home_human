@@ -14,7 +14,7 @@ function ajaxLoadContract(no) {
 		var result = obj.jsonResult
 		if (result.state != "success") {
 			alert("조회 실패입니다.")
-	 		return
+			return
 		}
 
 		$("#email").val(result.data.tenantEmail);
@@ -28,6 +28,7 @@ function ajaxLoadContract(no) {
 		} else {
 			$("#contractType").val("전세");
 		}
+		$("#file2").attr('src', "../../upload/" + result.data.filename);
 		$(".updateBtn").click(function(event) {
 			window.location.href = serverAddr + "/html/contract/tenantRegiUpdateForm.html?no=" + no
 		})			
