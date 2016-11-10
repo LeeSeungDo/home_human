@@ -135,7 +135,7 @@
                 </li>
                 <li class="user">
                     <a class="dropdown-button" data-activates="user-dropdown" href="#!">
-                        <img src="../../user.jpg" class="circle" onerror="this.onerror=null;this.src='../../images/user_default.png'"><span id="userName1"></span><i class="mdi-navigation-expand-more right"></i>
+                        <img id="myPhoto1" src="" class="circle" onerror="this.onerror=null;this.src='../../images/user_default.png'"><span id="userName1"></span><i class="mdi-navigation-expand-more right"></i>
                     </a>
 
                     <ul id="user-dropdown" class="dropdown-content">
@@ -212,8 +212,8 @@
 
 				<ul>
 					<li class="yay-user-info">
-						<a href="page-profile.html">
-							<img src="../../user.jpg" class="circle" onerror="this.onerror=null;this.src='../../images/user_default.png'">
+						<a href="#" id="myinfoLink">
+							<img id="myPhoto2" src="" class="circle" onerror="this.onerror=null;this.src='../../images/user_default.png'">
 							<h3 class="yay-user-info-name">
 								<span id="userName2"></span>
 							</h3>
@@ -680,7 +680,7 @@
       {{#each list}}
          <li>
             <a href="#">
-               <img src="../../user.jpg" onerror="this.onerror=null;this.src='../../images/user_default.png'" class="circle">
+               <img src="" onerror="this.src='../../images/user_default.png'" class="circle">
                <h4>{{name}}</h4>
                <p>전화번호 : {{tel}} <span> |  상세주소 : {{detailAddress}}</span></p>
             </a>

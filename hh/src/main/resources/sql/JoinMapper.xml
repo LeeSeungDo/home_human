@@ -8,11 +8,12 @@
     <result column="PWD" property="password" />
     <result column="GEND" property="gender" />
     <result column="AUTH" property="auth" />
+    <result column="PHO_PATH" property="phoPath" />
   </resultMap>
   
   <insert id="insert" parameterType="Member">
-    insert into MEMBS(EMAIL, NAME, PWD, TEL, GEND, BIRTH, AUTH)
-    values(#{email}, #{name}, #{password}, #{tel}, #{gender}, #{birth}, #{auth})
+    insert into MEMBS(EMAIL, NAME, PWD, TEL, GEND, BIRTH, AUTH, PHO_PATH)
+    values(#{email}, #{name}, #{password}, #{tel}, #{gender}, #{birth}, #{auth}, #{phoPath})
   </insert>
   
 </mapper>

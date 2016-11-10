@@ -26,8 +26,13 @@ section {
 	display: inline-block;
 	border: 1px solid #ddd;
 	width: 300px;
-	height: 390px;
+	height: 500px;
 	padding: 25px;
+}
+
+#kakao-profile img {
+    margin: 0px 28%;
+    border: 2px solid #ffde00;
 }
 
 div {
