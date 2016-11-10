@@ -16,10 +16,12 @@ public class JoinController {
 
   @RequestMapping(path = "join")
   public Object add(Member member) throws Exception {
-    System.out.println("join컨트롤러에 들어옵니다.");
-    System.out.println(member.toString());
+    // System.out.println("join컨트롤러에 들어옵니다.");
+    // System.out.println(member.toString());
     try {
       joinDao.insert(member);
+      // System.out.println("DB 들어간 후 출력");
+      // System.out.println(member.toString());
       return JsonResult.success();
 
     } catch (Exception e) {

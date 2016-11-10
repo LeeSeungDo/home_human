@@ -46,6 +46,9 @@
     <!-- dossierbit -->
     <link rel="stylesheet" type="text/css" href="../../css/dashboard/dossierbit.css" />  
     
+    <!-- pace -->
+    <link rel="stylesheet" type="text/css" href="../../css/pace.css" />  
+    
     
     <!--[if lt IE 9]>
         <script src="../../bower_components/html5shiv/dist/html5shiv.min.js"></script>
@@ -61,6 +64,7 @@
 -->
 
 <body>
+<div class="pace"></div>
    <!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
     <!--
      Top Navbar
@@ -131,7 +135,7 @@
                 </li>
                 <li class="user">
                     <a class="dropdown-button" data-activates="user-dropdown" href="#!">
-                        <img src="../../bower_components/assets/_con/images/user.jpg" alt="내 사진" class="circle"><span id="userName1"></span><i class="mdi-navigation-expand-more right"></i>
+                        <img id="myPhoto1" src="" class="circle" onerror="this.onerror=null;this.src='../../images/user_default.png'"><span id="userName1"></span><i class="mdi-navigation-expand-more right"></i>
                     </a>
 
                     <ul id="user-dropdown" class="dropdown-content">
@@ -207,9 +211,9 @@
             <div class="nano-content">
 
 				<ul>
-					<li class="yay-user-info"><a href="page-profile.html"> <img
-							src="../../bower_components/assets/_con/images/user.jpg"
-							alt="John Doe" class="circle">
+					<li class="yay-user-info">
+						<a href="#" id="myinfoLink">
+							<img id="myPhoto2" src="" class="circle" onerror="this.onerror=null;this.src='../../images/user_default.png'">
 							<h3 class="yay-user-info-name">
 								<span id="userName2"></span>
 							</h3>
@@ -221,8 +225,7 @@
 					<li class="label">메뉴</li>
 
 					<li class="active">
-						<a href="#" class=" waves-effect waves-blue">
-							<i class="fa fa-tachometer"></i>
+						<a href="#" class=" waves-effect waves-blue" id="dashboardLink"> <i class="fa fa-tachometer"></i>
 							<span> Home &#38; Human </span>
 						</a>
 					</li>
@@ -597,8 +600,8 @@
     <!-- Main -->
     <script type="text/javascript" src="../../bower_components/assets/_con/js/_con.js"></script>
 
-    <!-- Google Prettify -->
-    <script type="text/javascript" src="../../bower_components/code-prettify/src/prettify.js"></script>
+    <!-- Loading Bar -->
+    <script type="text/javascript" src="../../js/pace.js"></script>
 
 <script>
     /* 
@@ -670,14 +673,14 @@
       //console.log("document.cookie : " + document.cookie);
       ajaxLoginUser();
       ajaxTenantList();
-         ajaxFirstList();
+      ajaxFirstList();
    </script>
 
    <script id="tenantList" type="text/x-handlebars-template">
       {{#each list}}
          <li>
             <a href="#">
-               <img src="../../user.jpg" onerror="this.onerror=null;this.src='../../images/user_default.png'; " class="circle">
+               <img src="" onerror="this.src='../../images/user_default.png'" class="circle">
                <h4>{{name}}</h4>
                <p>전화번호 : {{tel}} <span> |  상세주소 : {{detailAddress}}</span></p>
             </a>
