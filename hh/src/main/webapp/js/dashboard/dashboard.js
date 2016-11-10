@@ -74,7 +74,7 @@ function ajaxLoginUser() {
       $("#userName2").html(result.data.name);
       $("#authLevel").html("임대인");
       
-      if (result.data.phoPath != null) {
+      if (result.data.phoPath != null && result.data.phoPath != "") {
     	  $('#myPhoto1').attr('src', result.data.phoPath);
     	  $('#myPhoto2').attr('src', result.data.phoPath);
       } else {
@@ -134,7 +134,7 @@ function ajaxTenantList() {
          }
          //console.log(result);
          //alert("서버에서 세입자 데이터를 가져옴 성공!!");
-         console.log(result.data.list)
+         //console.log(result.data.list)
          
          var template = Handlebars.compile($('#tenantList').html())       
          $("#tenantListTable").html(template(result.data))   
