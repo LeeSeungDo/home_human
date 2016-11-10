@@ -28,7 +28,7 @@ function ajaxLoadContract(no) {
 		} else {
 			$("#contractType").val("전세");
 		}
-		$("#file2").attr('src', "../../upload_1/" + result.data.filename);
+		$("#file2").attr('src', "../../upload/" + result.data.filename);
 		$(".updateBtn").click(function(event) {
 			window.location.href = serverAddr + "/html/contract/tenantRegiUpdateForm.html?no=" + no
 		})			
