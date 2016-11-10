@@ -1,4 +1,9 @@
 /*----------------------------------------------------- 공통 대쉬보드(지우지마세요) -----------------------------------------------------*/
+$("#dashboardLink").click(function(event) {
+	alert("메인");
+	window.location.href = serverAddr + "/html/dashboard/dashboard.html"
+});
+
 $("#myInfo").click(function(event) {
    alert("내정보");
    window.location.href = serverAddr + "/html/auth/myinfo.html"
