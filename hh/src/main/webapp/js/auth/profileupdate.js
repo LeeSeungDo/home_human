@@ -70,8 +70,8 @@ function ajaxLoginUser() {
             return
        }
       
-      console.log(result.data);
-      console.log(result.data.phoPath);
+      //console.log(result.data);
+      //console.log(result.data.phoPath);
       $("#userName1").html(result.data.name);
       $("#userName2").html(result.data.name);
       $("#authLevel").html("임대인");
@@ -95,71 +95,95 @@ $("#cancelBtn").click(function(event) {
 });
 
 $("#updateBtn").click(function(event) {
-	var form = $('form')[0];
-	var formData = new FormData(form);
+	var beforePWD = $("#passwordUp").val();
+	var afterPWD = ($("#hiddenPwd").val(beforePWD)).val();
+	console.log(beforePWD);
+	console.log(afterPWD);
 	
-	console.log(formData);
-	ajaxUpdateFile(formData);
+	var form0 = $('form')[0];
+	var form1 = $('form')[1];
+	var formData0 = new FormData(form0);
+	var formData1 = new FormData(form1);
+	var newPassword = $("#passwordUp").val();
+
+	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
+		var result = obj.jsonResult
+		var dbPassword = result.data.password;
+		var dbPhoto = '../../upload/' + result.data.phoPath;
+		var test = $("#phoPath").attr("src");
+
+		// formData0 - 사진만 바꿈
+		// formData1 - 패스워드만 바꿈
+		// formData2 - 사진 & 패스워드 둘다 바꿈
+		
+		if (dbPhoto != test && newPassword != "") {
+			console.log("사진 패스워드 둘다 바꿔요");
+			ajaxUpdateFile2(formData0);
+		} else if (dbPhoto === test && newPassword != "") {
+			console.log("패스워드만 바꿔요");
+			ajaxUpdateFile1(formData1);
+		} else if (dbPhoto != test && newPassword === "") {
+			console.log("사진만 바꿔요");
+			ajaxUpdateFile0(formData0);
+		} else {
+			console.log("바꿀게 없네요");
+		}
+	})
 });
 
-function ajaxUpdateFile(formData) {
+function ajaxUpdateFile0(formData) {
 	$.ajax({
-	    url: serverAddr + "/auth/updateFile.json",
+	    url: serverAddr + "/auth/updateFile0.json",
 	    data: formData,
 	    processData: false,
 	    contentType: false,
 	    type: 'POST',
 	    success: function(data){
-	    	alert("EE");
-	    	window.location.href = serverAddr + "/html/dashboard/dashboard.html"
+	    	alert("사진 변경");
+	    	window.location.href = serverAddr + "/html/auth/myinfo.html"
 	    }
 	  });
 }
 
-/*
-//업데이트 적용
-$("#updateBtn").click(function(event) {
-	var member = {
-			email: myEmail,
-			name: myName,
-			birth: myBirth,
-			gender: myGender,
-			postNo: myPostNo,
-			basicAddr: myBasicAddr,
-			detailAddr: myDetailAddr,
-			tel: myTel,
-			auth: myAuth,
-			phoPath: $("#phoPath").val(),
-			password: $("#passwordUp").val()
-	}
-	console.log(member)
-	
-	//ajaxUpdateMember(member)
-
-});
-
-//업데이트
-function ajaxUpdateMember(member) {
-	$.post(serverAddr + "/auth/update.json", member, function(obj) {
-		var result = obj.jsonResult
-		if (result.state != "success") {
-			alert("변경 실패입니다.")
-			return
-		}
-		alert("변경성공");
-		window.location.href = serverAddr + "/html/auth/myinfo.html"
-	}, "json")
+function ajaxUpdateFile1(formData) {
+	$.ajax({
+	    url: serverAddr + "/auth/updateFile1.json",
+	    data: formData,
+	    processData: false,
+	    contentType: false,
+	    type: 'POST',
+	    success: function(data){
+	    	alert("패스워드 변경");
+	    	window.location.href = serverAddr + "/html/auth/myinfo.html"
+	    }
+	  });
 }
-*/
+
+function ajaxUpdateFile2(formData) {
+	$.ajax({
+	    url: serverAddr + "/auth/updateFile2.json",
+	    data: formData,
+	    processData: false,
+	    contentType: false,
+	    type: 'POST',
+	    success: function(data){
+	    	alert("사진 & 패스워드 변경");
+	    	window.location.href = serverAddr + "/html/auth/myinfo.html"
+	    }
+	  });
+}
+
 
 //회원정보수정 회원데이터 출력
 function ajaxInputUser() {
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
 		
-		//console.log(result.data.email);
-		$("#loginUserEmail").val(result.data.email);
-		//console.log(myPhoPath);
+		//console.log(result.data.password);
+		$("#loginUserEmail0").val(result.data.email);
+		$("#loginUserEmail1").val(result.data.email);
+		//$("#hiddenPwd").val(result.data.password);
+		
 		if (result.data.phoPath != null && result.data.phoPath != "") {
 	    	  $('#phoPath').attr('src', '../../upload/' + result.data.phoPath);
 	      } else {
@@ -167,27 +191,6 @@ function ajaxInputUser() {
 	      }
 	})
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

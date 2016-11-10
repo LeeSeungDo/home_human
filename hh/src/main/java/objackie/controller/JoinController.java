@@ -45,13 +45,15 @@ public class JoinController {
     }
   }
 
-  @RequestMapping(path = "updateFile")
+  @RequestMapping(path = "updateFile0")
   @ResponseBody
-  public Object updateFile(@RequestParam("email") String email, MultipartFile file, HttpSession session) throws Exception {
+  public Object updateFile0(@RequestParam("email0") String email,
+                           MultipartFile file,
+                           HttpSession session) throws Exception {
     String uploadDir = sc.getRealPath("/upload") + "/";
     String newFilename = null;
-
     try {
+      //System.out.println("updateFile0.json");
       if (file != null && !file.isEmpty()) {
         newFilename = FileUploadUtil.getNewFilename(file.getOriginalFilename());
         file.transferTo(new File(uploadDir + newFilename));
@@ -61,10 +63,63 @@ public class JoinController {
         Member member = memberDao.selectOneByEmail(paramMap);
         member.setEmail(email);
         member.setPhoPath(newFilename);
-        // System.out.println(member);
-        joinDao.updatePhoto(member);
+        joinDao.updatePhoto0(member);
         session.setAttribute("member", member);
-        //System.out.println(session.getAttribute("member"));
+      }
+      return JsonResult.success();
+    } catch (Exception e) {
+      // e.printStackTrace();
+      return JsonResult.fail(e.getMessage());
+    }
+  }
+  
+  @RequestMapping(path = "updateFile1")
+  @ResponseBody
+  public Object updateFile1(@RequestParam("email1") String email,
+                           @RequestParam("password2") String password,
+                           HttpSession session) throws Exception {
+    try {
+        System.out.println("updateFile1.json");
+        System.out.println(password);
+        HashMap<String,Object> paramMap = new HashMap<>();
+        paramMap.put("email", email);
+        Member member = memberDao.selectOneByEmail(paramMap);
+        member.setEmail(email);
+        member.setPassword(password);
+        joinDao.updatePhoto1(member);
+        session.setAttribute("member", member);
+        
+      return JsonResult.success();
+    } catch (Exception e) {
+      e.printStackTrace();
+      return JsonResult.fail(e.getMessage());
+    }
+  }
+  
+  @RequestMapping(path = "updateFile2")
+  @ResponseBody
+  public Object updateFile2(@RequestParam("email0") String email,
+                           @RequestParam("password2") String password,
+                           MultipartFile file,
+                           HttpSession session) throws Exception {
+    String uploadDir = sc.getRealPath("/upload") + "/";
+    String newFilename = null;
+    try {
+      System.out.println("updateFile2.json");
+      System.out.println(email);
+      System.out.println(password);
+      if (file != null && !file.isEmpty()) {
+        newFilename = FileUploadUtil.getNewFilename(file.getOriginalFilename());
+        file.transferTo(new File(uploadDir + newFilename));
+        
+        HashMap<String,Object> paramMap = new HashMap<>();
+        paramMap.put("email", email);
+        Member member = memberDao.selectOneByEmail(paramMap);
+        member.setEmail(email);
+        member.setPassword(password);
+        member.setPhoPath(newFilename);
+        joinDao.updatePhoto2(member);
+        session.setAttribute("member", member);
       }
       return JsonResult.success();
     } catch (Exception e) {

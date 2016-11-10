@@ -66,7 +66,7 @@ public class LoginController {
       HashMap<String,Object> paramMap = new HashMap<>();
       paramMap.put("email", email);
       paramMap.put("password", password);
-      Member member = memberDao.selectOneByEmail(paramMap);
+      Member member = memberDao.selectOneByEmailAndPassword(paramMap);
       
       if (member == null) {
         sessionStatus.setComplete(); // 스프링이 관리하는 세션 값을 무효화시킨다.
@@ -101,12 +101,14 @@ public class LoginController {
   public Object loginUser(HttpSession session) throws Exception {
     
     try {
-    	System.out.println("loginUser.json");
+    	//System.out.println("loginUser.json");
     	
       Member member = (Member)session.getAttribute("member");
       if (member == null) {
         throw new Exception("로그인이 되지 않았습니다.");
       }
+      //System.out.println("잠깐 보자");
+      //System.out.println(member);
       return JsonResult.success(member);
       
     } catch (Exception e) {

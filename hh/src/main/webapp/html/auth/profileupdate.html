@@ -290,7 +290,7 @@
 							<th class="th_cell1">프로필 사진</th>
 							<td class="td_cell1">
 								<form id="profileForm">
-									<input type="hidden" name="email" id="loginUserEmail">
+									<input type="hidden" name="email0" id="loginUserEmail0">
 									<div id="profilePhoto">
 										<a href="#"> <img id="phoPath"
 											src="../../images/default.png" style="border-radius: 50px;" />
@@ -300,6 +300,7 @@
 									<div id="phoBtn" class="filebox">
 										<label for="ex_file">사진 선택</label> <input type="file"
 											name="file" id="ex_file">
+									<input id="hiddenPwd" name="password2" type="hidden" class="form-control">
 									</div>
 								</form>
 
@@ -312,14 +313,12 @@
 						<tr>
 							<th class="th_cell2">비밀번호</th>
 							<td class="td_cell2">
-							<span>현재 비밀번호</span>
-							<input id="password" name="password" type="password" class="form-control"><br>
-
 								<form name="password_form">
+									<input type="hidden" name="email1" id="loginUserEmail1">
 									<span>새 비밀번호</span><br>
-									<input type="password"	name="password1" class="form-control" onkeyup="verify.check()"><br>
+									<input type="password"name="password1" class="form-control" onkeyup="verify.check()"><br>
 									<span>새 비밀번호 확인</span><br>
-									<input id="passwordUp" type="password" name="password2" class="form-control" onkeyup="verify.check()">
+									<input type="password" name="password2" class="form-control" id="passwordUp" onkeyup="verify.check()">
 									<!-- Display a message if the passwords match or don't match -->
 									<div id="password_result"></div>
 								</form></td>

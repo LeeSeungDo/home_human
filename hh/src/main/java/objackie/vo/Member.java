@@ -122,7 +122,7 @@ public class Member implements Serializable {
   public String toString() {
     return "Member [email=" + email + ", name=" + name + ", tel=" + tel + ", gender=" + gender + ", birth=" + birth
         + ", postNo=" + postNo + ", basicAddr=" + basicAddr + ", detailAddr=" + detailAddr + ", phoPath=" + phoPath
-        + ", auth=" + auth + "]";
+        + ", auth=" + auth + ", password=" + password + "]";
   }
 
 }
