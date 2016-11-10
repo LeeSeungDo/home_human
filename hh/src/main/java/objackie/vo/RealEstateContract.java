@@ -1,3 +1,8 @@
+/* 부동산계약(RE_CRCT) 테이블
+작성자 : 이승도
+최종수정일 : 2016-11-10
+*/
+
 package objackie.vo;
 
 import java.io.Serializable;
@@ -6,24 +11,27 @@ import java.sql.Date;
 public class RealEstateContract implements Serializable {
   private static final long serialVersionUID = 1L;
 
-  protected int contractNo;
-  protected int buildNo;
-  protected String tenantEmail;
-  protected int contractType;
-  protected int deposit;
-  protected int rentAmount;
-  protected Date contractDate;
-  protected Date endDate;
-  protected Date rentPayDate;
-  protected Date utilityPayDate;
-  protected int contractStatus;
+  protected int contractNo;         // 계약번호 (CRCT_NO) [PK]
+  protected int buildNo;            // 임대건물번호 (BUILD_NO) [FK]
+  protected String tenantEmail;     // 임차인이메일 (T_EMAIL) [FK]
+  protected int contractType;       // 임대유형 (CRCT_TYPE)
+  protected int deposit;            // 보증금 (DPST)
+  protected int rentAmount;         // 월세금액 (R_AMNT)
+  protected Date contractDate;      // 계약일 (CRCT_DT)
+  protected Date endDate;           // 만료일 (END_DT)
+  protected Date rentPayDate;       // 월세납입일 (RTPAY_DT)
+  protected Date utilityPayDate;    // 관리비납입일 (UTPAY_DT)
+  protected int contractStatus;     // 계약상태 (CRCT_STAT)
+  /*------------------------------------------------------------*/
+  protected String contractPhoto;   // 보류
 
-  protected String contractPhoto;
-
-  protected String detailAddress;
-  protected String email;
-  protected String name;
-  protected String tel;
+  /*----------------------부동산 (RE) 테이블--------------------*/
+  protected String detailAddress;   // 상세주소 (DIT_ADDR)
+  
+  /*----------------------회원 (MEMBS) 테이블-------------------*/
+  protected String email;           // 이메일 (EMAIL)
+  protected String name;            // 이름 (NAME)
+  protected String tel;             // 전화번호 (TEL)
 
   public int getContractNo() {
     return contractNo;
@@ -47,14 +55,6 @@ public class RealEstateContract implements Serializable {
 
   public void setTenantEmail(String tenantEmail) {
     this.tenantEmail = tenantEmail;
-  }
-
-  public String getTel() {
-    return tel;
-  }
-
-  public void setTel(String tel) {
-    this.tel = tel;
   }
 
   public int getContractType() {
@@ -151,6 +151,14 @@ public class RealEstateContract implements Serializable {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public String getTel() {
+    return tel;
+  }
+
+  public void setTel(String tel) {
+    this.tel = tel;
   }
 
   @Override

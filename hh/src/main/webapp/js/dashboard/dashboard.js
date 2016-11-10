@@ -24,6 +24,7 @@ $("#myinfoLink").click(function(event) {
 	window.location.href = serverAddr + "/html/auth/myinfo.html"
 });
 
+// 카카오 준비
 $(document).ready(function() {
    Kakao.init("bfb48672ff68dbf137c2daffb44adfb0");
 
@@ -68,16 +69,18 @@ function ajaxLoginUser() {
           window.location.href = serverAddr + "/html/index.html"
             return
        }
-
+      //console.log(result.data.phoPath);
       $("#userName1").html(result.data.name);
       $("#userName2").html(result.data.name);
+      $("#authLevel").html("임대인");
       
-       var auth = result.data.auth;
-       if (auth == 0) {
-          $("#authLevel").html("임대인");
-       } else {
-          $("#authLevel").html("[임차인]");
-       }
+      if (result.data.phoPath != null && result.data.phoPath != "") {
+    	  $('#myPhoto1').attr('src', result.data.phoPath);
+    	  $('#myPhoto2').attr('src', result.data.phoPath);
+      } else {
+    	  $('#myPhoto1').attr('src', '../../images/user_default.png');
+    	  $('#myPhoto2').attr('src', '../../images/user_default.png');
+      }
     })
 }
 /*----------------------------------------------------- /로그인 정보 불러오기 -----------------------------------------------------*/
@@ -131,7 +134,7 @@ function ajaxTenantList() {
          }
          //console.log(result);
          //alert("서버에서 세입자 데이터를 가져옴 성공!!");
-         console.log(result.data.list)
+         //console.log(result.data.list)
          
          var template = Handlebars.compile($('#tenantList').html())       
          $("#tenantListTable").html(template(result.data))   
