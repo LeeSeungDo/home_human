@@ -153,32 +153,11 @@ function ajaxUpdateMember(member) {
 */
 
 //회원정보수정 회원데이터 출력
-var myEmail;
-var myName;
-var myTel;
-var myGender;
-var myBirth;
-var myPostNo;
-var myBasicAddr;
-var myDetailAddr;
-var myPhoPath;
-var myAuth;
-
 function ajaxInputUser() {
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
 		
-		myEmail = result.data.email;
-		myName = result.data.name;
-		myTel = result.data.tel;
-		myGender = result.data.gender;
-		myBirth = result.data.birth;
-		myPostNo = result.data.postNo;
-		myBasicAddr = result.data.basicAddr;
-		myDetailAddr = result.data.detailAddr;
-		myPhoPath = result.data.phoPath;
-		
-		console.log(result.data.email);
+		//console.log(result.data.email);
 		$("#loginUserEmail").val(result.data.email);
 		//console.log(myPhoPath);
 		if (result.data.phoPath != null && result.data.phoPath != "") {

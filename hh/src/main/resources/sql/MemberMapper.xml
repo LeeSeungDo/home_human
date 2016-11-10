@@ -19,5 +19,12 @@
     from MEMBS
     where EMAIL=#{email} and PWD=#{password}
   </select>
+  
+  <select id="selectOneByEmail" resultMap="memberMap" parameterType="map">
+    select EMAIL, NAME, TEL, GEND, BIRTH, POSTNO, BAS_ADDR, DIT_ADDR, PHO_PATH, AUTH, PWD
+    from MEMBS
+    where EMAIL=#{email}
+  </select>
+  
 </mapper>
 
