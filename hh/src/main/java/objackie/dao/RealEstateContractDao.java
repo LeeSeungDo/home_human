@@ -6,6 +6,7 @@ import java.util.Map;
 import objackie.vo.RealEstateContract;
 
 public interface RealEstateContractDao {
+  List<RealEstateContract> selectList(Map<String,Object> paramMap) throws Exception;
   List<RealEstateContract> selectList1(Map<String,Object> paramMap) throws Exception;
   List<RealEstateContract> selectList2(Map<String,Object> paramMap) throws Exception;
   List<RealEstateContract> selectList3(Map<String,Object> paramMap) throws Exception;

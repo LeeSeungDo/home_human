@@ -23,6 +23,27 @@ public class RealEstateContractController {
   
   @Autowired ServletContext sc;
   @Autowired RealEstateContractService realEstateContractService;
+  
+  
+  @RequestMapping(path="list")
+  public Object list(
+      @RequestParam(defaultValue="1") int pageNo,
+      @RequestParam(defaultValue="12") int length) throws Exception {
+    
+    try {
+      List<RealEstateContract> list = realEstateContractService.getRealEstateContractList(pageNo, length);
+      
+      HashMap<String,Object> data = new HashMap<>();
+      data.put("list", list);
+      data.put("pageNo", pageNo);
+      data.put("length", length);
+      
+      return JsonResult.success(data);
+      
+    } catch (Exception e) {
+      return JsonResult.fail(e.getMessage());
+    }
+  }
      
   @RequestMapping(path="list1")
   public Object list1(

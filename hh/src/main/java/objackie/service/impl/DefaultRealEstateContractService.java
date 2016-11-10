@@ -19,6 +19,15 @@ import objackie.vo.RealEstateContractFile;
 public class DefaultRealEstateContractService implements RealEstateContractService {
   @Autowired RealEstateContractDao realEstateContractDao;
   @Autowired RealEstateContractFileDao realEstateContractFileDao;
+  
+
+  public List<RealEstateContract> getRealEstateContractList(int pageNo, int length) throws Exception {
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("startIndex", (pageNo - 1) * length);
+    map.put("length", length);
+    return realEstateContractDao.selectList(map);
+  }
+
 
   public List<RealEstateContract> getRealEstateContractList1(int pageNo, int length) throws Exception {
     HashMap<String,Object> map = new HashMap<>();
