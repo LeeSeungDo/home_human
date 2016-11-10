@@ -1,4 +1,4 @@
- package objackie.dao;
+package objackie.dao;
 
 import java.util.List;
 import java.util.Map;
@@ -13,5 +13,12 @@ public interface RealEstateContractDao {
   int insert(RealEstateContract realEstateContract) throws Exception;
   int update(RealEstateContract realEstateContract) throws Exception;
   int delete(int no) throws Exception;
-  List<RealEstateContract> tenantList(Map<String,Object> paramMap) throws Exception;
 }
+
+
+
+
+
+
+
+

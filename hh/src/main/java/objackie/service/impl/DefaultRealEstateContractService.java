@@ -9,13 +9,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import objackie.dao.RealEstateContractDao;
+import objackie.dao.RealEstateContractFileDao;
 import objackie.service.RealEstateContractService;
 import objackie.util.FileUploadUtil;
 import objackie.vo.RealEstateContract;
+import objackie.vo.RealEstateContractFile;
 
 @Service 
 public class DefaultRealEstateContractService implements RealEstateContractService {
   @Autowired RealEstateContractDao realEstateContractDao;
+  @Autowired RealEstateContractFileDao realEstateContractFileDao;
 
   public List<RealEstateContract> getRealEstateContractList1(int pageNo, int length) throws Exception {
     HashMap<String,Object> map = new HashMap<>();
@@ -37,30 +40,25 @@ public class DefaultRealEstateContractService implements RealEstateContractServi
     map.put("length", length);
     return realEstateContractDao.selectList3(map);
   }
-  
 
-  public void insertRealEstateContract(RealEstateContract realEstateContract, MultipartFile file,
+  public void insertRealEstateContract(RealEstateContract realEstateContract, 
+      MultipartFile file,
       String uploadDir) throws Exception {
 
-    try{
-
+    try{    
       realEstateContractDao.insert(realEstateContract);
-
       String newFilename = null;
       if (file != null && !file.isEmpty()) {
         newFilename = FileUploadUtil.getNewFilename(file.getOriginalFilename());
         file.transferTo(new File(uploadDir + newFilename));
-        RealEstateContract realEstateContractFile = new RealEstateContract();
-        realEstateContractFile.setContractPhoto(newFilename);
+        RealEstateContractFile realEstateContractFile = new RealEstateContractFile();
+        realEstateContractFile.setFilename(newFilename);
         realEstateContractFile.setContractNo(realEstateContract.getContractNo());
-        //realEstateContractFile.setrealEstateContractNo(10200); //트랜잭션 테스트 용 
-        realEstateContractDao.insert(realEstateContractFile);
-      }
+        realEstateContractFileDao.insert(realEstateContractFile);
+      }      
     } catch (Exception e) {
       e.printStackTrace();
     }
-
-    System.out.println("여기까지");
   }
 
   public RealEstateContract getRealEstateContract(int no) throws Exception {
@@ -80,15 +78,8 @@ public class DefaultRealEstateContractService implements RealEstateContractServi
     realEstateContractDao.delete(no);
   }
 
-  
-  public List<RealEstateContract> getRealEstateContractTenantList(String email) throws Exception {
-    HashMap<String,Object> map = new HashMap<>();
-    map.put("email", email);
-    
-    return realEstateContractDao.tenantList(map);
-  }
-  
 }
+
 
 
 
