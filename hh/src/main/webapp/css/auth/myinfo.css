@@ -24,7 +24,7 @@ table.bordered>tbody>tr, table.bordered>thead>tr, thead {
 }
 
 #profile {
-  width: 420px;
+  width: 410px;
   height: 300px;
   border: 1px solid #cccccc;
   margin: 35px 20px 20px 35px;
@@ -73,7 +73,7 @@ td, th {
 }
 
 #contact {
-  width: 525px;
+  width: 535px;
   height: 300px;
   border: 1px solid #dadada;
   margin: 35px 0px 20px 0px;
