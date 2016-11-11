@@ -15,7 +15,7 @@ $(function () {
 $(document).on('click','#updateBtn1',function(event){
 	var complain = {
 			no: $(".card1").attr("data-val1"),
-			title: $("#title").text(),
+			title: $("#title1").text(),
 			contents: $("#complain_conts1").text(),
 	        rsvd: $("#rsvd1").is(":checked") ? 1 : 0
 	        }
@@ -31,7 +31,7 @@ $(document).on('click','#updateBtn1',function(event){
 $(document).on('click','#updateBtn0',function(event){
 	var complain = {
 			no: $(".card0").attr("data-val0"),
-			title: $("#title").text(),
+			title: $("#title0").text(),
 			contents: $("#complain_conts0").text(),
 	        rsvd: $("#rsvd1").is(":checked") ? 1 : 0
 	        }
