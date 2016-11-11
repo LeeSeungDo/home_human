@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+
+.tenant-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.tenant-writer {
+  font-size: 12px;
+}
+
+.button-group {
+	 position: fixed;
+    bottom: 40px;
+    right: 50px;
+}
+
+.complain_pagination {
+	text-align:center;
+}
+
+.complain_radio {
+   position: fixed;
+   bottom: 40px;
+   left: 50px;
+}
+
+.write_com {
+    width: 100%;
+	}
