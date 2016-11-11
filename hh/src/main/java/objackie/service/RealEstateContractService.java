@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 import objackie.vo.RealEstateContract;
 
 public interface RealEstateContractService {
-  List<RealEstateContract> getRealEstateContractList(int pageNo, int length) throws Exception;
+  List<RealEstateContract> getRealEstateContractList(int pageNo, int length, String email) throws Exception;
   List<RealEstateContract> getRealEstateContractList1(int pageNo, int length) throws Exception;
   List<RealEstateContract> getRealEstateContractList2(int pageNo, int length) throws Exception;
   List<RealEstateContract> getRealEstateContractList3(int pageNo, int length) throws Exception;

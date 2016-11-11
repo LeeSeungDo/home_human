@@ -24,7 +24,7 @@
     <select id="selectList" resultMap="realestatecontractMap"
     parameterType="map">
     select * from re_crct
-    where t_email='lee@bit.com'
+    where t_email=#{email}
     order by CRCT_NO asc
 
     limit #{startIndex}, #{length}
