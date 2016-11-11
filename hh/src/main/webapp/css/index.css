@@ -16,7 +16,7 @@ html {
 
 #header {
   height: 80px;
-  border-bottom: 2.5px solid gray;
+  /* border-bottom: 2.5px solid gray; */
   position: relative;
 }
 
@@ -83,12 +83,12 @@ html {
   width: expression(this.width > 640 ? 640: true);
   height: auto;
 }
-
+/* 
 img {
   max-width: 70%;
   height: auto ;
 }
-
+ */
 #kakaoLoginBtn {
 	max-width: 354px;
 }
