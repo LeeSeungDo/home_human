@@ -83,12 +83,12 @@ html {
   width: expression(this.width > 640 ? 640: true);
   height: auto;
 }
-/* 
+ 
 img {
   max-width: 70%;
   height: auto ;
 }
- */
+ 
 #kakaoLoginBtn {
 	max-width: 354px;
 }

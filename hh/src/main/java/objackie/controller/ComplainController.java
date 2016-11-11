@@ -181,15 +181,11 @@ public class ComplainController {
   @RequestMapping(path="update")
   public Object update(Complain complain) throws Exception {
     try {
-      HashMap<String,Object> paramMap = new HashMap<>();
-      paramMap.put("no", complain.getNo());
-      paramMap.put("email", complain.getEmail());
       
       System.out.println(complain.getNo());
       System.out.println(complain.getTitle());
       System.out.println(complain.getContents());
       System.out.println(complain.getRsvd());
-      System.out.println(complain.getEmail());
       complainService.updateComplain(complain);
       System.out.println("성공");
       return JsonResult.success();

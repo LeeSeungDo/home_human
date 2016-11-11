@@ -44,7 +44,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/dashboard/dossierbit.css" />
 
    <!-- complain css -->
-    <link rel="stylesheet" type="text/css" href="../../css/board/complain_ui.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/board/complain_l.css" />
 
 <!--[if lt IE 9]>
         <script src="../../bower_components/html5shiv/dist/html5shiv.min.js"></script>
@@ -273,9 +273,9 @@
          <div class="row">
             <div class="col s12">
                <ul class="tabs">
-                  <li class="tab col s3" rel="complain1"><a href="#test1">
+                  <li class="tab col s3" rel="complain1"><a class="active" href="#">
                   미처리 민원</a></li>
-                  <li class="tab col s3" rel="complain2"><a class="active" href="#test2">
+                  <li class="tab col s3" rel="complain2"><a href="#">
                   처리된 민원</a></li>
                </ul>
                </div>
@@ -301,13 +301,25 @@
   </div>
   <div class="content">
     <span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title">{{title}}</p>
-     <p class="tenant-writer">{{writer}} 세입자</p>
+     <p class="tenant-writer card1" data-val1={{no}}>{{writer}} 세입자</p>
   </div>
   <div class="card-reveal">
     <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
-      <p>{{contents}}</p>
+      <p id="complain_conts1">{{contents}}</p>
+	<div class="complain_radio">
+	<form action="#">
+    <p>
+      <input type="radio" id="rsvd1"  name="rsvdMaterial1" value="미처리" checked/>
+      <label for="rsvd_1">미처리</label>
+    </p> 
+    <p>
+      <input name="rsvdMaterial1" id="rsvd_1_0" value="처리" type="radio"/>
+      <label for="rsvd_1_0">처리</label>
+    </p> 
+  </form>
+	</div>
    <div class="button-group">
-                     <a class="btn" id="updateBtn1">수정</a>
+           <button type="button" class="btn" id="updateBtn1">수정</button>
                   </div>
   </div>
 </div>
@@ -340,18 +352,29 @@
   </div>
   <div class="content">
     <span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title">{{title}}</p>
-     <p class="tenant-writer">{{writer}} 세입자</p>
+     <p class="tenant-writer card0" data-val0={{no}}>{{writer}} 세입자</p>
   </div>
   <div class="card-reveal">
     <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
-      <p>{{contents}}</p>
+      <p id="complain_conts0">{{contents}}</p>
+	<div class="complain_radio">
+	<form action="#">
+    <p>
+      <input type="radio" id="rsvd0"  name="rsvdMaterial0" value="처리" checked/>
+      <label for="test1">처리</label>
+    </p>
+    <p>
+      <input id="rsvd0_1" name="rsvdMaterial0" value="미처리" type="radio"/>
+      <label for="rsvd0_1">미처리</label> 
+    </p>
+  </form>
+</div>
    <div class="button-group">
-                     <a class="btn" id="updateBtn1">수정</a>
+                     <a class="btn" id="updateBtn0">수정</a>
                   </div>
   </div>
 </div>
 </div>
-
 {{/each}}
    </script>
 <!-- 리스트 -->
@@ -572,76 +595,14 @@
       ajaxComplainListRsvd1()
       ajaxComplainListRsvd0() 
    </script>
-   
-<script>
-    /* 
-     * Init Calendar
-     */
-    $('#calendar').fullCalendar({
-        height: 700,
-        header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay'
-        },
-        defaultDate: '2015-02-12',
-        editable: true,
-        droppable: true,
-        drop: function() {
-            // is the "remove after drop" checkbox checked?
-            if (removeDraggable.is(':checked')) {
-                // if so, remove the element from the "Draggable Events" list
-                $(this).remove();
-            }
-        }
-        /* 
-        events: [{
-            title: 'All Day Event',
-            start: '2015-02-01'
-        }, {
-            title: 'Long Event',
-            start: '2015-02-07',
-            end: '2015-02-10'
-        }, {
-            id: 999,
-            title: 'Repeating Event',
-            start: '2015-02-09T16:00:00'
-        }, {
-            id: 999,
-            title: 'Repeating Event',
-            start: '2015-02-16T16:00:00'
-        }, {
-            title: 'Conference',
-            start: '2015-02-11',
-            end: '2015-02-13'
-        }, {
-            title: 'Meeting',
-            start: '2015-02-12T10:30:00',
-            end: '2015-02-12T12:30:00'
-        }, {
-            title: 'Lunch',
-            start: '2015-02-12T12:00:00'
-        }, {
-            title: 'Meeting',
-            start: '2015-02-12T14:30:00'
-        }, {
-            title: 'Click for Google',
-            url: 'http://google.com/',
-            start: '2015-02-28'
-        }]
-        */
-    });
-    </script>
-    
+
    <script type="text/javascript" src="../../js/common.js"></script>
    <script type="text/javascript" src="../../js/bit.js"></script>
    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
    <script type="text/javascript" src="../../js/dashboard/dashboard.js"></script>
    
    <script>
-      //console.log("document.cookie : " + document.cookie);
       ajaxLoginUser();
-         ajaxFirstList();
    </script>
 
 </body>

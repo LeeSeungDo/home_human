@@ -18,3 +18,9 @@
 .complain_pagination {
 	text-align:center;
 }
+
+.complain_radio {
+   position: fixed;
+   bottom: 40px;
+   left: 50px;
+}
