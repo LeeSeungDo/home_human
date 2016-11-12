@@ -278,8 +278,7 @@
 		<div class="row sortable" style="margin-right: 0;">
 
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
-	
-				<div class="col l10 s12 m5">
+				<div class="row" style="margin: 0 auto; width: 65%;">
 					<div class="card-panel white">
 
 						<form>
@@ -311,18 +310,22 @@
 							<div class="file-field input-field col s12">
 								<div class="btn">
 									<span>첨부파일</span> 
-									<input type="file" name="file">
+									<input type="file" name="file" style="height: 50%;">
 								</div>
 								<div class="file-path-wrapper">
 									<input class="file-path validate" type="text">
 								</div>
 							</div>
 							<br><br><br><br>
-							 <button id="addBtn" type="button" class="btn btn-default my-new" style="width: 48%;">등록</button>
-	    <button id="cancelBtn" type="button" class="btn btn-default"
-	            onclick="location.href='complain_t.html'" style="width: 48%;">취소</button> 
-	            
-						</form>
+						<div class="col s24 m12 l6">
+							<button id="addBtn" type="button" class="btn btn-default my-new"
+								style="width: 100%;">등록</button>
+						</div>
+						<div class="col s24 m12 l6">
+							<button id="cancelBtn" type="button" class="btn btn-default"
+								onclick="location.href='complain_t.html'" style="width: 100%;">취소</button>
+						</div>
+					</form>
 					</div>
 				</div>
 			<!-- 	<div class="row">
