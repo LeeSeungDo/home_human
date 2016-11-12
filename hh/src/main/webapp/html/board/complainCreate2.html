@@ -8,7 +8,7 @@
 <meta name="author" content="_nK">
 <link rel="shortcut icon" href="../../images/favicon.ico">
 
-<title>Home &#38; Human</title>
+<title>민원 등록</title>
 
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
@@ -269,105 +269,71 @@
 				<div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
 					<a href="../../html/index.html" class="hh-logo-black"> <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
 					</a>
-					<h1>나의 민원</h1>
+					<h1>민원 등록</h1>
 				</div>
 			</div>
 
 		</div>
 		<!-- /Breadcrumb -->
 		<div class="row sortable" style="margin-right: 0;">
-			<button id="addBtn" type="button"
-				onclick="location.href='complainCreate.html'" class="btn write_com">민원
-				등록</button>
+
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
-			<div class="row">
-				<div class="col s12">
-					<ul class="tabs">
-						<li class="tab col s3" rel="complain1"><a class="active"
-							href="#"> 미처리 민원</a></li>
-						<li class="tab col s3" rel="complain2"><a href="#"> 처리된
-								민원</a></li>
-					</ul>
+	
+				<div class="col l10 s12 m5">
+					<div class="card-panel white">
+
+						<form>
+							<div class="input-field col s12">
+								<i class="mdi-content-send prefix"></i> 
+								<input type="text"	class="form-control email" id="email" name="email"
+									readonly>
+							</div>
+
+							<div class="input-field col s12">
+								<i class="mdi-social-person prefix"></i> <input type="text"
+									class="form-control writer" id="writer" name="writer"
+									placeholder="작성자" readonly>
+							</div>
+
+							<div class="input-field col s12">
+								<i class="mdi-content-create prefix"></i> <input type="text"
+									class="form-control" id="title" name="title"> <label
+									for="title">제목</label>
+							</div>
+							
+							<div class="input-field col s12">
+								<i class="mdi-communication-chat prefix"></i>
+								<textarea id="contents" name="contents"
+									class="materialize-textarea"></textarea>
+								<label for="contents">내용</label>
+							</div>
+
+							<div class="file-field input-field col s12">
+								<div class="btn">
+									<span>첨부파일</span> 
+									<input type="file" name="file">
+								</div>
+								<div class="file-path-wrapper">
+									<input class="file-path validate" type="text">
+								</div>
+							</div>
+							<br><br><br><br>
+							 <button id="addBtn" type="button" class="btn btn-default my-new" style="width: 48%;">등록</button>
+	    <button id="cancelBtn" type="button" class="btn btn-default"
+	            onclick="location.href='complain_t.html'" style="width: 48%;">취소</button> 
+	            
+						</form>
+					</div>
 				</div>
-			</div>
-			<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
-			<div id="complain1" class="tab_content">
-				<div class="row" id="complainTable"></div>
-
-				<script id="trTemplateText" type="text/x-handlebars-template">
-{{#each list}}
-   <div class="col l4 s12">
-   <div class="card of-h">
-  <div class="thumbnail waves-effect waves-block waves-light" style="height:230px;">
-    <img src="../../upload/{{filename}}" alt="Canada" 
-      onerror="this.onerror=null;this.src='../../images/camera.png';"
-       class="portrait activator">
-  </div>
-  <div class="content">
-    <span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title1">{{title}}</p>
-     <p class="tenant-writer card1" data-no1="{{no}}">{{writer}} 세입자</p>
-  </div>
-  <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
-      <p id="complain_conts1">{{contents}}</p>
-   <div class="button-group">
-          <a class="btn" id="updateBtn1" data-no1="{{no}}">수정</a>
-                  </div>
-  </div>
-</div>
-</div>
-
-{{/each}}
-</script>
-				<!-- 리스트 -->
-				<div class="complain_pagination">
-					<button id="prevBtn" type="button"
-						class="uk-button uk-button-primary">이전</button>
-					<span id="pageNo">1</span>
-					<button id="nextBtn" type="button"
-						class="uk-button uk-button-primary">다음</button>
-				</div>
-			</div>
-
-			<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
-			<div id="complain2" class="tab_content">
-				<div class="row" id="complainTable2"></div>
-				<script id="trTemplateText2" type="text/x-handlebars-template">
-{{#each list}}
-   <div class="col l4 s12">
-   <div class="card of-h">
-  <div class="thumbnail waves-effect waves-block waves-light" style="height:230px;">
-    <img src="../../upload/{{filename}}" alt="Canada" 
-      onerror="this.onerror=null;this.src='../../images/camera.png';"
-       class="portrait activator">
-  </div>
-  <div class="content">
-    <span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title0">{{title}}</p>
-     <p id="test" class="tenant-writer card0" data-no0="{{no}}">{{writer}} 세입자</p>
-  </div>
-  <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
-      <p id="complain_conts0">{{contents}}</p>
-   <div class="button-group">
-                     <a class="btn" id="updateBtn0" data-no0="{{no}}">수정</a>
-                  </div>
-  </div>
-</div>
-</div>
-{{/each}}
-   </script>
-				<!-- 리스트 -->
-				<!--          <div class="complain_pagination">
-            <button id="prevBtn2" type="button"
-               class="uk-button uk-button-primary">이전</button>
-            <span id="pageNo_tab2">1</span>
-            <button id="nextBtn2" type="button"
-               class="uk-button uk-button-primary">다음</button>
-         </div>
+			<!-- 	<div class="row">
+      <div class="col l10 s12 m5">
+        <div class="card-panel white">
+          <button id="addBtn" type="button" class="btn btn-default my-new" style="width: 49%;">등록</button>
+	    <button id="cancelBtn" type="button" class="btn btn-default"
+	            onclick="location.href='complain_t.html'" style="width: 49%;">취소</button>
+        </div>
       </div>
-
-   </div> -->
-				<!-- tab container -->
+    </div> -->
 
 				<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 			</div>
@@ -434,26 +400,14 @@
 
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../js/bit.js"></script>
-	<script type="text/javascript" src="../../js/board/complain_t.js"></script>
+	<script type="text/javascript" src="../../js/board/complainCreate.js"></script>
 
-
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<!--------------------------------------------------------- 모달 load 자바스크립트 코드------------------------------------------------->
 
 	<script type="text/javascript">
-      ajaxComplainListRsvd1_t()
-      ajaxComplainListRsvd0_t() 
-   </script>
+		ajaxLoginUser();
+	</script>
 
-	<script type="text/javascript">
-   if (location.search.startsWith("?")) { // 예) ?no=xxx
-		  var no = location.search.split("=")[1];
-		  var rsvd = location.search.split("=")[2];
-		  //alert(rsvd);
-		  ajaxLoadComplain(no, rsvd) 
-		  }
-   </script>
 
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../js/bit.js"></script>
