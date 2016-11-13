@@ -3,11 +3,19 @@
 <head>
 <link href="../..//images/kakao.ico" rel="shortcut icon">
 <link href="../../css/auth/kakaoInput.css" rel="stylesheet" type="text/css" />
-<link id="data-uikit-theme" rel="stylesheet"
-	href="../../node_modules/uikit/dist/css/uikit.almost-flat.min.css">
+<link rel="stylesheet" href="../../bower_components/sweetalert2/dist/sweetalert2.min.css">
 
 <meta charset="UTF-8">
 <title>회원가입 최초 설정</title>
+<style>
+.swal2-modal .swal2-styled {
+	color: black;
+}
+.tabrow li.selected {
+  background: #FFF;
+  color: #000;
+}
+</style>
 </head>
 <body>
    <header>
@@ -48,9 +56,11 @@
    </section>
 
 
-   <script type="text/javascript" src="../../js/common.js"></script>
-   <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-   <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script src="../../bower_components/es6-promise/es6-promise.auto.min.js"></script>
+	<script src="../../bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
 
    <script type="text/javascript">
       
@@ -79,7 +89,10 @@
 	         <!-- 카카오 최초 설정 값 입력하기 -->
 	         $("#kakaoUpdate").click(function(event) {
 	            if ($("#birth1").val().length != 8) {
-	               alert("생일이 형식에 맞지 않습니다.");
+	            	swal({
+              		  title: '에러',
+              		  text: "생일이 형식에 맞지 않습니다."
+              		})
 	            }
 	            var birthMerge1 = $("#birth1").val().substring(0, 4);
 	            var birthMerge2 = $("#birth1").val().substring(4, 6);
@@ -136,8 +149,16 @@
                if (result.state != "success") {
                    alert("오류!");
                 } else {
-                   alert("[ Home & Human ] 가입을 환영합니다. 로그인 해주세요.");
-                   ajaxKakaoAutoLogout();
+                	swal({
+                		  title: '[ Home & Human ]',
+                		  text: "가입을 환영합니다. 로그인 해주세요.",
+                		  confirmButtonText: '확인',
+                		  confirmButtonColor: '#ffeb00'
+                		}).then(function () {
+                		  ajaxKakaoAutoLogout();
+                		})
+                   //alert("[ Home & Human ] 가입을 환영합니다. 로그인 해주세요.");
+                   //ajaxKakaoAutoLogout();
                    //window.location.href = serverAddr + "/html/index.html";
                 }
             }, "json")
