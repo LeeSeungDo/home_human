@@ -442,18 +442,18 @@
 	<!--------------------------------------------------------- 모달 load 자바스크립트 코드------------------------------------------------->
 
 	<script type="text/javascript">
-      ajaxComplainListRsvd1_t()
-      ajaxComplainListRsvd0_t() 
-   </script>
+		ajaxComplainListRsvd1_t()
+		ajaxComplainListRsvd0_t()
+	</script>
 
 	<script type="text/javascript">
-   if (location.search.startsWith("?")) { // 예) ?no=xxx
-		  var no = location.search.split("=")[1];
-		  var rsvd = location.search.split("=")[2];
-		  //alert(rsvd);
-		  ajaxLoadComplain(no, rsvd) 
-		  }
-   </script>
+		if (location.search.startsWith("?")) { // 예) ?no=xxx
+			var no = location.search.split("=")[1];
+			var rsvd = location.search.split("=")[2];
+			//alert(rsvd);
+			ajaxLoadComplain(no, rsvd)
+		}
+	</script>
 
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../js/bit.js"></script>

@@ -282,13 +282,13 @@
 					<div class="card-panel white">
 
 						<form>
-							<div class="input-field col s12">
+							<div class="input-field col l6 s12">
 								<i class="mdi-content-send prefix"></i> 
 								<input type="text"	class="form-control email" id="email" name="email"
 									readonly>
 							</div>
 
-							<div class="input-field col s12">
+							<div class="input-field col l6 s12">
 								<i class="mdi-social-person prefix"></i> <input type="text"
 									class="form-control writer" id="writer" name="writer"
 									placeholder="작성자" readonly>
@@ -296,14 +296,14 @@
 
 							<div class="input-field col s12">
 								<i class="mdi-content-create prefix"></i> <input type="text"
-									class="form-control" id="title" name="title"> <label
+									class="form-control" id="title" name="title" required> <label
 									for="title">제목</label>
 							</div>
 							
 							<div class="input-field col s12">
 								<i class="mdi-communication-chat prefix"></i>
 								<textarea id="contents" name="contents"
-									class="materialize-textarea"></textarea>
+									class="materialize-textarea limitation" required></textarea>
 								<label for="contents">내용</label>
 							</div>
 
@@ -326,21 +326,16 @@
 								onclick="location.href='complain_t.html'" style="width: 100%;">취소</button>
 						</div>
 					</form>
+				
 					</div>
 				</div>
-			<!-- 	<div class="row">
-      <div class="col l10 s12 m5">
-        <div class="card-panel white">
-          <button id="addBtn" type="button" class="btn btn-default my-new" style="width: 49%;">등록</button>
-	    <button id="cancelBtn" type="button" class="btn btn-default"
-	            onclick="location.href='complain_t.html'" style="width: 49%;">취소</button>
-        </div>
-      </div>
-    </div> -->
+		
 
 				<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 			</div>
+			<br><br><br>
 	</section>
+	
 	<!-- /Main Content -->
 	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
 
