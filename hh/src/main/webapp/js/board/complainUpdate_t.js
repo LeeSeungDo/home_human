@@ -30,15 +30,6 @@ $("#updateBtn").click(function(event) {
 	  }
 }); 
 
-$("#deleteBtn").click(function(event) {
-	if (confirm("정말 삭제하시겠습니까?") == true) {
-		 ajaxDeleteComplain($("#no").text())
-	} else {
-		return;
-	}  
-});
-
-
 function ajaxLoadComplain(no, rsvd) {
 	$.getJSON(serverAddr + "/complain/detail.json?no=" + no, function(obj) {
 		var result = obj.jsonResult
@@ -84,15 +75,3 @@ function ajaxLoginUser() {
     })
 }
 
-function ajaxDeleteComplain(no) {
-	$.getJSON(serverAddr + "/complain/delete.json", {
-		no: no
-	}, function(obj) {
-		var result = obj.jsonResult
-		if (result.state != "success") {
-			console.log("삭제 실패입니다.")
-			return
-		}
-		location.href = "complain_t.html"
-	})
-}
