@@ -79,7 +79,7 @@ function ajaxLoginUser() {
       //onsole.log(result.data);
       $("#userName1").html(result.data.name);
       $("#userName2").html(result.data.name);
-      $("#authLevel").html("임대인");
+      $("#authLevel").html("임차인");
       
       //console.log($.isNumeric(result.data.email));
       

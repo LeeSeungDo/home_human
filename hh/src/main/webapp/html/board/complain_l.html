@@ -275,7 +275,7 @@
 		</div>
 		<!-- /Breadcrumb -->
 
-		<div class="row sortable">
+		<div class="row sortable" style="margin-right: 0;">
 
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
 			<div class="row">
@@ -289,8 +289,6 @@
 					
 				</div>
 			</div>
-
-			<br> <br>
 
 			<div class="tab_container">
 				<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
@@ -312,10 +310,11 @@
   </div>
   <div class="card-reveal">
     <span class="card-title grey-text text-darken-4">
-	<p id="title"  style="font-size: 18px;">{{title}}</p><i class="mdi-content-clear right"></i></span>
-      <p id="complain_conts1">{{contents}}</p>
-	<div class="complain_radio">
-	<form action="#">
+   <p id="title"  style="font-size: 18px;">{{title}}</p><i class="mdi-content-clear right"></i></span>
+    <hr>
+   <p id="complain_conts1">{{contents}}</p>
+   <div class="complain_radio">
+   <form action="#">
     <p>
       <input type="radio" id="rsvd1"  name="rsvdMaterial1" value="미처리" checked/>
       <label for="rsvd_1">미처리</label>
@@ -325,7 +324,7 @@
       <label for="rsvd_1_0">처리</label>
     </p> 
   </form>
-	</div>
+   </div>
    <div class="button-group">
            <button type="button" class="btn" id="updateBtn1">수정</button>
                   </div>

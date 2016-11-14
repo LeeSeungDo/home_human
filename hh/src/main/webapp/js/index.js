@@ -27,7 +27,7 @@ function ajaxLogin(user) {
 						+ "/html/dashboard/dashboard.html"
 			} else {
 				window.location.href = serverAddr
-						+ "/html/dashboard/dynamicBoard.html"
+						+ "/html/dashboard/dashboard_t.html"
 			}
 		},
 		error : function(msg) {
