@@ -46,10 +46,6 @@
 
 
 
-<!-- Full Calendar -->
-<link rel="stylesheet" type="text/css"
-	href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
-
 <!-- dossierbit -->
 <link rel="stylesheet" type="text/css"
 	href="../../css/dashboard/dossierbit.css" />
@@ -280,99 +276,93 @@
 				onclick="location.href='complainCreate.html'" class="btn write_com">민원
 				등록</button>
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
-			<div class="row">
-				<div class="col s12">
-					<ul class="tabs">
-						<li class="tab col s3" rel="complain1"><a class="active"
-							href="#"> 미처리 민원</a></li>
-						<li class="tab col s3" rel="complain2"><a href="#"> 처리된
-								민원</a></li>
-					</ul>
+			<div style="margin: 0 auto; width: 65%;">
+				<div class="row">
+					<div class="col s12">
+						<ul class="tabs">
+							<li class="tab col s3" rel="complain1"><a class="active"
+								href="#"> 미처리 민원</a></li>
+							<li class="tab col s3" rel="complain2"><a href="#"> 처리된
+									민원</a></li>
+						</ul>
+					</div>
+				</div>
+				<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
+				<div id="complain1" class="tab_content">
+					<div class="row" id="complainTable"></div>
+
+					<script id="trTemplateText" type="text/x-handlebars-template">
+{{#each list}}
+	<div class="col l4 s12">
+		<div class="card of-h">
+			<div class="thumbnail waves-effect waves-block waves-light" style="height:230px;">
+				<img src="../../upload/{{filename}}" alt="Canada" 
+					 onerror="this.onerror=null;this.src='../../images/camera.png';"
+					 class="portrait activator">
+			</div>
+			<div class="content">
+				<span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title1">{{title}}</p>
+				<p class="tenant-writer card1" data-no1="{{no}}">{{writer}} 세입자</p>
+			</div>
+			<div class="card-reveal">
+				<span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
+				<hr>
+				<p id="complain_conts1">{{contents}}</p>
+				<div class="button-group">
+					<a class="btn" id="updateBtn1" data-no1="{{no}}">수정</a>
+					<a id="deleteBtn" type="button" class="btn">삭제</a>
 				</div>
 			</div>
-			<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
-			<div id="complain1" class="tab_content">
-				<div class="row" id="complainTable"></div>
-
-				<script id="trTemplateText" type="text/x-handlebars-template">
-{{#each list}}
-   <div class="col l4 s12">
-   <div class="card of-h">
-  <div class="thumbnail waves-effect waves-block waves-light" style="height:230px;">
-    <img src="../../upload/{{filename}}" alt="Canada" 
-      onerror="this.onerror=null;this.src='../../images/camera.png';"
-       class="portrait activator">
-  </div>
-  <div class="content">
-    <span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title1">{{title}}</p>
-     <p class="tenant-writer card1" data-no1="{{no}}">{{writer}} 세입자</p>
-  </div>
-  <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
-      <p id="complain_conts1">{{contents}}</p>
-   <div class="button-group">
-          <a class="btn" id="updateBtn1" data-no1="{{no}}">수정</a>
-			<a id="deleteBtn" type="button"
-						class="btn">삭제</a>
-                  </div>
-  </div>
-</div>
-</div>
-
+		</div>
+	</div>
 {{/each}}
 </script>
-				<!-- 리스트 -->
-				<div class="complain_pagination">
-					<button id="prevBtn" type="button"
-						class="uk-button uk-button-primary">이전</button>
-					<span id="pageNo">1</span>
-					<button id="nextBtn" type="button"
-						class="uk-button uk-button-primary">다음</button>
+					<!-- 리스트 -->
+					<div class="complain_pagination">
+						<button id="prevBtn" type="button"
+							class="uk-button uk-button-primary">이전</button>
+						<span id="pageNo">1</span>
+						<button id="nextBtn" type="button"
+							class="uk-button uk-button-primary">다음</button>
+					</div>
+				</div>
+
+				<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
+				<div id="complain2" class="tab_content">
+					<div class="row" id="complainTable2"></div>
+					<script id="trTemplateText2" type="text/x-handlebars-template">
+{{#each list}}
+	<div class="col l4 s12">
+		<div class="card of-h">
+			<div class="thumbnail waves-effect waves-block waves-light" style="height:230px;">
+				<img src="../../upload/{{filename}}" alt="Canada" 
+					 onerror="this.onerror=null;this.src='../../images/camera.png';"
+					 class="portrait activator">
+			</div>
+			<div class="content">
+				<span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title0">{{title}}</p>
+				<p id="test" class="tenant-writer card0" data-no0="{{no}}">{{writer}} 세입자</p>
+			</div>
+ 			<div class="card-reveal">
+				<span class="card-title grey-text text-darken-4">
+				<p id="title" style="font-size: 18px;">{{title}}</p>
+				<i class="mdi-content-clear right"></i></span>
+				<p id="complain_conts0">{{contents}}</p>
+				<div class="button-group">
+					<a class="btn" id="updateBtn0" data-no0="{{no}}">수정</a>
 				</div>
 			</div>
-
-			<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
-			<div id="complain2" class="tab_content">
-				<div class="row" id="complainTable2"></div>
-				<script id="trTemplateText2" type="text/x-handlebars-template">
-{{#each list}}
-   <div class="col l4 s12">
-   <div class="card of-h">
-  <div class="thumbnail waves-effect waves-block waves-light" style="height:230px;">
-    <img src="../../upload/{{filename}}" alt="Canada" 
-      onerror="this.onerror=null;this.src='../../images/camera.png';"
-       class="portrait activator">
-  </div>
-  <div class="content">
-    <span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title0">{{title}}</p>
-     <p id="test" class="tenant-writer card0" data-no0="{{no}}">{{writer}} 세입자</p>
-  </div>
-  <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
-      <p id="complain_conts0">{{contents}}</p>
-   <div class="button-group">
-                     <a class="btn" id="updateBtn0" data-no0="{{no}}">수정</a>
-                  </div>
-  </div>
-</div>
-</div>
+		</div>
+	</div>
 {{/each}}
    </script>
-				<!-- 리스트 -->
-				<!--          <div class="complain_pagination">
-            <button id="prevBtn2" type="button"
-               class="uk-button uk-button-primary">이전</button>
-            <span id="pageNo_tab2">1</span>
-            <button id="nextBtn2" type="button"
-               class="uk-button uk-button-primary">다음</button>
-         </div>
-      </div>
 
-   </div> -->
-				<!-- tab container -->
+					<!-- tab container -->
 
-				<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+					<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+				</div>
 			</div>
+		</div>
 	</section>
 	<!-- /Main Content -->
 	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
@@ -405,16 +395,6 @@
 	<script type="text/javascript"
 		src="../../bower_components/materialize/bin/materialize.js"></script>
 
-
-
-	<!-- Full Calendar -->
-	<script type="text/javascript"
-		src="../../bower_components/moment/min/moment.min.js"></script>
-
-	<script type="text/javascript"
-		src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
-	<script type="text/javascript"
-		src="../../bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 
 
 	<!-- Sortable -->

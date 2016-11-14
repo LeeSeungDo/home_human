@@ -59,7 +59,7 @@ public class DefaultFreeBoardService implements FreeBoardService {
   public FreeBoard getFreeBoard(int no) throws Exception {
     return freeboardDao.selectOne(no);
   }
-  
+
   @Override
   public int getTotalPage(int pageSize) throws Exception {
     int countAll = freeboardDao.countAll();
@@ -71,12 +71,29 @@ public class DefaultFreeBoardService implements FreeBoardService {
   }
 
 
-  public void updateFreeBoard(FreeBoard freeboard) throws Exception {
-    HashMap<String,Object> paramMap = new HashMap<>();
-    paramMap.put("boardNo", freeboard.getBoardNo());
-    paramMap.put("email", freeboard.getEmail());
+  public void updateFreeBoard(FreeBoard freeboard, MultipartFile file, String uploadDir) throws Exception {
+    try{
+      HashMap<String,Object> paramMap = new HashMap<>();
+      paramMap.put("boardNo", freeboard.getBoardNo());
+      paramMap.put("email", freeboard.getEmail());
+      freeboardDao.update(freeboard);
 
-    freeboardDao.update(freeboard);
+      String newFilename = null;
+      if (file != null && !file.isEmpty()) {
+        newFilename = FileUploadUtil.getNewFilename(file.getOriginalFilename());
+        file.transferTo(new File(uploadDir + newFilename));
+        FreeBoardFile freeboardFile = new FreeBoardFile();
+        freeboardFile.setFilename(newFilename);
+        freeboardFile.setBoardNo(freeboard.getBoardNo());
+        freeboardFileDao.update(freeboardFile);
+      }  
+    } catch (Exception e) {
+      e.printStackTrace();
+    }    
+  }
+
+  public void updateVW_CNTFreeBoard(int no) throws Exception {
+    freeboardDao.updateVW_CNT(no);
   }
 
   public void deleteFreeBoard(int no) throws Exception {

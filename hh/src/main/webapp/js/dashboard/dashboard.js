@@ -76,12 +76,12 @@ function ajaxLoginUser() {
           window.location.href = serverAddr + "/html/index.html"
             return
        }
-      console.log(result.data);
+      //console.log(result.data);
       $("#userName1").html(result.data.name);
       $("#userName2").html(result.data.name);
       $("#authLevel").html("임대인");
       
-      console.log($.isNumeric(result.data.email));
+      //console.log($.isNumeric(result.data.email));
       
       if($.isNumeric(result.data.email)) {
     	  if (result.data.phoPath != null && result.data.phoPath != "") {
