@@ -62,6 +62,17 @@ function ajaxLoginUser() {
 			$("#gender").html("여자");
 		}
 
+		if (result.data.phoPath != null && result.data.phoPath != "") {
+			$('#phoPath').attr('src', '../../upload/' + result.data.phoPath);
+			$('#myPhoto1').attr('src', '../../upload/' + result.data.phoPath);
+			$('#myPhoto2').attr('src', '../../upload/' + result.data.phoPath);
+		} else {
+			$('#phoPath').attr('src', '../../images/user_default.png');
+			$('#myPhoto1').attr('src', '../../images/user_default.png');
+			$('#myPhoto2').attr('src', '../../images/user_default.png');
+		}
+
+		ajaxInputUser();
 	})
 }
 
