@@ -27,13 +27,47 @@ $("#addBtn").click(function(event) {
 	
 	var form = $('form')[0];
 	var formData = new FormData(form);
+	var title = formData.get("title");
+	var contents = formData.get("contents");
+	var fileName = formData.get("file").name;
 	
-	ajaxAddComplainFile(formData);
+	if (fileName == "" || fileName == null) {
+		if ((title == "" || title == null) || (contents == "" || contents == null)) {
+			alert("빈공간 있어요 다시해요.");
+		} else {
+			alert("파일 없다. 등록 시작하죠");
+			ajaxAddComplainFile0(formData);
+		}
+	} else {
+		if ((title == "" || title == null) || (contents == "" || contents == null)) {
+			alert("빈공간 있어요 다시해요.");
+		} else {
+			alert("파일 있다. 등록 시작하죠");
+			ajaxAddComplainFile1(formData);
+		}
+	}
 });
 
-function ajaxAddComplainFile(formData) {
+function ajaxAddComplainFile0(formData) {
 	$.ajax({
-	    url: serverAddr + "/complain/add.json",
+	    url: serverAddr + "/complain/add0.json",
+	    data: formData,
+	    processData: false,
+	    contentType: false,
+	    type: 'POST',
+	    success: function(data){
+	    	alert("성공");
+	    	window.location.href = serverAddr + "/html/board/complain_t.html"
+	    },
+	    error: function() {
+	    	alert("실패")
+	    }
+	  });
+}
+
+function ajaxAddComplainFile1(formData) {
+	$.ajax({
+	    url: serverAddr + "/complain/add1.json",
 	    data: formData,
 	    processData: false,
 	    contentType: false,

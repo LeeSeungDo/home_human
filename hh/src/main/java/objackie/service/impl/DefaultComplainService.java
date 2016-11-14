@@ -59,9 +59,27 @@ public class DefaultComplainService implements ComplainService {
     return complainDao.selectListbyRsvd1_t(map);
   }
   
-
   @Override
-  public void insertComplain(Complain complain, MultipartFile file, String uploadDir) throws Exception {
+  public void insertComplain0(Complain complain, String uploadDir) throws Exception {
+    System.out.println("여기부터");
+    try {
+      complainDao.insert(complain);
+
+      String newFilename = "0000000000.png";
+        ComplainFile complainFile = new ComplainFile();
+        complainFile.setFilename(newFilename);
+        complainFile.setComplainNo(complain.getNo());
+        // boardFile.setBoardNo(10200); //트랜잭션 테스트 용
+        complainFileDao.insert(complainFile);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+    System.out.println("여기까지");
+  }
+  
+  @Override
+  public void insertComplain1(Complain complain, MultipartFile file, String uploadDir) throws Exception {
     System.out.println("여기부터");
     try {
       complainDao.insert(complain);
@@ -88,9 +106,37 @@ public class DefaultComplainService implements ComplainService {
     return complainDao.selectOne(no);
   }
   
+  public ComplainFile getSelect(int no) throws Exception {
+    System.out.println("서비스 구현체 들어옵니다.");
+    System.out.println(no);
+    return complainFileDao.selectOne(no);
+  }
+  
   public void updateComplain(Complain complain) throws Exception {
-  	System.out.println(complain.toString());
-    complainDao.update(complain);
+    System.out.println(complain.toString());
+   complainDao.update(complain);
+ }
+  
+  public void updateComplain0(Complain complain) throws Exception {
+    //System.out.println("업데이트 0 에 서비스 구현체.");
+    complainDao.update0(complain);
+  }
+  
+  public void updateComplain1(Complain complain, MultipartFile file, String uploadDir) throws Exception {
+    //System.out.println("업데이트 1 에 서비스 구현체.");
+    complainDao.update0(complain);
+
+    String newFilename = null;
+    if (file != null && !file.isEmpty()) {
+      newFilename = FileUploadUtil.getNewFilename(file.getOriginalFilename());
+      file.transferTo(new File(uploadDir + newFilename));
+      ComplainFile complainFile = new ComplainFile();
+      complainFile.setFilename(newFilename);
+      complainFile.setComplainNo(complain.getNo());
+      
+      //System.out.println(complainFile);
+      complainFileDao.update(complainFile);
+    }
   }
   
   public void deleteComplain(int no) throws Exception {

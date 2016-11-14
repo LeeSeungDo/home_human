@@ -34,7 +34,7 @@ public class DefaultBoardService implements BoardService {
 
   @Override
   public void insertBoard(Board board, MultipartFile file, String uploadDir) throws Exception {
-    System.out.println("여기부터");
+//    System.out.println("여기부터");
     try {
       boardDao.insert(board);
 
@@ -52,7 +52,7 @@ public class DefaultBoardService implements BoardService {
       e.printStackTrace();
     }
 
-    System.out.println("여기까지");
+//    System.out.println("여기까지");
   }
 
 
