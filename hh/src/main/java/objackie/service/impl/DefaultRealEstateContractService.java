@@ -21,10 +21,12 @@ public class DefaultRealEstateContractService implements RealEstateContractServi
   @Autowired RealEstateContractFileDao realEstateContractFileDao;
   
 
-  public List<RealEstateContract> getRealEstateContractList(int pageNo, int length) throws Exception {
+  public List<RealEstateContract> getRealEstateContractList(int pageNo, int length, String email) throws Exception {
+    System.out.println("리스트 서비스에 들어옵니다.");
     HashMap<String,Object> map = new HashMap<>();
     map.put("startIndex", (pageNo - 1) * length);
     map.put("length", length);
+    map.put("email", email);
     return realEstateContractDao.selectList(map);
   }
 

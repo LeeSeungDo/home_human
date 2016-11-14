@@ -13,6 +13,13 @@
     insert into BOD_PHO (BOD_NO, PHO_PATH)
     values(#{complainNo}, #{filename})
   </insert>
+  
+   <update id="update" parameterType="complain">
+  	update BOD_PHO
+	set PHO_PATH = #{filename}
+	where BOD_NO = #{complainNo}
+  </update>
+  
 </mapper>
 
 

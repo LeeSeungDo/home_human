@@ -89,10 +89,7 @@ public class DefaultComplainService implements ComplainService {
   }
   
   public void updateComplain(Complain complain) throws Exception {
-    HashMap<String,Object> paramMap = new HashMap<>();
-    paramMap.put("no", complain.getNo());
-    paramMap.put("rsvd", complain.getRsvd());
-
+  	System.out.println(complain.toString());
     complainDao.update(complain);
   }
   

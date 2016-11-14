@@ -28,10 +28,12 @@ public class RealEstateContractController {
   @RequestMapping(path="list")
   public Object list(
       @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="12") int length) throws Exception {
+      @RequestParam(defaultValue="12") int length,
+      String email) throws Exception {
     
     try {
-      List<RealEstateContract> list = realEstateContractService.getRealEstateContractList(pageNo, length);
+      System.out.println(email);
+      List<RealEstateContract> list = realEstateContractService.getRealEstateContractList(pageNo, length, email);
       
       HashMap<String,Object> data = new HashMap<>();
       data.put("list", list);

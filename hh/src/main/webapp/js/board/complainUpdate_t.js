@@ -1,3 +1,12 @@
+$(document.body).ready(function() {
+    $('.limitation').on('keyup', function() {
+        if($(this).val().length > 200) {
+        	 alert("글자수는 200자 이내로 제한됩니다.!");  
+            $(this).val($(this).val().substring(0, 200));
+        }
+    });
+});
+
 var rsvdAll;
 
 function rsvdCall(rsvd) {
@@ -20,15 +29,6 @@ $("#updateBtn").click(function(event) {
 		  return;
 	  }
 }); 
-
-$("#deleteBtn").click(function(event) {
-	if (confirm("정말 삭제하시겠습니까?") == true) {
-		 ajaxDeleteComplain($("#no").text())
-	} else {
-		return;
-	}  
-});
-
 
 function ajaxLoadComplain(no, rsvd) {
 	$.getJSON(serverAddr + "/complain/detail.json?no=" + no, function(obj) {
@@ -59,15 +59,19 @@ function ajaxUpdateComplain(complain) {
 	}, "json")
 }
 
-function ajaxDeleteComplain(no) {
-	$.getJSON(serverAddr + "/complain/delete.json", {
-		no: no
-	}, function(obj) {
+
+function ajaxLoginUser() {
+	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
-		if (result.state != "success") {
-			console.log("삭제 실패입니다.")
-			return
-		}
-		location.href = "complain_t.html"
-	})
+	    if (result.state != "success") { // 로그아웃 상태일 경우 로그인 상태와 관련된 태그를 감춘다.
+	    	alert("로그아웃 되었습니다.");
+	    	window.location.href = serverAddr + "/html/index.html"
+	         return
+	    }
+
+		$(".email").val(result.data.email);
+		$(".writer").val(result.data.name);
+		
+    })
 }
+

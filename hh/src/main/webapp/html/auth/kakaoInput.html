@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="../..//images/kakao.ico" rel="shortcut icon">
 <link href="../../css/auth/kakaoInput.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../bower_components/sweetalert2/dist/sweetalert2.min.css">
+
 <meta charset="UTF-8">
 <title>회원가입 최초 설정</title>
+<style>
+.swal2-modal .swal2-styled {
+	color: black;
+}
+.tabrow li.selected {
+  background: #FFF;
+  color: #000;
+}
+</style>
 </head>
 <body>
    <header>
@@ -18,24 +30,24 @@
             <div class="subtitle"></div>
             <div class="container">
                <form method="POST" id="login-form" style="align: right">
-                  <input type="hidden" name="type" value="w"> <input
-                     type="hidden" name="continue"
+                  <input type="hidden" name="type" value="w"> 
+                  <input type="hidden" name="continue"
                      value="https://yellowid.kakao.com/join">
                   <div class="email_tooltip" style="top: 70px; display: none;">
                      <span class="arr" style="left: auto; right: 10px"></span>
                   </div>
               <input type="hidden" id="id" readonly>
               <div id="kakao-profile"></div><br>
-                  <input type="text" id="name" placeholder="이름"><br> <br>
+                  <input type="text" id="name" placeholder="이름"><br>
+	          		<label for="GEND"><input type="radio" id="GEND" name="gend" checked>남</label>
+                  <label for="GEND1"><input type="radio" id="GEND1" name="gend">여</label><br> <br> 
                   
-                  <input type="radio" id="GEND" name="gend" checked>남
-                  <input type="radio" name="gend">여<br> <br>
-                  
-                  <input type="radio" id="AUTH" name="auth" checked>임대인
-                  <input type="radio" name="auth">세입자<br> <br>
                   <input type="text" id="birth1" placeholder="생일 ex) 19800212"> 
-                   <br>
-                  <br><input type="text" id="TEL" placeholder="전화번호 ( ' - ' 제외)"> <br> <br>
+                  
+                  <label for="AUTH"><input type="radio" id="AUTH" name="auth" checked>임대인</label>
+                  <label for="AUTH1"><input type="radio" id="AUTH1" name="auth">세입자</label><br> <br>
+                 
+                 <input type="text" id="TEL" placeholder="전화번호 ( ' - ' 제외)"> <br> <br>
 
                   <div><button type="button" id="kakaoUpdate">회원가입</button></div>
                   <hr>
@@ -44,9 +56,11 @@
    </section>
 
 
-   <script type="text/javascript" src="../../js/common.js"></script>
-   <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-   <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script type="text/javascript" src="../../js/common.js"></script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script src="../../bower_components/es6-promise/es6-promise.auto.min.js"></script>
+	<script src="../../bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
 
    <script type="text/javascript">
       
@@ -75,7 +89,10 @@
 	         <!-- 카카오 최초 설정 값 입력하기 -->
 	         $("#kakaoUpdate").click(function(event) {
 	            if ($("#birth1").val().length != 8) {
-	               alert("생일이 형식에 맞지 않습니다.");
+	            	swal({
+              		  title: '에러',
+              		  text: "생일이 형식에 맞지 않습니다."
+              		})
 	            }
 	            var birthMerge1 = $("#birth1").val().substring(0, 4);
 	            var birthMerge2 = $("#birth1").val().substring(4, 6);
@@ -132,8 +149,16 @@
                if (result.state != "success") {
                    alert("오류!");
                 } else {
-                   alert("[ Home & Human ] 가입을 환영합니다. 로그인 해주세요.");
-                   ajaxKakaoAutoLogout();
+                	swal({
+                		  title: '[ Home & Human ]',
+                		  text: "가입을 환영합니다. 로그인 해주세요.",
+                		  confirmButtonText: '확인',
+                		  confirmButtonColor: '#ffeb00'
+                		}).then(function () {
+                		  ajaxKakaoAutoLogout();
+                		})
+                   //alert("[ Home & Human ] 가입을 환영합니다. 로그인 해주세요.");
+                   //ajaxKakaoAutoLogout();
                    //window.location.href = serverAddr + "/html/index.html";
                 }
             }, "json")
