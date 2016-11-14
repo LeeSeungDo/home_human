@@ -46,6 +46,10 @@
 
 
 
+<!-- Full Calendar -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
+
 <!-- dossierbit -->
 <link rel="stylesheet" type="text/css"
 	href="../../css/dashboard/dossierbit.css" />
@@ -343,7 +347,9 @@
      <p id="test" class="tenant-writer card0" data-no0="{{no}}">{{writer}} 세입자</p>
   </div>
   <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
+    <span class="card-title grey-text text-darken-4">
+<p id="title" style="font-size: 18px;">{{title}}</p>
+<i class="mdi-content-clear right"></i></span>
       <p id="complain_conts0">{{contents}}</p>
    <div class="button-group">
                      <a class="btn" id="updateBtn0" data-no0="{{no}}">수정</a>
@@ -353,17 +359,7 @@
 </div>
 {{/each}}
    </script>
-				<!-- 리스트 -->
-				<!--          <div class="complain_pagination">
-            <button id="prevBtn2" type="button"
-               class="uk-button uk-button-primary">이전</button>
-            <span id="pageNo_tab2">1</span>
-            <button id="nextBtn2" type="button"
-               class="uk-button uk-button-primary">다음</button>
-         </div>
-      </div>
-
-   </div> -->
+			
 				<!-- tab container -->
 
 				<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
@@ -403,6 +399,16 @@
 
 
 
+	<!-- Full Calendar -->
+	<script type="text/javascript"
+		src="../../bower_components/moment/min/moment.min.js"></script>
+
+	<script type="text/javascript"
+		src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
+	<script type="text/javascript"
+		src="../../bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+
+
 	<!-- Sortable -->
 	<script type="text/javascript"
 		src="../../bower_components/Sortable/Sortable.min.js"></script>
@@ -416,6 +422,7 @@
 		src="../../bower_components/code-prettify/src/prettify.js"></script>
 
 	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../js/bit.js"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>

@@ -18,7 +18,7 @@ function ajaxRealEstateContractList() {
 			console.log(result.data);
 			var rentPayDate = result.data.list[0].rentPayDate;
 			console.log(rentPayDate);
-			$("#rentPayDate").html(rentPayDate + "일");
+			$("#rentPayDate").html("[ " + rentPayDate + " ]");
 
 			var now = new Date();
 			var then = new Date(rentPayDate);
