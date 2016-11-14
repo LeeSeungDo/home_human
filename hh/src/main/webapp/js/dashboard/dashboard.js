@@ -1,4 +1,11 @@
-/*----------------------------------------------------- 공통 대쉬보드(지우지마세요) -----------------------------------------------------*/
+/*------------------------------------------- 공통 대쉬보드(꼭 확인하세요!!!!!) ----------------------------------*/
+/* [ 대쉬보드 JS 사용법 ]
+ * <link rel="stylesheet" type="text/css" href="../../css/dashboard/sseung.css" /> 를 html 에 붙이세요.
+ * dashboard.js 에서 [ 공통 대쉬보드 ] 부분을 복사해서 붙여넣어 주세요.
+ * 되도록이면 [ 공통 대쉬보드 ] 부분을 수정하지 말아주세요.
+ * [ 공통 대쉬보드 ] 부분에 수정 발생시 따로 공지하겠습니다.
+ * 감사합니다. 				- 이승도 -
+ */
 $("#dashboardLink").click(function(event) {
 	alert("메인");
 	window.location.href = serverAddr + "/html/dashboard/dashboard.html"
@@ -69,17 +76,29 @@ function ajaxLoginUser() {
           window.location.href = serverAddr + "/html/index.html"
             return
        }
-      //console.log(result.data.phoPath);
+      console.log(result.data);
       $("#userName1").html(result.data.name);
       $("#userName2").html(result.data.name);
       $("#authLevel").html("임대인");
       
-      if (result.data.phoPath != null && result.data.phoPath != "") {
-    	  $('#myPhoto1').attr('src', '../../upload/' + result.data.phoPath);
-    	  $('#myPhoto2').attr('src', '../../upload/' + result.data.phoPath);
+      console.log($.isNumeric(result.data.email));
+      
+      if($.isNumeric(result.data.email)) {
+    	  if (result.data.phoPath != null && result.data.phoPath != "") {
+        	  $('#myPhoto1').attr('src', result.data.phoPath);
+        	  $('#myPhoto2').attr('src', result.data.phoPath);
+          } else {
+        	  $('#myPhoto1').attr('src', '../../images/user_default.png');
+        	  $('#myPhoto2').attr('src', '../../images/user_default.png');
+          }
       } else {
-    	  $('#myPhoto1').attr('src', '../../images/user_default.png');
-    	  $('#myPhoto2').attr('src', '../../images/user_default.png');
+    	  if (result.data.phoPath != null && result.data.phoPath != "") {
+        	  $('#myPhoto1').attr('src', '../../upload/' + result.data.phoPath);
+        	  $('#myPhoto2').attr('src', '../../upload/' + result.data.phoPath);
+          } else {
+        	  $('#myPhoto1').attr('src', '../../images/user_default.png');
+        	  $('#myPhoto2').attr('src', '../../images/user_default.png');
+          }
       }
     })
 }

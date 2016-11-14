@@ -27,19 +27,12 @@ public class BoardController {
   @Autowired BoardService boardService;
 
   @RequestMapping(path="firstlist")
-  public Object firstlist(
-      @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="1") int length) throws Exception {
+  public Object firstlist() throws Exception {
 
     try {
-      List<Board> list = boardService.getBoardList(pageNo, length);
-      //int totalPage = boardService.getTotalPage(length);
-
-      HashMap<String,Object> data = new HashMap<>();      
+      List<Board> list = boardService.getFirstList();
+      HashMap<String, Object> data = new HashMap<>();
       data.put("list", list);
-      //data.put("totalPage", totalPage);
-      data.put("pageNo", pageNo);
-      data.put("length", length);
 
       return JsonResult.success(data);
 
@@ -54,10 +47,9 @@ public class BoardController {
       @RequestParam(defaultValue="6") int length) throws Exception {
 
     try {
-      System.out.println("board list controller 들어왔어요.");
+      //System.out.println("board list controller 들어왔어요.");
       List<Board> list = boardService.getBoardList(pageNo, length);
       int totalPage = boardService.getTotalPage(length);
-      System.out.println(list);
 
       HashMap<String,Object> data = new HashMap<>();      
       data.put("list", list);

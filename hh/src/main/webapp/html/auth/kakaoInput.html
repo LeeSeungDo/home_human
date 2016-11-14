@@ -8,7 +8,16 @@
 <meta charset="UTF-8">
 <title>회원가입 최초 설정</title>
 <style>
+.swal2-modal .swal2-title {
+	font-size: 20px;
+}
+
+.swal2-modal .swal2-content {
+	font-size: 16px;
+}
+
 .swal2-modal .swal2-styled {
+	font-size: 15px;
 	color: black;
 }
 .tabrow li.selected {
@@ -90,8 +99,10 @@
 	         $("#kakaoUpdate").click(function(event) {
 	            if ($("#birth1").val().length != 8) {
 	            	swal({
-              		  title: '에러',
-              		  text: "생일이 형식에 맞지 않습니다."
+              		  	title: "생일이 형식에 맞지 않습니다.",
+              		  	type: 'error',
+              			confirmButtonText: '확인',
+          		  		confirmButtonColor: '#ffeb00'
               		})
 	            }
 	            var birthMerge1 = $("#birth1").val().substring(0, 4);
@@ -132,7 +143,12 @@
 	               
 	            } else {
 	               /* ------------------- 에러 출력 메시지 ------------------- */
-	               console.log("빈 공간이 있습니다.");
+	               swal({
+              		  	title: "빈 공간이 있습니다.",
+              		  	type: 'error',
+              			confirmButtonText: '확인',
+          		  		confirmButtonColor: '#ffeb00'
+              		})
 	            }
 	            
 	         })
@@ -147,7 +163,12 @@
                console.log(member);
                var result = obj.jsonResult
                if (result.state != "success") {
-                   alert("오류!");
+            	   swal({
+             		  	title: "가입 실패입니다. 관리자에게 문의해 주세요.",
+             		  	type: 'error',
+             			confirmButtonText: '확인',
+         		  		confirmButtonColor: '#ffeb00'
+             		})
                 } else {
                 	swal({
                 		  title: '[ Home & Human ]',
@@ -157,9 +178,6 @@
                 		}).then(function () {
                 		  ajaxKakaoAutoLogout();
                 		})
-                   //alert("[ Home & Human ] 가입을 환영합니다. 로그인 해주세요.");
-                   //ajaxKakaoAutoLogout();
-                   //window.location.href = serverAddr + "/html/index.html";
                 }
             }, "json")
          }

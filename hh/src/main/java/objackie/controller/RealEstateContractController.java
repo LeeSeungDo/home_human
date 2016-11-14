@@ -170,6 +170,22 @@ public class RealEstateContractController {
       return JsonResult.fail(e.getMessage());
     }
   }
+  
+  @RequestMapping(path="tenantList")
+  public Object tenantList(String email) throws Exception {
+    try {
+      List<RealEstateContract> list = realEstateContractService.getRealEstateContractTenantList(email);
+      
+      HashMap<String,Object> data = new HashMap<>();
+      data.put("list", list);
+
+      return JsonResult.success(data);
+      
+    } catch (Exception e) {
+      return JsonResult.fail(e.getMessage());
+    }
+  }
+  
 }
 
 

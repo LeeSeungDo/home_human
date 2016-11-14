@@ -7,8 +7,8 @@ import org.springframework.web.multipart.MultipartFile;
 import objackie.vo.Board;
 
 public interface BoardService {
-  
-  List<Board> getBoardList(int pageNo, int length) throws Exception;
+ List<Board> getFirstList() throws Exception;
+ List<Board> getBoardList(int pageNo, int length) throws Exception;
  void insertBoard(Board board, MultipartFile file, String uploadDir) throws Exception; 
  Board getBoard(int no) throws Exception;
  void updateBoard(Board board) throws Exception;
