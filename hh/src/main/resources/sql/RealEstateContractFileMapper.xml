@@ -9,11 +9,27 @@
     <result column="PHO_PATH" property="filename"/>
   </resultMap>
   
-  <insert id="insert" parameterType="realestatecontract">
+  <insert id="insert" parameterType="realestatecontractFile">
     insert into crct_pho (CRCT_NO, PHO_PATH)
     values(#{contractNo}, #{filename})
   </insert>
   
+  <select id="selectOne" resultMap="realestatecontractFileMap" parameterType="int">
+    select CRCT_NO, PHO_PATH
+    from CRCT_PHO    
+    where CRCT_NO= #{contractNo};
+  </select>
+  
+  <update id="update" parameterType="realestatecontractFile">
+    update CRCT_PHO set
+    PHO_PATH=#{filename}
+    where CRCT_NO=#{contractNo}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from crct_pho
+    where CRCT_NO=#{CRCT_NO}
+  </delete>  
 </mapper>
 
 

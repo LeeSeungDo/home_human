@@ -52,6 +52,12 @@
     where BOD_NO=#{boardNo} and type=0
   </update>
   
+  <update id="updateVW_CNT" parameterType="int">
+    update board
+    set VW_CNT=VW_CNT+1
+    where BOD_NO=#{boardNo}
+  </update>
+  
   <delete id="delete" parameterType="int">
     delete from board
     where BOD_NO=#{boardNo} and type=0

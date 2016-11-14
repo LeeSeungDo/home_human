@@ -113,6 +113,19 @@ public class BoardController {
     }
   }
   
+  @RequestMapping(path="updateVW_CNT")
+  public Object updateVW_CNT(int no) throws Exception {
+    try {
+      if (boardService.getBoard(no) == null) {
+        throw new Exception("해당 게시물이 없거나 암호가 일치하지 않습니다!");
+      }
+      boardService.updateVW_CNTBoard(no);
+      return JsonResult.success();
+      
+    } catch (Exception e) {
+      return JsonResult.fail(e.getMessage());
+    }
+  }
   
   
   @RequestMapping(path="delete")

@@ -12,6 +12,7 @@ public interface BoardService {
  void insertBoard(Board board, MultipartFile file, String uploadDir) throws Exception; 
  Board getBoard(int no) throws Exception;
  void updateBoard(Board board) throws Exception;
+ void updateVW_CNTBoard(int no) throws Exception;
  void deleteBoard(int no) throws Exception;
  int getTotalPage(int pageSize) throws Exception;
  

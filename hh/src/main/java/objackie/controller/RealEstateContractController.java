@@ -141,12 +141,14 @@ public class RealEstateContractController {
   }
   
   @RequestMapping(path="update")
-  public Object update(RealEstateContract realEstateContract) throws Exception {
+  public Object update(@ModelAttribute RealEstateContract realEstateContract, MultipartFile file) throws Exception {
     try {
+      System.out.println(realEstateContract.getContractNo());
+      String uploadDir = sc.getRealPath("/upload") + "/";
       if (realEstateContractService.getRealEstateContract(realEstateContract.getContractNo()) == null) {
         throw new Exception("해당 게시물이 없거나 암호가 일치하지 않습니다!");
       }
-      realEstateContractService.updateRealEstateContract(realEstateContract);
+      realEstateContractService.updateRealEstateContract(realEstateContract, file, uploadDir);
       return JsonResult.success();
       
     } catch (Exception e) {
