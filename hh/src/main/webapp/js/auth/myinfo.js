@@ -54,17 +54,14 @@ function ajaxLoginUser() {
 		var auth = result.data.auth;
 		var gender = result.data.gender;
 
-		if (auth == 0) {
+		if (auth == 0, gender == 0) {
 			$("#authLevel").html("임대인");
-		} else {
-			$("#authLevel").html("임차인");
-		}
-		
-		if (gender == 0) {
 			$("#gender").html("남자");
 		} else {
+			$("#authLevel").html("임차인");
 			$("#gender").html("여자");
 		}
+
 	})
 }
 
@@ -109,6 +106,8 @@ $(document).ready(function() {
 		});
 	}
 });
+
+
 
 
 ///*----------------------------------------------------- 로그인 정보 불러오기 -----------------------------------------------------*/

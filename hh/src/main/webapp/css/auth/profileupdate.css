@@ -108,9 +108,23 @@ html {
   float: left;
 }
 
+#password1 {
+  width: 350px;
+  height: 30px;
+  border: 1px solid #cccccc;
+  border-radius: 5px 5px 5px 5px;
+}
+
+#password2 {
+  width: 350px;
+  height: 30px;
+  border: 1px solid #cccccc;
+  border-radius: 5px 5px 5px 5px;
+}
+
 #updateBtn {
-	margin-top: 10px;
-	margin-left: 350px;
+	margin-top: 430px;
+	margin-left: 150px;
 	width: 100px;
 	height: 40px;
 	border: 1px solid #00aceb; 
@@ -123,8 +137,8 @@ html {
 }
 
 #cancelBtn {
-	margin-top: 10px;
-	margin-left: 460px;
+	margin-top: 430px;
+	margin-left: 260px;
 	width: 100px;
   height: 40px;
   background: #fff;

@@ -267,9 +267,10 @@
   
     <div id="main">
     <div id="profile"><h3>프로필</h3>
-      <div id="profilephoto"><a href="#">
-        <img  id="phoPath" src="../../images/default.png" onerror="myFunction()"
-             style="border-radius: 50px;" /></a>
+      <div id="profilephoto">
+        <a href="#">
+        <img  id="phoPath" src="../../images/default.png" onerror="myFunction()" style="border-radius: 50px;" />
+        </a>
       </div>
 
       <div id="pro_group">
@@ -575,6 +576,27 @@
 		ajaxLoginUser();
       	ajaxFirstList();
 	</script>
+	
+	<!-- 사진 미리보기 -->
+  <script type="text/javascript">
+        $(function() {
+            $("#ex_file").on('change', function(){
+                readURL(this);
+            });
+        });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                    $('#phoPath').attr('src', e.target.result);
+                }
+
+              reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 
 </body>
 
