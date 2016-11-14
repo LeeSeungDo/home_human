@@ -275,7 +275,7 @@
 		</div>
 		<!-- /Breadcrumb -->
 
-		<div class="row sortable" style="margin-right: 0;">
+		<div class="row sortable">
 
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
 			<div class="row">
@@ -286,18 +286,22 @@
 						<li class="tab col s3" rel="complain2"><a href="#"> 처리된
 								민원</a></li>
 					</ul>
-
+					
 				</div>
 			</div>
-			<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
-			<div id="complain1" class="tab_content">
-				<div class="row" id="complainTable"></div>
 
-				<script id="trTemplateText" type="text/x-handlebars-template">
+			<br> <br>
+
+			<div class="tab_container">
+				<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
+				<div id="complain1" class="tab_content">
+					<div class="row" id="complainTable"></div>
+
+					<script id="trTemplateText" type="text/x-handlebars-template">
 {{#each list}}
    <div class="col l4 s12">
    <div class="card of-h">
-  <div class="card-image waves-effect waves-block waves-light">
+  <div class="thumbnail waves-effect waves-block waves-light">
     <img src="../../upload/{{filename}}" alt="Canada" 
       onerror="this.onerror=null;this.src='../../images/camera.png';"
        class="portrait activator">
@@ -307,9 +311,9 @@
      <p class="tenant-writer card1" data-val1={{no}}>{{writer}} 세입자</p>
   </div>
   <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
-    <hr>
-	<p id="complain_conts1">{{contents}}</p>
+    <span class="card-title grey-text text-darken-4">
+	<p id="title"  style="font-size: 18px;">{{title}}</p><i class="mdi-content-clear right"></i></span>
+      <p id="complain_conts1">{{contents}}</p>
 	<div class="complain_radio">
 	<form action="#">
     <p>
@@ -331,34 +335,36 @@
 
 {{/each}}
 </script>
-				<!-- 리스트 -->
-				<div class="complain_pagination">
-					<button id="prevBtn" type="button"
-						class="uk-button uk-button-primary">이전</button>
-					<span id="pageNo">1</span>
-					<button id="nextBtn" type="button"
-						class="uk-button uk-button-primary">다음</button>
+					<!-- 리스트 -->
+					<div class="complain_pagination">
+						<button id="prevBtn" type="button"
+							class="uk-button uk-button-primary">이전</button>
+						<span id="pageNo">1</span>
+						<button id="nextBtn" type="button"
+							class="uk-button uk-button-primary">다음</button>
+					</div>
 				</div>
-			</div>
 
-			<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
-			<div id="complain2" class="tab_content">
-				<div class="row" id="complainTable2"></div>
-				<script id="trTemplateText2" type="text/x-handlebars-template">
+				<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
+				<div id="complain2" class="tab_content">
+					<div class="row" id="complainTable2"></div>
+					<script id="trTemplateText2" type="text/x-handlebars-template">
 {{#each list}}
    <div class="col l4 s12">
    <div class="card of-h">
-  <div class="card-image waves-effect waves-block waves-light">
+  <div class="thumbnail waves-effect waves-block waves-light">
     <img src="../../upload/{{filename}}" alt="Canada" 
       onerror="this.onerror=null;this.src='../../images/camera.png';"
        class="portrait activator">
   </div>
   <div class="content">
-    <span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title0">{{title}}</p>
+    <span class="card-title activator grey-text text-darken-4">
+	<p class="tenant-title" id="title0">{{title}}</p>
      <p class="tenant-writer card0" data-val0={{no}}>{{writer}} 세입자</p>
   </div>
   <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
+    <span class="card-title grey-text text-darken-4">
+<p id="title"  style="font-size: 18px;">{{title}}</p><i class="mdi-content-clear right"></i></span>
       <p id="complain_conts0">{{contents}}</p>
 	<div class="complain_radio">
 	<form action="#">
@@ -380,8 +386,8 @@
 </div>
 {{/each}}
    </script>
-				<!-- 리스트 -->
-				<!--          <div class="complain_pagination">
+					<!-- 리스트 -->
+				          <div class="complain_pagination">
             <button id="prevBtn2" type="button"
                class="uk-button uk-button-primary">이전</button>
             <span id="pageNo_tab2">1</span>
@@ -390,50 +396,125 @@
          </div>
       </div>
 
-   </div> -->
-				<!-- tab container -->
+   </div> 
+					<!-- tab container -->
 
-				<!-------------------------------------------------- 모달 시작(처리) -------------------------------------------------------------->
-				<div class="modal fade bs-example-modal-lg0" tabindex="-1"
-					role="dialog" aria-labelledby="myLargeModalLabel">
-					<div class="modal-dialog modal-lg" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal">×</button>
-								<h4 class="modal-title0">
-									<p id="modal-title0"></p>
-									<h5 id="modal-writer0"></h5>
-								</h4>
-							</div>
-							<div class="modal-body" id="body">
-								<textarea id="contents0" class="form-control" cols="50"
-									rows="10" placeholder="내용입니다." style="background: white"
-									readonly></textarea>
-							</div>
-							<div class="modal-footer">
-								<div class="uk-form-row">
-									<div class="uk-form-controls">
-										<input type="radio" name="rsvdMaterial0" value="미처리">미처리
-										<input id="rsvd0" type="radio" name="rsvdMaterial0" value="처리"
-											checked>처리
-									</div>
-									<br>
-								</div>
-								<div class="uk-button-group">
-									<a class="uk-button" id="updateBtn0">수정</a>
-								</div>
-							</div>
-						</div>
-					</div>
+				
+					<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 				</div>
-
-				<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
-			</div>
-		</div>
 	</section>
 	<!-- /Main Content -->
 	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
 
+	<div class="chat">
+		<!--------------------------------------------------------메세지 부분---------------------------------------------------------->
+		<!-- Messages -->
+		<div class="messages">
+
+			<!-- Top Bar with back link -->
+			<div class="topbar">
+				<a href="#!" class="chat-toggle"><i class="mdi-navigation-close"></i></a>
+				<a href="#!" class="chat-back"><i
+					class="mdi-hardware-keyboard-arrow-left"></i> Back</a>
+			</div>
+			<!-- /Top Bar with back link -->
+
+			<!-- All messages list -->
+			<div class="list">
+				<div class="nano scroll-bottom">
+					<div class="nano-content">
+
+						<div class="date">Monday, Feb 23, 8:23 pm</div>
+
+						<div class="from-me">
+							Hi, Felicia. <br> How are you?
+						</div>
+
+						<div class="clear"></div>
+
+						<div class="from-them">
+							<img src="../../bower_components/assets/_con/images/user2.jpg"
+								alt="John Doe" class="circle photo"> Hi! I am good!
+						</div>
+
+						<div class="clear"></div>
+
+						<div class="from-me">
+							Glad to see you :) <br> This long text is intended to show
+							how the chat will display it.
+						</div>
+
+						<div class="clear"></div>
+
+						<div class="from-them">
+							<img src="../../bower_components/assets/_con/images/user2.jpg"
+								alt="John Doe" class="circle photo"> Also, we will send
+							the longest word to show how it will fit in the chat window: <strong>Pneumonoultramicroscopicsilicovolcanoconiosis</strong>
+						</div>
+
+						<div class="date">Friday, Mar 10, 5:07 pm</div>
+
+						<div class="from-me">Hi again!</div>
+
+						<div class="clear"></div>
+
+						<div class="from-them">
+							<img src="../../bower_components/assets/_con/images/user2.jpg"
+								alt="John Doe" class="circle photo"> Hi! Glad to see you.
+						</div>
+
+						<div class="clear"></div>
+
+						<div class="from-me">I want to add you in my Facebook.</div>
+
+						<div class="clear"></div>
+
+						<div class="from-me">Can you give me your page?</div>
+
+						<div class="clear"></div>
+
+						<div class="from-them">
+							<img src="../../bower_components/assets/_con/images/user2.jpg"
+								alt="John Doe" class="circle photo"> I do not use
+							Facebook. But you can follow me in Twitter.
+						</div>
+
+						<div class="clear"></div>
+
+						<div class="from-me">It's good idea!</div>
+
+						<div class="clear"></div>
+
+						<div class="from-them">
+							<img src="../../bower_components/assets/_con/images/user2.jpg"
+								alt="John Doe" class="circle photo"> You can find me here
+							- <a href="https://twitter.com/nkdevv">https://twitter.com/nkdevv</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- /All messages list -->
+
+			<!-- Send message -->
+			<div class="send">
+				<form action="#!">
+					<div class="input-field">
+						<input id="chat-message" type="text" name="chat-message">
+					</div>
+
+					<button class="btn waves-effect z-depth-0">
+						<i class="mdi-content-send"></i>
+					</button>
+				</form>
+			</div>
+			<!-- /Send message -->
+
+		</div>
+		<!-- /Messages -->
+		<!-----------------------------------------------------/메세지 부분-------------------------------------------------------->
+	</div>
+	<!-- /Chat -->
 
 	<!---------------------------------------------------------푸터 부분---------------------------------------------------------->
 	<footer>
@@ -485,14 +566,14 @@
 	<!--------------------------------------------------------- 모달 load 자바스크립트 코드------------------------------------------------->
 
 	<script type="text/javascript">
-		ajaxComplainListRsvd1()
-		ajaxComplainListRsvd0()
-	</script>
+      ajaxComplainListRsvd1()
+      ajaxComplainListRsvd0() 
+   </script>
 
 
 	<script>
-		ajaxLoginUser();
-	</script>
+      ajaxLoginUser();
+   </script>
 
 </body>
 
