@@ -23,7 +23,7 @@
     limit #{startIdex}, #{length}
   </select>
   
-  <select id="selectList" resultMap="buildMap" parameterType="int">
+  <select id="selectOne" resultMap="buildMap" parameterType="int">
     select A.EMAIL, A.NAME, A.AUTH, B.BUILD_NO, B.RE_ID, B.POSTNO, B.BAS_ADDR, B.DIT_ADDR, B.RE_TYPE, B.PK
     from MEMBS A LEFT JOIN RE B ON A.EMAIL = B.L_EMAIL 
     where A.EMAIL=#{email} and A.AUTH = #{auth}
