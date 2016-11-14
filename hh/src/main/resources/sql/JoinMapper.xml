@@ -17,7 +17,7 @@
   </insert>
   
   <update id="updatePhoto0" parameterType="Member">
-  	update MEMBS set pho_path=#{phoPath} where email=#{email}
+  	update MEMBS set pho_path=#{phoPath}, pwd=#{password} where email=#{email}
   </update>
   
   <update id="updatePhoto1" parameterType="Member">
