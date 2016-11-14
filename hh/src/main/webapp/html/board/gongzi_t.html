@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="_nK">
-    <link rel="shortcut icon" href="../../images/favicon.ico">
-    
+	 <link rel="shortcut icon" href="../../images/favicon.ico">
+	 
     <title>Home &#38; Human</title>
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
@@ -49,9 +49,9 @@
     <!-- pace -->
     <link rel="stylesheet" type="text/css" href="../../css/pace.css" />  
     
-    
+
     <!--[if lt IE 9]>
-        <script src="../../bower_components/html5shiv/dist/html5shiv.min.js"></script>
+        <script src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
     <![endif]-->
 
 
@@ -65,14 +65,14 @@
 
 <body>
 <div class="pace"></div>
-   <!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
+
     <!--
-     Top Navbar
-       Options:
-         .navbar-dark - dark color scheme
-         .navbar-static - static navbar
-         .navbar-under - under sidebar
-   -->
+  Top Navbar
+    Options:
+      .navbar-dark - dark color scheme
+      .navbar-static - static navbar
+      .navbar-under - under sidebar
+-->
     <nav class="navbar-top">
         <div class="nav-wrapper">
 
@@ -85,9 +85,10 @@
             <!-- Sidebar toggle -->
 
             <!-- Logo -->
-            <a href="../../html/index.html" class="hh-logo">
+           <a href="../../html/index.html" class="hh-logo">
                 <img src="../../images/hhlogo.png" alt="Home & Human">
             </a>
+            
             <!-- /Logo -->
 
             <!-- Menu -->
@@ -100,36 +101,11 @@
                     <div id="test-dropdown" class="dropdown-content dropdown-media">
                         <div class="card-panel">
 
-                            <div class="media-heading">Messages <a href="mail-compose.html"><i class="mdi-content-add-circle-outline"></i></a></div>
+                            <div class="media-heading">메세지 <a href="mail-compose.html"><i class="mdi-content-add-circle-outline"></i></a></div>
 
                             <div class="media-footer"><a href="mail-inbox.html"><i class="mdi-hardware-keyboard-control"></i></a></div>
 
                             <div class="row mt-0">
-                                <div class="col s2">
-                                    <img src="../../bower_components/assets/_con/images/user2.jpg" alt="" class="circle responsive-img">
-                                </div>
-                                <div class="col s10">
-                                    <span class="media-date">9:02 AM</span>
-                                    <a href="#" class="media-title">Dianne Chambers</a>
-                                    <span>
-                                        Ut feugiat tempus felis, sit amet mattis dolor accumsan quis...
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col s2">
-                                    <img src="../../bower_components/assets/_con/images/user3.jpg" alt="" class="circle responsive-img">
-                                </div>
-                                <div class="col s10">
-                                    <span class="media-date">Dec 19</span>
-                                    <a href="#" class="media-title">Joanne Stephens</a>
-                                    <span>
-                                        Proin suscipit lobortis porta. Interdum et malesuada fames ac ante ipsum primis in faucibus...
-                                    </span>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </li>
@@ -169,11 +145,8 @@
         </div>
     </nav>
     <!-- /Top Navbar -->
-    <!---------------------------------------------------------/탑 nav 부분------------------------------------------------------------>
-    
-    
-   <!---------------------------------------------------------사이드바 부분----------------------------------------------------------->
-   <!--
+
+    <!--
   Yay Sidebar
   Options [you can use all of theme classnames]:
     .yay-hide-to-small         - no hide menu, just set it small with big icons
@@ -187,7 +160,7 @@
     .yay-push     - push content to right
     .yay-shrink   - shrink content width
 -->
-   <aside class="yaybar yay-shrink yay-hide-to-small yay-gestures">
+    <aside class="yaybar yay-shrink yay-hide-to-small yay-gestures yay-light yay-static">
 
         <div class="top">
             <div>
@@ -201,13 +174,13 @@
 
                 <!-- Logo -->
                 <a href="#!" class="brand-logo">
-                    <img src="../../images/hhlogo.png" alt="Home & Human">
-                </a>
+                <img src="../../images/hhlogo.png" alt="Home & Human">
+            </a>
                 <!-- /Logo -->
             </div>
         </div>
 
-        <div class="nano">
+          <div class="nano">
             <div class="nano-content">
 
 				<ul>
@@ -236,14 +209,9 @@
 					</li>
 					<li>
 						<a href="#" class="waves-effect waves-blue" id="complainLink"> <i class="fa fa-bullhorn"></i>
-							<span> 민원사항 </span>
+							<span> 나의 민원 </span>
 						</a>
 					</li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i class="fa fa-building-o"></i> 건물정보
-					</a></li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i
-							class="fa fa-users"></i> 세입자관리
-					</a></li>
 					<li><a href="#" class=" waves-effect waves-blue"> <i
 							class="fa fa-credit-card"></i> 관리비내역
 					</a></li>
@@ -256,25 +224,24 @@
         </div>
     </aside>
     <!-- /Yay Sidebar -->
-    <!---------------------------------------------------------/사이드바 부분------------------------------------------------------------>
+
+    <!-- Main Content -->
+    <section class="content-wrap">
 
 
-   <!------------------------------------------------------------메인 부분-------------------------------------------------------------->
-   <!-- Main Content -->
-	<section class="content-wrap">
+        <!-- Breadcrumb -->
+       <div class="page-title" style="height: 80px;">
 
-		<!-- Breadcrumb -->
-		<div class="page-title" style="height: 80px;">
+         <div class="row">
+            <div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
+               <a href="../../html/index.html" class="hh-logo-black">
+                      <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
+                  </a>
+                  <h1>공지사항</h1>
+            </div>
+         </div>
 
-			<div class="row">
-				<div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
-					<a href="../../html/index.html" class="hh-logo-black"> <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
-					</a>
-					<h1>공지사항</h1>
-				</div>
-			</div>
-
-		</div>
+      </div>
 		<!-- /Breadcrumb -->
 
 		<div class="row sortable" style="margin-right: 0;">
