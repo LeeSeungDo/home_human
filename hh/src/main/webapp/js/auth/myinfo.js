@@ -54,17 +54,25 @@ function ajaxLoginUser() {
 		var auth = result.data.auth;
 		var gender = result.data.gender;
 
-		if (auth == 0) {
+		if (auth == 0, gender == 0) {
 			$("#authLevel").html("임대인");
-		} else {
-			$("#authLevel").html("임차인");
-		}
-		
-		if (gender == 0) {
 			$("#gender").html("남자");
 		} else {
+			$("#authLevel").html("임차인");
 			$("#gender").html("여자");
 		}
+
+		if (result.data.phoPath != null && result.data.phoPath != "") {
+			$('#phoPath').attr('src', '../../upload/' + result.data.phoPath);
+			$('#myPhoto1').attr('src', '../../upload/' + result.data.phoPath);
+			$('#myPhoto2').attr('src', '../../upload/' + result.data.phoPath);
+		} else {
+			$('#phoPath').attr('src', '../../images/user_default.png');
+			$('#myPhoto1').attr('src', '../../images/user_default.png');
+			$('#myPhoto2').attr('src', '../../images/user_default.png');
+		}
+
+		ajaxInputUser();
 	})
 }
 
@@ -109,6 +117,8 @@ $(document).ready(function() {
 		});
 	}
 });
+
+
 
 
 ///*----------------------------------------------------- 로그인 정보 불러오기 -----------------------------------------------------*/

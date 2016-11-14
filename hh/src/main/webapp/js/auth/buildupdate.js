@@ -1,10 +1,17 @@
-$("#logoBtn").click(function(event) {
-	window.location.href = serverAddr + "/html/index.html"
+$("#myinfoLink").click(function(event) {
+	window.location.href = serverAddr + "/html/dashboard/dashboard.html"
 });
 
 $("#myinfo").click(function(event) {
 	window.location.href = serverAddr + "/html/auth/myinfo.html"
 });
+
+
+
+$("#cancelBtn").click(function(event) {
+	window.location.href = serverAddr + "/html/auth/myinfo.html"
+});
+
 
 //load함수를 이용하여 core스크립트의 로딩이 완료된 후, 우편번호 서비스를 실행합니다.
 daum.postcode.load(function(){
@@ -15,23 +22,6 @@ daum.postcode.load(function(){
 		}
 	})/* .open(); */
 });
-
-
-
-//div 동적 추가
-function add_item() {
-	// pre_set 에 있는 내용을 읽어와서 처리..
-	var div = document.createElement('div');
-	div.innerHTML = document.getElementById('pre_set').innerHTML;
-	document.getElementById('field').appendChild(div);
-}
-
-function remove_item(obj) {
-	// obj.parentNode 를 이용하여 삭제
-	document.getElementById('field').removeChild(obj.parentNode);
-}
-
-
 
 //우편번호 API
 function DaumPostcode() {

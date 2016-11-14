@@ -26,6 +26,9 @@ function ajaxFreeBoardList() {
 	    $("#freeboardTable tbody").html(template(result.data))
 	    
 	    $(document.body).on('click', '.freeForm', function(event) {
+	    	var clno= $(this).attr("data-no1")
+	    	//console.log(clno)
+	    	ajaxFreeBoardClickList(clno)
 		    window.location.href = serverAddr + "/html/board/freeboardForm.html?no=" + $(this).attr("data-no1")
 	    })
 	    
@@ -50,7 +53,17 @@ function ajaxFreeBoardList() {
     })
 }
 
-
+//조회수 증가 function
+function ajaxFreeBoardClickList(clno) {
+	$.post(serverAddr + "/freeboard/updateVW_CNT.json", {no:clno}, function(obj) {
+		var result = obj.jsonResult
+		console.log(result)
+		if (result.state != "success") {
+			alert("변경 실패입니다.")
+			return
+		}
+	}, "json")
+}
 
 
 

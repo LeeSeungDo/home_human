@@ -95,7 +95,7 @@ $("#cancelBtn").click(function(event) {
 });
 
 $("#updateBtn").click(function(event) {
-	var beforePWD = $("#passwordUp").val();
+	var beforePWD = $("#password2").val();
 	var afterPWD = ($("#hiddenPwd").val(beforePWD)).val();
 	console.log(beforePWD);
 	console.log(afterPWD);

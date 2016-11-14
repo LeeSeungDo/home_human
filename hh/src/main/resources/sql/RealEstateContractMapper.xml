@@ -82,10 +82,14 @@
     #{contractDate}, #{endDate}, #{rentPayDate}, #{utilityPayDate}, #{contractStatus})
   </insert>
 
-  <update id="update" parameterType="realestatecontract">
-    update RE_CRCT set
-    BUILD_NO=#{buildNo}, CRCT_TYPE=#{contractType}, DPST=#{deposit},
-    CRCT_DT=#{contractDate}, END_DT=#{endDate}, RTPAY_DT=#{rentPayDate}, 
+  <update id="update" parameterType="realestatecontract"
+    useGeneratedKeys="true" keyColumn="contractNo" keyProperty="contractNo">
+    update
+    RE_CRCT set
+    BUILD_NO=#{buildNo}, CRCT_TYPE=#{contractType},
+    DPST=#{deposit},
+    CRCT_DT=#{contractDate}, END_DT=#{endDate},
+    RTPAY_DT=#{rentPayDate},
     UTPAY_DT=#{utilityPayDate}, CRCT_STAT=#{contractStatus}
     where CRCT_NO=#{contractNo}
   </update>

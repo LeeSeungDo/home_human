@@ -82,6 +82,10 @@ public class DefaultBoardService implements BoardService {
 
     boardDao.update(Board);
   }
+  
+  public void updateVW_CNTBoard(int no) throws Exception {
+    boardDao.updateVW_CNT(no);
+  }
 
   public void deleteBoard(int no) throws Exception {
     boardFileDao.delete(no);

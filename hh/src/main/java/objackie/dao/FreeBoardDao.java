@@ -10,6 +10,7 @@ public interface FreeBoardDao {
   FreeBoard selectOne(int no) throws Exception;
   int insert(FreeBoard freeboard) throws Exception;
   int update(FreeBoard freeboard) throws Exception;
+  int updateVW_CNT(int no) throws Exception;  
   int delete(int no) throws Exception;
   int countAll() throws Exception;
 }
