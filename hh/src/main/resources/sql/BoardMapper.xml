@@ -15,11 +15,19 @@
     <result column="PHO_PATH" property="filename"/>
   </resultMap>
   
+  <select id="selectFirstList" resultMap="boardMap" parameterType="map">
+    select A.BOD_NO, A.TITLE, A.CRE_DT, A.VW_CNT, A.CONTS, B.PHO_PATH
+    from BOARD A LEFT OUTER JOIN BOD_PHO B
+    on A.BOD_NO = B.BOD_NO
+    where type = 0
+    order by BOD_NO desc limit 0, 1
+  </select>
+  
   <select id="selectList" resultMap="boardMap" parameterType="map">
     select A.BOD_NO, A.TITLE, A.CRE_DT, A.VW_CNT, A.CONTS, B.PHO_PATH
     from BOARD A LEFT OUTER JOIN BOD_PHO B
     on A.BOD_NO = B.BOD_NO
-    where type=0
+    where A.BOD_NO != (SELECT MAX(A.BOD_NO) FROM BOARD) and type = 0
     order by BOD_NO desc
     
     limit #{startIndex}, #{length}

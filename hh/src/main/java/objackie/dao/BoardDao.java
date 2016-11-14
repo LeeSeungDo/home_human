@@ -7,6 +7,7 @@ import objackie.vo.Board;
 
 public interface BoardDao {
   List<Board> selectList(Map<String,Object> paramMap) throws Exception;
+  List<Board> selectFirstList() throws Exception;
   Board selectOne(int no) throws Exception;
   int insert(Board board) throws Exception;
   int update(Board board) throws Exception;

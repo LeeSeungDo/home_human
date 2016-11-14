@@ -94,6 +94,15 @@
     delete from re_crct
     where CRCT_NO=#{value}
   </delete>
+  
+  <select id="tenantList" resultMap="realestatecontractMap"
+      parameterType="map">
+      select B.T_EMAIL, C.NAME, C.TEL, C.DIT_ADDR FROM RE A
+      INNER JOIN RE_CRCT B ON A.BUILD_NO = B.BUILD_NO INNER JOIN MEMBS C ON
+      B.T_EMAIL = C.EMAIL WHERE A.L_EMAIL=#{email}
+      order by CRCT_NO desc
+   </select>
+   
 </mapper>
 
 

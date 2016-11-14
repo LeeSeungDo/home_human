@@ -1,76 +1,56 @@
 <!DOCTYPE html>
 
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="_nK">
-<link rel="shortcut icon" href="../../images/favicon.ico">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="_nK">
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    
+    <title>Home &#38; Human</title>
 
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
 
-<title>Home &#38; Human</title>
+    <!-- nanoScroller -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/nanoscroller/bin/css/nanoscroller.css" />
 
-<link
-  href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'
-  rel='stylesheet' type='text/css'>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/fontawesome/css/font-awesome.min.css" />
 
-<!-- nanoScroller -->
-<link rel="stylesheet" type="text/css"
-  href="../../bower_components/nanoscroller/bin/css/nanoscroller.css" />
+    <!-- Material Design Icons -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/assets/material-design-icons/css/material-design-icons.min.css" />
 
-<!-- FontAwesome -->
-<link rel="stylesheet" type="text/css"
-  href="../../bower_components/fontawesome/css/font-awesome.min.css" />
+    <!-- IonIcons -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/ionicons/css/ionicons.min.css" />
 
-<!-- Material Design Icons -->
-<link rel="stylesheet" type="text/css"
-  href="../../bower_components/assets/material-design-icons/css/material-design-icons.min.css" />
-
-<!-- IonIcons -->
-<link rel="stylesheet" type="text/css"
-  href="../../bower_components/ionicons/css/ionicons.min.css" />
-
-<!-- WeatherIcons -->
-<link rel="stylesheet" type="text/css"
-  href="../../bower_components/weather-icons/css/weather-icons.min.css" />
+    <!-- WeatherIcons -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/weather-icons/css/weather-icons.min.css" />
 
 
 
-<!-- nvd3 -->
-<link rel="stylesheet" type="text/css"
-  href="../../bower_components/nvd3/build/nv.d3.min.css" />
+    <!-- nvd3 -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/nvd3/build/nv.d3.min.css" />
 
-<!-- Main -->
-<link rel="stylesheet" type="text/css"
-  href="../../bower_components/assets/_con/css/con-base.css" />
+    <!-- Main -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/assets/_con/css/con-base.css" />
 
 
 
-<!-- Full Calendar -->
-<link rel="stylesheet" type="text/css"
-  href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
+   <!-- Full Calendar -->
+    <link rel="stylesheet" type="text/css" href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
 
-<!-- sseung -->
-<link rel="stylesheet" type="text/css"
-  href="../../css/dashboard/sseung.css" />
-
-<!-- dossierbit -->
-<link rel="stylesheet" type="text/css"
-  href="../../css/dashboard/dossierbit.css" />
-  
-  <!-- BootStrap -->
-  <link rel="stylesheet"
-  href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet"
-  href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-  
-  <!-- Ryu-I -->
-<link rel="stylesheet" type="text/css"
-  href="../../css/board/gongzi.css">  
-
-
-<!--[if lt IE 9]>
+   <!-- sseung -->
+    <link rel="stylesheet" type="text/css" href="../../css/dashboard/sseung.css" />  
+    
+    <!-- dossierbit -->
+    <link rel="stylesheet" type="text/css" href="../../css/dashboard/dossierbit.css" />  
+    
+    <!-- pace -->
+    <link rel="stylesheet" type="text/css" href="../../css/pace.css" />  
+    
+    
+    <!--[if lt IE 9]>
         <script src="../../bower_components/html5shiv/dist/html5shiv.min.js"></script>
     <![endif]-->
 
@@ -84,110 +64,116 @@
 -->
 
 <body>
-  <!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
-  <!--
-    Top Navbar
-      Options:
-        .navbar-dark - dark color scheme
-        .navbar-static - static navbar
-        .navbar-under - under sidebar
-  -->
-  <nav class="navbar-top">
-    <div class="nav-wrapper">
+<div class="pace"></div>
+   <!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
+    <!--
+     Top Navbar
+       Options:
+         .navbar-dark - dark color scheme
+         .navbar-static - static navbar
+         .navbar-under - under sidebar
+   -->
+    <nav class="navbar-top">
+        <div class="nav-wrapper">
 
-      <!-- Sidebar toggle -->
-      <a href="#" class="yay-toggle">
-        <div class="burg1"></div>
-        <div class="burg2"></div>
-        <div class="burg3"></div>
-      </a>
-      <!-- Sidebar toggle -->
+            <!-- Sidebar toggle -->
+            <a href="#" class="yay-toggle">
+                <div class="burg1"></div>
+                <div class="burg2"></div>
+                <div class="burg3"></div>
+            </a>
+            <!-- Sidebar toggle -->
 
-      <!-- Logo -->
-      <a href="../../html/index.html" class="hh-logo"> <img
-        src="../../images/hhlogo.png" alt="Home & Human">
-      </a>
-      <!-- /Logo -->
+            <!-- Logo -->
+            <a href="../../html/index.html" class="hh-logo">
+                <img src="../../images/hhlogo.png" alt="Home & Human">
+            </a>
+            <!-- /Logo -->
 
-      <!-- Menu -->
-      <ul>
-        <li><a class="dropdown-button" data-activates="test-dropdown"
-          href="#!"> <i class="mdi-communication-email"></i> <span
-            class="badge new">2</span>
-        </a>
-          <div id="test-dropdown" class="dropdown-content dropdown-media">
-            <div class="card-panel">
+            <!-- Menu -->
+            <ul>
+                <li>
+                    <a class="dropdown-button" data-activates="test-dropdown" href="#!">
+                        <i class="mdi-communication-email"></i>
+                        <span class="badge new">2</span>
+                    </a>
+                    <div id="test-dropdown" class="dropdown-content dropdown-media">
+                        <div class="card-panel">
 
-              <div class="media-heading">
-                Messages <a href="mail-compose.html"><i
-                  class="mdi-content-add-circle-outline"></i></a>
-              </div>
+                            <div class="media-heading">Messages <a href="mail-compose.html"><i class="mdi-content-add-circle-outline"></i></a></div>
 
-              <div class="media-footer">
-                <a href="mail-inbox.html"><i
-                  class="mdi-hardware-keyboard-control"></i></a>
-              </div>
+                            <div class="media-footer"><a href="mail-inbox.html"><i class="mdi-hardware-keyboard-control"></i></a></div>
 
-              <div class="row mt-0">
-                <div class="col s2">
-                  <img src="../../bower_components/assets/_con/images/user2.jpg"
-                    alt="" class="circle responsive-img">
-                </div>
-                <div class="col s10">
-                  <span class="media-date">9:02 AM</span> <a href="#"
-                    class="media-title">Dianne Chambers</a> <span> Ut
-                    feugiat tempus felis, sit amet mattis dolor accumsan quis... </span>
-                </div>
-              </div>
+                            <div class="row mt-0">
+                                <div class="col s2">
+                                    <img src="../../bower_components/assets/_con/images/user2.jpg" alt="" class="circle responsive-img">
+                                </div>
+                                <div class="col s10">
+                                    <span class="media-date">9:02 AM</span>
+                                    <a href="#" class="media-title">Dianne Chambers</a>
+                                    <span>
+                                        Ut feugiat tempus felis, sit amet mattis dolor accumsan quis...
+                                    </span>
+                                </div>
+                            </div>
 
-              <div class="row">
-                <div class="col s2">
-                  <img src="../../bower_components/assets/_con/images/user3.jpg"
-                    alt="" class="circle responsive-img">
-                </div>
-                <div class="col s10">
-                  <span class="media-date">Dec 19</span> <a href="#"
-                    class="media-title">Joanne Stephens</a> <span> Proin
-                    suscipit lobortis porta. Interdum et malesuada fames ac ante
-                    ipsum primis in faucibus... </span>
-                </div>
-              </div>
+                            <div class="row">
+                                <div class="col s2">
+                                    <img src="../../bower_components/assets/_con/images/user3.jpg" alt="" class="circle responsive-img">
+                                </div>
+                                <div class="col s10">
+                                    <span class="media-date">Dec 19</span>
+                                    <a href="#" class="media-title">Joanne Stephens</a>
+                                    <span>
+                                        Proin suscipit lobortis porta. Interdum et malesuada fames ac ante ipsum primis in faucibus...
+                                    </span>
+                                </div>
+                            </div>
 
-            </div>
-          </div></li>
-        <li class="user"><a class="dropdown-button"
-          data-activates="user-dropdown" href="#!"> <img
-            src="../../bower_components/assets/_con/images/user.jpg"
-            alt="내 사진" class="circle"> John Doe <i
-            class="mdi-navigation-expand-more right"></i>
-        </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="user">
+                    <a class="dropdown-button" data-activates="user-dropdown" href="#!">
+                        <img id="myPhoto1" src="" class="circle"><span id="userName1"></span><i class="mdi-navigation-expand-more right"></i>
+                    </a>
 
-          <ul id="user-dropdown" class="dropdown-content">
-            <li><a href="page-profile.html"> <i class="fa fa-user"></i>
-                내 정보
-            </a></li>
-            <li><a href="mail-inbox.html"> <i class="fa fa-envelope"></i>
-                알림 <span class="badge new">2</span>
-            </a></li>
-            <li class="divider"></li>
-            <li><a href="#"> <i class="fa fa-sign-out"></i><span
-                id="logout"> 로그아웃 </span>
-            </a></li>
-            <li><a href="#"> <i class="fa fa-sign-out"></i><span
-                id="getOut"> 카톡탈퇴 </span>
-            </a></li>
-          </ul></li>
-      </ul>
-      <!-- /Menu -->
+                    <ul id="user-dropdown" class="dropdown-content">
+                        <li>
+                            <a href="../auth/myinfo.html">
+                                <i class="fa fa-user"></i> 내 정보
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mail-inbox.html">
+                                <i class="fa fa-envelope"></i> 알림
+                                <span class="badge new">2</span>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#" id="logout">
+                                <i class="fa fa-sign-out"></i><span> 로그아웃 </span>
+                            </a>
+                        </li>
+                        <li>
+                           <a href="#" id="getOut">
+                                <i class="fa fa-sign-out"></i><span> 카톡탈퇴 </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- /Menu -->
 
-    </div>
-  </nav>
-  <!-- /Top Navbar -->
-  <!---------------------------------------------------------/탑 nav 부분------------------------------------------------------------>
-
-
-  <!---------------------------------------------------------사이드바 부분----------------------------------------------------------->
-  <!--
+        </div>
+    </nav>
+    <!-- /Top Navbar -->
+    <!---------------------------------------------------------/탑 nav 부분------------------------------------------------------------>
+    
+    
+   <!---------------------------------------------------------사이드바 부분----------------------------------------------------------->
+   <!--
   Yay Sidebar
   Options [you can use all of theme classnames]:
     .yay-hide-to-small         - no hide menu, just set it small with big icons
@@ -201,379 +187,210 @@
     .yay-push     - push content to right
     .yay-shrink   - shrink content width
 -->
-  <aside class="yaybar yay-shrink yay-hide-to-small yay-gestures">
+   <aside class="yaybar yay-shrink yay-hide-to-small yay-gestures">
 
-    <div class="top">
-      <div>
-        <!-- Sidebar toggle -->
-        <a href="#" class="yay-toggle">
-          <div class="burg1"></div>
-          <div class="burg2"></div>
-          <div class="burg3"></div>
-        </a>
-        <!-- Sidebar toggle -->
+        <div class="top">
+            <div>
+                <!-- Sidebar toggle -->
+                <a href="#" class="yay-toggle">
+                    <div class="burg1"></div>
+                    <div class="burg2"></div>
+                    <div class="burg3"></div>
+                </a>
+                <!-- Sidebar toggle -->
 
-        <!-- Logo -->
-        <a href="#!" class="brand-logo"> <img
-          src="../../images/hhlogo.png" alt="Home & Human">
-        </a>
-        <!-- /Logo -->
-      </div>
-    </div>
-
-    <div class="nano">
-      <div class="nano-content">
-
-        <ul>
-          <li class="yay-user-info"><a href="page-profile.html"> <img
-              src="../../bower_components/assets/_con/images/user.jpg"
-              alt="John Doe" class="circle">
-              <h3 class="yay-user-info-name">John Doe</h3>
-              <div class="yay-user-location">
-                <i class="fa fa-map-marker"></i> Las Vegas, NV
-              </div>
-          </a></li>
-
-          <li class="label">메뉴</li>
-
-          <li class="active"><a href="dashboard-v1.html"
-            class=" waves-effect waves-blue"><i class="fa fa-tachometer"></i>
-              Home &#38; Human </a></li>
-          <li><a href="#" class=" waves-effect waves-blue"> <i
-              class="fa fa-check"></i><span id="gongziLink"> 공지사항 </span></a></li>
-          <li><a href="#" class=" waves-effect waves-blue"> <i
-              class="fa fa-bullhorn"></i> 민원사항
-          </a></li>
-          <li><a href="#" class=" waves-effect waves-blue"> <i
-              class="fa fa-building-o"></i> 건물정보
-          </a></li>
-          <li><a href="#" class=" waves-effect waves-blue"> <i
-              class="fa fa-users"></i> 세입자관리
-          </a></li>
-          <li><a href="#" class=" waves-effect waves-blue"> <i
-              class="fa fa-credit-card"></i> 관리비내역
-          </a></li>
-          <li><a href="#" class=" waves-effect waves-blue"> <i
-              class="fa fa-hand-o-right"></i> 자유게시판
-          </a></li>
-        </ul>
-
-      </div>
-    </div>
-  </aside>
-  <!-- /Yay Sidebar -->
-  <!---------------------------------------------------------/사이드바 부분------------------------------------------------------------>
-
-
-  <!------------------------------------------------------------메인 부분-------------------------------------------------------------->
-  <!-- Main Content -->
-  <section class="content-wrap">
-
-    <!-- Breadcrumb -->
-    <div class="page-title" style="height: 80px;">
-
-      <div class="row">
-        <div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
-          <a href="../../html/index.html" class="hh-logo-black"> </a>
-          <h1>공지사항</h1>
+                <!-- Logo -->
+                <a href="#!" class="brand-logo">
+                    <img src="../../images/hhlogo.png" alt="Home & Human">
+                </a>
+                <!-- /Logo -->
+            </div>
         </div>
-      </div>
 
-    </div>
-    <!-- /Breadcrumb -->
+        <div class="nano">
+            <div class="nano-content">
 
-    <div class="row sortable">
+				<ul>
+					<li class="yay-user-info">
+						<a href="#" id="myinfoLink">
+							<img id="myPhoto2" src="" class="circle" onerror="this.onerror=null;this.src='../../images/user_default.png'">
+							<h3 class="yay-user-info-name">
+								<span id="userName2"></span>
+							</h3>
+							<div class="yay-user-location">
+								<i class="fa fa-map-marker"></i><span id="authLevel"></span>
+							</div>
+					</a></li>
+
+					<li class="label">메뉴</li>
+
+					<li class="active">
+						<a href="#" class=" waves-effect waves-blue" id="dashboardLink"> <i class="fa fa-tachometer"></i>
+							<span> Home &#38; Human </span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="waves-effect waves-blue" id="gongziLink"> <i class="fa fa-check"></i>
+							<span> 공지사항 </span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="waves-effect waves-blue" id="complainLink"> <i class="fa fa-bullhorn"></i>
+							<span> 민원사항 </span>
+						</a>
+					</li>
+					<li><a href="#" class=" waves-effect waves-blue"> <i class="fa fa-building-o"></i> 건물정보
+					</a></li>
+					<li><a href="#" class=" waves-effect waves-blue"> <i
+							class="fa fa-users"></i> 세입자관리
+					</a></li>
+					<li><a href="#" class=" waves-effect waves-blue"> <i
+							class="fa fa-credit-card"></i> 관리비내역
+					</a></li>
+					<li><a href="#" class=" waves-effect waves-blue"> <i
+							class="fa fa-hand-o-right"></i> 자유게시판
+					</a></li>
+				</ul>
+
+			</div>
+        </div>
+    </aside>
+    <!-- /Yay Sidebar -->
+    <!---------------------------------------------------------/사이드바 부분------------------------------------------------------------>
 
 
-      <div id="firstTable"></div>
+   <!------------------------------------------------------------메인 부분-------------------------------------------------------------->
+   <!-- Main Content -->
+	<section class="content-wrap">
 
-      <script id="frTemplateText" type="text/x-handlebars-template">
-{{#each list}}
-<div>
-<img style="width: 500px" class="main_photo" src="../../upload/{{filename}}" alt="사진입니다."> 
-  <h1>{{title}}</h1>
-  <p>{{contents}}</p>  
-</div>
-{{/each}}
-</script>
-    </div>
-    <div class="crud-bar">
-      <button type="button" class="btn btn-primary" style="margin: 20px"
-        onclick="location.href='gongziInput.html'">새 공지 쓰기</button>
-    </div>
-    <div class="col-lg-12">
-      <div class="well text-center">전체 공지 보기</div>
-    </div>
-    <div class="container">
-      <div id="gongziTable"></div>
+		<!-- Breadcrumb -->
+		<div class="page-title" style="height: 80px;">
 
+			<div class="row">
+				<div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
+					<a href="../../html/index.html" class="hh-logo-black"> <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
+					</a>
+					<h1>공지사항</h1>
+				</div>
+			</div>
 
-      <button id="prevBtn" type="button" class="btn btn-default btn-sm">이전</button>
-      <span id="pageNo">1</span>
-      <button id="nextBtn" type="button" class="btn btn-default btn-sm">다음</button>
-    </div>
+		</div>
+		<!-- /Breadcrumb -->
 
-    <script id="trTemplateText" type="text/x-handlebars-template">
-{{#each list}}
-<div class="col-md-4 sub_section">
-  <p>{{boardNo}}</p>
-  <h3>{{title}}</h3>
-  <p class="ellipsis">{{contents}}</p>  
-  <button class="card1" data-no="{{boardNo}}" type="button" class="btn btn-default my-view">전체 보기</button>
-</div>
-{{/each}}
-</script>
+		<div class="row sortable" style="margin-right: 0;">
 
-    <script id="pagination" type="text/x-handlebars-template">
-{{#each data}}
-<p data-no="{{pageNo}}>{{pageNo}}</p>
-{{/each}}
-</script>
-    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
-    <script type="text/javascript" src="../../js/common.js"></script>
-    <script type="text/javascript" src="../../js/bit.js"></script>
+			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
+			<button type="button" class="btn btn-primary" style="width: 1291px;"
+					onclick="location.href='gongziInput.html'">새 공지 쓰기</button>
+
+			<div class="row">
+				<div class="col l12 s12">
+					<figure class="hover-effect effect-sarah" style="height: 230px;">
+						<img src="../../images/test_background.jpg" alt="image-5">
+						<figcaption>
+							<h2>
+								<span id="recent_title"></span>
+							</h2>
+							<p id="recent_contents" style="font-size: 15px;"></p>
+							<a href="#">View more</a>
+						</figcaption>
+					</figure>
+				</div>
+			</div>
+
+			<div class="row">
+				<div id="gongziTable"></div>
+			</div>
+			
+			<div class="row">
+				<button id="prevBtn" type="button">이전</button>
+				<span id="pageNo">1</span>
+				<button id="nextBtn" type="button">다음</button>
+			</div>
+
+			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+		</div>
+	</section>
+	<!-- /Main Content -->
+   <!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
+
+	<!---------------------------------------------------------푸터 부분---------------------------------------------------------->
+	<footer>
+		&copy; 2016 <strong>Objackie</strong> Java85.
+	</footer>
+	<!--------------------------------------------------------/푸터 부분---------------------------------------------------------->
+
+	<!-- DEMO [REMOVE IT ON PRODUCTION] -->
+	<script type="text/javascript"
+		src="../../bower_components/assets/_con/js/_demo.js"></script>
+
+	<!-- jQuery -->
+	<script type="text/javascript"
+		src="../../bower_components/jquery/dist/jquery.min.js"></script>
+
+	<!-- jQuery RAF (improved animation performance) -->
+	<script type="text/javascript"
+		src="../../bower_components/jquery-requestAnimationFrame/dist/jquery.requestAnimationFrame.min.js"></script>
+
+	<!-- nanoScroller -->
+	<script type="text/javascript"
+		src="../../bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
+
+	<!-- Materialize -->
+	<script type="text/javascript"
+		src="../../bower_components/materialize/bin/materialize.js"></script>
+
+	<!-- Sortable -->
+	<script type="text/javascript"
+		src="../../bower_components/Sortable/Sortable.min.js"></script>
+
+	<!-- Main -->
+	<script type="text/javascript"
+		src="../../bower_components/assets/_con/js/_con.js"></script>
+
+	<!-- Loading Bar -->
+	<script type="text/javascript" src="../../js/pace.js"></script>
+
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/bit.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
     <script type="text/javascript" src="../../js/board/gongzi.js"></script>
+    
     <script>
-      ajaxFirstList()
-    </script>
-    <script>      
-      ajaxGongziList()
-    </script>
-  </section>
-  <!-- /Main Content -->
-  <!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
-
-  <div class="chat">
-    <!--------------------------------------------------------메세지 부분---------------------------------------------------------->
-    <!-- Messages -->
-    <div class="messages">
-
-      <!-- Top Bar with back link -->
-      <div class="topbar">
-        <a href="#!" class="chat-toggle"><i class="mdi-navigation-close"></i></a>
-        <a href="#!" class="chat-back"><i
-          class="mdi-hardware-keyboard-arrow-left"></i> Back</a>
-      </div>
-      <!-- /Top Bar with back link -->
-
-      <!-- All messages list -->
-      <div class="list">
-        <div class="nano scroll-bottom">
-          <div class="nano-content">
-
-            <div class="date">Monday, Feb 23, 8:23 pm</div>
-
-            <div class="from-me">
-              Hi, Felicia. <br> How are you?
-            </div>
-
-            <div class="clear"></div>
-
-            <div class="from-them">
-              <img src="../../bower_components/assets/_con/images/user2.jpg"
-                alt="John Doe" class="circle photo"> Hi! I am good!
-            </div>
-
-            <div class="clear"></div>
-
-            <div class="from-me">
-              Glad to see you :) <br> This long text is intended to show
-              how the chat will display it.
-            </div>
-
-            <div class="clear"></div>
-
-            <div class="from-them">
-              <img src="../../bower_components/assets/_con/images/user2.jpg"
-                alt="John Doe" class="circle photo"> Also, we will send
-              the longest word to show how it will fit in the chat window: <strong>Pneumonoultramicroscopicsilicovolcanoconiosis</strong>
-            </div>
-
-            <div class="date">Friday, Mar 10, 5:07 pm</div>
-
-            <div class="from-me">Hi again!</div>
-
-            <div class="clear"></div>
-
-            <div class="from-them">
-              <img src="../../bower_components/assets/_con/images/user2.jpg"
-                alt="John Doe" class="circle photo"> Hi! Glad to see you.
-            </div>
-
-            <div class="clear"></div>
-
-            <div class="from-me">I want to add you in my Facebook.</div>
-
-            <div class="clear"></div>
-
-            <div class="from-me">Can you give me your page?</div>
-
-            <div class="clear"></div>
-
-            <div class="from-them">
-              <img src="../../bower_components/assets/_con/images/user2.jpg"
-                alt="John Doe" class="circle photo"> I do not use
-              Facebook. But you can follow me in Twitter.
-            </div>
-
-            <div class="clear"></div>
-
-            <div class="from-me">It's good idea!</div>
-
-            <div class="clear"></div>
-
-            <div class="from-them">
-              <img src="../../bower_components/assets/_con/images/user2.jpg"
-                alt="John Doe" class="circle photo"> You can find me here
-              - <a href="https://twitter.com/nkdevv">https://twitter.com/nkdevv</a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <!-- /All messages list -->
-
-      <!-- Send message -->
-      <div class="send">
-        <form action="#!">
-          <div class="input-field">
-            <input id="chat-message" type="text" name="chat-message">
-          </div>
-
-          <button class="btn waves-effect z-depth-0">
-            <i class="mdi-content-send"></i>
-          </button>
-        </form>
-      </div>
-      <!-- /Send message -->
-
-    </div>
-    <!-- /Messages -->
-    <!-----------------------------------------------------/메세지 부분-------------------------------------------------------->
-  </div>
-  <!-- /Chat -->
-
-  <!---------------------------------------------------------푸터 부분---------------------------------------------------------->
-  <footer>
-    &copy; 2016 <strong>Objackie</strong> Java85.
-  </footer>
-  <!--------------------------------------------------------/푸터 부분---------------------------------------------------------->
-
-  <!-- DEMO [REMOVE IT ON PRODUCTION] -->
-  <script type="text/javascript"
-    src="../../bower_components/assets/_con/js/_demo.js"></script>
-
-  <!-- jQuery -->
-  <script type="text/javascript"
-    src="../../bower_components/jquery/dist/jquery.min.js"></script>
-
-  <!-- jQuery RAF (improved animation performance) -->
-  <script type="text/javascript"
-    src="../../bower_components/jquery-requestAnimationFrame/dist/jquery.requestAnimationFrame.min.js"></script>
-
-  <!-- nanoScroller -->
-  <script type="text/javascript"
-    src="../../bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
-
-  <!-- Materialize -->
-  <script type="text/javascript"
-    src="../../bower_components/materialize/bin/materialize.js"></script>
-
-
-
-  <!-- Full Calendar -->
-  <script type="text/javascript"
-    src="../../bower_components/moment/min/moment.min.js"></script>
-
-  <script type="text/javascript"
-    src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
-  <script type="text/javascript"
-    src="../../bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-
-
-  <!-- Sortable -->
-  <script type="text/javascript"
-    src="../../bower_components/Sortable/Sortable.min.js"></script>
-
-  <!-- Main -->
-  <script type="text/javascript"
-    src="../../bower_components/assets/_con/js/_con.js"></script>
-
-  <!-- Google Prettify -->
-  <script type="text/javascript"
-    src="../../bower_components/code-prettify/src/prettify.js"></script>
-
-  <script>
-    /* 
-     * Init Calendar
-     */
-    $('#calendar').fullCalendar({
-        height: 700,
-        header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay'
-        },
-        defaultDate: '2015-02-12',
-        editable: true,
-        droppable: true,
-        drop: function() {
-            // is the "remove after drop" checkbox checked?
-            if (removeDraggable.is(':checked')) {
-                // if so, remove the element from the "Draggable Events" list
-                $(this).remove();
-            }
-        }
-        /* 
-        events: [{
-            title: 'All Day Event',
-            start: '2015-02-01'
-        }, {
-            title: 'Long Event',
-            start: '2015-02-07',
-            end: '2015-02-10'
-        }, {
-            id: 999,
-            title: 'Repeating Event',
-            start: '2015-02-09T16:00:00'
-        }, {
-            id: 999,
-            title: 'Repeating Event',
-            start: '2015-02-16T16:00:00'
-        }, {
-            title: 'Conference',
-            start: '2015-02-11',
-            end: '2015-02-13'
-        }, {
-            title: 'Meeting',
-            start: '2015-02-12T10:30:00',
-            end: '2015-02-12T12:30:00'
-        }, {
-            title: 'Lunch',
-            start: '2015-02-12T12:00:00'
-        }, {
-            title: 'Meeting',
-            start: '2015-02-12T14:30:00'
-        }, {
-            title: 'Click for Google',
-            url: 'http://google.com/',
-            start: '2015-02-28'
-        }]
-        */
-    });
+		ajaxLoginUser();
+    	ajaxFirstList();
+    	ajaxGongziList();
     </script>
 
-  <script type="text/javascript" src="../../js/common.js"></script>
-  <script type="text/javascript" src="../../js/bit.js"></script>
-  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-  <script type="text/javascript" src="../../js/dashboard/dashboard.js"></script>
-
-  <script>
-    //console.log("document.cookie : " + document.cookie);
-    ajaxLoginUser();
-  </script>
+	<script id="trTemplateText" type="text/x-handlebars-template">
+	{{#each list}}
+	<div class="col l4 s12">
+    	<figure class="hover-effect effect-sarah">
+			<img src="../../images/test_background.jpg" alt="image-5">
+			<figcaption>
+            	<h2><span style="font-size: 25px; width: 360.98px; text-overflow:
+								ellipsis; white-space: nowrap; overflow: hidden;">{{title}}</span>
+				</h2>
+				<p style="font-size: 15px;">{{contents}}</p>
+                <a href="#">View more</a>
+            </figcaption>
+		</figure>
+	</div>
+	{{/each}}
+	</script>
+	
+<!-- 
+<p>{{boardNo}}</p>
+<button class="card1" data-no="{{boardNo}}" type="button" class="btn btn-default my-view">전체 보기</button>
+ -->
+<!-- 
+	<script id="pagination" type="text/x-handlebars-template">
+	{{#each data}}
+		<p data-no="{{pageNo}}>{{pageNo}}</p>
+	{{/each}}
+	</script>
+ -->
 
 </body>
 

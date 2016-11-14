@@ -29,3 +29,8 @@
 .userInfo ul li p {
 	 margin: 30px 0 0 0;
 }
+
+#myPhoto1, #myPhoto2 {
+	height: 45px;
+	width: 45px;
+}

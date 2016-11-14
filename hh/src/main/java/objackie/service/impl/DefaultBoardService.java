@@ -84,11 +84,13 @@ public class DefaultBoardService implements BoardService {
   }
 
   public void deleteBoard(int no) throws Exception {
-    System.out.println("deleteBoard 들어옵니다.");
     boardFileDao.delete(no);
-    System.out.println("boardFileDao 완료");
     boardDao.delete(no);
-    System.out.println("boardDao 완료");
+  }
+
+  @Override
+  public List<Board> getFirstList() throws Exception {
+    return boardDao.selectFirstList();
   }
 }
 
