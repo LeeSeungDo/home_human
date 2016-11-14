@@ -17,9 +17,6 @@
   <select id="selectList" resultMap="buildMap" parameterType="map">
     select BUILD_NO, L_EMAIL, RE_ID, POSTNO, BAS_ADDR, DIT_ADDR, RE_TYPE, PK
     from RE
-    where TYPE=3
-    order by RE desc
-    
     limit #{startIdex}, #{length}
   </select>
   
