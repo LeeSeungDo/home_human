@@ -84,12 +84,25 @@ public class DefaultRealEstateContractService implements RealEstateContractServi
   }
 
 
-  public void updateRealEstateContract(RealEstateContract realEstateContract) throws Exception {
-    HashMap<String,Object> paramMap = new HashMap<>();
-    paramMap.put("contractNo", realEstateContract.getContractNo());
-    paramMap.put("tenantEmail", realEstateContract.getTenantEmail());
-
-    realEstateContractDao.update(realEstateContract);
+  public void updateRealEstateContract(RealEstateContract realEstateContract, MultipartFile file, String uploadDir) throws Exception {
+    try{
+      HashMap<String,Object> paramMap = new HashMap<>();
+      paramMap.put("contractNo", realEstateContract.getContractNo());
+      paramMap.put("email", realEstateContract.getEmail());
+      realEstateContractDao.update(realEstateContract);
+      
+      String newFilename = null;
+      if (file != null && !file.isEmpty()) {
+        newFilename = FileUploadUtil.getNewFilename(file.getOriginalFilename());
+        file.transferTo(new File(uploadDir + newFilename));
+        RealEstateContractFile realEstateContractFile = new RealEstateContractFile();
+        realEstateContractFile.setFilename(newFilename);
+        realEstateContractFile.setContractNo(realEstateContract.getContractNo());
+        realEstateContractFileDao.update(realEstateContractFile);
+      }      
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 
   public void deleteRealEstateContract(int no) throws Exception {
