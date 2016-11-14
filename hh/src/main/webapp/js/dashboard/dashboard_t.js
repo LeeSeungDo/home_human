@@ -11,7 +11,7 @@ $("#myInfo").click(function(event) {
 
 $("#gongziLink").click(function(event) {
 	alert("공지");
-	window.location.href = serverAddr + "/html/board/gongzi.html"
+	window.location.href = serverAddr + "/html/board/gongzi_t.html"
 });
 
 $("#complainLink").click(function(event) {
