@@ -352,11 +352,20 @@
 
 				<div id="buildinfo">
 					<h3>건물정보</h3>
-					<table>
+					<table id="boardTable">
+					<thead>
 						<tr>
-							<td>건물정보</td>
-							<td id="BUILD_NO"></td>
+							<th>임대건물번호</th>
+							<th>소유주이메일</th>
+							<th>부동산아이디</th>
+							<th>우편번호</th>
+							<th>기본주소</th>
+							<th>상세주소</th>
+							<th>부동산유형</th>
+							<th>주차가능여부</th>
 						</tr>
+					</thead>
+					<tbody></tbody>
 					</table>
 					<div>
 						<button id="buildUpBtn" type="button">변경</button>
@@ -536,64 +545,64 @@
 		src="../../bower_components/code-prettify/src/prettify.js"></script>
 
 	<script>
-    /* 
-     * Init Calendar
-     */
-    $('#calendar').fullCalendar({
-        height: 700,
-        header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay'
-        },
-        defaultDate: '2015-02-12',
-        editable: true,
-        droppable: true,
-        drop: function() {
-            // is the "remove after drop" checkbox checked?
-            if (removeDraggable.is(':checked')) {
-                // if so, remove the element from the "Draggable Events" list
-                $(this).remove();
-            }
-        }
-        /* 
-        events: [{
-            title: 'All Day Event',
-            start: '2015-02-01'
-        }, {
-            title: 'Long Event',
-            start: '2015-02-07',
-            end: '2015-02-10'
-        }, {
-            id: 999,
-            title: 'Repeating Event',
-            start: '2015-02-09T16:00:00'
-        }, {
-            id: 999,
-            title: 'Repeating Event',
-            start: '2015-02-16T16:00:00'
-        }, {
-            title: 'Conference',
-            start: '2015-02-11',
-            end: '2015-02-13'
-        }, {
-            title: 'Meeting',
-            start: '2015-02-12T10:30:00',
-            end: '2015-02-12T12:30:00'
-        }, {
-            title: 'Lunch',
-            start: '2015-02-12T12:00:00'
-        }, {
-            title: 'Meeting',
-            start: '2015-02-12T14:30:00'
-        }, {
-            title: 'Click for Google',
-            url: 'http://google.com/',
-            start: '2015-02-28'
-        }]
-        */
-    });
-    </script>
+		/* 
+		 * Init Calendar
+		 */
+		$('#calendar').fullCalendar({
+			height : 700,
+			header : {
+				left : 'prev,next today',
+				center : 'title',
+				right : 'month,agendaWeek,agendaDay'
+			},
+			defaultDate : '2015-02-12',
+			editable : true,
+			droppable : true,
+			drop : function() {
+				// is the "remove after drop" checkbox checked?
+				if (removeDraggable.is(':checked')) {
+					// if so, remove the element from the "Draggable Events" list
+					$(this).remove();
+				}
+			}
+		/* 
+		events: [{
+		    title: 'All Day Event',
+		    start: '2015-02-01'
+		}, {
+		    title: 'Long Event',
+		    start: '2015-02-07',
+		    end: '2015-02-10'
+		}, {
+		    id: 999,
+		    title: 'Repeating Event',
+		    start: '2015-02-09T16:00:00'
+		}, {
+		    id: 999,
+		    title: 'Repeating Event',
+		    start: '2015-02-16T16:00:00'
+		}, {
+		    title: 'Conference',
+		    start: '2015-02-11',
+		    end: '2015-02-13'
+		}, {
+		    title: 'Meeting',
+		    start: '2015-02-12T10:30:00',
+		    end: '2015-02-12T12:30:00'
+		}, {
+		    title: 'Lunch',
+		    start: '2015-02-12T12:00:00'
+		}, {
+		    title: 'Meeting',
+		    start: '2015-02-12T14:30:00'
+		}, {
+		    title: 'Click for Google',
+		    url: 'http://google.com/',
+		    start: '2015-02-28'
+		}]
+		 */
+		});
+	</script>
 
 
 	<script type="text/javascript"
@@ -606,46 +615,39 @@
 	<script type="text/javascript" src="../../js/auth/myinfo.js"></script>
 
 	<script>
-		//console.log("document.cookie : " + document.cookie);
 		ajaxLoginUser();
-    ajaxFirstList();
+		ajaxBuildList(); // 게시물 목록 가져오기
 	</script>
 
 	<!-- 사진 미리보기 -->
 	<script type="text/javascript">
-        $(function() {
-            $("#ex_file").on('change', function(){
-                readURL(this);
-            });
-        });
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
 
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-            var reader = new FileReader();
+				reader.onload = function(e) {
+					$('#phoPath').attr('src', e.target.result);
+				}
 
-            reader.onload = function (e) {
-                    $('#phoPath').attr('src', e.target.result);
-                }
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+	</script>
 
-              reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
-
-	<!-- 사진 미리보기 -->
-	<script type="text/javascript">
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                    $('#phoPath').attr('src', e.target.result);
-                }
-
-              reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
+	<script id="trTemplateText" type="text/x-handlebars-template">
+	{{#each data}}
+	<tr>
+	  <td>{{buildNo}}</td>
+	  <td><a class="titleLink" href="#" data-no="{{buildNo}}">{{email}}</a></td>
+	  <td>{{reID}}</td>
+	  <td>{{postNo}}</td>
+	  <td>{{basicAddr}}</td>
+	  <td>{{detailAddr}}</td>
+	  <td>{{reType}}</td>
+	  <td>{{park}}</td>
+	</tr>
+	{{/each}}
+	</script>
 
 </body>
 

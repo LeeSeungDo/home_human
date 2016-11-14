@@ -6,12 +6,59 @@ $("#myinfo").click(function(event) {
 	window.location.href = serverAddr + "/html/auth/myinfo.html"
 });
 
-
-
 $("#cancelBtn").click(function(event) {
+	//alert("취소")
 	window.location.href = serverAddr + "/html/auth/myinfo.html"
 });
 
+$("#updateBtn").click(function(event) {
+	var build = {
+			postNo: $("#postNo").val(),
+			basicAddr: $("#basicAddr").val(),
+			detailAddr: $("#detailAddr").val(),
+			tel: $("#tel").val()
+	}
+	console.log(build)
+	//ajaxUpdateBuild(build)
+
+});
+
+//회원정보수정 회원데이터 출력
+function ajaxLoginUser() {
+	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
+		var result = obj.jsonResult
+		if (result.state != "success") { // 로그아웃 상태일 경우 로그인 상태와 관련된 태그를 감춘다.
+			window.location.href = serverAddr + "/html/index.html"
+			return
+		}
+		
+		$("#email").html(result.data.email);
+		$("authLevel").html(result.data.name);
+		$("#userName1").html(result.data.name);
+		$("#userName2").html(result.data.name);
+		
+
+		var auth = result.data.auth;
+
+		if (auth == 0) {
+			$("#authLevel").html("임대인");
+		} else {
+			$("#authLevel").html("임차인");
+		}
+		
+		if (result.data.phoPath != null && result.data.phoPath != "") {
+			$('#phoPath').attr('src', '../../upload/' + result.data.phoPath);
+			$('#myPhoto1').attr('src', '../../upload/' + result.data.phoPath);
+			$('#myPhoto2').attr('src', '../../upload/' + result.data.phoPath);
+		} else {
+			$('#phoPath').attr('src', '../../images/user_default.png');
+			$('#myPhoto1').attr('src', '../../images/user_default.png');
+			$('#myPhoto2').attr('src', '../../images/user_default.png');
+		}
+
+		ajaxLoginUser();
+	})
+}
 
 //load함수를 이용하여 core스크립트의 로딩이 완료된 후, 우편번호 서비스를 실행합니다.
 daum.postcode.load(function(){

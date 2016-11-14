@@ -27,6 +27,22 @@ $("#memberUpBtn").click(function(event) {
 	//window.location.href = serverAddr + ""
 });
 
+function ajaxBuildList() {
+	$.getJSON(serverAddr + "/build/list.json", function(obj) {
+		var result = obj.jsonResult
+		if (result.state != "success") {
+	    	 alert("서버에서 데이터를 가져오는데 실패했습니다.")
+	    	 return
+	    }
+		
+	    var template = Handlebars.compile($('#trTemplateText').html())
+	    $("#buildinfo tbody").html(template(result))
+	    
+	    $(".titleLink").click(function(event) {
+		    window.location.href = "myinfo.html?buildNo=" + $(this).attr("data-no")
+	    })
+    })
+}
 
 
 //회원정보수정 회원데이터 출력
@@ -50,7 +66,7 @@ function ajaxLoginUser() {
 		$("#userName1").html(result.data.name);
 		$("#userName2").html(result.data.name);
 		$("authLevel").html(result.data.name);
-
+		
 		var auth = result.data.auth;
 		var gender = result.data.gender;
 
@@ -71,8 +87,7 @@ function ajaxLoginUser() {
 			$('#myPhoto1').attr('src', '../../images/user_default.png');
 			$('#myPhoto2').attr('src', '../../images/user_default.png');
 		}
-
-		ajaxInputUser();
+		ajaxLoginUser();
 	})
 }
 
@@ -84,7 +99,6 @@ $("#myInfo").click(function(event) {
 
 
 $(document).ready(function() {
-	Kakao.init("bfb48672ff68dbf137c2daffb44adfb0");
 
 	$("#logout").click(function(event) {
 		alert("로그아웃");
@@ -117,8 +131,6 @@ $(document).ready(function() {
 		});
 	}
 });
-
-
 
 
 ///*----------------------------------------------------- 로그인 정보 불러오기 -----------------------------------------------------*/

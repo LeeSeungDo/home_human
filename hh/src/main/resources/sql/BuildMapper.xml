@@ -6,6 +6,8 @@
   <resultMap type="build" id="buildMap">
     <id column="BUILD_NO" property="buildNo"/> 
     <result column="L_EMAIL" property="email"/>
+    <result column="NAME" property="name"/>
+    <result column="AUTH" property="auth"/>
     <result column="RE_ID" property="reID"/>
     <result column="POSTNO" property="postNo"/>
     <result column="BAS_ADDR" property="basicAddr"/>
@@ -15,9 +17,10 @@
   </resultMap>
   
   <select id="selectList" resultMap="buildMap" parameterType="map">
-    select BUILD_NO, L_EMAIL, RE_ID, POSTNO, BAS_ADDR, DIT_ADDR, RE_TYPE, PK
-    from RE
-    limit #{startIdex}, #{length}
+    select A.EMAIL, A.NAME, A.AUTH, B.BUILD_NO, B.RE_ID, B.POSTNO, B.BAS_ADDR, B.DIT_ADDR, B.RE_TYPE, B.PK
+    from MEMBS A LEFT JOIN RE B ON A.EMAIL = B.L_EMAIL
+    where A.AUTH=0
+    limit #{startIndex}, #{length}
   </select>
   
   <select id="selectOne" resultMap="buildMap" parameterType="int">
