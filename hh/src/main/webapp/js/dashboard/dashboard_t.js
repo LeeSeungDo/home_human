@@ -4,9 +4,9 @@ $("#dashboardLink").click(function(event) {
 	window.location.href = serverAddr + "/html/dashboard/dashboard_t.html"
 });
 
-$("#myInfo").click(function(event) {
+$("#myinfoLink").click(function(event) {
    alert("내정보");
-   window.location.href = serverAddr + "/html/auth/myinfo.html"
+   window.location.href = serverAddr + "/html/auth/myinfo_t.html"
 });
 
 $("#gongziLink").click(function(event) {
@@ -17,11 +17,6 @@ $("#gongziLink").click(function(event) {
 $("#complainLink").click(function(event) {
 	alert("민원");
 	window.location.href = serverAddr + "/html/board/complain_t.html"
-});
-
-$("#myinfoLink").click(function(event) {
-	alert("내정보");
-	window.location.href = serverAddr + "/html/auth/myinfo.html"
 });
 
 // 카카오 준비
