@@ -280,14 +280,14 @@
 		<div class="row sortable" style="margin-right: 0;">
 
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
-			<button type="button" class="btn btn-primary" style="width: 100%;"
-					onclick="location.href='gongziInput.html'">새 공지 쓰기</button>
+			<a class="waves-effect waves-dark btn cyan" id="new_gongzi" style="width: 100%;">새 공지 쓰기</a>
 
 			<div class="row">
 				<div class="col l12 s12">
-					<figure class="hover-effect effect-sarah" style="height: 230px;">
+					<figure class="hover-effect effect-sarah hidden_no" style="height: 230px;">
 						<img src="../../images/LNMmTg.jpeg" alt="image-5">
 						<figcaption>
+							<input type="hidden" id="hidden_no">
 							<h2>
 								<span id="recent_title"></span>
 							</h2>
@@ -374,7 +374,7 @@
 	<script id="trTemplateText" type="text/x-handlebars-template">
 	{{#each list}}
 	<div class="col l4 s12">
-    	<figure class="hover-effect effect-sarah">
+    	<figure class="hover-effect effect-sarah card1" data-no="{{boardNo}}">
 			<img src="../../images/LNMmTg.jpeg" alt="image-5">
 			<figcaption>
             	<h2><span style="font-size: 25px; width: 360.98px; text-overflow:

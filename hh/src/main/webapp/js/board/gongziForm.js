@@ -1,10 +1,6 @@
-$("#deleteBtn").click(function(event) {
-	if (confirm("정말 삭제하시겠습니까?") == true) {
-		ajaxDeleteGongzi($("#boardNo").text())
-	} else {
-		return;
-	}  
-});
+$("#cancelBtn").click(function(event) {
+	window.location.href = serverAddr + "/html/board/gongzi.html";
+})
 
 function ajaxLoadGongzi(no) {
 	$.getJSON(serverAddr + "/board/detail.json?no=" + no, function(obj) {
@@ -14,17 +10,24 @@ function ajaxLoadGongzi(no) {
 			return
 		}
 
-		$("#boardNo").text(result.data.boardNo);
-		$("#email").text(result.data.email);
-		$("#writer").text(result.data.writer);
-		$("#title").val(result.data.title);
+		console.log(result.data);
+		$("#writer").val(result.data.writer);
+		$("#title").text(result.data.title);
 		$("#contents").text(result.data.contents);
-		$("#createdDate").text(result.data.createDate);
-		$("#viewCount").text(result.data.viewCount);
-		$("#file1").attr('src', "../../upload/" + result.data.filename);
+		$("#createdDate").val(result.data.createDate);
+		$("#viewCount").val(result.data.viewCount);
+		
 		$("#updateBtn").click(function(event) {
 			window.location.href = serverAddr + "/html/board/gongziUpdate.html?no=" + no
-		})
+		});
+		
+		$("#deleteBtn").click(function(event) {
+			if (confirm("정말 삭제하시겠습니까?") == true) {
+				ajaxDeleteGongzi(no)
+			} else {
+				return;
+			}  
+		});
 	})
 }
 

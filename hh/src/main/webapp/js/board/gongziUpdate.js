@@ -15,16 +15,17 @@ $("#cancelBtn").click(function(event) {
 
 $("#updateBtn").click(function(event) {
   var gongzi = {
-	    title: $("#title").val(),
+	    title: $("#title2").val(),
 	    contents: $("#contents").val(),
-	    email: $("email").val(),
+	    email: $("#email").val(),
 	    boardNo: $("#no").val()
 		}
-  if (confirm("정말 변경하시겠습니까?") == true) {
-    ajaxUpdateGongzi(gongzi)
-  } else {
-	  return;
-  }
+  	console.log(gongzi);
+	  if (confirm("정말 변경하시겠습니까?") == true) {
+		  ajaxUpdateGongzi(gongzi)
+	  } else {
+		  return;
+	  }
 });
 
 
@@ -38,9 +39,10 @@ function ajaxLoadGongzi(no) {
 		$("#no").val(result.data.boardNo);
 		$("#email").val(result.data.email);
 		$("#writer").val(result.data.writer);
-		$("#title").val(result.data.title);
+		$("#title1").text(result.data.title);
+		$("#title2").val(result.data.title);
 		$("#contents").text(result.data.contents);
-		$("#createdDate").text(result.data.createDate);
+		$("#createdDate").val(result.data.createDate);
 		$("#viewCount").text(result.data.viewCount);		
 	})
 }
