@@ -30,15 +30,7 @@
 <link rel="stylesheet" type="text/css"
 	href="../../bower_components/ionicons/css/ionicons.min.css" />
 
-<!-- WeatherIcons -->
-<link rel="stylesheet" type="text/css"
-	href="../../bower_components/weather-icons/css/weather-icons.min.css" />
 
-
-
-<!-- nvd3 -->
-<link rel="stylesheet" type="text/css"
-	href="../../bower_components/nvd3/build/nv.d3.min.css" />
 
 <!-- Main -->
 <link rel="stylesheet" type="text/css"
@@ -46,14 +38,20 @@
 
 
 
+<!-- sseung -->
+    <link rel="stylesheet" type="text/css" href="../../css/dashboard/sseung.css" />  
+
 <!-- dossierbit -->
 <link rel="stylesheet" type="text/css"
 	href="../../css/dashboard/dossierbit.css" />
 
-<!-- complain css -->
-<link rel="stylesheet" type="text/css"
-	href="../../css/board/complain_t.css" />
+<!-- pace -->
+<link rel="stylesheet" type="text/css" href="../../css/pace.css" />
 
+<!-- profileupdate -->
+<link rel="stylesheet" type="text/css" href="../../css/dashboard/dossierbit.css" />
+	
+<link href="../../css/auth/profileupdate.css" rel="stylesheet" type="text/css" />
 
 <!--[if lt IE 9]>
         <script src="../../bower_components/html5shiv/dist/html5shiv.min.js"></script>
@@ -62,11 +60,6 @@
 
 </head>
 
-<!--
-  Body
-    Options:
-      .boxed - boxed layout for content
--->
 
 <body>
 <div class="pace"></div>
@@ -229,7 +222,6 @@
         </div>
     </aside>
     <!-- /Yay Sidebar -->
-
 	<!---------------------------------------------------------/사이드바 부분------------------------------------------------------------>
 
 
@@ -244,108 +236,77 @@
 				<div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
 					<a href="../../html/index.html" class="hh-logo-black"> <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
 					</a>
-					<h1>나의 민원</h1>
+					<h1>프로필 수정</h1>
 				</div>
 			</div>
 
 		</div>
 		<!-- /Breadcrumb -->
-		<div class="row sortable" style="margin-right: 0;">
-			<button id="addBtn" type="button"
-				onclick="location.href='complainCreate.html'" class="btn write_com">민원
-				등록</button>
+
+		<div class="row sortable">
+
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
-			<div style="margin: 0 auto; width: 65%;">
-				<div class="row">
-					<div class="col s12">
-						<ul class="tabs">
-							<li class="tab col s3" rel="complain1"><a class="active"
-								href="#"> 미처리 민원</a></li>
-							<li class="tab col s3" rel="complain2"><a href="#"> 처리된
-									민원</a></li>
-						</ul>
-					</div>
-				</div>
-				<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
-				<div id="complain1" class="tab_content">
-					<div class="row" id="complainTable"></div>
 
-					<script id="trTemplateText" type="text/x-handlebars-template">
-{{#each list}}
-	<div class="col l4 s12">
-		<div class="card of-h">
-			<div class="thumbnail waves-effect waves-block waves-light" style="height:230px;">
-				<img src="../../upload/{{filename}}" alt="Canada" 
-					 onerror="this.onerror=null;this.src='../../images/camera.png';"
-					 class="portrait activator">
-			</div>
-			<div class="content">
-				<span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title1">{{title}}</p>
-				<p class="tenant-writer card1" data-no1="{{no}}">{{writer}} 세입자</p>
-			</div>
-			<div class="card-reveal">
-				<span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
-				<hr>
-				<p id="complain_conts1">{{contents}}</p>
-				<div class="button-group">
-					<a class="btn" id="updateBtn1" data-no1="{{no}}">수정</a>
-					<a id="deleteBtn" type="button" class="btn">삭제</a>
+			<div id="main1">
+				<div id="main2">
+					<span>프로필과 비밀번호를 수정하실 수 있습니다.</span> <a href="#"><button
+							id="updateBtn" type="button">적용</button></a>
 				</div>
-			</div>
-		</div>
-	</div>
-{{/each}}
-</script>
-					<!-- 리스트 -->
-					<div class="complain_pagination">
-						<button id="prevBtn" type="button"
-							class="uk-button uk-button-primary">이전</button>
-						<span id="pageNo">1</span>
-						<button id="nextBtn" type="button"
-							class="uk-button uk-button-primary">다음</button>
-					</div>
-				</div>
+				<div id="main3">
+					<table>
+						<tr>
+							<th class="th_cell1">프로필 사진</th>
+							<td class="td_cell1">
+								<form id="profileForm">
+									<input type="hidden" name="email0" id="loginUserEmail0">
+									<div id="profilePhoto">
+										<a href="#"> <img id="phoPath"
+											src="../../images/default.png" style="border-radius: 50px;" />
+										</a>
+									</div>
 
-				<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
-				<div id="complain2" class="tab_content">
-					<div class="row" id="complainTable2"></div>
-					<script id="trTemplateText2" type="text/x-handlebars-template">
-{{#each list}}
-	<div class="col l4 s12">
-		<div class="card of-h">
-			<div class="thumbnail waves-effect waves-block waves-light" style="height:230px;">
-				<img src="../../upload/{{filename}}" alt="Canada" 
-					 onerror="this.onerror=null;this.src='../../images/camera.png';"
-					 class="portrait activator">
-			</div>
-			<div class="content">
-				<span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title0">{{title}}</p>
-				<p id="test" class="tenant-writer card0" data-no0="{{no}}">{{writer}} 세입자</p>
-			</div>
- 			<div class="card-reveal">
-				<span class="card-title grey-text text-darken-4">
-				<p id="title" style="font-size: 18px;">{{title}}</p>
-				<i class="mdi-content-clear right"></i></span>
-				<p id="complain_conts0">{{contents}}</p>
-				<div class="button-group">
-					<a class="btn" id="updateBtn0" data-no0="{{no}}">수정</a>
-				</div>
-			</div>
-		</div>
-	</div>
-{{/each}}
-   </script>
+									<div id="phoBtn" class="filebox">
+										<label for="ex_file">사진 선택</label> <input type="file"
+											name="file" id="ex_file"> <input id="hiddenPwd"
+											name="password2" type="hidden" class="form-control">
+									</div>
+									<input type="hidden" name="password3" id="password3">
+								</form>
 
-					<!-- tab container -->
+								<button id="phoDeleteBtn" type="button">삭제</button>
+							</td>
+						</tr>
+					</table>
 
-					<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+					<table>
+						<tr>
+							<th class="th_cell2">비밀번호</th>
+							<td class="td_cell2">
+								<form name="password_form">
+									<input type="hidden" name="email1" id="loginUserEmail1">
+									<span>새 비밀번호</span><br> <input type="password"
+										name="password1" class="form-control" onkeyup="verify.check()"><br>
+									<span>새 비밀번호 확인</span><br> <input type="password"
+										name="password2" class="form-control" id="passwordUp"
+										onkeyup="verify.check()">
+									<!-- Display a message if the passwords match or don't match -->
+									<div id="password_result"></div>
+								</form>
+							</td>
+						</tr>
+					</table>
 				</div>
+				<!-- 
+            <a href="#"><button id="updateBtn" type="button">적용</button></a>
+            <a href="#"><button id="cancelBtn" type="button">취소</button></a>
+             -->
 			</div>
+
+			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 		</div>
 	</section>
 	<!-- /Main Content -->
 	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
-
 
 
 	<!---------------------------------------------------------푸터 부분---------------------------------------------------------->
@@ -374,6 +335,8 @@
 	<script type="text/javascript"
 		src="../../bower_components/materialize/bin/materialize.js"></script>
 
+
+
 	<!-- Sortable -->
 	<script type="text/javascript"
 		src="../../bower_components/Sortable/Sortable.min.js"></script>
@@ -382,36 +345,46 @@
 	<script type="text/javascript"
 		src="../../bower_components/assets/_con/js/_con.js"></script>
 
-	<!-- Loading Bar -->
-	<script type="text/javascript" src="../../js/pace.js"></script>
 
+
+	<script type="text/javascript"
+		src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+		charset="UTF-8"></script>
+	<script type="text/javascript" src="//cdn.poesis.kr/post/search.min.js"
+		charset="UTF-8"></script>
+	<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
-	<script type="text/javascript" src="../../js/bit.js"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 	<script type="text/javascript" src="../../js/commonDashboard_t.js"></script>
-   	<script type="text/javascript" src="../../js/link_t.js"></script>
-    <script type="text/javascript" src="../../js/board/complain_t.js"></script>
-    
+   <script type="text/javascript" src="../../js/link_t.js"></script>
+	<script type="text/javascript" src="../../js/auth/profileupdate_t.js"></script>
 
-
-	<!--------------------------------------------------------- 모달 load 자바스크립트 코드------------------------------------------------->
-
-	<script type="text/javascript">
+	<script>
+		//console.log("document.cookie : " + document.cookie);
 		ajaxDashboardUser()
-		ajaxComplainListRsvd1_t()
-		ajaxComplainListRsvd0_t()
+		ajaxLoginUser();
 	</script>
 
+	<!-- 사진 미리보기 -->
 	<script type="text/javascript">
-		if (location.search.startsWith("?")) { // 예) ?no=xxx
-			var no = location.search.split("=")[1];
-			var rsvd = location.search.split("=")[2];
-			//alert(rsvd);
-			ajaxLoadComplain(no, rsvd)
+		$(function() {
+			$("#ex_file").on('change', function() {
+				readURL(this);
+			});
+		});
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function(e) {
+					$('#phoPath').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+			}
 		}
 	</script>
-	
 
 </body>
 
