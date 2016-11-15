@@ -123,7 +123,7 @@
 
                     <ul id="user-dropdown" class="dropdown-content">
                         <li>
-                            <a href="../auth/myinfo.html">
+                            <a href="../auth/myinfo_t.html">
                                 <i class="fa fa-user"></i> 내 정보
                             </a>
                         </li>
@@ -231,6 +231,7 @@
         </div>
     </aside>
     <!-- /Yay Sidebar -->
+
 
     <!-- Main Content -->
     <section class="content-wrap">
@@ -592,11 +593,15 @@
 	<script type="text/javascript" src="//cdn.poesis.kr/post/search.min.js"
 		charset="UTF-8"></script>
 	<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+   <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
-	<script type="text/javascript" src="../../js/dashboard/dashboard_t.js"></script>
-	<script type="text/javascript" src="../../js/auth/myinfo.js"></script>
+	<script type="text/javascript" src="../../js/commonDashboard_t.js"></script>
+	<script type="text/javascript" src="../../js/link_t.js"></script>
+	<script type="text/javascript" src="../../js/auth/myinfo_t.js"></script>
 
 	<script>
+		ajaxDashboardUser()
 		ajaxLoginUser();
 		ajaxBuildList(); // 게시물 목록 가져오기
 	</script>

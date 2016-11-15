@@ -121,7 +121,7 @@
 
                     <ul id="user-dropdown" class="dropdown-content">
                         <li>
-                            <a href="../auth/myinfo.html">
+                            <a href="../auth/myinfo_t.html">
                                 <i class="fa fa-user"></i> 내 정보
                             </a>
                         </li>
@@ -229,6 +229,7 @@
         </div>
     </aside>
     <!-- /Yay Sidebar -->
+
 	<!---------------------------------------------------------/사이드바 부분------------------------------------------------------------>
 
 
@@ -388,7 +389,8 @@
 	<script type="text/javascript" src="../../js/bit.js"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
-	<script type="text/javascript" src="../../js/dashboard/dashboard_t.js"></script>
+	<script type="text/javascript" src="../../js/commonDashboard_t.js"></script>
+   	<script type="text/javascript" src="../../js/link_t.js"></script>
     <script type="text/javascript" src="../../js/board/complain_t.js"></script>
     
 
@@ -396,6 +398,7 @@
 	<!--------------------------------------------------------- 모달 load 자바스크립트 코드------------------------------------------------->
 
 	<script type="text/javascript">
+		ajaxDashboardUser()
 		ajaxComplainListRsvd1_t()
 		ajaxComplainListRsvd0_t()
 	</script>
@@ -409,9 +412,6 @@
 		}
 	</script>
 	
-	<script type="text/javascript">
-	ajaxLoginUser()
-	</script>
 
 </body>
 
