@@ -30,6 +30,10 @@
 <link rel="stylesheet" type="text/css"
 	href="../../bower_components/ionicons/css/ionicons.min.css" />
 
+<!-- WeatherIcons -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/weather-icons/css/weather-icons.min.css" />
+
 
 
 <!-- nvd3 -->
@@ -50,12 +54,12 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/dashboard/dossierbit.css" />
 
+<!-- Sweet Alert -->
+<link rel="stylesheet"
+	href="../../bower_components/sweetalert2/dist/sweetalert2.min.css">
+
 <!-- pace -->
 <link rel="stylesheet" type="text/css" href="../../css/pace.css" />
-
-<!-- dossierbit -->
-<link rel="stylesheet" type="text/css"
-	href="../../css/dashboard/dossierbit.css" />
 
 <!-- complain css -->
 <link rel="stylesheet" type="text/css"
@@ -68,10 +72,13 @@
 
 </head>
 
-
+<!--
+  Body
+    Options:
+      .boxed - boxed layout for content
+-->
 
 <body>
-	<div class="pace"></div>
 	<!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
 	<!--
      Top Navbar
@@ -260,28 +267,27 @@
 
 	<!------------------------------------------------------------메인 부분-------------------------------------------------------------->
 	<!-- Main Content -->
-   <section class="content-wrap">
+	<section class="content-wrap">
 
-      <!-- Breadcrumb -->
-      <div class="page-title" style="height: 80px;">
+		<!-- Breadcrumb -->
+		<div class="page-title" style="height: 80px;">
 
-         <div class="row">
-            <div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
-               <a href="../../html/index.html" class="hh-logo-black">
-                      <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
-                  </a>
-                  <h1>임차인이 보낸 민원사항을 보세요.</h1>
-            </div>
-         </div>
+			<div class="row">
+				<div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
+					<a href="../../html/index.html" class="hh-logo-black"> </a>
+					<h1>민원사항</h1>
+				</div>
+			</div>
 
-      </div>
-      <!-- /Breadcrumb -->
+		</div>
+		<!-- /Breadcrumb -->
+
+		<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
 
 		<div class="row sortable" style="margin-right: 0;">
-			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
 			<div style="margin: 0 auto; width: 75%;">
 				<div class="row">
-					<div class="col s12">
+					<div class="col l12 s12">
 						<ul class="tabs">
 							<li class="tab col s3" rel="complain1"><a class="active"
 								href="#"> 미처리 민원</a></li>
@@ -407,6 +413,7 @@
 	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
 
 
+
 	<!---------------------------------------------------------푸터 부분---------------------------------------------------------->
 	<footer>
 		&copy; 2016 <strong>Objackie</strong> Java85.
@@ -414,29 +421,49 @@
 	<!--------------------------------------------------------/푸터 부분---------------------------------------------------------->
 
 	<!-- DEMO [REMOVE IT ON PRODUCTION] -->
-    <script type="text/javascript" src="../../bower_components/assets/_con/js/_demo.js"></script>
+	<script type="text/javascript"
+		src="../../bower_components/assets/_con/js/_demo.js"></script>
 
-    <!-- jQuery -->
-    <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.min.js"></script>
+	<!-- jQuery -->
+	<script type="text/javascript"
+		src="../../bower_components/jquery/dist/jquery.min.js"></script>
 
-    <!-- jQuery RAF (improved animation performance) -->
-    <script type="text/javascript" src="../../bower_components/jquery-requestAnimationFrame/dist/jquery.requestAnimationFrame.min.js"></script>
+	<!-- jQuery RAF (improved animation performance) -->
+	<script type="text/javascript"
+		src="../../bower_components/jquery-requestAnimationFrame/dist/jquery.requestAnimationFrame.min.js"></script>
 
-    <!-- nanoScroller -->
-    <script type="text/javascript" src="../../bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
+	<!-- nanoScroller -->
+	<script type="text/javascript"
+		src="../../bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
 
-    <!-- Materialize -->
-    <script type="text/javascript" src="../../bower_components/materialize/bin/materialize.js"></script>
+	<!-- Materialize -->
+	<script type="text/javascript"
+		src="../../bower_components/materialize/bin/materialize.js"></script>
+
 
 
 	<!-- Sortable -->
-    <script type="text/javascript" src="../../bower_components/Sortable/Sortable.min.js"></script>
+	<script type="text/javascript"
+		src="../../bower_components/Sortable/Sortable.min.js"></script>
 
-    <!-- Main -->
-    <script type="text/javascript" src="../../bower_components/assets/_con/js/_con.js"></script>
+	<!-- Main -->
+	<script type="text/javascript"
+		src="../../bower_components/assets/_con/js/_con.js"></script>
 
-    <!-- Loading Bar -->
-    <script type="text/javascript" src="../../js/pace.js"></script>
+	<!-- Link Sort -->
+	<script type="text/javascript" src="../../js/link.js"></script>
+
+	<!-- Common Dashboard -->
+	<script type="text/javascript" src="../../js/commonDashboard.js"></script>
+
+	<!-- Loading Bar -->
+	<script type="text/javascript" src="../../js/pace.js"></script>
+
+	<!-- Sweet Alert -->
+	<script
+		src="../../bower_components/es6-promise/es6-promise.auto.min.js"></script>
+	<script
+		src="../../bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
 
 
 
@@ -446,15 +473,12 @@
 	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 	<script type="text/javascript" src="../../js/board/complain_l.js"></script>
 
-
-	<!--------------------------------------------------------- 모달 load 자바스크립트 코드------------------------------------------------->
-
-	<script type="text/javascript">
-		ajaxLoginUser();
+	<script>
+		ajaxDashboardUser();
 		ajaxComplainListRsvd1();
 		ajaxComplainListRsvd0();
 	</script>
-	
+
 
 </body>
 

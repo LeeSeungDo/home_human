@@ -1,16 +1,6 @@
-function ajaxFirstList() {
-	$.getJSON(serverAddr + "/board/firstlist.json", function(obj) {
-		var result = obj.jsonResult
-		if (result.state != "success") {
-			alert("서버에서 데이터를 가져오는데 실패했습니다.")
-			return
-		}
-		$("#recent_title").html(result.data.list[0].title);
-		$("#recent_contents").html(result.data.list[0].contents);
-	})
-}
-
-
+$("#new_gongzi").click(function(event) {
+	window.location.href = serverAddr + "/html/board/gongziInput.html";
+})
 
 $("#prevBtn").click(function(event) {
 	pageNo--;
@@ -21,6 +11,30 @@ $("#nextBtn").click(function(event) {
 	pageNo++;
 	ajaxGongziList();
 });
+
+
+$(document.body).on('click', '.hidden_no', function(event) {
+	var clno= $("#hidden_no").val();
+	console.log(clno)
+	ajaxGongziClickList(clno)
+    window.location.href = serverAddr + "/html/board/gongziForm.html?no=" + $("#hidden_no").val();
+})
+
+
+function ajaxFirstList() {
+	$.getJSON(serverAddr + "/board/firstlist.json", function(obj) {
+		var result = obj.jsonResult
+		if (result.state != "success") {
+			alert("서버에서 데이터를 가져오는데 실패했습니다.")
+			return
+		}
+		//console.log(result.data);
+		$("#hidden_no").val(result.data.list[0].boardNo);
+		$("#recent_title").html(result.data.list[0].title);
+		$("#recent_contents").html(result.data.list[0].contents);
+	})
+}
+
 
 
 // 글로벌 변수 = window 프로퍼티 
@@ -39,7 +53,7 @@ function ajaxGongziList() {
 	    
 	    $(document.body).on('click', '.card1', function(event) {
 	    	var clno= $(this).attr("data-no")
-	    	console.log(clno)
+	    	//console.log(clno)
 	    	ajaxGongziClickList(clno)
 		    window.location.href = serverAddr + 
 		    "/html/board/gongziForm.html?no=" + $(this).attr("data-no")
@@ -118,6 +132,8 @@ function ajaxGongziList_T() {
     })
 }
 
+
+/////////////////////////////////////////// 조회수 증가 ///////////////////////////////////////////
 function ajaxGongziClickList(clno) {
 	$.post(serverAddr + "/board/updateVW_CNT.json", {no:clno}, function(obj) {
 		var result = obj.jsonResult
@@ -128,7 +144,7 @@ function ajaxGongziClickList(clno) {
 		}
 	}, "json")
 }
-
+/////////////////////////////////////////// 조회수 증가 끝 ///////////////////////////////////////////
 
 
 

@@ -1,8 +1,12 @@
 $(document.body).ready(function() {
     $('.updateLimit').on('keyup', function() {
-        if($(this).val().length > 200) {
-        	 alert("글자수는 200자 이내로 제한됩니다.!");  
-            $(this).val($(this).val().substring(0, 200));
+        if($(this).val().length > 300) {
+        	swal({
+        		  title: '글자수는 300자로 제한됩니다.',
+        		  type: 'error',
+        		  timer: 2000
+        		});
+            $(this).val($(this).val().substring(0, 300));
         }
     });
 });
@@ -15,16 +19,28 @@ $("#cancelBtn").click(function(event) {
 
 $("#updateBtn").click(function(event) {
   var gongzi = {
-	    title: $("#title").val(),
+	    title: $("#title2").val(),
 	    contents: $("#contents").val(),
-	    email: $("email").val(),
+	    email: $("#email").val(),
 	    boardNo: $("#no").val()
 		}
-  if (confirm("정말 변경하시겠습니까?") == true) {
-    ajaxUpdateGongzi(gongzi)
-  } else {
-	  return;
-  }
+  	//console.log(gongzi);
+  
+  swal({
+	  title: '정말 변경하시겠습니까?',
+	  type: 'warning',
+	  showCancelButton: true,
+	  confirmButtonColor: '#3085d6',
+	  cancelButtonColor: '#d33',
+	  cancelButtonText: '취소',
+	  confirmButtonText: '변경'
+	}).then(function () {
+	  swal(
+	    '변경되었습니다.'
+	  ).then(function () {
+		  ajaxUpdateGongzi(gongzi)
+	  })
+	});
 });
 
 
@@ -38,9 +54,10 @@ function ajaxLoadGongzi(no) {
 		$("#no").val(result.data.boardNo);
 		$("#email").val(result.data.email);
 		$("#writer").val(result.data.writer);
-		$("#title").val(result.data.title);
+		$("#title1").text(result.data.title);
+		$("#title2").val(result.data.title);
 		$("#contents").text(result.data.contents);
-		$("#createdDate").text(result.data.createDate);
+		$("#createdDate").val(result.data.createDate);
 		$("#viewCount").text(result.data.viewCount);		
 	})
 }
