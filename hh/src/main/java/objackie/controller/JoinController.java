@@ -48,6 +48,7 @@ public class JoinController {
   @RequestMapping(path = "updateFile0")
   @ResponseBody
   public Object updateFile0(@RequestParam("email0") String email,
+                            @RequestParam("password3") String password,
                            MultipartFile file,
                            HttpSession session) throws Exception {
     String uploadDir = sc.getRealPath("/upload") + "/";
@@ -58,12 +59,17 @@ public class JoinController {
         newFilename = FileUploadUtil.getNewFilename(file.getOriginalFilename());
         file.transferTo(new File(uploadDir + newFilename));
         
+        System.out.println(password);
         HashMap<String,Object> paramMap = new HashMap<>();
         paramMap.put("email", email);
+        
         Member member = memberDao.selectOneByEmail(paramMap);
         member.setEmail(email);
+        member.setPassword(password);
         member.setPhoPath(newFilename);
         joinDao.updatePhoto0(member);
+        
+        System.out.println(member);
         session.setAttribute("member", member);
       }
       return JsonResult.success();
