@@ -12,9 +12,13 @@ $("#cancelBtn").click(function(event) {
 
 $(document.body).ready(function() {
     $('.limitation').on('keyup', function() {
-        if($(this).val().length > 200) {
-        	 alert("글자수는 200자 이내로 제한됩니다.!");  
-            $(this).val($(this).val().substring(0, 200));
+        if($(this).val().length > 300) {
+        	swal({
+      		  title: '글자수는 300자로 제한됩니다.',
+      		  type: 'error',
+      		  timer: 2000
+      		}); 
+            $(this).val($(this).val().substring(0, 300));
         }
     });
 });
@@ -47,8 +51,13 @@ function ajaxAddGongziFile(formData) {
 	    contentType: false,
 	    type: 'POST',
 	    success: function(data){
-	    	alert("EE");
-	    	window.location.href = serverAddr + "/html/board/gongzi.html"
+	    	swal({
+				  title: '등록 되었습니다.',
+				  confirmButtonColor: '#3085d6',
+				  confirmButtonText: '확인'
+				}).then(function () {
+					  window.location.href = serverAddr + "/html/board/gongzi.html"
+				});
 	    }
 	  });
 }

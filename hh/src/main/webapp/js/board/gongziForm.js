@@ -22,11 +22,22 @@ function ajaxLoadGongzi(no) {
 		});
 		
 		$("#deleteBtn").click(function(event) {
-			if (confirm("정말 삭제하시겠습니까?") == true) {
-				ajaxDeleteGongzi(no)
-			} else {
-				return;
-			}  
+			swal({
+				  title: '정말 삭제하시겠습니까?',
+				  text: "삭제하면 다시 복구할 수 없습니다.",
+				  type: 'warning',
+				  showCancelButton: true,
+				  confirmButtonColor: '#3085d6',
+				  cancelButtonColor: '#d33',
+				  cancelButtonText: '취소',
+				  confirmButtonText: '삭제'
+				}).then(function () {
+				  swal(
+				    '삭제되었습니다.'
+				  ).then(function () {
+					  ajaxDeleteGongzi(no);
+				  })
+				});
 		});
 	})
 }
