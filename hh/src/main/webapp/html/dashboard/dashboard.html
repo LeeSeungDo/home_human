@@ -315,15 +315,8 @@
                </div>
                <div class="content orders-card">
 
-                  <h6>건물정보 뿌리기</h6>
-                  <hr>
-                  <h6>건물정보 뿌리기</h6>
-                  <hr>
-                  <h6>건물정보 뿌리기</h6>
-                  <hr>
-                  <h6>건물정보 뿌리기</h6>
-                  <hr>
-                  <h6>건물정보 뿌리기</h6>
+                  <ul id="buildListTable">
+                  </ul>
 
                </div>
             </div>
@@ -674,6 +667,7 @@
       ajaxLoginUser();
       ajaxTenantList();
       ajaxFirstList();
+      ajaxBuildList();
    </script>
 
    <script id="tenantList" type="text/x-handlebars-template">
@@ -683,6 +677,17 @@
                <img src="" onerror="this.src='../../images/user_default.png'" class="circle">
                <h4>{{name}}</h4>
                <p>전화번호 : {{tel}} <span> |  상세주소 : {{detailAddress}}</span></p>
+            </a>
+         </li>
+      {{/each}}
+   </script>
+   <script id="buildList" type="text/x-handlebars-template">
+     {{#each list}}
+         <li>
+            <a href="#">
+               <img src="" onerror="this.src='../../images/user_default.png'" class="circle">
+               <h4>{{reID}}</h4>
+               <p>상세주소 : {{basicAddr}}</p>
             </a>
          </li>
       {{/each}}

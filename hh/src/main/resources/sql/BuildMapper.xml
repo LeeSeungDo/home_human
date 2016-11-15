@@ -18,7 +18,7 @@
   
   <select id="selectList" resultMap="buildMap" parameterType="map">
     select A.EMAIL, A.NAME, A.AUTH, B.BUILD_NO, B.RE_ID, B.POSTNO, B.BAS_ADDR, B.DIT_ADDR, B.RE_TYPE, B.PK
-    from MEMBS A LEFT JOIN RE B ON A.EMAIL = B.L_EMAIL
+    from MEMBS A RIGHT JOIN RE B ON A.EMAIL = B.L_EMAIL
     where A.AUTH=0
     limit #{startIndex}, #{length}
   </select>
