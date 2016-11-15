@@ -1,3 +1,27 @@
+$("#dashboardLink").click(function(event) {
+	alert("메인");
+	window.location.href = serverAddr + "/html/dashboard/dashboard_t.html"
+});
+
+$("#myInfo").click(function(event) {
+	alert("내정보");
+	window.location.href = serverAddr + "/html/auth/myinfo_t.html"
+});
+
+$("#gongziLink").click(function(event) {
+	alert("공지");
+	window.location.href = serverAddr + "/html/board/gongzi_t.html"
+});
+
+$("#complainLink").click(function(event) {
+	alert("민원");
+	window.location.href = serverAddr + "/html/board/complain_t.html"
+});
+
+$("#myinfoLink").click(function(event) {
+	alert("내정보");
+	window.location.href = serverAddr + "/html/auth/myinfo_t.html"
+});
 
 // 카카오 준비
 $(document).ready(function() {
@@ -118,8 +142,13 @@ function ajaxUpdateFile0(formData) {
 		contentType : false,
 		type : 'POST',
 		success : function(data) {
-			alert("프로필 사진 변경 완료");
-			window.location.href = serverAddr + "/html/auth/myinfo_t.html"
+			swal({
+      		  title: '프로필 사진 변경 완료!',
+      		  type: 'success',
+      		  confirmButtonText: '확인'
+      		}).then(function(){
+      			window.location.href = serverAddr + "/html/auth/myinfo_t.html"
+      		});
 		}
 	});
 }

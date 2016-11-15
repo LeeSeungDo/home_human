@@ -7,29 +7,32 @@
  * 감사합니다. 				- 이승도 -
  */
 $("#dashboardLink").click(function(event) {
-	alert("메인");
 	window.location.href = serverAddr + "/html/dashboard/dashboard_t.html"
 });
 
 $("#myInfo").click(function(event) {
-   alert("내정보");
    window.location.href = serverAddr + "/html/auth/myinfo_t.html"
 });
 
 $("#gongziLink").click(function(event) {
-	alert("공지");
 	window.location.href = serverAddr + "/html/board/gongzi_t.html"
 });
 
 $("#complainLink").click(function(event) {
-	alert("민원");
 	window.location.href = serverAddr + "/html/board/complain_t.html"
 });
 
 $("#myinfoLink").click(function(event) {
-	alert("내정보");
 	window.location.href = serverAddr + "/html/auth/myinfo_t.html"
 });
+
+$(document.body).on('click', '.hidden_no', function(event) {
+	var clno= $("#hidden_no").val();
+	console.log(clno)
+	ajaxGongziClickList(clno)
+    window.location.href = serverAddr + "/html/board/gongziForm_t.html?no=" + $("#hidden_no").val();
+})
+
 
 // 카카오 준비
 $(document).ready(function() {
@@ -115,6 +118,7 @@ function ajaxFirstList() {
 			alert("서버에서 데이터를 가져오는데 실패했습니다.")
 			return
 		}
+		$("#hidden_no").val(result.data.list[0].boardNo);
 		$("#recent_title").html(result.data.list[0].title);
 		$("#recent_contents").html(result.data.list[0].contents);
 	})
@@ -149,10 +153,10 @@ function ajaxGongziList() {
 	    
 	    $(document.body).on('click', '.card1', function(event) {
 	    	var clno= $(this).attr("data-no")
-	    	console.log(clno)
+	    	//console.log(clno)
 	    	ajaxGongziClickList(clno)
 		    window.location.href = serverAddr + 
-		    "/html/board/gongziForm.html?no=" + $(this).attr("data-no")
+		    "/html/board/gongziForm_t.html?no=" + $(this).attr("data-no")
 	    })
 	    
 	    // 현재 페이지 번호를 span 태그에 출력한다.
