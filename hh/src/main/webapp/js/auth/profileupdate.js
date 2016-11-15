@@ -1,29 +1,4 @@
 /*----------------------------------------------------- 공통 대쉬보드(지우지마세요) -----------------------------------------------------*/
-$("#dashboardLink").click(function(event) {
-	alert("메인");
-	window.location.href = serverAddr + "/html/dashboard/dashboard.html"
-});
-
-$("#myInfo").click(function(event) {
-	alert("내정보");
-	window.location.href = serverAddr + "/html/auth/myinfo.html"
-});
-
-$("#gongziLink").click(function(event) {
-	alert("공지");
-	window.location.href = serverAddr + "/html/board/gongzi.html"
-});
-
-$("#complainLink").click(function(event) {
-	alert("민원");
-	window.location.href = serverAddr + "/html/board/complain_l.html"
-});
-
-$("#myinfoLink").click(function(event) {
-	alert("내정보");
-	window.location.href = serverAddr + "/html/auth/myinfo.html"
-});
-
 // 카카오 준비
 $(document).ready(function() {
 	Kakao.init("bfb48672ff68dbf137c2daffb44adfb0");

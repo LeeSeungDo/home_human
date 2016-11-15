@@ -27,7 +27,7 @@
     select A.BOD_NO, A.TITLE, A.CRE_DT, A.VW_CNT, A.CONTS, B.PHO_PATH
     from BOARD A LEFT OUTER JOIN BOD_PHO B
     on A.BOD_NO = B.BOD_NO
-    where A.BOD_NO != (SELECT MAX(A.BOD_NO) FROM BOARD) and type = 0
+    where A.BOD_NO != (SELECT MAX(A.BOD_NO) FROM BOARD where type = 0) and type = 0
     order by BOD_NO desc
     
     limit #{startIndex}, #{length}

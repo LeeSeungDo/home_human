@@ -30,7 +30,15 @@
 <link rel="stylesheet" type="text/css"
 	href="../../bower_components/ionicons/css/ionicons.min.css" />
 
+<!-- WeatherIcons -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/weather-icons/css/weather-icons.min.css" />
 
+
+
+<!-- nvd3 -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/nvd3/build/nv.d3.min.css" />
 
 <!-- Main -->
 <link rel="stylesheet" type="text/css"
@@ -39,19 +47,17 @@
 
 
 <!-- sseung -->
-    <link rel="stylesheet" type="text/css" href="../../css/dashboard/sseung.css" />  
+<link rel="stylesheet" type="text/css"
+	href="../../css/dashboard/sseung.css" />
 
 <!-- dossierbit -->
 <link rel="stylesheet" type="text/css"
 	href="../../css/dashboard/dossierbit.css" />
 
-<!-- pace -->
-<link rel="stylesheet" type="text/css" href="../../css/pace.css" />
-
 <!-- profileupdate -->
-<link rel="stylesheet" type="text/css" href="../../css/dashboard/dossierbit.css" />
-	
-<link href="../../css/auth/profileupdate.css" rel="stylesheet" type="text/css" />
+<link href="../../css/auth/profileupdate.css" rel="stylesheet"
+	type="text/css" />
+
 
 <!--[if lt IE 9]>
         <script src="../../bower_components/html5shiv/dist/html5shiv.min.js"></script>
@@ -60,9 +66,13 @@
 
 </head>
 
+<!--
+  Body
+    Options:
+      .boxed - boxed layout for content
+-->
 
 <body>
-	<div class="pace"></div>
 	<!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
 	<!--
      Top Navbar
@@ -136,9 +146,8 @@
 					</div></li>
 				<li class="user"><a class="dropdown-button"
 					data-activates="user-dropdown" href="#!"> <img id="myPhoto1"
-						src="" class="circle"
-						onerror="this.onerror=null;this.src='../../images/user_default.png'"><span
-						id="userName1"></span><i class="mdi-navigation-expand-more right"></i>
+						src="" class="circle"><span id="userName1"></span><i
+						class="mdi-navigation-expand-more right"></i>
 				</a>
 
 					<ul id="user-dropdown" class="dropdown-content">
@@ -261,79 +270,86 @@
 				<div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
 					<a href="../../html/index.html" class="hh-logo-black"> <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
 					</a>
-					<h1>Home &#38; Human</h1>
+					<h1>내 정보</h1>
 				</div>
 			</div>
 
 		</div>
 		<!-- /Breadcrumb -->
 
-		<div class="row sortable">
+		<div class="row sortable" style="margin-right: 0;">
 
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
-
-			<div id="main1">
-				<div id="main2">
-					<h3>프로필 수정</h3>
-					<span>프로필과 비밀번호를 수정하실 수 있습니다.</span> <a href="#"><button
-							id="updateBtn" type="button">적용</button></a>
-				</div>
-				<div id="main3">
-					<table>
-						<tr>
-							<th class="th_cell1">프로필 사진</th>
-							<td class="td_cell1">
-								<form id="profileForm">
-									<input type="hidden" name="email0" id="loginUserEmail0">
-									<div id="profilePhoto">
-										<a href="#"> <img id="phoPath"
-											src="../../images/default.png" style="border-radius: 50px;" />
-										</a>
+			<div class="row">
+				<div class="col l12 s12">
+					<div class="card">
+						<div class="title card-panel grey darken-4 white-text">
+							<h5>프로필 수정</h5>
+						</div>
+						<div class="content" style="padding-right: 0;">
+							<div class="col l6 s12">
+								<div class="card">
+									<div class="title card-panel blue-grey white-text">
+										<h5>프로필 사진</h5>
 									</div>
+									<div class="content">
+										<form id="profileForm">
+											<input type="hidden" name="email0" id="loginUserEmail0">
+											<div id="profilePhoto">
+												<a href="#"> <img id="phoPath"
+													src="../../images/default.png" style="border-radius: 50px;" />
+												</a>
+											</div>
 
-									<div id="phoBtn" class="filebox">
-										<label for="ex_file">사진 선택</label> <input type="file"
-											name="file" id="ex_file"> <input id="hiddenPwd"
-											name="password2" type="hidden" class="form-control">
+											<div id="phoBtn" class="filebox">
+												<label for="ex_file">사진 선택</label> <input type="file"
+													name="file" id="ex_file"> <input id="hiddenPwd"
+													name="password2" type="hidden" class="form-control">
+											</div>
+											<input type="hidden" name="password3" id="password3">
+										</form>
 									</div>
-									<input type="hidden" name="password3" id="password3">
-								</form>
+								</div>
+							</div>
 
-								<button id="phoDeleteBtn" type="button">삭제</button>
-							</td>
-						</tr>
-					</table>
 
-					<table>
-						<tr>
-							<th class="th_cell2">비밀번호</th>
-							<td class="td_cell2">
-								<form name="password_form">
-									<input type="hidden" name="email1" id="loginUserEmail1">
-									<span>새 비밀번호</span><br> <input type="password"
-										name="password1" class="form-control" onkeyup="verify.check()"><br>
-									<span>새 비밀번호 확인</span><br> <input type="password"
-										name="password2" class="form-control" id="passwordUp"
-										onkeyup="verify.check()">
-									<!-- Display a message if the passwords match or don't match -->
-									<div id="password_result"></div>
-								</form>
-							</td>
-						</tr>
-					</table>
+							<div class="col l6 s12">
+								<div class="card">
+									<div class="title card-panel blue-grey white-text">
+										<h5>비밀번호</h5>
+									</div>
+									<div class="content">
+										<form name="password_form">
+											<input type="hidden" name="email1" id="loginUserEmail1">
+											<span>새 비밀번호</span><br> <input type="password"
+												name="password1" class="form-control"
+												onkeyup="verify.check()"><br> <span>새
+												비밀번호 확인</span><br> <input type="password" name="password2"
+												class="form-control" id="passwordUp"
+												onkeyup="verify.check()">
+											<!-- Display a message if the passwords match or don't match -->
+											<div id="password_result"></div>
+										</form>
+									</div>
+								</div>
+							</div>
+
+							<div class="col l12 s12" style="padding-bottom: 0;">
+								<a class="waves-effect waves-dark btn cyan" id="updateBtn" style="width: 100%;">적용</a>
+							</div>
+						</div>
+					</div>
+
 				</div>
-				<!-- 
-            <a href="#"><button id="updateBtn" type="button">적용</button></a>
-            <a href="#"><button id="cancelBtn" type="button">취소</button></a>
-             -->
 			</div>
+		</div>
 
-			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+
+		<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 		</div>
 	</section>
 	<!-- /Main Content -->
 	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
-
 
 	<!---------------------------------------------------------푸터 부분---------------------------------------------------------->
 	<footer>
@@ -361,8 +377,6 @@
 	<script type="text/javascript"
 		src="../../bower_components/materialize/bin/materialize.js"></script>
 
-
-
 	<!-- Sortable -->
 	<script type="text/javascript"
 		src="../../bower_components/Sortable/Sortable.min.js"></script>
@@ -371,20 +385,17 @@
 	<script type="text/javascript"
 		src="../../bower_components/assets/_con/js/_con.js"></script>
 
+	<!-- Link Sort -->
+	<script type="text/javascript" src="../../js/link.js"></script>
 
 
-	<script type="text/javascript"
-		src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
-		charset="UTF-8"></script>
-	<script type="text/javascript" src="//cdn.poesis.kr/post/search.min.js"
-		charset="UTF-8"></script>
-	<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
 	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/bit.js"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 	<script type="text/javascript" src="../../js/auth/profileupdate.js"></script>
 
 	<script>
-		//console.log("document.cookie : " + document.cookie);
 		ajaxLoginUser();
 	</script>
 
