@@ -67,7 +67,7 @@ function ajaxLoginUser() {
 /*----------------------------------------------------- /공통 대쉬보드(지우지마세요) -----------------------------------------------------*/
 
 $("#cancelBtn").click(function(event) {
-	window.location.href = serverAddr + "/html/auth/myinfo.html"
+	window.location.href = serverAddr + "/html/auth/myinfo_t.html"
 });
 
 $("#updateBtn").click(function(event) {
@@ -118,8 +118,8 @@ function ajaxUpdateFile0(formData) {
 		contentType : false,
 		type : 'POST',
 		success : function(data) {
-			alert("사진 변경");
-			window.location.href = serverAddr + "/html/auth/myinfo.html"
+			alert("프로필 사진 변경 완료");
+			window.location.href = serverAddr + "/html/auth/myinfo_t.html"
 		}
 	});
 }
@@ -132,8 +132,8 @@ function ajaxUpdateFile1(formData) {
 		contentType : false,
 		type : 'POST',
 		success : function(data) {
-			alert("패스워드 변경");
-			window.location.href = serverAddr + "/html/auth/myinfo.html"
+			alert("패스워드 변경 완료");
+			window.location.href = serverAddr + "/html/auth/myinfo_t.html"
 		}
 	});
 }
@@ -147,7 +147,7 @@ function ajaxUpdateFile2(formData) {
 		type : 'POST',
 		success : function(data) {
 			alert("사진 & 패스워드 변경");
-			window.location.href = serverAddr + "/html/auth/myinfo.html"
+			window.location.href = serverAddr + "/html/auth/myinfo_t.html"
 		}
 	});
 }

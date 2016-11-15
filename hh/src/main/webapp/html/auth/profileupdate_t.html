@@ -62,16 +62,16 @@
 
 
 <body>
-<div class="pace"></div>
-
-    <!--
-  Top Navbar
-    Options:
-      .navbar-dark - dark color scheme
-      .navbar-static - static navbar
-      .navbar-under - under sidebar
--->
-    <nav class="navbar-top">
+	<div class="pace"></div>
+	<!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
+	<!--
+     Top Navbar
+       Options:
+         .navbar-dark - dark color scheme
+         .navbar-static - static navbar
+         .navbar-under - under sidebar
+   -->
+	    <nav class="navbar-top">
         <div class="nav-wrapper">
 
             <!-- Sidebar toggle -->
@@ -236,7 +236,7 @@
 				<div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
 					<a href="../../html/index.html" class="hh-logo-black"> <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
 					</a>
-					<h1>프로필 수정</h1>
+					<h1>Home &#38; Human</h1>
 				</div>
 			</div>
 
@@ -249,6 +249,7 @@
 
 			<div id="main1">
 				<div id="main2">
+					<h3>프로필 수정</h3>
 					<span>프로필과 비밀번호를 수정하실 수 있습니다.</span> <a href="#"><button
 							id="updateBtn" type="button">적용</button></a>
 				</div>
@@ -355,13 +356,10 @@
 	<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-	<script type="text/javascript" src="../../js/commonDashboard_t.js"></script>
-   <script type="text/javascript" src="../../js/link_t.js"></script>
 	<script type="text/javascript" src="../../js/auth/profileupdate_t.js"></script>
 
 	<script>
 		//console.log("document.cookie : " + document.cookie);
-		ajaxDashboardUser()
 		ajaxLoginUser();
 	</script>
 
