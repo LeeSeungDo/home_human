@@ -40,7 +40,7 @@
    <!-- Full Calendar -->
     <link rel="stylesheet" type="text/css" href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
 
-   <!-- sseung -->
+   	<!-- sseung -->
     <link rel="stylesheet" type="text/css" href="../../css/dashboard/sseung.css" />  
     
     <!-- dossierbit -->
@@ -280,7 +280,7 @@
 		<div class="row sortable" style="margin-right: 0;">
 
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
-			<button type="button" class="btn btn-primary" style="width: 1291px;"
+			<button type="button" class="btn btn-primary" style="width: 100%;"
 					onclick="location.href='gongziInput.html'">새 공지 쓰기</button>
 
 			<div class="row">
@@ -350,6 +350,14 @@
 
 	<!-- Loading Bar -->
 	<script type="text/javascript" src="../../js/pace.js"></script>
+	
+	<!-- Link Sort -->
+	<script type="text/javascript" src="../../js/link.js"></script>
+	
+	<!-- Common Dashboard -->
+	<script type="text/javascript" src="../../js/commonDashboard.js"></script>
+	
+	
 
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../js/bit.js"></script>
@@ -358,7 +366,7 @@
     <script type="text/javascript" src="../../js/board/gongzi.js"></script>
     
     <script>
-		ajaxLoginUser();
+    	ajaxDashboardUser();
     	ajaxFirstList();
     	ajaxGongziList();
     </script>
