@@ -7,11 +7,11 @@ $("#myinfoLink").click(function(event) {
 });
 
 $("#phoPath").click(function(event) {
-	window.location.href = serverAddr + "/html/auth/profileupdate.html"
+	window.location.href = serverAddr + "/html/auth/profileupdate_t.html"
 });
 
 $("#proUpBtn").click(function(event) {
-	window.location.href = serverAddr + "/html/auth/profileupdate.html"
+	window.location.href = serverAddr + "/html/auth/profileupdate_t.html"
 });
 
 $("#contactUpBtn").click(function(event) {
