@@ -30,10 +30,6 @@
 <link rel="stylesheet" type="text/css"
 	href="../../bower_components/ionicons/css/ionicons.min.css" />
 
-<!-- WeatherIcons -->
-<link rel="stylesheet" type="text/css"
-	href="../../bower_components/weather-icons/css/weather-icons.min.css" />
-
 
 
 <!-- nvd3 -->
@@ -46,9 +42,16 @@
 
 
 
-<!-- Full Calendar -->
+<!-- sseung -->
 <link rel="stylesheet" type="text/css"
-	href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
+	href="../../css/dashboard/sseung.css" />
+
+<!-- dossierbit -->
+<link rel="stylesheet" type="text/css"
+	href="../../css/dashboard/dossierbit.css" />
+
+<!-- pace -->
+<link rel="stylesheet" type="text/css" href="../../css/pace.css" />
 
 <!-- dossierbit -->
 <link rel="stylesheet" type="text/css"
@@ -65,13 +68,10 @@
 
 </head>
 
-<!--
-  Body
-    Options:
-      .boxed - boxed layout for content
--->
+
 
 <body>
+	<div class="pace"></div>
 	<!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
 	<!--
      Top Navbar
@@ -144,9 +144,8 @@
 						</div>
 					</div></li>
 				<li class="user"><a class="dropdown-button"
-					data-activates="user-dropdown" href="#!"> <img
-						src="../../bower_components/assets/_con/images/user.jpg"
-						alt="내 사진" class="circle"><span id="userName1"></span><i
+					data-activates="user-dropdown" href="#!"> <img id="myPhoto1"
+						src="" class="circle"><span id="userName1"></span><i
 						class="mdi-navigation-expand-more right"></i>
 				</a>
 
@@ -213,9 +212,9 @@
 			<div class="nano-content">
 
 				<ul>
-					<li class="yay-user-info"><a href="page-profile.html"> <img
-							src="../../bower_components/assets/_con/images/user.jpg"
-							alt="John Doe" class="circle">
+					<li class="yay-user-info"><a href="#" id="myinfoLink"> <img
+							id="myPhoto2" src="" class="circle"
+							onerror="this.onerror=null;this.src='../../images/user_default.png'">
 							<h3 class="yay-user-info-name">
 								<span id="userName2"></span>
 							</h3>
@@ -226,15 +225,17 @@
 
 					<li class="label">메뉴</li>
 
-					<li class="active"><a href="dashboard-v1.html"
-						class=" waves-effect waves-blue"><i class="fa fa-tachometer"></i>
-							Home &#38; Human </a></li>
-					<li><a href="#" class=" waves-effect waves-blue"
-						id="gongziLink"> <i class="fa fa-check"></i><span> 공지사항
-						</span></a></li>
-					<li><a href="../board/complain_l.html"
-						class=" waves-effect waves-blue"> <i class="fa fa-bullhorn"></i>
-							민원사항
+					<li class="active"><a href="#"
+						class=" waves-effect waves-blue" id="dashboardLink"> <i
+							class="fa fa-tachometer"></i> <span> Home &#38; Human </span>
+					</a></li>
+					<li><a href="#" class="waves-effect waves-blue"
+						id="gongziLink"> <i class="fa fa-check"></i> <span>
+								공지사항 </span>
+					</a></li>
+					<li><a href="#" class="waves-effect waves-blue"
+						id="complainLink"> <i class="fa fa-bullhorn"></i> <span>
+								민원사항 </span>
 					</a></li>
 					<li><a href="#" class=" waves-effect waves-blue"> <i
 							class="fa fa-building-o"></i> 건물정보
@@ -259,49 +260,48 @@
 
 	<!------------------------------------------------------------메인 부분-------------------------------------------------------------->
 	<!-- Main Content -->
-	<section class="content-wrap">
+   <section class="content-wrap">
 
-		<!-- Breadcrumb -->
-		<div class="page-title" style="height: 80px;">
+      <!-- Breadcrumb -->
+      <div class="page-title" style="height: 80px;">
 
-			<div class="row">
-				<div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
-					<a href="../../html/index.html" class="hh-logo-black"> <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
-					</a>
-					<h1>임차인이 보낸 민원들을 보세요</h1>
-				</div>
-			</div>
+         <div class="row">
+            <div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
+               <a href="../../html/index.html" class="hh-logo-black">
+                      <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
+                  </a>
+                  <h1>임차인이 보낸 민원사항을 보세요.</h1>
+            </div>
+         </div>
 
-		</div>
-		<!-- /Breadcrumb -->
+      </div>
+      <!-- /Breadcrumb -->
 
-		<div class="row sortable">
-
+		<div class="row sortable" style="margin-right: 0;">
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
-			<div class="row">
-				<div class="col s12">
-					<ul class="tabs">
-						<li class="tab col s3" rel="complain1"><a class="active"
-							href="#"> 미처리 민원</a></li>
-						<li class="tab col s3" rel="complain2"><a href="#"> 처리된
-								민원</a></li>
-					</ul>
-					
+			<div style="margin: 0 auto; width: 75%;">
+				<div class="row">
+					<div class="col s12">
+						<ul class="tabs">
+							<li class="tab col s3" rel="complain1"><a class="active"
+								href="#"> 미처리 민원</a></li>
+							<li class="tab col s3" rel="complain2"><a href="#"> 처리된
+									민원</a></li>
+						</ul>
+
+					</div>
 				</div>
-			</div>
 
-			<br> <br>
+				<div class="tab_container">
+					<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
+					<div id="complain1" class="tab_content">
+						<div class="row" id="complainTable"></div>
 
-			<div class="tab_container">
-				<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
-				<div id="complain1" class="tab_content">
-					<div class="row" id="complainTable"></div>
-
-					<script id="trTemplateText" type="text/x-handlebars-template">
+						<script id="trTemplateText" type="text/x-handlebars-template">
 {{#each list}}
    <div class="col l4 s12">
    <div class="card of-h">
-  <div class="card-image waves-effect waves-block waves-light">
+  <div class="thumbnail waves-effect waves-block waves-light">
     <img src="../../upload/{{filename}}" alt="Canada" 
       onerror="this.onerror=null;this.src='../../images/camera.png';"
        class="portrait activator">
@@ -311,7 +311,8 @@
      <p class="tenant-writer card1" data-val1={{no}}>{{writer}} 세입자</p>
   </div>
   <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
+    <span class="card-title grey-text text-darken-4">
+	<p id="title"  style="font-size: 18px;">{{title}}</p><i class="mdi-content-clear right"></i></span>
       <p id="complain_conts1">{{contents}}</p>
 	<div class="complain_radio">
 	<form action="#">
@@ -334,34 +335,36 @@
 
 {{/each}}
 </script>
-					<!-- 리스트 -->
-					<div class="complain_pagination">
-						<button id="prevBtn" type="button"
-							class="uk-button uk-button-primary">이전</button>
-						<span id="pageNo">1</span>
-						<button id="nextBtn" type="button"
-							class="uk-button uk-button-primary">다음</button>
+						<!-- 리스트 -->
+						<div class="complain_pagination">
+							<button id="prevBtn" type="button"
+								class="uk-button uk-button-primary">이전</button>
+							<span id="pageNo">1</span>
+							<button id="nextBtn" type="button"
+								class="uk-button uk-button-primary">다음</button>
+						</div>
 					</div>
-				</div>
 
-				<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
-				<div id="complain2" class="tab_content">
-					<div class="row" id="complainTable2"></div>
-					<script id="trTemplateText2" type="text/x-handlebars-template">
+					<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
+					<div id="complain2" class="tab_content">
+						<div class="row" id="complainTable2"></div>
+						<script id="trTemplateText2" type="text/x-handlebars-template">
 {{#each list}}
    <div class="col l4 s12">
    <div class="card of-h">
-  <div class="card-image waves-effect waves-block waves-light">
+  <div class="thumbnail waves-effect waves-block waves-light">
     <img src="../../upload/{{filename}}" alt="Canada" 
       onerror="this.onerror=null;this.src='../../images/camera.png';"
        class="portrait activator">
   </div>
   <div class="content">
-    <span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title0">{{title}}</p>
+    <span class="card-title activator grey-text text-darken-4">
+	<p class="tenant-title" id="title0">{{title}}</p>
      <p class="tenant-writer card0" data-val0={{no}}>{{writer}} 세입자</p>
   </div>
   <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4"><p id="title">{{title}}</p><i class="mdi-content-clear right"></i></span>
+    <span class="card-title grey-text text-darken-4">
+<p id="title"  style="font-size: 18px;">{{title}}</p><i class="mdi-content-clear right"></i></span>
       <p id="complain_conts0">{{contents}}</p>
 	<div class="complain_radio">
 	<form action="#">
@@ -383,168 +386,26 @@
 </div>
 {{/each}}
    </script>
-					<!-- 리스트 -->
-					<!--          <div class="complain_pagination">
-            <button id="prevBtn2" type="button"
-               class="uk-button uk-button-primary">이전</button>
-            <span id="pageNo_tab2">1</span>
-            <button id="nextBtn2" type="button"
-               class="uk-button uk-button-primary">다음</button>
-         </div>
-      </div>
-
-   </div> -->
-					<!-- tab container -->
-
-					<!-------------------------------------------------- 모달 시작(처리) -------------------------------------------------------------->
-					<div class="modal fade bs-example-modal-lg0" tabindex="-1"
-						role="dialog" aria-labelledby="myLargeModalLabel">
-						<div class="modal-dialog modal-lg" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">×</button>
-									<h4 class="modal-title0">
-										<p id="modal-title0"></p>
-										<h5 id="modal-writer0"></h5>
-									</h4>
-								</div>
-								<div class="modal-body" id="body">
-									<textarea id="contents0" class="form-control" cols="50"
-										rows="10" placeholder="내용입니다." style="background: white"
-										readonly></textarea>
-								</div>
-								<div class="modal-footer">
-									<div class="uk-form-row">
-										<div class="uk-form-controls">
-											<input type="radio" name="rsvdMaterial0" value="미처리">미처리
-											<input id="rsvd0" type="radio" name="rsvdMaterial0"
-												value="처리" checked>처리
-										</div>
-										<br>
-									</div>
-									<div class="uk-button-group">
-										<a class="uk-button" id="updateBtn0">수정</a>
-									</div>
-								</div>
-							</div>
+						<!-- 리스트 -->
+						<div class="complain_pagination">
+							<button id="prevBtn2" type="button"
+								class="uk-button uk-button-primary">이전</button>
+							<span id="pageNo_tab2">1</span>
+							<button id="nextBtn2" type="button"
+								class="uk-button uk-button-primary">다음</button>
 						</div>
 					</div>
-
-					<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 				</div>
+			</div>
+			<!-- tab container -->
+
+
+			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+		</div>
 	</section>
 	<!-- /Main Content -->
 	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
 
-	<div class="chat">
-		<!--------------------------------------------------------메세지 부분---------------------------------------------------------->
-		<!-- Messages -->
-		<div class="messages">
-
-			<!-- Top Bar with back link -->
-			<div class="topbar">
-				<a href="#!" class="chat-toggle"><i class="mdi-navigation-close"></i></a>
-				<a href="#!" class="chat-back"><i
-					class="mdi-hardware-keyboard-arrow-left"></i> Back</a>
-			</div>
-			<!-- /Top Bar with back link -->
-
-			<!-- All messages list -->
-			<div class="list">
-				<div class="nano scroll-bottom">
-					<div class="nano-content">
-
-						<div class="date">Monday, Feb 23, 8:23 pm</div>
-
-						<div class="from-me">
-							Hi, Felicia. <br> How are you?
-						</div>
-
-						<div class="clear"></div>
-
-						<div class="from-them">
-							<img src="../../bower_components/assets/_con/images/user2.jpg"
-								alt="John Doe" class="circle photo"> Hi! I am good!
-						</div>
-
-						<div class="clear"></div>
-
-						<div class="from-me">
-							Glad to see you :) <br> This long text is intended to show
-							how the chat will display it.
-						</div>
-
-						<div class="clear"></div>
-
-						<div class="from-them">
-							<img src="../../bower_components/assets/_con/images/user2.jpg"
-								alt="John Doe" class="circle photo"> Also, we will send
-							the longest word to show how it will fit in the chat window: <strong>Pneumonoultramicroscopicsilicovolcanoconiosis</strong>
-						</div>
-
-						<div class="date">Friday, Mar 10, 5:07 pm</div>
-
-						<div class="from-me">Hi again!</div>
-
-						<div class="clear"></div>
-
-						<div class="from-them">
-							<img src="../../bower_components/assets/_con/images/user2.jpg"
-								alt="John Doe" class="circle photo"> Hi! Glad to see you.
-						</div>
-
-						<div class="clear"></div>
-
-						<div class="from-me">I want to add you in my Facebook.</div>
-
-						<div class="clear"></div>
-
-						<div class="from-me">Can you give me your page?</div>
-
-						<div class="clear"></div>
-
-						<div class="from-them">
-							<img src="../../bower_components/assets/_con/images/user2.jpg"
-								alt="John Doe" class="circle photo"> I do not use
-							Facebook. But you can follow me in Twitter.
-						</div>
-
-						<div class="clear"></div>
-
-						<div class="from-me">It's good idea!</div>
-
-						<div class="clear"></div>
-
-						<div class="from-them">
-							<img src="../../bower_components/assets/_con/images/user2.jpg"
-								alt="John Doe" class="circle photo"> You can find me here
-							- <a href="https://twitter.com/nkdevv">https://twitter.com/nkdevv</a>
-						</div>
-
-					</div>
-				</div>
-			</div>
-			<!-- /All messages list -->
-
-			<!-- Send message -->
-			<div class="send">
-				<form action="#!">
-					<div class="input-field">
-						<input id="chat-message" type="text" name="chat-message">
-					</div>
-
-					<button class="btn waves-effect z-depth-0">
-						<i class="mdi-content-send"></i>
-					</button>
-				</form>
-			</div>
-			<!-- /Send message -->
-
-		</div>
-		<!-- /Messages -->
-		<!-----------------------------------------------------/메세지 부분-------------------------------------------------------->
-	</div>
-	<!-- /Chat -->
 
 	<!---------------------------------------------------------푸터 부분---------------------------------------------------------->
 	<footer>
@@ -553,57 +414,47 @@
 	<!--------------------------------------------------------/푸터 부분---------------------------------------------------------->
 
 	<!-- DEMO [REMOVE IT ON PRODUCTION] -->
-	<script type="text/javascript"
-		src="../../bower_components/assets/_con/js/_demo.js"></script>
+    <script type="text/javascript" src="../../bower_components/assets/_con/js/_demo.js"></script>
 
-	<!-- jQuery -->
-	<script type="text/javascript"
-		src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="../../bower_components/jquery/dist/jquery.min.js"></script>
 
-	<!-- jQuery RAF (improved animation performance) -->
-	<script type="text/javascript"
-		src="../../bower_components/jquery-requestAnimationFrame/dist/jquery.requestAnimationFrame.min.js"></script>
+    <!-- jQuery RAF (improved animation performance) -->
+    <script type="text/javascript" src="../../bower_components/jquery-requestAnimationFrame/dist/jquery.requestAnimationFrame.min.js"></script>
 
-	<!-- nanoScroller -->
-	<script type="text/javascript"
-		src="../../bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
+    <!-- nanoScroller -->
+    <script type="text/javascript" src="../../bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js"></script>
 
-	<!-- Materialize -->
-	<script type="text/javascript"
-		src="../../bower_components/materialize/bin/materialize.js"></script>
+    <!-- Materialize -->
+    <script type="text/javascript" src="../../bower_components/materialize/bin/materialize.js"></script>
 
 
 	<!-- Sortable -->
-	<script type="text/javascript"
-		src="../../bower_components/Sortable/Sortable.min.js"></script>
+    <script type="text/javascript" src="../../bower_components/Sortable/Sortable.min.js"></script>
 
-	<!-- Main -->
-	<script type="text/javascript"
-		src="../../bower_components/assets/_con/js/_con.js"></script>
+    <!-- Main -->
+    <script type="text/javascript" src="../../bower_components/assets/_con/js/_con.js"></script>
 
-	<!-- Google Prettify -->
-	<script type="text/javascript"
-		src="../../bower_components/code-prettify/src/prettify.js"></script>
+    <!-- Loading Bar -->
+    <script type="text/javascript" src="../../js/pace.js"></script>
 
-	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+
 
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../js/bit.js"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 	<script type="text/javascript" src="../../js/board/complain_l.js"></script>
 
 
 	<!--------------------------------------------------------- 모달 load 자바스크립트 코드------------------------------------------------->
 
 	<script type="text/javascript">
-      ajaxComplainListRsvd1()
-      ajaxComplainListRsvd0() 
-   </script>
-
-
-	<script>
-      ajaxLoginUser();
-   </script>
+		ajaxLoginUser();
+		ajaxComplainListRsvd1();
+		ajaxComplainListRsvd0();
+	</script>
+	
 
 </body>
 

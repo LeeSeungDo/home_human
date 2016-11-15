@@ -14,21 +14,6 @@ function rsvdCall(rsvd) {
 }
 
 
-$("#updateBtn").click(function(event) {
-  var complain = {
-    title: $("#title").val(),
-    contents: $("#contents").val(),
-    email: $("#email").val(),
-    no: $("#no").val(),
-    rsvd: rsvdAll
-  }
-  console.log(complain);
-  if (confirm("정말 변경하시겠습니까?") == true) {
-	  ajaxUpdateComplain(complain)
-	  } else {
-		  return;
-	  }
-}); 
 
 function ajaxLoadComplain(no, rsvd) {
 	$.getJSON(serverAddr + "/complain/detail.json?no=" + no, function(obj) {
@@ -48,15 +33,55 @@ function ajaxLoadComplain(no, rsvd) {
 	})
 }
 
-function ajaxUpdateComplain(complain) {
-	$.post(serverAddr + "/complain/update.json", complain, function(obj) {
-		var result = obj.jsonResult
-		if (result.state != "success") {
-			alert("변경 실패입니다.")
-			return
-		}
-		window.location.href = "complain_t.html"
-	}, "json")
+
+$("#updateBtn").click(function(event) {
+	
+	var form0 = $('form')[0];
+	var formData0 = new FormData(form0);
+	var fileName = formData0.get('file').name;
+	
+	console.log(formData0.get('no'));
+	
+	if (fileName == "" || fileName == null) {
+		ajaxUpdateComplain0(formData0)
+	} else {
+		ajaxUpdateComplain1(formData0)
+	}
+	  
+	  /*
+		 * if (confirm("정말 변경하시겠습니까?") == true) {
+		 * ajaxUpdateComplain(formData0) } else { return; }
+		 */
+});
+
+
+
+function ajaxUpdateComplain0(formData0) {
+	$.ajax({
+	    url: serverAddr + "/complain/update0.json",
+	    data: formData0,
+	    processData: false,
+	    contentType: false,
+	    type: 'POST',
+	    success: function(data){
+	    	alert("업뎃완료");
+	    	window.location.href = serverAddr + "/html/board/complain_t.html"
+	    }
+	  });
+}
+
+function ajaxUpdateComplain1(formData0) {
+	$.ajax({
+	    url: serverAddr + "/complain/update1.json",
+	    data: formData0,
+	    processData: false,
+	    contentType: false,
+	    type: 'POST',
+	    success: function(data){
+	    	alert("업뎃완료");
+	    	window.location.href = serverAddr + "/html/board/complain_t.html"
+	    }
+	  });
 }
 
 

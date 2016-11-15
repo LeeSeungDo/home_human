@@ -1,18 +1,18 @@
 @CHARSET "UTF-8";
 
 html {
-  font-size: 82%;
+	font-size: 82%;
 }
 
-.yaybar ul > li.yay-user-info > a, .yaybar ul > li.yay-user-info > .sp-cancel {
-  height: 87.97px;
+.yaybar ul>li.yay-user-info>a, .yaybar ul>li.yay-user-info>.sp-cancel {
+	height: 87.97px;
 }
 
 #main1 {
-  width: 1000px;
-  height: 615px;
-  margin: 0 auto;
-  position: relative;
+	width: 1000px;
+	height: 615px;
+	margin: 0 auto;
+	position: relative;
 }
 
 #main2 {
@@ -24,39 +24,39 @@ html {
 }
 
 .th_cell1 {
-  width: 200px;
-  height: 180px;
-  background: #f9f9f9;
-  border-right: 1px solid #cccccc;
-  border-top: 1px solid #cccccc;
-  padding-left: 20px;
-  font-size: 120%;
+	width: 200px;
+	height: 180px;
+	background: #f9f9f9;
+	border-right: 1px solid #cccccc;
+	border-top: 1px solid #cccccc;
+	padding-left: 20px;
+	font-size: 120%;
 }
 
 .td_cell1 {
-  width: 700px;
-  height: 180px;
-  border-top: 1px solid #cccccc;
-  padding-left: 20px;
+	width: 700px;
+	height: 180px;
+	border-top: 1px solid #cccccc;
+	padding-left: 20px;
 }
 
 .th_cell2 {
-  width: 200px;
-  height: 180px;
-  background: #f9f9f9;
-  border-right: 1px solid #cccccc;
-  border-top: 1px solid #cccccc;
-  border-bottom: 1px solid #cccccc;
-  padding-left: 20px;
-  font-size: 120%;
+	width: 200px;
+	height: 180px;
+	background: #f9f9f9;
+	border-right: 1px solid #cccccc;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+	padding-left: 20px;
+	font-size: 120%;
 }
 
 .td_cell2 {
-  width: 700px;
-  height: 180px;
-  border-top: 1px solid #cccccc;
-  border-bottom: 1px solid #cccccc;
-  padding-left: 20px;
+	width: 700px;
+	height: 180px;
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+	padding-left: 20px;
 }
 
 .form-control {
@@ -64,72 +64,84 @@ html {
 }
 
 #phoPath {
-  width: 100px;
-  height: 100px;
-  margin-top: 25px;
-  background-position: 0 0;
+	width: 100px;
+	height: 100px;
+	margin-top: 25px;
+	background-position: 0 0;
 }
 
 .filebox label {
 	margin-top: 30px;
 	margin-right: 10px;
-  padding-top: 8px;
-  width: 100px;
-  height: 40px;
-  border: 1px solid #00aceb; 
-  background: #00aceb;
-  color: #fff;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  text-align: center;
-  float: left;
+	padding-top: 8px;
+	width: 100px;
+	height: 40px;
+	border: 1px solid #00aceb;
+	background: #00aceb;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 5px;
+	text-align: center;
+	float: left;
 }
 
-.filebox input[type="file"] {  /* 파일 필드 숨기기 */
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip:rect(0,0,0,0);
-  border: 0;
+.filebox input[type="file"] { /* 파일 필드 숨기기 */
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
 }
 
 #phoDeleteBtn {
 	margin-top: 30px;
-  width: 100px;
-  height: 40px;
-  background: #fff;
-  border-radius: 5px 5px 5px 5px;
-  border: 1px solid #cccccc;
-  float: left;
+	width: 100px;
+	height: 40px;
+	background: #fff;
+	border-radius: 5px 5px 5px 5px;
+	border: 1px solid #cccccc;
+	float: left;
+}
+
+#password1 {
+	width: 350px;
+	height: 30px;
+	border: 1px solid #cccccc;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#password2 {
+	width: 350px;
+	height: 30px;
+	border: 1px solid #cccccc;
+	border-radius: 5px 5px 5px 5px;
 }
 
 #updateBtn {
-	margin-top: 10px;
-	margin-left: 350px;
 	width: 100px;
 	height: 40px;
-	border: 1px solid #00aceb; 
-  border-radius: 5px;
+	border: 1px solid #00aceb;
+	border-radius: 5px;
 	background: #00aceb;
-  color: #fff;
-  font-size: 14px;
-  font-weight: bold;
-  position: absolute;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	position: absolute;
 }
 
 #cancelBtn {
-	margin-top: 10px;
-	margin-left: 460px;
+	margin-top: 430px;
+	margin-left: 260px;
 	width: 100px;
-  height: 40px;
-  background: #fff;
-  border-radius: 5px;
-  color: #4a4a4a;
-  border: 1px solid #cccccc;
-  position: absolute;
+	height: 40px;
+	background: #fff;
+	border-radius: 5px;
+	color: #4a4a4a;
+	border: 1px solid #cccccc;
+	position: absolute;
 }

@@ -44,12 +44,6 @@ function ajaxUpdateMember(member) {
 }
 
 //회원정보수정 회원데이터 출력
-var myEmail;
-var myPassword;
-var myName;
-var myBirth;
-var myGender;
-
 function ajaxLoginUser() {
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
@@ -58,12 +52,6 @@ function ajaxLoginUser() {
 			window.location.href = serverAddr + "/html/index.html"
 			return
 		}
-
-		myEmail = result.data.email;
-		myPassword = result.data.password;
-		myName = result.data.name;
-		myBirth = result.data.birth;
-		myGender = result.data.gender;
 
 		$("#postNo").val(result.data.postNo);
 		$("#basicAddr").val(result.data.basicAddr);
@@ -79,8 +67,18 @@ function ajaxLoginUser() {
 			$("#authLevel").html("임대인");
 		} else {
 			$("#authLevel").html("임차인");
+			
 		}
-		
+		if (result.data.phoPath != null && result.data.phoPath != "") {
+			$('#phoPath').attr('src', '../../upload/' + result.data.phoPath);
+			$('#myPhoto1').attr('src', '../../upload/' + result.data.phoPath);
+			$('#myPhoto2').attr('src', '../../upload/' + result.data.phoPath);
+		} else {
+			$('#phoPath').attr('src', '../../images/user_default.png');
+			$('#myPhoto1').attr('src', '../../images/user_default.png');
+			$('#myPhoto2').attr('src', '../../images/user_default.png');
+		}
+		ajaxLoginUser();
 	})
 }
 

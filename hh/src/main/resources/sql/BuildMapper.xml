@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="objackie.dao.BuildDao">
+  <resultMap type="build" id="buildMap">
+    <id column="BUILD_NO" property="buildNo"/> 
+    <result column="L_EMAIL" property="email"/>
+    <result column="NAME" property="name"/>
+    <result column="AUTH" property="auth"/>
+    <result column="RE_ID" property="reID"/>
+    <result column="POSTNO" property="postNo"/>
+    <result column="BAS_ADDR" property="basicAddr"/>
+    <result column="DIT_ADDR" property="detailAddr"/>
+    <result column="RE_TYPE" property="reType"/>
+    <result column="PK" property="park"/>
+  </resultMap>
+  
+  <select id="selectList" resultMap="buildMap" parameterType="map">
+    select A.EMAIL, A.NAME, A.AUTH, B.BUILD_NO, B.RE_ID, B.POSTNO, B.BAS_ADDR, B.DIT_ADDR, B.RE_TYPE, B.PK
+    from MEMBS A LEFT JOIN RE B ON A.EMAIL = B.L_EMAIL
+    where A.AUTH=0
+    limit #{startIndex}, #{length}
+  </select>
+  
+  <select id="selectOne" resultMap="buildMap" parameterType="int">
+    select A.EMAIL, A.NAME, A.AUTH, B.BUILD_NO, B.RE_ID, B.POSTNO, B.BAS_ADDR, B.DIT_ADDR, B.RE_TYPE, B.PK
+    from MEMBS A LEFT JOIN RE B ON A.EMAIL = B.L_EMAIL 
+    where A.EMAIL=#{email} and A.AUTH = #{auth}
+  </select>
+  
+  <!-- <insert id="insert" parameterType="build" useGeneratedKeys="true" keyColumn="buildNo" keyProperty="buildNo">
+    insert into RE(L_EMAIL, RE_ID, POSTNO, BAS_ADDR, DIT_ADDR, RE_TYPE, PK)
+    values()
+  </insert> -->
+  
+  </mapper>

@@ -84,12 +84,28 @@ public class FreeBoardController {
   }
   
   @RequestMapping(path="update")
-  public Object update(FreeBoard freeboard) throws Exception {
+  public Object update(@ModelAttribute FreeBoard freeboard, MultipartFile file) throws Exception {
     try {
+      String uploadDir = sc.getRealPath("/upload") + "/";
+      System.out.println(freeboard.getBoardNo());
       if (freeboardService.getFreeBoard(freeboard.getBoardNo()) == null) {
         throw new Exception("해당 게시물이 없거나 암호가 일치하지 않습니다!");
       }
-      freeboardService.updateFreeBoard(freeboard);
+      freeboardService.updateFreeBoard(freeboard, file, uploadDir);
+      return JsonResult.success();
+      
+    } catch (Exception e) {
+      return JsonResult.fail(e.getMessage());
+    }
+  }
+  
+  @RequestMapping(path="updateVW_CNT")
+  public Object updateVW_CNT(int no) throws Exception {
+    try {
+      if (freeboardService.getFreeBoard(no) == null) {
+        throw new Exception("해당 게시물이 없거나 암호가 일치하지 않습니다!");
+      }
+      freeboardService.updateVW_CNTFreeBoard(no);
       return JsonResult.success();
       
     } catch (Exception e) {

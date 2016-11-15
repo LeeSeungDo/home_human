@@ -15,6 +15,7 @@ public interface ComplainDao {
   Complain selectOneByPassword(Map<String,Object> paramMap) throws Exception;
   int insert(Complain complain) throws Exception;
   int update(Complain complain) throws Exception;
+  int update0(Complain complain) throws Exception;
   int delete(int no) throws Exception;
   int countAll() throws Exception;
   int countAllRsvd0() throws Exception;

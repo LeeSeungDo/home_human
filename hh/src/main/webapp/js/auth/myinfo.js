@@ -27,6 +27,22 @@ $("#memberUpBtn").click(function(event) {
 	//window.location.href = serverAddr + ""
 });
 
+function ajaxBuildList() {
+	$.getJSON(serverAddr + "/build/list.json", function(obj) {
+		var result = obj.jsonResult
+		if (result.state != "success") {
+	    	 alert("서버에서 데이터를 가져오는데 실패했습니다.")
+	    	 return
+	    }
+		
+	    var template = Handlebars.compile($('#trTemplateText').html())
+	    $("#buildinfo tbody").html(template(result))
+	    
+	    $(".titleLink").click(function(event) {
+		    window.location.href = "myinfo.html?buildNo=" + $(this).attr("data-no")
+	    })
+    })
+}
 
 
 //회원정보수정 회원데이터 출력
@@ -50,21 +66,28 @@ function ajaxLoginUser() {
 		$("#userName1").html(result.data.name);
 		$("#userName2").html(result.data.name);
 		$("authLevel").html(result.data.name);
-
+		
 		var auth = result.data.auth;
 		var gender = result.data.gender;
 
-		if (auth == 0) {
+		if (auth == 0, gender == 0) {
 			$("#authLevel").html("임대인");
-		} else {
-			$("#authLevel").html("임차인");
-		}
-		
-		if (gender == 0) {
 			$("#gender").html("남자");
 		} else {
+			$("#authLevel").html("임차인");
 			$("#gender").html("여자");
 		}
+
+		if (result.data.phoPath != null && result.data.phoPath != "") {
+			$('#phoPath').attr('src', '../../upload/' + result.data.phoPath);
+			$('#myPhoto1').attr('src', '../../upload/' + result.data.phoPath);
+			$('#myPhoto2').attr('src', '../../upload/' + result.data.phoPath);
+		} else {
+			$('#phoPath').attr('src', '../../images/user_default.png');
+			$('#myPhoto1').attr('src', '../../images/user_default.png');
+			$('#myPhoto2').attr('src', '../../images/user_default.png');
+		}
+		ajaxLoginUser();
 	})
 }
 
@@ -76,7 +99,6 @@ $("#myInfo").click(function(event) {
 
 
 $(document).ready(function() {
-	Kakao.init("bfb48672ff68dbf137c2daffb44adfb0");
 
 	$("#logout").click(function(event) {
 		alert("로그아웃");

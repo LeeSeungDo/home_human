@@ -37,7 +37,7 @@
     select A.BOD_NO, A.WRITER, A.EMAIL, A.TITLE, A.CRE_DT, A.VW_CNT, A.CONTS, A.TYPE, B.PHO_PATH
     from BOARD A LEFT OUTER JOIN BOD_PHO B
     on A.BOD_NO = B.BOD_NO
-    where A.BOD_NO = #{value}  
+    where A.BOD_NO = #{value}
   </select>  
   
   <insert id="insert" parameterType="board" useGeneratedKeys="true" keyColumn="boardNo" keyProperty="boardNo">
@@ -50,6 +50,12 @@
       TITLE=#{title}, 
       CONTS=#{contents} 
     where BOD_NO=#{boardNo} and type=0
+  </update>
+  
+  <update id="updateVW_CNT" parameterType="int">
+    update board
+    set VW_CNT=VW_CNT+1
+    where BOD_NO=#{boardNo}
   </update>
   
   <delete id="delete" parameterType="int">

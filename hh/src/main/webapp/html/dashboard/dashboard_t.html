@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="_nK">
-    <link rel="shortcut icon" href="../../images/favicon.ico">
-    
+	 <link rel="shortcut icon" href="../../images/favicon.ico">
+	 
     <title>Home &#38; Human</title>
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
@@ -40,7 +40,7 @@
    <!-- Full Calendar -->
     <link rel="stylesheet" type="text/css" href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
 
-   	<!-- sseung -->
+   <!-- sseung -->
     <link rel="stylesheet" type="text/css" href="../../css/dashboard/sseung.css" />  
     
     <!-- dossierbit -->
@@ -49,9 +49,9 @@
     <!-- pace -->
     <link rel="stylesheet" type="text/css" href="../../css/pace.css" />  
     
-    
+
     <!--[if lt IE 9]>
-        <script src="../../bower_components/html5shiv/dist/html5shiv.min.js"></script>
+        <script src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
     <![endif]-->
 
 
@@ -65,14 +65,14 @@
 
 <body>
 <div class="pace"></div>
-   <!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
+
     <!--
-     Top Navbar
-       Options:
-         .navbar-dark - dark color scheme
-         .navbar-static - static navbar
-         .navbar-under - under sidebar
-   -->
+  Top Navbar
+    Options:
+      .navbar-dark - dark color scheme
+      .navbar-static - static navbar
+      .navbar-under - under sidebar
+-->
     <nav class="navbar-top">
         <div class="nav-wrapper">
 
@@ -85,9 +85,10 @@
             <!-- Sidebar toggle -->
 
             <!-- Logo -->
-            <a href="../../html/index.html" class="hh-logo">
+           <a href="../../html/index.html" class="hh-logo">
                 <img src="../../images/hhlogo.png" alt="Home & Human">
             </a>
+            
             <!-- /Logo -->
 
             <!-- Menu -->
@@ -100,36 +101,11 @@
                     <div id="test-dropdown" class="dropdown-content dropdown-media">
                         <div class="card-panel">
 
-                            <div class="media-heading">Messages <a href="mail-compose.html"><i class="mdi-content-add-circle-outline"></i></a></div>
+                            <div class="media-heading">메세지 <a href="mail-compose.html"><i class="mdi-content-add-circle-outline"></i></a></div>
 
                             <div class="media-footer"><a href="mail-inbox.html"><i class="mdi-hardware-keyboard-control"></i></a></div>
 
                             <div class="row mt-0">
-                                <div class="col s2">
-                                    <img src="../../bower_components/assets/_con/images/user2.jpg" alt="" class="circle responsive-img">
-                                </div>
-                                <div class="col s10">
-                                    <span class="media-date">9:02 AM</span>
-                                    <a href="#" class="media-title">Dianne Chambers</a>
-                                    <span>
-                                        Ut feugiat tempus felis, sit amet mattis dolor accumsan quis...
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col s2">
-                                    <img src="../../bower_components/assets/_con/images/user3.jpg" alt="" class="circle responsive-img">
-                                </div>
-                                <div class="col s10">
-                                    <span class="media-date">Dec 19</span>
-                                    <a href="#" class="media-title">Joanne Stephens</a>
-                                    <span>
-                                        Proin suscipit lobortis porta. Interdum et malesuada fames ac ante ipsum primis in faucibus...
-                                    </span>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </li>
@@ -169,11 +145,8 @@
         </div>
     </nav>
     <!-- /Top Navbar -->
-    <!---------------------------------------------------------/탑 nav 부분------------------------------------------------------------>
-    
-    
-   <!---------------------------------------------------------사이드바 부분----------------------------------------------------------->
-   <!--
+
+    <!--
   Yay Sidebar
   Options [you can use all of theme classnames]:
     .yay-hide-to-small         - no hide menu, just set it small with big icons
@@ -187,7 +160,7 @@
     .yay-push     - push content to right
     .yay-shrink   - shrink content width
 -->
-   <aside class="yaybar yay-shrink yay-hide-to-small yay-gestures">
+    <aside class="yaybar yay-shrink yay-hide-to-small yay-gestures yay-light yay-static">
 
         <div class="top">
             <div>
@@ -201,13 +174,13 @@
 
                 <!-- Logo -->
                 <a href="#!" class="brand-logo">
-                    <img src="../../images/hhlogo.png" alt="Home & Human">
-                </a>
+                <img src="../../images/hhlogo.png" alt="Home & Human">
+            </a>
                 <!-- /Logo -->
             </div>
         </div>
 
-        <div class="nano">
+          <div class="nano">
             <div class="nano-content">
 
 				<ul>
@@ -236,14 +209,9 @@
 					</li>
 					<li>
 						<a href="#" class="waves-effect waves-blue" id="complainLink"> <i class="fa fa-bullhorn"></i>
-							<span> 민원사항 </span>
+							<span> 나의 민원 </span>
 						</a>
 					</li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i class="fa fa-building-o"></i> 건물정보
-					</a></li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i
-							class="fa fa-users"></i> 세입자관리
-					</a></li>
 					<li><a href="#" class=" waves-effect waves-blue"> <i
 							class="fa fa-credit-card"></i> 관리비내역
 					</a></li>
@@ -256,15 +224,13 @@
         </div>
     </aside>
     <!-- /Yay Sidebar -->
-    <!---------------------------------------------------------/사이드바 부분------------------------------------------------------------>
+
+    <!-- Main Content -->
+    <section class="content-wrap">
 
 
-   <!------------------------------------------------------------메인 부분-------------------------------------------------------------->
-   <!-- Main Content -->
-   <section class="content-wrap">
-
-      <!-- Breadcrumb -->
-      <div class="page-title" style="height: 80px;">
+        <!-- Breadcrumb -->
+       <div class="page-title" style="height: 80px;">
 
          <div class="row">
             <div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
@@ -276,15 +242,14 @@
          </div>
 
       </div>
-      <!-- /Breadcrumb -->
+        <!-- /Breadcrumb -->
+        
+        <div class="row sortable">
 
-      <div class="row sortable">
-      
-      <!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
-         <!-- 공지사항 Card -->
+       <!-- 공지사항 Card -->
          <div class="col l12 s12">
             <div class="card">
-               <div class="title card-panel grey darken-4 white-text">
+               <div class="title card-panel deep-purple lighten-1 white-text">
                   <h5>
                      <i class="fa fa-check"></i> 최근 공지사항
                   </h5>
@@ -301,41 +266,95 @@
             </div>
          </div>
          <!-- /공지사항 Card -->
-
-         <!-- 건물정보 Card -->
-         <div class="col l6 s12">
+         
+         <!-- D-day Card -->
+       <!--   <div class="col l6 s12">
             <div class="card">
-               <div class="title card-panel grey darken-4 white-text">
+               <div class="title card-panel deep-purple lighten-1 white-text">
                   <h5>
-                     <i class="fa fa-building-o"></i> 건물정보
+                     <i class="fa fa-credit-card"></i>월세 납부일
                   </h5>
                   <a class="minimize" href="#"> <i
                      class="mdi-navigation-expand-less"></i>
                   </a>
                </div>
                <div class="content orders-card">
-
-                  <h6>건물정보 뿌리기</h6>
-                  <hr>
-                  <h6>건물정보 뿌리기</h6>
-                  <hr>
-                  <h6>건물정보 뿌리기</h6>
-                  <hr>
-                  <h6>건물정보 뿌리기</h6>
-                  <hr>
-                  <h6>건물정보 뿌리기</h6>
-
+                     <span id="rentPayDate" class="card-title activator grey-text text-darken-4">
+                    </span>
+               <h5>월세 납부일까지<span id="dday" style="color:blue;"></span>일 남았어요!</h5>
                </div>
             </div>
-         </div>
-         <!-- /건물정보 Card -->
+         </div> -->
 
-         <!-- 세입자 Card -->
-         <div class="col l6 s12">
+            <!-- 월세 납부 요청 Card -->
+            <div class="col l4 s12">
+                <div class="card">
+                    <div class="title">
+                    	<h5>
+                     <i class="fa fa-envelope-o"></i>월세 납부 완료 요청 
+                  </h5>
+                        <a class="minimize" href="#">
+                            <i class="mdi-navigation-expand-less"></i>
+                        </a>
+                    </div>
+
+
+                    <div class="content todo-card">
+                        <div class="todo-task">
+                            <input type="checkbox" id="checkbox1" checked />
+                            <label for="checkbox1">10월 월세 납부 완료
+                            </label>
+                        </div>
+
+                        <div class="todo-task">
+                            <input type="checkbox" id="checkbox2">
+                            <label for="checkbox2">11월 월세 납부 완료
+                            </label>
+                        </div>
+
+                        <div class="todo-task">
+                            <input type="checkbox" id="checkbox4">
+                            <label for="checkbox4">12월 월세 납부 완료
+                            </label>
+                        </div>
+
+                        <!-- <div class="input-field">
+                            <input id="todo-add" type="text">
+                            <label for="todo-add">Add New</label>
+                        </div> -->
+                    </div>
+
+                </div>
+            </div>
+             <!-- 월세 납부 요청 Card -->
+             
+            <!-- D-day Card -->
+            <div class="col l4 s12">
+                <div class="card">
+                    <div class="title">
+                        <h5>
+                     <i class="fa fa-credit-card"></i>월세 납부일 
+                     <span id="rentPayDate" style="font-size: 13px"></span>
+                  </h5>
+                        <a class="minimize" href="#">
+                            <i class="mdi-navigation-expand-less"></i>
+                        </a>
+                    </div>
+                    <div class="content orders-card">
+               <h5>납부일까지 <span id="dday" style="color:red; font-size:30px;"></span> 일 남았어요!</h5>
+                   <span id="rentPayDate"  class="right-align" style="font-size: 16px">
+                    </span> 
+               </div>
+                </div>
+            </div>
+            <!-- D-day Card -->
+            
+             <!-- 미처리 민원 Card -->
+         <div class="col l4 s12">
             <div class="card">
-               <div class="title card-panel grey darken-4 white-text">
+               <div class="title">
                   <h5>
-                     <i class="fa fa-users"></i> 세입자 정보
+                     <i class="fa fa-bullhorn"></i> 미처리 민원
                   </h5>
                   <a class="minimize" href="#"> <i
                      class="mdi-navigation-expand-less"></i>
@@ -343,99 +362,28 @@
                </div>
                <div class="content orders-card userInfo" style="padding: 0 26px;">
                   <!-- 핸들바스 부분 -->
-                  <ul id="tenantListTable">
+                  <ul id="complaintListTable">
                   </ul>
+                  <script id="complaintList" type="text/x-handlebars-template">
+      {{#each list}}	
+		<li>
+		<a href="../board/complain_t.html" style="color:black;">
+               <h5>{{title}}</h5>
+		</a>
+		</li>
+      {{/each}}
+   </script>
                   <!-- /핸들바스 부분 -->
                </div>
             </div>
          </div>
-         <!-- /세입자 Card -->
-
-         <!-- 달력 & 일정정보 Card -->
-         <div class="col l12 s12">
-            <div class="card">
-               <div class="title card-panel grey darken-4 white-text">
-                  <h5>
-                     <i class="fa fa-calendar-o"></i> 달력 &#38; 일정
-                  </h5>
-                  <a class="minimize" href="#"> <i
-                     class="mdi-navigation-expand-less"></i>
-                  </a>
-               </div>
-               <div class="content orders-card">
-                  <div class="col s12 l7">
-                     <!-- 달력 -->
-                     <div class="card">
-                        <div id="calendar"></div>
-                     </div>
-                     <!-- /달력 -->
-                  </div>
-
-                  <div class="col s12 l5" style="padding-right: 0;">
-                     <!-- 일정목록 -->
-                     <div class="card">
-                        <div class="title card-panel grey darken-2 white-text">
-                           <h5>
-                              <i class="fa fa-list-ul"></i> 일정 목록
-                           </h5>
-                        </div>
-                        <div class="content orders-card">
-
-                           <ul class="collapsible" data-collapsible="expandable">
-                              <li class="active">
-                                 <div
-                                    class="collapsible-header active blue-grey lighten-2 accent-1 white-text">
-                                    <i class="mdi-image-filter-drama"></i>미처리
-                                 </div>
-                                 <div class="collapsible-body">
-                                    <p>###호 미처리</p>
-                                    <p>###호 미처리</p>
-                                 </div>
-                              </li>
-                              <li class="active">
-                                 <div
-                                    class="collapsible-header active blue-grey lighten-2 accent-1 white-text">
-                                    <i class="mdi-maps-place"></i>납부
-                                 </div>
-                                 <div class="collapsible-body">
-                                    <p>###호 납부</p>
-                                    <p>###호 납부</p>
-                                 </div>
-                              </li>
-                              <li class="active">
-                                 <div
-                                    class="collapsible-header active blue-grey lighten-2 accent-1 white-text">
-                                    <i class="mdi-social-whatshot"></i>연체
-                                 </div>
-                                 <div class="collapsible-body">
-                                    <p>###호 연체</p>
-                                    <p>###호 연체</p>
-                                 </div>
-                              </li>
-                              <li class="active">
-                                 <div
-                                    class="collapsible-header active blue-grey lighten-2 accent-1 white-text">
-                                    <i class="mdi-social-whatshot"></i>기타
-                                 </div>
-                                 <div class="collapsible-body">
-                                    <p>기타 일정</p>
-                                    <p>기타 일정</p>
-                                 </div>
-                              </li>
-                           </ul>
-                        </div>
-                     </div>
-                     <!-- /일정목록 -->
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- /달력 & 일정정보 Card -->
-
+         <!-- /미처리 민원 Card -->
+            
+      
          <!-- 차트 Card -->
          <div class="col s12 l12">
             <div class="card">
-               <div class="title card-panel grey darken-4 white-text">
+               <div class="title card-panel deep-purple lighten-1 white-text">
                   <h5>
                      <i class="fa fa-area-chart"></i> 관리비 내역
                   </h5>
@@ -449,14 +397,10 @@
             </div>
          </div>
          <!-- /차트 Card -->
-         <!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
-      </div>
-   </section>
-   <!-- /Main Content -->
-   <!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
+        </div>
+    </section>
+    <!-- /Main Content -->
 
-
-    
     <!---------------------------------------------------------푸터 부분---------------------------------------------------------->
     <footer>&copy; 2016 
         <strong>Objackie</strong> Java85.
@@ -496,91 +440,20 @@
     <!-- Loading Bar -->
     <script type="text/javascript" src="../../js/pace.js"></script>
 
-<script>
-    /* 
-     * Init Calendar
-     */
-    $('#calendar').fullCalendar({
-        height: 700,
-        header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay'
-        },
-        defaultDate: '2015-02-12',
-        editable: true,
-        droppable: true,
-        drop: function() {
-            // is the "remove after drop" checkbox checked?
-            if (removeDraggable.is(':checked')) {
-                // if so, remove the element from the "Draggable Events" list
-                $(this).remove();
-            }
-        }
-        /* 
-        events: [{
-            title: 'All Day Event',
-            start: '2015-02-01'
-        }, {
-            title: 'Long Event',
-            start: '2015-02-07',
-            end: '2015-02-10'
-        }, {
-            id: 999,
-            title: 'Repeating Event',
-            start: '2015-02-09T16:00:00'
-        }, {
-            id: 999,
-            title: 'Repeating Event',
-            start: '2015-02-16T16:00:00'
-        }, {
-            title: 'Conference',
-            start: '2015-02-11',
-            end: '2015-02-13'
-        }, {
-            title: 'Meeting',
-            start: '2015-02-12T10:30:00',
-            end: '2015-02-12T12:30:00'
-        }, {
-            title: 'Lunch',
-            start: '2015-02-12T12:00:00'
-        }, {
-            title: 'Meeting',
-            start: '2015-02-12T14:30:00'
-        }, {
-            title: 'Click for Google',
-            url: 'http://google.com/',
-            start: '2015-02-28'
-        }]
-        */
-    });
-    </script>
-    
-   <script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
    <script type="text/javascript" src="../../js/bit.js"></script>
    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
    <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
-   <script type="text/javascript" src="../../js/dashboard/dashboard.js"></script>
+   <script type="text/javascript" src="../../js/dashboard/dashboard_t.js"></script>
+    <script type="text/javascript" src="../../js/dashboard/dday.js"></script>
    
    <script>
       //console.log("document.cookie : " + document.cookie);
       ajaxLoginUser();
-      ajaxTenantList();
+      ajaxRealEstateContractList()
       ajaxFirstList();
+      ajaxComplainListRsvd1_t()
    </script>
-
-   <script id="tenantList" type="text/x-handlebars-template">
-      {{#each list}}
-         <li>
-            <a href="#">
-               <img src="" onerror="this.src='../../images/user_default.png'" class="circle">
-               <h4>{{name}}</h4>
-               <p>전화번호 : {{tel}} <span> |  상세주소 : {{detailAddress}}</span></p>
-            </a>
-         </li>
-      {{/each}}
-   </script>
-
 </body>
 
 </html>

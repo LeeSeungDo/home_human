@@ -2,92 +2,105 @@
 <html>
 <head>
 <meta charset="UTF-8">
- <link rel="shortcut icon" href="../../images/favicon.ico">
 <title>자유게시판</title>
 
-<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/board/freeboardUpdate.css">
+<link rel="stylesheet"
+	href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../../css/board/freeboardUpdate.css">
 
 </head>
 <body>
-<header>
-    <h1 style="text-align: center">Header</h1>
-  </header>
+	<header>
+		<h1 style="text-align: center">Header</h1>
+	</header>
 
-<section>
-<h1>게시물 입력</h1>
+	<section>
+		<h1>게시물 입력</h1>
 
-<form class="form-horizontal">
+		<form class="form-horizontal">
 
-<div class="form-group">
-  <label for="boardNo" class="col-sm-2 control-label">번호</label>
-  <div class="col-sm-10">
-    <input type="text" class="form-control" id="boardNo" placeholder="번호" readonly>
-  </div>
-</div>
+			<div class="form-group">
+				<label for="boardNo" class="col-sm-2 control-label">번호</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="boardNo" name="boardNo"
+						placeholder="번호" readonly>
+				</div>
+			</div>
 
-<div class="form-group">
-  <label for="email" class="col-sm-2 control-label">이메일</label>
-  <div class="col-sm-10">
-    <input type="text" class="form-control" id="email" placeholder="이메일" readonly>
-  </div>
-</div>
+			<div class="form-group">
+				<label for="email" class="col-sm-2 control-label">이메일</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="email" name="email"
+						placeholder="이메일" readonly>
+				</div>
+			</div>
 
-<div class="form-group">
-  <label for="writer" class="col-sm-2 control-label">작성자</label>
-  <div class="col-sm-10">
-    <input type="text" class="form-control" id="writer" placeholder="작성자" readonly>
-  </div>
-</div>
+			<div class="form-group">
+				<label for="writer" class="col-sm-2 control-label">작성자</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="writer" name="writer"
+						placeholder="작성자" readonly>
+				</div>
+			</div>
 
-<div class="form-group">
-  <label for="title" class="col-sm-2 control-label">제목</label>
-  <div class="col-sm-10">
-    <input type="text" class="form-control" id="title" placeholder="제목입니다.">
-  </div>
-</div>
+			<div class="form-group">
+				<label for="title" class="col-sm-2 control-label">제목</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="title" name="title"
+						placeholder="제목입니다.">
+				</div>
+			</div>
 
-<div class="form-group">
-  <label for="contents" class="col-sm-2 control-label">내용</label>
-  <div class="col-sm-10">
-    <textarea id="contents" class="form-control updateLimit"
-              cols="50" rows="10" placeholder="내용입니다."></textarea>
-  </div>
-</div>
+			<div class="form-group">
+				<label for="contents" class="col-sm-2 control-label">내용</label>
+				<div class="col-sm-10">
+					<textarea id="contents" name="contents" class="form-control updateLimit" cols="50"
+						rows="10" placeholder="내용입니다."></textarea>
+				</div>
+			</div>
 
-<div class="form-group my-view">
-  <label class="col-sm-2 control-label">등록일</label>
-  <div class="col-sm-10">
-    <p id="createdDate" class="form-control-static"></p>
-  </div>
-</div>
+			<div class="form-group my-view">
+				<label class="col-sm-2 control-label">등록일</label>
+				<div class="col-sm-10">
+					<p id="createDate" class="form-control-static"></p>
+				</div>
+			</div>
 
-<div class="form-group">
-  <div class="col-sm-offset-2 col-sm-10">
-    <button id="updateBtn" type="button" class="btn btn-default my-new">변경</button>
-    <button id="cancelBtn" type="button" class="btn btn-default">취소</button>
-  </div>
-</div>
-</form>
+			<div class="form-group my-view">
+				<label class="col-sm-2 control-label">사진</label>
+				<div class="col-sm-10">
+					<input type="file" class="form-control" name="file" id="file">
+				</div>
+			</div>
 
-</section>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button id="updateBtn" type="button" class="btn btn-default my-new">변경</button>
+					<button id="cancelBtn" type="button" class="btn btn-default">취소</button>
+				</div>
+			</div>
+		</form>
 
-<footer>
-    <h1 style="text-align: center">footer</h1>
-  </footer>
+	</section>
 
-<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../js/common.js"></script>
-<script type="text/javascript" src="../../js/bit.js"></script>
-<script type="text/javascript" src="../../js/board/freeboardUpdate.js"></script>
-  <script>
-    if (location.search.startsWith("?")) { 
-      var no = location.search.split("=")[1];
-      ajaxLoadFreeBoard(no)
-    }
-  </script>
+	<footer>
+		<h1 style="text-align: center">footer</h1>
+	</footer>
+
+	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/bit.js"></script>
+	<script type="text/javascript" src="../../js/board/freeboardUpdate.js"></script>
+	<script>
+		if (location.search.startsWith("?")) {
+			var no = location.search.split("=")[1];
+			ajaxLoadFreeBoard(no)
+		}
+	</script>
 
 
 </body>

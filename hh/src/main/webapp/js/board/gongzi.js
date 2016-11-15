@@ -79,7 +79,7 @@ function ajaxLoginUser() {
       //onsole.log(result.data);
       $("#userName1").html(result.data.name);
       $("#userName2").html(result.data.name);
-      $("#authLevel").html("임대인");
+      $("#authLevel").html("임차인");
       
       //console.log($.isNumeric(result.data.email));
       
@@ -148,7 +148,11 @@ function ajaxGongziList() {
 	    $("#gongziTable").html(template(result.data))
 	    
 	    $(document.body).on('click', '.card1', function(event) {
-		    window.location.href = serverAddr + "/html/board/gongziForm.html?no=" + $(this).attr("data-no")
+	    	var clno= $(this).attr("data-no")
+	    	console.log(clno)
+	    	ajaxGongziClickList(clno)
+		    window.location.href = serverAddr + 
+		    "/html/board/gongziForm.html?no=" + $(this).attr("data-no")
 	    })
 	    
 	    // 현재 페이지 번호를 span 태그에 출력한다.
@@ -197,6 +201,9 @@ function ajaxGongziList_T() {
 	    $("#gongziTable").html(template(result.data))
 	    
 	    $(document.body).on('click', '.card1', function(event) {
+	    	var clno= $(this).attr("data-no")
+	    	//console.log(clno)
+	    	ajaxGongziClickList(clno)
 		    window.location.href = serverAddr + "/html/board/gongziForm_t.html?no=" + $(this).attr("data-no")
 	    })
 	    
@@ -219,6 +226,17 @@ function ajaxGongziList_T() {
 	    	$('#nextBtnT').removeAttr('disabled');
 	    }
     })
+}
+
+function ajaxGongziClickList(clno) {
+	$.post(serverAddr + "/board/updateVW_CNT.json", {no:clno}, function(obj) {
+		var result = obj.jsonResult
+		console.log(result)
+		if (result.state != "success") {
+			alert("변경 실패입니다.")
+			return
+		}
+	}, "json")
 }
 
 
