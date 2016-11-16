@@ -284,10 +284,10 @@
 			<div class="row">
 				<div class="col l12 s12">
 					<figure class="hover-effect effect-sarah hidden_no" style="height: 230px;">
-						<img src="../../images/LNMmTg.jpeg" alt="image-5">
+						<img src="../../images/LNMmTg.jpeg" alt="image-5" style="height: 300px;">
 						<figcaption>
 							<input type="hidden" id="hidden_no">
-							<h2>
+							<h2 style="text-overflow: ellipsis;">
 								<span id="recent_title"></span>
 							</h2>
 							<p id="recent_contents" style="font-size: 15px;"></p>
@@ -296,21 +296,20 @@
 					</figure>
 				</div>
 			</div>
-
-			<div class="row">
-				<div id="gongziTable"></div>
-			</div>
 			
-			<!-- <div class="row">
-				<button id="prevBtn" type="button">이전</button>
-				<span id="pageNo">1</span>
-				<button id="nextBtn" type="button">다음</button>
+			<div class="row">
+				<div class="col l3 s12">
+					<div class="card">
+						<a class="waves-effect waves-dark btn cyan" id="prevBtn" style="width: 100%;">&lt;&lt; 이전</a>
+					</div>
+				</div>
+				<div class="col l3 s12 offset-l6">
+					<div class="card">
+						<a class="waves-effect waves-dark btn cyan" id="nextBtn" style="width: 100%;">다음 &gt;&gt;</a>
+					</div>
+				</div>
 			</div>
- -->
- 		<!-- <ul class="pagination">
-    <li class="waves-effect"><a id="prevBtn"><i class="mdi-navigation-chevron-left"></i></a></li>
-    <li class="waves-effect"><a id="nextBtn"><i class="mdi-navigation-chevron-right"></i></a></li>
-  </ul> -->
+		
 			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 		</div>
 	</section>
@@ -376,12 +375,11 @@
 
 	<script id="trTemplateText" type="text/x-handlebars-template">
 	{{#each list}}
-	<div class="col l4 s12">
-    	<figure class="hover-effect effect-sarah card1" data-no="{{boardNo}}">
-			<img src="../../images/LNMmTg.jpeg" alt="image-5">
+	<div class="col l6 s12">
+    	<figure class="hover-effect effect-sarah card1" data-no="{{boardNo}}" style="height: 200px;">
+			<img src="../../images/LNMmTg.jpeg" alt="image-5" style="height: 300px;">
 			<figcaption>
-            	<h2><span style="font-size: 25px; width: 360.98px; text-overflow:
-								ellipsis; white-space: nowrap; overflow: hidden;">{{title}}</span>
+            	<h2 style="text-overflow: ellipsis;"><span style="font-size: 25px; width: 360.98px; white-space: nowrap;">{{title}}</span>
 				</h2>
 				<p style="font-size: 15px;">{{contents}}</p>
                 <a href="#">View more</a>
