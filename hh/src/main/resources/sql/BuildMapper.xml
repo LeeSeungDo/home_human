@@ -26,9 +26,9 @@
   </select>
   
   <select id="selectOne" resultMap="buildMap" parameterType="int">
-    select A.EMAIL, A.NAME, A.AUTH, B.BUILD_NO, B.RE_ID, B.POSTNO, B.BAS_ADDR, B.DIT_ADDR, B.RE_TYPE, B.PK
-    from MEMBS A LEFT JOIN RE B ON A.EMAIL = B.L_EMAIL 
-    where A.EMAIL=#{email} and A.AUTH = #{auth}
+    select L_EMAIL, RE_ID, POSTNO, BAS_ADDR, RE_TYPE, PK, DIT_ADDR
+    from RE 
+    where BUILD_NO=#{buildNo}
   </select>
   
   <insert id="insert" parameterType="build">
@@ -36,9 +36,20 @@
     values("jun@bit.com", #{reID}, #{postNo}, #{basicAddr}, #{detailAddr}, #{reType}, #{park})
   </insert>
   
-  <!-- <insert id="insert" parameterType="build" useGeneratedKeys="true" keyColumn="buildNo" keyProperty="buildNo">
-    insert into RE(L_EMAIL, RE_ID, POSTNO, BAS_ADDR, DIT_ADDR, RE_TYPE, PK)
-    values()
-  </insert> -->
+  <update id="update" parameterType="build">
+    update re set
+    RE_ID=#{reID},
+    POSTNO=#{postNo},
+    BAS_ADDR=#{basicAddr},
+    DIT_ADDR=#{detailAddr},
+    RE_TYPE=#{reType},
+    PK=#{park}
+    where BUILD_NO=#{buildNo} 
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from re
+    where BUILD_NO=#{buildNo}
+  </delete>
   
   </mapper>

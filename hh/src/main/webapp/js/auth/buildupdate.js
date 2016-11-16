@@ -144,6 +144,75 @@ function ajaxAddBuilding(building) {
 }
 
 
+function ajaxLoadBuilding(no) {
+	$.getJSON(serverAddr + "/build/detail.json?no=" + no, function(obj) {
+		var result = obj.jsonResult
+		if (result.state != "success") {
+			alert("조회 실패입니다.")
+			return
+		}
+		$(".reID").val(result.data.reID);
+		$(".postNo").val(result.data.postNo);
+		$(".basicAddr").val(result.data.basicAddr);
+		$(".detailAddr").val(result.data.detailAddr);
+		$(".reType").val(result.data.reType);
+		$(".park").val(result.data.park);
+	})
+}
+
+$("#updateBtn").click(function(event) {
+	var no = location.search.split("=")[1];
+	var buildinging = {
+			buildNo: no,
+			email: "jun@bit.com",
+			reID: $(".reID").val(),
+			postNo: $(".postNo").val(),
+			basicAddr: $(".basicAddr").val(),
+			detailAddr: $(".detailAddr").val(),
+			reType: $(".reType").val(),
+			park: $(".park").val()
+	}
+	ajaxUpdateBuilding(buildinging)
+});
+
+function ajaxUpdateBuilding(building) {
+	$.post(serverAddr + "/build/update.json", building, function(obj) {
+		var result = obj.jsonResult
+		if (result.state != "success") {
+			alert("변경 실패입니다.")
+			return
+		}
+		location.href = serverAddr + "/html/auth/myinfo.html"
+	}, "json")
+}
+
+
+$("#deleteBtn").click(function(event) {
+	var no = location.search.split("=")[1];
+	if (confirm("정말 삭제하시겠습니까?") == true) {
+		ajaxDeleteBuild(no)
+	} else {
+		return;
+	}  
+});
+
+function ajaxDeleteBuild(no) {
+	$.getJSON(serverAddr + "/build/delete.json", {
+		no: no
+	}, function(obj) {
+		var result = obj.jsonResult
+		if (result.state != "success") {
+			alert("삭제 실패입니다.")
+			return
+		}
+		location.href = serverAddr + "/html/auth/myinfo.html"
+	})
+}
+
+
+
+
+
 
 
 

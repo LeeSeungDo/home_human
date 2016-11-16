@@ -44,14 +44,22 @@
 <link rel="stylesheet" type="text/css"
 	href="../../bower_components/assets/_con/css/con-base.css" />
 
+
+
+<!-- Full Calendar -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
+
+<!-- sseung -->
+<link rel="stylesheet" type="text/css"
+	href="../../css/dashboard/sseung.css" />
+
 <!-- dossierbit -->
 <link rel="stylesheet" type="text/css"
 	href="../../css/dashboard/dossierbit.css" />
-<link rel="stylesheet"
-	href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-<link href="../../css/auth/myinfo.css" rel="stylesheet" type="text/css" />
+
+<!-- buildupdate -->
+
 
 
 <!--[if lt IE 9]>
@@ -70,12 +78,12 @@
 <body>
 	<!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
 	<!--
-  	Top Navbar
-    	Options:
-    	  .navbar-dark - dark color scheme
-    	  .navbar-static - static navbar
-    	  .navbar-under - under sidebar
-	-->
+    Top Navbar
+      Options:
+        .navbar-dark - dark color scheme
+        .navbar-static - static navbar
+        .navbar-under - under sidebar
+  -->
 	<nav class="navbar-top">
 		<div class="nav-wrapper">
 
@@ -140,9 +148,8 @@
 						</div>
 					</div></li>
 				<li class="user"><a class="dropdown-button"
-					data-activates="user-dropdown" href="#!">
-						<span id="userName1"></span> <i
-						class="mdi-navigation-expand-more right"></i>
+					data-activates="user-dropdown" href="#!"> <span id="userName1"></span>
+						<i class="mdi-navigation-expand-more right"></i>
 				</a>
 
 					<ul id="user-dropdown" class="dropdown-content">
@@ -208,7 +215,7 @@
 			<div class="nano-content">
 
 				<ul>
-					<li class="yay-user-info"><a href="#" id="myinfoLink"> 
+					<li class="yay-user-info"><a href="../auth/myinfo.html">
 							<h3 class="yay-user-info-name">
 								<span id="userName2"></span>
 							</h3>
@@ -270,126 +277,33 @@
 
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
 
-			<div id="main">
-				<div id="profile">
-					<h3>프로필</h3>
-					<div id="profilephoto">
-						<a href="#"> 
-						</a>
-					</div>
-
-					<div id="pro_group">
-						<table>
-							<thead>
-								<tr>
-									<td class="td_cell1">아이디</td>
-									<td class="td_cell2" id="email"></td>
-								</tr>
-
-								<tr>
-									<td class="td_cell1">이름</td>
-									<td class="td_cell2" id="name"></td>
-								</tr>
-
-								<tr>
-									<td class="td_cell1">성별</td>
-									<td class="td_cell2" id="gender"></td>
-								</tr>
-
-								<tr>
-									<td class="td_cell1">생일</td>
-									<td class="td_cell2" id="birth"></td>
-								</tr>
-							</thead>
-						</table>
-					</div>
-
-					<button id="proUpBtn" type="button" class="btn btn-default">변경</button>
-
+			<div id="main1">
+				<div id="main2">
+					<h3>건물정보 수정</h3>
+					<span>건물정보를 수정하거나 새로 등록하실수 있습니다.</span><br>
 				</div>
+				<div class="main3">
 
-				<div id="contact">
-					<div>
+					<input id="reID" type="text" class="reID" placeholder="건물이름">
+					<div id="buildupdate"></div>
+					<span>검색버튼을 이용하여 주소를 입력해주세요.</span><br> 
+					<input type="text" id="postcode" class="postNo" placeholder="우편번호"> 
+					<button type="button" id="postBtn" onclick="DaumPostcode()">검색</button>
+					<input type="text" id="address"  class="basicAddr" placeholder="기본주소"> 
+					<input type="text" id="address2" class="detailAddr" placeholder="상세주소">
+					<input type="text" id="" class="reType" placeholder="부동산유형">
+					<input type="text" id="" class="park" placeholder="주차가능여부"><br>
 
-						<h3>연락처 및 주소</h3>
-
-						<table id="contable">
-							<thead>
-								<tr>
-									<td class="td_cell3">우편번호</td>
-									<td class="td_cell5" id="postNo"></td>
-								</tr>
-
-								<tr>
-									<td class="td_cell4">기본주소</td>
-									<td class="td_cell6" id="basicAddr"></td>
-								</tr>
-
-								<tr>
-									<td class="td_cell4">상세주소</td>
-									<td class="td_cell6" id="detailAddr"></td>
-								</tr>
-
-								<tr>
-									<td class="td_cell4">전화번호</td>
-									<td class="td_cell6" id="tel"></td>
-								</tr>
-							</thead>
-						</table>
-
-						<div>
-							<button id="contactUpBtn" type="button">변경</button>
-						</div>
-
-					</div>
-				</div>
-
-
-				<div id="buildinfo">
-					<h3>건물정보</h3>
-					<table id="boardTable">
-					<thead>
-						<tr>
-							<th>임대건물번호</th>
-							<th>소유주이메일</th>
-							<th>부동산아이디</th>
-							<th>우편번호</th>
-							<th>기본주소</th>
-							<th>상세주소</th>
-							<th>부동산유형</th>
-							<th>주차가능여부</th>
-						</tr>
-					</thead>
-					<tbody></tbody>
-					</table>
-					<div>
-						<button id="buildUpBtn" type="button">변경</button>
-					</div>
-				</div>
-
-				<div class="membleave">
-					<span>더 이상 이용하지 않는다면</span> <a id="memberUpBtn" href="#">회원탈퇴
-						바로가기</a>
+					
+					<button id="updateBtn" type="button">저장</button>
+					<button id="deleteBtn" type="button">삭제</button>
+					<button id="cancelBtn" type="button">취소</button>
+					
 				</div>
 			</div>
-
-			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 		</div>
-		<script id="reTemplateText" type="text/x-handlebars-template">
-{{#each data}}
-<tr class="buildList" data-no="{{buildNo}}">
-  <td>{{buildNo}}</td>
-  <td>{{email}}</td>
-  <td>{{reID}}</td>
-  <td>{{postNo}}</td>
-  <td>{{basicAddr}}</td>
-  <td>{{detailAddr}}</td>
-  <td>{{reType}}</td>
-  <td>{{park}}</td>
-</tr>
-{{/each}}
-</script>
-<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+
+		<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 	</section>
 	<!-- /Main Content -->
 	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
@@ -555,96 +469,96 @@
 		src="../../bower_components/code-prettify/src/prettify.js"></script>
 
 	<script>
-		/* 
-		 * Init Calendar
-		 */
-		$('#calendar').fullCalendar({
-			height : 700,
-			header : {
-				left : 'prev,next today',
-				center : 'title',
-				right : 'month,agendaWeek,agendaDay'
-			},
-			defaultDate : '2015-02-12',
-			editable : true,
-			droppable : true,
-			drop : function() {
-				// is the "remove after drop" checkbox checked?
-				if (removeDraggable.is(':checked')) {
-					// if so, remove the element from the "Draggable Events" list
-					$(this).remove();
-				}
-			}
-		/* 
-		events: [{
-		    title: 'All Day Event',
-		    start: '2015-02-01'
-		}, {
-		    title: 'Long Event',
-		    start: '2015-02-07',
-		    end: '2015-02-10'
-		}, {
-		    id: 999,
-		    title: 'Repeating Event',
-		    start: '2015-02-09T16:00:00'
-		}, {
-		    id: 999,
-		    title: 'Repeating Event',
-		    start: '2015-02-16T16:00:00'
-		}, {
-		    title: 'Conference',
-		    start: '2015-02-11',
-		    end: '2015-02-13'
-		}, {
-		    title: 'Meeting',
-		    start: '2015-02-12T10:30:00',
-		    end: '2015-02-12T12:30:00'
-		}, {
-		    title: 'Lunch',
-		    start: '2015-02-12T12:00:00'
-		}, {
-		    title: 'Meeting',
-		    start: '2015-02-12T14:30:00'
-		}, {
-		    title: 'Click for Google',
-		    url: 'http://google.com/',
-		    start: '2015-02-28'
-		}]
-		 */
-		});
-	</script>
+    /* 
+     * Init Calendar
+     */
+    $('#calendar').fullCalendar({
+      height : 700,
+      header : {
+        left : 'prev,next today',
+        center : 'title',
+        right : 'month,agendaWeek,agendaDay'
+      },
+      defaultDate : '2015-02-12',
+      editable : true,
+      droppable : true,
+      drop : function() {
+        // is the "remove after drop" checkbox checked?
+        if (removeDraggable.is(':checked')) {
+          // if so, remove the element from the "Draggable Events" list
+          $(this).remove();
+        }
+      }
+    /* 
+    events: [{
+        title: 'All Day Event',
+        start: '2015-02-01'
+    }, {
+        title: 'Long Event',
+        start: '2015-02-07',
+        end: '2015-02-10'
+    }, {
+        id: 999,
+        title: 'Repeating Event',
+        start: '2015-02-09T16:00:00'
+    }, {
+        id: 999,
+        title: 'Repeating Event',
+        start: '2015-02-16T16:00:00'
+    }, {
+        title: 'Conference',
+        start: '2015-02-11',
+        end: '2015-02-13'
+    }, {
+        title: 'Meeting',
+        start: '2015-02-12T10:30:00',
+        end: '2015-02-12T12:30:00'
+    }, {
+        title: 'Lunch',
+        start: '2015-02-12T12:00:00'
+    }, {
+        title: 'Meeting',
+        start: '2015-02-12T14:30:00'
+    }, {
+        title: 'Click for Google',
+        url: 'http://google.com/',
+        start: '2015-02-28'
+    }]
+     */
+    });
+  </script>
 
 
-	<script type="text/javascript"
-		src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
-		charset="UTF-8"></script>
-	<script type="text/javascript" src="//cdn.poesis.kr/post/search.min.js"
-		charset="UTF-8"></script>
-	<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script
+		src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
-	<script type="text/javascript" src="../../js/auth/myinfo.js"></script>
-	
+	<script type="text/javascript" src="../../js/auth/buildupdate.js"></script>
 
 	<script>
-		ajaxLoginUser();
-		ajaxBuildList(); // 게시물 목록 가져오기
-	</script>
+    ajaxLoginUser();
+  </script>
+  <script>
+    if (location.search.startsWith("?")) {
+        var no = location.search.split("=")[1];
+        ajaxLoadBuilding(no)
+      }    
+  </script>
 
 	<!-- 사진 미리보기 -->
 	<script type="text/javascript">
-		function readURL(input) {
-			if (input.files && input.files[0]) {
-				var reader = new FileReader();
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-				reader.onload = function(e) {
-					$('#phoPath').attr('src', e.target.result);
-				}
+            reader.onload = function (e) {
+                    $('#phoPath').attr('src', e.target.result);
+                }
 
-				reader.readAsDataURL(input.files[0]);
-			}
-		}
-	</script>
-	
+              reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
 </body>
 
 </html>
