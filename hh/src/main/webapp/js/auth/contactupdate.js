@@ -16,11 +16,11 @@ $("#cancelBtn").click(function(event) {
 
 $("#updateBtn").click(function(event) {
 	var member = {
-			email: myEmail,
-			password: myPassword,
-			name: myName,
-			birth: myBirth,
-			gender: myGender,
+//			email: myEmail,
+//			password: myPassword,
+//			name: myName,
+//			birth: myBirth,
+//			gender: myGender,
 			postNo: $("#postNo").val(),
 			basicAddr: $("#basicAddr").val(),
 			detailAddr: $("#detailAddr").val(),
@@ -79,6 +79,7 @@ function ajaxLoginUser() {
 			$('#myPhoto2').attr('src', '../../images/user_default.png');
 		}
 		ajaxLoginUser();
+//		ajaxFirstList();
 	})
 }
 
