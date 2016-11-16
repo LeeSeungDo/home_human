@@ -44,7 +44,7 @@ public class BoardController {
   @RequestMapping(path="list")
   public Object list(
       @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="6") int length) throws Exception {
+      @RequestParam(defaultValue="4") int length) throws Exception {
 
     try {
       //System.out.println("board list controller 들어왔어요.");

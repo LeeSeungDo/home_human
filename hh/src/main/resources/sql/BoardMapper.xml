@@ -62,9 +62,9 @@
 	</delete>
 
 	<select id="countAll" resultType="int">
-		select count(*)
+		select count(*)-1
 		from board
-		where type=0
+		where type = 0
 	</select>
 </mapper>
 

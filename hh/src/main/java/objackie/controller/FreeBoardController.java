@@ -28,7 +28,7 @@ public class FreeBoardController {
   @RequestMapping(path="list")
   public Object list(
       @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="12") int length) throws Exception {
+      @RequestParam(defaultValue="10") int length) throws Exception {
     
     try {
       List<FreeBoard> list = freeboardService.getFreeBoardList(pageNo, length);
@@ -61,6 +61,25 @@ public class FreeBoardController {
     System.out.println("-----------------------/파일 업로드--------------------------------");
     try {
       freeboardService.insertFreeBoard(freeboard, file, uploadDir);
+      return JsonResult.success();
+      
+    } catch (Exception e) {
+      return JsonResult.fail(e.getMessage());
+    }
+  }
+  
+  @RequestMapping(path="add1")
+  @ResponseBody
+  public Object add(@ModelAttribute FreeBoard freeboard) throws Exception {
+    String uploadDir = sc.getRealPath("/upload") + "/";
+    System.out.println("-----------------------파일 업로드--------------------------------");
+    System.out.println(freeboard.getEmail());
+    System.out.println(freeboard.getTitle());
+    System.out.println(freeboard.getContents());
+    System.out.println(uploadDir);
+    System.out.println("-----------------------/파일 업로드--------------------------------");
+    try {
+      freeboardService.insertFreeBoard1(freeboard, uploadDir);
       return JsonResult.success();
       
     } catch (Exception e) {

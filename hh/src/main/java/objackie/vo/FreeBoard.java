@@ -23,60 +23,83 @@ public class FreeBoard implements Serializable {
   protected String writer;    // 작성자
   protected String filename;
   
-  
-  public int getBoardNo() {
-    return boardNo;
-  }
-  public void setBoardNo(int boardNo) {
-    this.boardNo = boardNo;
-  }
-  public String getEmail() {
-    return email;
-  }
-  public void setEmail(String email) {
-    this.email = email;
-  }
-  public int getType() {
-    return type;
-  }
-  public void setType(int type) {
-    this.type = type;
-  }
-  public String getTitle() {
-    return title;
-  }
-  public void setTitle(String title) {
-    this.title = title;
-  }
-  public String getContents() {
-    return contents;
-  }
-  public void setContents(String contents) {
-    this.contents = contents;
-  }
-  public int getViewCount() {
-    return viewCount;
-  }
-  public void setViewCount(int viewCount) {
-    this.viewCount = viewCount;
-  }
-  public Date getCreateDate() {
-    return createDate;
-  }
-  public void setCreateDate(Date createDate) {
-    this.createDate = createDate;
-  }
-  public String getWriter() {
-    return writer;
-  }
-  public void setWriter(String writer) {
-    this.writer = writer;
-  }
-  public String getFilename() {
-    return filename;
-  }
-  public void setFilename(String filename) {
-    this.filename = filename;
-  }
+	public int getBoardNo() {
+		return boardNo;
+	}
+
+	public void setBoardNo(int boardNo) {
+		this.boardNo = boardNo;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getContents() {
+		return contents;
+	}
+
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
+
+	public int getViewCount() {
+		return viewCount;
+	}
+
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public String getWriter() {
+		return writer;
+	}
+
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+
+	@Override
+	public String toString() {
+		return "FreeBoard [boardNo=" + boardNo + ", email=" + email + ", type=" + type + ", title=" + title + ", contents="
+				+ contents + ", viewCount=" + viewCount + ", createDate=" + createDate + ", writer=" + writer + ", filename="
+				+ filename + "]";
+	}
   
 }
