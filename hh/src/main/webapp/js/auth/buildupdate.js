@@ -31,12 +31,12 @@ function ajaxLoginUser() {
 			window.location.href = serverAddr + "/html/index.html"
 			return
 		}
-		
+
 		$("#email").html(result.data.email);
 		$("authLevel").html(result.data.name);
 		$("#userName1").html(result.data.name);
 		$("#userName2").html(result.data.name);
-		
+
 
 		var auth = result.data.auth;
 
@@ -45,7 +45,7 @@ function ajaxLoginUser() {
 		} else {
 			$("#authLevel").html("임차인");
 		}
-		
+
 		if (result.data.phoPath != null && result.data.phoPath != "") {
 			$('#phoPath').attr('src', '../../upload/' + result.data.phoPath);
 			$('#myPhoto1').attr('src', '../../upload/' + result.data.phoPath);
@@ -59,6 +59,7 @@ function ajaxLoginUser() {
 		ajaxLoginUser();
 	})
 }
+
 
 //load함수를 이용하여 core스크립트의 로딩이 완료된 후, 우편번호 서비스를 실행합니다.
 daum.postcode.load(function(){
@@ -115,3 +116,34 @@ function DaumPostcode() {
 		}
 	}).open();
 }
+
+
+$("#agreeBtn").click(function(event) {	
+	var building = {
+			email: "jun@bit.com",
+			reID: $(".reID").val(),
+			postNo: $(".postNo").val(),
+			basicAddr: $(".basicAddr").val(),
+			detailAddr: $(".detailAddr").val(),
+			reType: $(".reType").val(),
+			park: $(".park").val()
+	}
+	ajaxAddBuilding(building)
+});
+
+function ajaxAddBuilding(building) {
+	$.post(serverAddr + "/build/add.json", building, function(obj) {
+		var result = obj.jsonResult
+		if (result.state != "success") {
+			alert("등록 실패입니다.")
+			return
+		} 
+		window.location.href = serverAddr + "/html/auth/myinfo.html"
+
+	}, "json")
+}
+
+
+
+
+

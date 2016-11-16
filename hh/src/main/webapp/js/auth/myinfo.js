@@ -35,12 +35,9 @@ function ajaxBuildList() {
 	    	 return
 	    }
 		
-	    var template = Handlebars.compile($('#trTemplateText').html())
-	    $("#buildinfo tbody").html(template(result))
+	    var template = Handlebars.compile($('#reTemplateText').html())
+	    $("#boardTable tbody").html(template(result))
 	    
-	    $(".titleLink").click(function(event) {
-		    window.location.href = "myinfo.html?buildNo=" + $(this).attr("data-no")
-	    })
     })
 }
 
