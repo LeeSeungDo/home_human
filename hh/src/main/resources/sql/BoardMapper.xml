@@ -16,9 +16,7 @@
 	</resultMap>
 
 	<select id="selectFirstList" resultMap="boardMap" parameterType="map">
-		select A.BOD_NO, A.TITLE, A.CRE_DT, A.VW_CNT, A.CONTS, B.PHO_PATH
-		from BOARD A LEFT OUTER JOIN BOD_PHO B
-		on A.BOD_NO = B.BOD_NO
+		select * from board
 		where type = 0
 		order by BOD_NO desc limit 0, 1
 	</select>
