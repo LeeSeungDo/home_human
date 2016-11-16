@@ -79,6 +79,7 @@
 -->
 
 <body>
+<div class="pace"></div>
 	<!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
 	<!--
      Top Navbar
@@ -285,7 +286,7 @@
 		<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
 
 		<div class="row sortable" style="margin-right: 0;">
-			<div style="margin: 0 auto; width: 75%;">
+			<div style="margin: 0 auto; width: 80%;">
 				<div class="row">
 					<div class="col l12 s12">
 						<ul class="tabs">
@@ -294,16 +295,30 @@
 							<li class="tab col s3" rel="complain2"><a href="#"> 처리된
 									민원</a></li>
 						</ul>
-
+						
+				
 					</div>
 				</div>
 
-				<div class="tab_container">
-					<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
-					<div id="complain1" class="tab_content">
-						<div class="row" id="complainTable"></div>
 
-						<script id="trTemplateText" type="text/x-handlebars-template">
+				<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
+				<div id="complain1" class="tab_content">
+				<div class="row">
+					<div class="col l3 s12">
+						<div class="card">
+							<a class="waves-effect waves-dark btn cyan" id="prevBtn"
+								style="width: 100%;">&lt;&lt; 이전</a>
+						</div>
+					</div>
+					<div class="col l3 s12 offset-l6">
+						<div class="card">
+							<a class="waves-effect waves-dark btn cyan" id="nextBtn"
+								style="width: 100%;">다음 &gt;&gt;</a>
+						</div>
+					</div>
+				</div>
+					<div class="row" id="complainTable"></div>
+					<script id="trTemplateText" type="text/x-handlebars-template">
 {{#each list}}
    <div class="col l4 s12">
    <div class="card of-h">
@@ -313,7 +328,9 @@
        class="portrait activator">
   </div>
   <div class="content">
-    <span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title1">{{title}}</p>
+    <span class="card-title activator grey-text text-darken-4">
+	<p class="tenant-title ellipsis" id="title1" 
+	style="text-overflow: ellipsis;">{{title}}</p>
      <p class="tenant-writer card1" data-val1={{no}}>{{writer}} 세입자</p>
   </div>
   <div class="card-reveal">
@@ -324,7 +341,7 @@
 	<form action="#">
     <p>
       <input type="radio" id="rsvd1"  name="rsvdMaterial1" value="미처리" checked/>
-      <label for="rsvd_1">미처리</label>
+      <label for="rsvd1">미처리</label>
     </p> 
     <p>
       <input name="rsvdMaterial1" id="rsvd_1_0" value="처리" type="radio"/>
@@ -341,20 +358,29 @@
 
 {{/each}}
 </script>
-						<!-- 리스트 -->
-						<div class="complain_pagination">
-							<button id="prevBtn" type="button"
-								class="uk-button uk-button-primary">이전</button>
-							<span id="pageNo">1</span>
-							<button id="nextBtn" type="button"
-								class="uk-button uk-button-primary">다음</button>
+</div>
+</div>
+				<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
+				<div class="row sortable" style="margin-right: 0;">
+			<div style="margin: 0 auto; width: 80%;">
+			
+				<div id="complain2" class="tab_content">
+				<div class="row">
+					<div class="col l3 s12">
+						<div class="card">
+							<a class="waves-effect waves-dark btn cyan" id="prevBtn0"
+								style="width: 100%;">&lt;&lt; 이전</a>
 						</div>
 					</div>
-
-					<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
-					<div id="complain2" class="tab_content">
-						<div class="row" id="complainTable2"></div>
-						<script id="trTemplateText2" type="text/x-handlebars-template">
+					<div class="col l3 s12 offset-l6">
+						<div class="card">
+							<a class="waves-effect waves-dark btn cyan" id="nextBtn0"
+								style="width: 100%;">다음 &gt;&gt;</a>
+						</div>
+					</div>
+				</div>
+					<div class="row" id="complainTable2"></div>
+					<script id="trTemplateText2" type="text/x-handlebars-template">
 {{#each list}}
    <div class="col l4 s12">
    <div class="card of-h">
@@ -365,7 +391,8 @@
   </div>
   <div class="content">
     <span class="card-title activator grey-text text-darken-4">
-	<p class="tenant-title" id="title0">{{title}}</p>
+	<p class="tenant-title ellipsis" id="title0" 
+	style="text-overflow: ellipsis;">{{title}}</p>
      <p class="tenant-writer card0" data-val0={{no}}>{{writer}} 세입자</p>
   </div>
   <div class="card-reveal">
@@ -376,7 +403,7 @@
 	<form action="#">
     <p>
       <input type="radio" id="rsvd0"  name="rsvdMaterial0" value="처리" checked/>
-      <label for="test1">처리</label>
+      <label for="rsvd0">처리</label>
     </p>
     <p>
       <input id="rsvd0_1" name="rsvdMaterial0" value="미처리" type="radio"/>
@@ -392,22 +419,11 @@
 </div>
 {{/each}}
    </script>
-						<!-- 리스트 -->
-						<div class="complain_pagination">
-							<button id="prevBtn2" type="button"
-								class="uk-button uk-button-primary">이전</button>
-							<span id="pageNo_tab2">1</span>
-							<button id="nextBtn2" type="button"
-								class="uk-button uk-button-primary">다음</button>
-						</div>
-					</div>
+   </div>
+   </div>
+<div class="col"></div>
+					<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 				</div>
-			</div>
-			<!-- tab container -->
-
-
-			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
-		</div>
 	</section>
 	<!-- /Main Content -->
 	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
