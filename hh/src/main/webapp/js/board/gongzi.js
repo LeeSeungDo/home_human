@@ -39,7 +39,7 @@ function ajaxFirstList() {
 
 // 글로벌 변수 = window 프로퍼티 
 var pageNo = 1, /* window.pageNo */
-    pageLength = 6; /* window.pageLength */
+    pageLength = 4; /* window.pageLength */
 
 function ajaxGongziList() {
 	$.getJSON(serverAddr + "/board/list.json", {"pageNo": pageNo, "length": pageLength}, function(obj) {
@@ -62,20 +62,26 @@ function ajaxGongziList() {
 	    // 현재 페이지 번호를 span 태그에 출력한다.
 	    pageNo = result.data.pageNo;
 	    totalPage = result.data.totalPage;
-	    $('#pageNo').text(pageNo);
+	    
+	    console.log(pageNo);
+	    console.log(totalPage);
 	    
 	    // 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
 	    if (pageNo <= 1) {
-	    	$('#prevBtn').attr('disabled', true);
+	    	$("#prevBtn").css({ 'pointer-events': 'none' });
+	    	$('#prevBtn').addClass("disabled");
 	    } else {
-	    	$('#prevBtn').removeAttr('disabled');
+	    	$("#prevBtn").css({ 'pointer-events': 'visible' });
+	    	$('#prevBtn').removeClass("disabled");
 	    } 
 	    
 	    // 페이지 번호가 마지막 페이지라면 [다음] 버튼을 비활성화시킨다.
 	    if (pageNo >= totalPage) {
-	    	$('#nextBtn').attr('disabled', true);
+	    	$("#nextBtn").css({ 'pointer-events': 'none' });
+	    	$('#nextBtn').addClass("disabled");
 	    } else {
-	    	$('#nextBtn').removeAttr('disabled');
+	    	$("#nextBtn").css({ 'pointer-events': 'visible' });
+	    	$('#nextBtn').removeClass("disabled");
 	    }
     })
 }
