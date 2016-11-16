@@ -97,7 +97,7 @@ function ajaxComplainListRsvd1_t() {
 	    totalPage = result.data.totalPage;
 	    $('#pageNo').text(pageNo);
 	    
-	    / // 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
+	    // 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
 	    if (pageNo <= 1) {
 	    	$("#prevBtn").css({ 'pointer-events': 'none' });
 	    	$('#prevBtn').addClass("disabled");
