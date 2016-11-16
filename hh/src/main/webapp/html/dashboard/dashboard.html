@@ -40,7 +40,7 @@
    <!-- Full Calendar -->
     <link rel="stylesheet" type="text/css" href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
 
-   	<!-- sseung -->
+    <!-- sseung -->
     <link rel="stylesheet" type="text/css" href="../../css/dashboard/sseung.css" />  
     
     <!-- dossierbit -->
@@ -181,7 +181,6 @@
     .yay-gestures              - to show and hide menu using gesture swipes
     .yay-light                 - light color scheme
     .yay-hide-on-content-click - hide menu on content click
-
   Effects [you can use one of these classnames]:
     .yay-overlay  - overlay content
     .yay-push     - push content to right
@@ -210,49 +209,49 @@
         <div class="nano">
             <div class="nano-content">
 
-				<ul>
-					<li class="yay-user-info">
-						<a href="#" id="myinfoLink">
-							<img id="myPhoto2" src="" class="circle" onerror="this.onerror=null;this.src='../../images/user_default.png'">
-							<h3 class="yay-user-info-name">
-								<span id="userName2"></span>
-							</h3>
-							<div class="yay-user-location">
-								<i class="fa fa-map-marker"></i><span id="authLevel"></span>
-							</div>
-					</a></li>
+        <ul>
+          <li class="yay-user-info">
+            <a href="#" id="myinfoLink">
+              <img id="myPhoto2" src="" class="circle" onerror="this.onerror=null;this.src='../../images/user_default.png'">
+              <h3 class="yay-user-info-name">
+                <span id="userName2"></span>
+              </h3>
+              <div class="yay-user-location">
+                <i class="fa fa-map-marker"></i><span id="authLevel"></span>
+              </div>
+          </a></li>
 
-					<li class="label">메뉴</li>
+          <li class="label">메뉴</li>
 
-					<li class="active">
-						<a href="#" class=" waves-effect waves-blue" id="dashboardLink"> <i class="fa fa-tachometer"></i>
-							<span> Home &#38; Human </span>
-						</a>
-					</li>
-					<li>
-						<a href="#" class="waves-effect waves-blue" id="gongziLink"> <i class="fa fa-check"></i>
-							<span> 공지사항 </span>
-						</a>
-					</li>
-					<li>
-						<a href="#" class="waves-effect waves-blue" id="complainLink"> <i class="fa fa-bullhorn"></i>
-							<span> 민원사항 </span>
-						</a>
-					</li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i class="fa fa-building-o"></i> 건물정보
-					</a></li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i
-							class="fa fa-users"></i> 세입자관리
-					</a></li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i
-							class="fa fa-credit-card"></i> 관리비내역
-					</a></li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i
-							class="fa fa-hand-o-right"></i> 자유게시판
-					</a></li>
-				</ul>
+          <li class="active">
+            <a href="#" class=" waves-effect waves-blue" id="dashboardLink"> <i class="fa fa-tachometer"></i>
+              <span> Home &#38; Human </span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="waves-effect waves-blue" id="gongziLink"> <i class="fa fa-check"></i>
+              <span> 공지사항 </span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="waves-effect waves-blue" id="complainLink"> <i class="fa fa-bullhorn"></i>
+              <span> 민원사항 </span>
+            </a>
+          </li>
+          <li><a href="#" class=" waves-effect waves-blue"> <i class="fa fa-building-o"></i> 건물정보
+          </a></li>
+          <li><a href="#" class=" waves-effect waves-blue"> <i
+              class="fa fa-users"></i> 세입자관리
+          </a></li>
+          <li><a href="#" class=" waves-effect waves-blue"> <i
+              class="fa fa-credit-card"></i> 관리비내역
+          </a></li>
+          <li><a href="#" class=" waves-effect waves-blue"> <i
+              class="fa fa-hand-o-right"></i> 자유게시판
+          </a></li>
+        </ul>
 
-			</div>
+      </div>
         </div>
     </aside>
     <!-- /Yay Sidebar -->
@@ -315,15 +314,8 @@
                </div>
                <div class="content orders-card">
 
-                  <h6>건물정보 뿌리기</h6>
-                  <hr>
-                  <h6>건물정보 뿌리기</h6>
-                  <hr>
-                  <h6>건물정보 뿌리기</h6>
-                  <hr>
-                  <h6>건물정보 뿌리기</h6>
-                  <hr>
-                  <h6>건물정보 뿌리기</h6>
+                  <ul id="buildListTable">
+                  </ul>
 
                </div>
             </div>
@@ -497,11 +489,12 @@
     <script type="text/javascript" src="../../js/pace.js"></script>
     
     <!-- Link Sort -->
-	<script type="text/javascript" src="../../js/link.js"></script>
-	
-	<!-- Common Dashboard -->
-	<script type="text/javascript" src="../../js/commonDashboard.js"></script>
-	
+
+  <script type="text/javascript" src="../../js/link.js"></script>
+  
+  <!-- Common Dashboard -->
+  <script type="text/javascript" src="../../js/commonDashboard.js"></script>
+
 <script>
     /* 
      * Init Calendar
@@ -572,6 +565,7 @@
       ajaxDashboardUser();
       ajaxTenantList();
       ajaxFirstList();
+      ajaxBuildList()
    </script>
 
    <script id="tenantList" type="text/x-handlebars-template">
@@ -581,6 +575,17 @@
                <img src="" onerror="this.src='../../images/user_default.png'" class="circle">
                <h4>{{name}}</h4>
                <p>전화번호 : {{tel}} <span> |  상세주소 : {{detailAddress}}</span></p>
+            </a>
+         </li>
+      {{/each}}
+   </script>
+   <script id="buildList" type="text/x-handlebars-template">
+     {{#each data}}
+         <li>
+            <a href="#">
+               <img src="" onerror="this.src='../../images/user_default.png'" class="circle">
+               <h4>{{reID}}</h4>
+               <p>상세주소 : {{basicAddr}}</p>
             </a>
          </li>
       {{/each}}

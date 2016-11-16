@@ -140,9 +140,7 @@
 						</div>
 					</div></li>
 				<li class="user"><a class="dropdown-button"
-					data-activates="user-dropdown" href="#!"> <img id="myPhoto1"
-						src="" class="circle"
-						onerror="this.onerror=null;this.src='../../images/user_default.png'">
+					data-activates="user-dropdown" href="#!">
 						<span id="userName1"></span> <i
 						class="mdi-navigation-expand-more right"></i>
 				</a>
@@ -210,9 +208,7 @@
 			<div class="nano-content">
 
 				<ul>
-					<li class="yay-user-info"><a href="#" id="myinfoLink"> <img
-							id="myPhoto2" src="" class="circle"
-							onerror="this.onerror=null;this.src='../../images/user_default.png'">
+					<li class="yay-user-info"><a href="#" id="myinfoLink"> 
 							<h3 class="yay-user-info-name">
 								<span id="userName2"></span>
 							</h3>
@@ -278,8 +274,7 @@
 				<div id="profile">
 					<h3>프로필</h3>
 					<div id="profilephoto">
-						<a href="#"> <img id="phoPath" src="../../images/default.png"
-							onerror="myFunction()" style="border-radius: 50px;" />
+						<a href="#"> 
 						</a>
 					</div>
 
@@ -380,6 +375,21 @@
 
 			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 		</div>
+		<script id="reTemplateText" type="text/x-handlebars-template">
+{{#each data}}
+<tr>
+  <td>{{buildNo}}</td>
+  <td>{{email}}</td>
+  <td>{{reID}}</td>
+  <td>{{postNo}}</td>
+  <td>{{basicAddr}}</td>
+  <td>{{detailAddr}}</td>
+  <td>{{reType}}</td>
+  <td>{{park}}</td>
+</tr>
+{{/each}}
+</script>
+<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 	</section>
 	<!-- /Main Content -->
 	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
@@ -613,6 +623,7 @@
 	<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../js/auth/myinfo.js"></script>
+	
 
 	<script>
 		ajaxLoginUser();
@@ -633,22 +644,7 @@
 			}
 		}
 	</script>
-
-	<script id="trTemplateText" type="text/x-handlebars-template">
-	{{#each data}}
-	<tr>
-	  <td>{{buildNo}}</td>
-	  <td><a class="titleLink" href="#" data-no="{{buildNo}}">{{email}}</a></td>
-	  <td>{{reID}}</td>
-	  <td>{{postNo}}</td>
-	  <td>{{basicAddr}}</td>
-	  <td>{{detailAddr}}</td>
-	  <td>{{reType}}</td>
-	  <td>{{park}}</td>
-	</tr>
-	{{/each}}
-	</script>
-
+	
 </body>
 
 </html>

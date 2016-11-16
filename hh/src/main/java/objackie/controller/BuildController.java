@@ -20,7 +20,7 @@ public class BuildController {
   @RequestMapping(path="list")
   public Object list(
       @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="5") int length) throws Exception {
+      @RequestParam(defaultValue="4") int length) throws Exception {
 
     try {
       HashMap<String,Object> map = new HashMap<>();
