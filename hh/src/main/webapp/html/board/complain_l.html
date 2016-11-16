@@ -79,6 +79,7 @@
 -->
 
 <body>
+<div class="pace"></div>
 	<!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
 	<!--
      Top Navbar
@@ -327,7 +328,9 @@
        class="portrait activator">
   </div>
   <div class="content">
-    <span class="card-title activator grey-text text-darken-4"><p class="tenant-title" id="title1">{{title}}</p>
+    <span class="card-title activator grey-text text-darken-4">
+	<p class="tenant-title ellipsis" id="title1" 
+	style="text-overflow: ellipsis;">{{title}}</p>
      <p class="tenant-writer card1" data-val1={{no}}>{{writer}} 세입자</p>
   </div>
   <div class="card-reveal">
@@ -388,7 +391,8 @@
   </div>
   <div class="content">
     <span class="card-title activator grey-text text-darken-4">
-	<p class="tenant-title" id="title0">{{title}}</p>
+	<p class="tenant-title ellipsis" id="title0" 
+	style="text-overflow: ellipsis;">{{title}}</p>
      <p class="tenant-writer card0" data-val0={{no}}>{{writer}} 세입자</p>
   </div>
   <div class="card-reveal">
