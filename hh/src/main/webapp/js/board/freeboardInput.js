@@ -11,14 +11,33 @@ $("#addBtn").click(function(event) {
 	
 	var form = $('form')[0];
 	var formData = new FormData(form);
-	
-	ajaxAddFreeBoardFile(formData);
+	var useFile = formData.get('file').name;
+
+	if (useFile == "" || useFile == null) {
+		ajaxAddFreeBoardFile1(formData);
+	} else {
+		ajaxAddFreeBoardFile(formData);
+	}
 });
 
 
 function ajaxAddFreeBoardFile(formData) {
 	$.ajax({
 	    url: serverAddr + "/freeboard/add.json",
+	    data: formData,
+	    processData: false,
+	    contentType: false,
+	    type: 'POST',
+	    success: function(data){
+	    	alert("EE");
+	    	window.location.href = serverAddr + "/html/board/freeboard.html"
+	    }
+	  });
+}
+
+function ajaxAddFreeBoardFile1(formData) {
+	$.ajax({
+	    url: serverAddr + "/freeboard/add1.json",
 	    data: formData,
 	    processData: false,
 	    contentType: false,

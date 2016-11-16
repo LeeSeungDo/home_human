@@ -13,6 +13,7 @@ import objackie.dao.FreeBoardFileDao;
 import objackie.dao.ReplyDao;
 import objackie.service.FreeBoardService;
 import objackie.util.FileUploadUtil;
+import objackie.vo.ComplainFile;
 import objackie.vo.FreeBoard;
 import objackie.vo.FreeBoardFile;
 
@@ -35,7 +36,6 @@ public class DefaultFreeBoardService implements FreeBoardService {
 
   @Override
   public void insertFreeBoard(FreeBoard freeboard, MultipartFile file, String uploadDir) throws Exception {
-    System.out.println("여기부터");
     try {
       freeboardDao.insert(freeboard);
 
@@ -52,8 +52,22 @@ public class DefaultFreeBoardService implements FreeBoardService {
     } catch (Exception e) {
       e.printStackTrace();
     }
+  }
+  
+  @Override
+  public void insertFreeBoard1(FreeBoard freeboard, String uploadDir) throws Exception {
+    try {
+      freeboardDao.insert(freeboard);
 
-    System.out.println("여기까지");
+      String newFilename = "0000000000.png";
+        FreeBoardFile freeboardFile = new FreeBoardFile();
+        freeboardFile.setFilename(newFilename);
+        freeboardFile.setBoardNo(freeboard.getBoardNo());
+        // boardFile.setBoardNo(10200); //트랜잭션 테스트 용
+        freeboardFileDao.insert(freeboardFile);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 
   public FreeBoard getFreeBoard(int no) throws Exception {

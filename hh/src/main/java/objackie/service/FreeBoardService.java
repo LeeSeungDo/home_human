@@ -10,6 +10,7 @@ public interface FreeBoardService {
 
   List<FreeBoard> getFreeBoardList(int pageNo, int length) throws Exception;
   void insertFreeBoard(FreeBoard freeboard, MultipartFile file, String uploadDir) throws Exception; 
+  void insertFreeBoard1(FreeBoard freeboard, String uploadDir) throws Exception; 
   FreeBoard getFreeBoard(int no) throws Exception;
   void updateFreeBoard(FreeBoard freeboard, MultipartFile file, String uploadDir) throws Exception;
   void updateVW_CNTFreeBoard(int no) throws Exception;

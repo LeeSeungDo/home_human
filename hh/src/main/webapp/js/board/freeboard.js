@@ -8,9 +8,15 @@ $("#nextBtn").click(function(event) {
 	ajaxFreeBoardList();
 });
 
-// 글로벌 변수 = window 프로퍼티 
+$("#new_freeBoard").click(function(event) {
+	window.location.href = serverAddr + "/html/board/freeboardInput.html";
+});
+
+
+
+// 글로벌 변수 = window 프로퍼티
 var pageNo = 1, /* window.pageNo */
-    pageLength = 12; /* window.pageLength */
+    pageLength = 10; /* window.pageLength */
 
 function ajaxFreeBoardList() {
 	$.getJSON(serverAddr + "/freeboard/list.json", {"pageNo": pageNo, "length": pageLength}, function(obj) {
@@ -21,13 +27,12 @@ function ajaxFreeBoardList() {
 	    	 return
 	    }
 		
-		
 	    var template = Handlebars.compile($("#frTemplateText").html())	
 	    $("#freeboardTable tbody").html(template(result.data))
 	    
 	    $(document.body).on('click', '.freeForm', function(event) {
 	    	var clno= $(this).attr("data-no1")
-	    	//console.log(clno)
+	    	// console.log(clno)
 	    	ajaxFreeBoardClickList(clno)
 		    window.location.href = serverAddr + "/html/board/freeboardForm.html?no=" + $(this).attr("data-no1")
 	    })
@@ -35,25 +40,33 @@ function ajaxFreeBoardList() {
 	    // 현재 페이지 번호를 span 태그에 출력한다.
 	    pageNo = result.data.pageNo;
 	    totalPage = result.data.totalPage;
-	    $('#pageNo').text(pageNo);
 	    
-	    // 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
+	    var test = result.data.list[0].filename;
+	    console.log(test);
+	    console.log(pageNo);
+	    console.log(totalPage);
+	    
+	 // 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
 	    if (pageNo <= 1) {
-	    	$('#prevBtn').attr('disabled', true);
+	    	$("#prevBtn").css({ 'pointer-events': 'none' });
+	    	$('#prevBtn').addClass("disabled");
 	    } else {
-	    	$('#prevBtn').removeAttr('disabled');
+	    	$("#prevBtn").css({ 'pointer-events': 'visible' });
+	    	$('#prevBtn').removeClass("disabled");
 	    } 
 	    
 	    // 페이지 번호가 마지막 페이지라면 [다음] 버튼을 비활성화시킨다.
 	    if (pageNo >= totalPage) {
-	    	$('#nextBtn').attr('disabled', true);
+	    	$("#nextBtn").css({ 'pointer-events': 'none' });
+	    	$('#nextBtn').addClass("disabled");
 	    } else {
-	    	$('#nextBtn').removeAttr('disabled');
+	    	$("#nextBtn").css({ 'pointer-events': 'visible' });
+	    	$('#nextBtn').removeClass("disabled");
 	    }
     })
 }
 
-//조회수 증가 function
+// 조회수 증가 function
 function ajaxFreeBoardClickList(clno) {
 	$.post(serverAddr + "/freeboard/updateVW_CNT.json", {no:clno}, function(obj) {
 		var result = obj.jsonResult
