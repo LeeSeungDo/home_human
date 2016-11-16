@@ -35,6 +35,24 @@
 	width: 45px;
 }
 
-figure.effect-sarah {
-  background: #0d47a1 }
+figure .effect-sarah {
+  background: #0d47a1;
+}
+
+.swal2-modal .swal2-title {
+	font-size: 20px;
+}
+
+.swal2-modal .swal2-content {
+	font-size: 16px;
+}
+
+.swal2-modal .swal2-styled {
+	font-size: 15px;
+	color: black;
+}
+.tabrow li.selected {
+  background: #FFF;
+  color: #000;
+}
 

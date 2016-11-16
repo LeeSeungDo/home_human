@@ -1,8 +1,24 @@
+$("#addBtn").click(function(event) {
+	var form = $('form')[0];
+	var formData = new FormData(form);
+	
+	ajaxAddGongziFile(formData);
+});
+
+$("#cancelBtn").click(function(event) {
+	window.location.href = serverAddr + "/html/board/gongzi.html";
+});
+
+
 $(document.body).ready(function() {
     $('.limitation').on('keyup', function() {
-        if($(this).val().length > 200) {
-        	 alert("글자수는 200자 이내로 제한됩니다.!");  
-            $(this).val($(this).val().substring(0, 200));
+        if($(this).val().length > 300) {
+        	swal({
+      		  title: '글자수는 300자로 제한됩니다.',
+      		  type: 'error',
+      		  timer: 2000
+      		}); 
+            $(this).val($(this).val().substring(0, 300));
         }
     });
 });
@@ -27,28 +43,6 @@ function ajaxLoginUser() {
 }
 
 
-$("#addBtn").click(function(event) {
-	
-	var form = $('form')[0];
-	var formData = new FormData(form);
-	
-	ajaxAddGongziFile(formData);
-});
-
-/*
-function ajaxAddGongzi(gongzi) {
-	$.post(serverAddr + "/gongzi/add.json", gongzi, function(obj) {
-		var result = obj.jsonResult
-		if (result.state != "success") {
-	    	 alert("등록 실패입니다.")
-	    	 return
-	    } 
-	    window.location.href = serverAddr + "/html/board/gongzi.html"
-	    
-	}, "json")
-}
-*/
-
 function ajaxAddGongziFile(formData) {
 	$.ajax({
 	    url: serverAddr + "/board/add.json",
@@ -57,25 +51,16 @@ function ajaxAddGongziFile(formData) {
 	    contentType: false,
 	    type: 'POST',
 	    success: function(data){
-	    	alert("EE");
-	    	window.location.href = serverAddr + "/html/board/gongzi.html"
+	    	swal({
+				  title: '등록 되었습니다.',
+				  confirmButtonColor: '#3085d6',
+				  confirmButtonText: '확인'
+				}).then(function () {
+					  window.location.href = serverAddr + "/html/board/gongzi.html"
+				});
 	    }
 	  });
 }
-
-/*
-$.ajax({
-    url: '/saveFileTest.do',
-    data: formData,
-    processData: false,
-    contentType: false,
-    type: 'POST',
-    success: function(data){
-    	alert("EE");
-    }
-  });
-*/
-
 
 
 

@@ -1,4 +1,28 @@
-/*----------------------------------------------------- 공통 대쉬보드(지우지마세요) -----------------------------------------------------*/
+$("#dashboardLink").click(function(event) {
+	alert("메인");
+	window.location.href = serverAddr + "/html/dashboard/dashboard_t.html"
+});
+
+$("#myInfo").click(function(event) {
+	alert("내정보");
+	window.location.href = serverAddr + "/html/auth/myinfo_t.html"
+});
+
+$("#gongziLink").click(function(event) {
+	alert("공지");
+	window.location.href = serverAddr + "/html/board/gongzi_t.html"
+});
+
+$("#complainLink").click(function(event) {
+	alert("민원");
+	window.location.href = serverAddr + "/html/board/complain_t.html"
+});
+
+$("#myinfoLink").click(function(event) {
+	alert("내정보");
+	window.location.href = serverAddr + "/html/auth/myinfo_t.html"
+});
+
 // 카카오 준비
 $(document).ready(function() {
 	Kakao.init("bfb48672ff68dbf137c2daffb44adfb0");
@@ -67,7 +91,7 @@ function ajaxLoginUser() {
 /*----------------------------------------------------- /공통 대쉬보드(지우지마세요) -----------------------------------------------------*/
 
 $("#cancelBtn").click(function(event) {
-	window.location.href = serverAddr + "/html/auth/myinfo.html"
+	window.location.href = serverAddr + "/html/auth/myinfo_t.html"
 });
 
 $("#updateBtn").click(function(event) {
@@ -118,8 +142,13 @@ function ajaxUpdateFile0(formData) {
 		contentType : false,
 		type : 'POST',
 		success : function(data) {
-			alert("사진 변경");
-			window.location.href = serverAddr + "/html/auth/myinfo.html"
+			swal({
+      		  title: '프로필 사진 변경 완료!',
+      		  type: 'success',
+      		  confirmButtonText: '확인'
+      		}).then(function(){
+      			window.location.href = serverAddr + "/html/auth/myinfo_t.html"
+      		});
 		}
 	});
 }
@@ -132,8 +161,8 @@ function ajaxUpdateFile1(formData) {
 		contentType : false,
 		type : 'POST',
 		success : function(data) {
-			alert("패스워드 변경");
-			window.location.href = serverAddr + "/html/auth/myinfo.html"
+			alert("패스워드 변경 완료");
+			window.location.href = serverAddr + "/html/auth/myinfo_t.html"
 		}
 	});
 }
@@ -147,7 +176,7 @@ function ajaxUpdateFile2(formData) {
 		type : 'POST',
 		success : function(data) {
 			alert("사진 & 패스워드 변경");
-			window.location.href = serverAddr + "/html/auth/myinfo.html"
+			window.location.href = serverAddr + "/html/auth/myinfo_t.html"
 		}
 	});
 }

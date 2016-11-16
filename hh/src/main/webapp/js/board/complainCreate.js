@@ -33,16 +33,27 @@ $("#addBtn").click(function(event) {
 	
 	if (fileName == "" || fileName == null) {
 		if ((title == "" || title == null) || (contents == "" || contents == null)) {
-			alert("빈공간 있어요 다시해요.");
+			swal({
+				  title: '제목이나 내용이 없어요!',
+				  confirmButtonColor: '#42A5F5',
+				  confirmButtonText: '다시 쓰러가기'
+				})
+					
 		} else {
-			alert("파일 없다. 등록 시작하죠");
+			//alert("파일 없다. 등록 시작하죠");
+			swal({
+					  title:'민원 등록 완료!',
+					  text:'사진 없이 민원을 등록합니다.',
+					  type:'success',
+					  confirmButtonText: '확인'
+			})
 			ajaxAddComplainFile0(formData);
 		}
 	} else {
 		if ((title == "" || title == null) || (contents == "" || contents == null)) {
 			alert("빈공간 있어요 다시해요.");
 		} else {
-			alert("파일 있다. 등록 시작하죠");
+			//alert("파일 있다. 등록 시작하죠");
 			ajaxAddComplainFile1(formData);
 		}
 	}
@@ -56,11 +67,11 @@ function ajaxAddComplainFile0(formData) {
 	    contentType: false,
 	    type: 'POST',
 	    success: function(data){
-	    	alert("성공");
+	    	//alert("성공");
 	    	window.location.href = serverAddr + "/html/board/complain_t.html"
 	    },
 	    error: function() {
-	    	alert("실패")
+	    	//alert("실패")
 	    }
 	  });
 }
@@ -73,11 +84,11 @@ function ajaxAddComplainFile1(formData) {
 	    contentType: false,
 	    type: 'POST',
 	    success: function(data){
-	    	alert("성공");
+	    	//alert("성공");
 	    	window.location.href = serverAddr + "/html/board/complain_t.html"
 	    },
 	    error: function() {
-	    	alert("실패")
+	    	//alert("실패")
 	    }
 	  });
 }

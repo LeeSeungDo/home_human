@@ -37,10 +37,7 @@
 
 
 
-   <!-- Full Calendar -->
-    <link rel="stylesheet" type="text/css" href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
-
-   <!-- sseung -->
+   	<!-- sseung -->
     <link rel="stylesheet" type="text/css" href="../../css/dashboard/sseung.css" />  
     
     <!-- dossierbit -->
@@ -280,14 +277,14 @@
 		<div class="row sortable" style="margin-right: 0;">
 
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
-			<button type="button" class="btn btn-primary" style="width: 1291px;"
-					onclick="location.href='gongziInput.html'">새 공지 쓰기</button>
+			<a class="waves-effect waves-dark btn cyan" id="new_gongzi" style="width: 100%;">새 공지 쓰기</a>
 
 			<div class="row">
 				<div class="col l12 s12">
-					<figure class="hover-effect effect-sarah" style="height: 230px;">
+					<figure class="hover-effect effect-sarah hidden_no" style="height: 230px;">
 						<img src="../../images/LNMmTg.jpeg" alt="image-5">
 						<figcaption>
+							<input type="hidden" id="hidden_no">
 							<h2>
 								<span id="recent_title"></span>
 							</h2>
@@ -350,6 +347,14 @@
 
 	<!-- Loading Bar -->
 	<script type="text/javascript" src="../../js/pace.js"></script>
+	
+	<!-- Link Sort -->
+	<script type="text/javascript" src="../../js/link.js"></script>
+	
+	<!-- Common Dashboard -->
+	<script type="text/javascript" src="../../js/commonDashboard.js"></script>
+	
+	
 
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../js/bit.js"></script>
@@ -358,7 +363,7 @@
     <script type="text/javascript" src="../../js/board/gongzi.js"></script>
     
     <script>
-		ajaxLoginUser();
+    	ajaxDashboardUser();
     	ajaxFirstList();
     	ajaxGongziList();
     </script>
@@ -366,7 +371,7 @@
 	<script id="trTemplateText" type="text/x-handlebars-template">
 	{{#each list}}
 	<div class="col l4 s12">
-    	<figure class="hover-effect effect-sarah">
+    	<figure class="hover-effect effect-sarah card1" data-no="{{boardNo}}">
 			<img src="../../images/LNMmTg.jpeg" alt="image-5">
 			<figcaption>
             	<h2><span style="font-size: 25px; width: 360.98px; text-overflow:

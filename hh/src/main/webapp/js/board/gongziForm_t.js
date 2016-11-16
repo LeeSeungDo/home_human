@@ -1,5 +1,5 @@
 $("#cancelBtn").click(function(event) {
-	window.location.href = serverAddr + "/html/board/gongzi.html";
+	window.location.href = serverAddr + "/html/board/gongzi_t.html";
 })
 
 function ajaxLoadGongzi(no) {
@@ -18,7 +18,7 @@ function ajaxLoadGongzi(no) {
 		$("#viewCount").val(result.data.viewCount);
 		
 		$("#updateBtn").click(function(event) {
-			window.location.href = serverAddr + "/html/board/gongziUpdate.html?no=" + no
+			window.location.href = serverAddr + "/html/board/gongziUpdate_t.html?no=" + no
 		});
 		
 		$("#deleteBtn").click(function(event) {
@@ -51,7 +51,7 @@ function ajaxDeleteGongzi(no) {
 			alert("삭제 실패입니다.")
 			return
 		}
-		location.href = serverAddr + "/html/board/gongzi.html"
+		location.href = serverAddr + "/html/board/gongzi_t.html"
 	})
 }
 
