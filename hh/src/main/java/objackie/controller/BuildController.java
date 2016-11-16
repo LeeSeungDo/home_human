@@ -48,9 +48,9 @@ public class BuildController {
   }
 
   @RequestMapping(path="detail")
-  public Object detail(int buildNo) throws Exception {
+  public Object detail(int no) throws Exception {
     try {
-      Build build = buildDao.selectOne(buildNo);
+      Build build = buildDao.selectOne(no);
 
       if (build == null)
         throw new Exception("해당 번호의 건물이 존재하지 않습니다.");
@@ -66,10 +66,9 @@ public class BuildController {
   @RequestMapping(path="update")
   public Object update(Build build) throws Exception {
     try {
-      HashMap<String,Object> paramMap = new HashMap<>();
-      paramMap.put("buildNo", build.getBuildNo());
-      paramMap.put("email", build.getEmail());
-
+      if (buildDao.selectOne(build.getBuildNo()) == null) {
+        throw new Exception("해당 번호의 건물이 없거나 회원정보가 없습니다.");
+      }
       buildDao.update(build);
       return JsonResult.success();
 
@@ -78,18 +77,15 @@ public class BuildController {
       return JsonResult.fail(e.getMessage());
     }
   }
+  
 
   @RequestMapping(path="delete")
-  public Object delete(int buildNo, String email) throws Exception {
+  public Object delete(int no) throws Exception {
     try {
-      HashMap<String,Object> paramMap = new HashMap<>();
-      paramMap.put("buildNo", buildNo);
-      paramMap.put("email", email);
-
-      if (buildDao.selectOne(buildNo) == null) {
+      if (buildDao.selectOne(no) == null) {
         throw new Exception("해당 번호의 건물이 없거나 회원정보가 없습니다.");
       }
-      buildDao.delete(buildNo);
+      buildDao.delete(no);
       return JsonResult.success();
 
     } catch (Exception e) {

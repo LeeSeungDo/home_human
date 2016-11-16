@@ -4,13 +4,10 @@
 <meta charset="UTF-8">
 <link rel="shortcut icon" href="../images/favicon.ico">
 <title>Home & Human</title>
- 
-<link rel="stylesheet"
-	href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-<link href="http://www.jqueryscript.net/css/jquerysctipttop.css"
-	rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <link href="../css/index.css" rel="stylesheet" type="text/css" />
 <link href="../css/auth/login.css" rel="stylesheet" type="text/css">
 <link href="../css/auth/join.css" rel="stylesheet" type="text/css">
@@ -19,20 +16,9 @@
 <body>
 
 	<div id="wrap">
-
-		<div id="header">
-			<div class="hh-logo">
-				<a href="../html/index.html"><img src="../images/hhlogo.png"
-				style="width:120px; margin-left:10px; margin-top:5px;"></a> 
+			<div id="logo">
+				<a href="../html/index.html"><img src="../images/hhlogo.png"></a>
 			</div>
-
-			<ul>
-				<li><a data-toggle="modal" data-target="#joinModal"
-					href="../html/auth/join.html">회원가입</a></li>
-				<!-- <li><a data-toggle="modal" data-target="#loginModal"
-					href="../html/auth/login.html">로그인</a></li> -->
-			</ul>
-
 
 			<!-- Modal 회원가입 -->
 			<div class="modal fade" id="joinModal" role="dialog">
@@ -43,31 +29,19 @@
 				</div>
 			</div>
 
-			<!-- 
-			Modal 로그인
-			<div class="modal fade" id="loginModal" role="dialog">
-				<div class="modal-dialog">
-					<div id="login-modal-content" class="modal-content">
-						<div class="modal-header"></div>
-					</div>
-				</div>
-			</div>
- -->
 
-		</div>
-
-		<div id="contents">
+		<!-- <div id="contents">
 			<div id="main1">
-				<!-- <img id="clogo" src="../images/clogo.png"> -->
-				<p id="mp"></p>
+				<h1 id="mp">Welcom to Home & Human !</h1>
 				<p id="sp"></p>
 			</div>
-		</div>
+		</div> -->
 
 		<div id="main2">
 
 			<div class="subLogin">
-				<a href="#"><img id="kakaoLoginBtn" src="../images/kakao_account_login_btn_large_wide.png"></a>
+				<a href="#"><img id="kakaoLoginBtn"
+					src="../images/kakao_account_login_btn_large_wide.png"></a>
 			</div>
 
 			<div class="login">
@@ -79,12 +53,14 @@
 			</div>
 
 			<div class="checkbox">
-				<label> <input type="checkbox" id="saveEmail"> 아이디
-					저장
+				<label> <input type="checkbox" id="saveEmail">아이디저장
 				</label>
 			</div>
 
 			<button type="button" id="loginBtn" class="btn btn-default">로그인</button>
+			<a data-toggle="modal" data-target="#joinModal" href="../html/auth/join.html">
+				<button type="button" id="signBtn" class="btn btn-default">회원가입</button>
+			</a>
 		</div>
 
 	</div>
@@ -106,6 +82,6 @@
 			$(this).removeData('bs.modal');
 		});
 	</script>
-	
+
 </body>
 </html>

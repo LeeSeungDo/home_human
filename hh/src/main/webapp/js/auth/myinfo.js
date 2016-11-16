@@ -31,14 +31,18 @@ function ajaxBuildList() {
 	$.getJSON(serverAddr + "/build/list.json", function(obj) {
 		var result = obj.jsonResult
 		if (result.state != "success") {
-	    	 alert("서버에서 데이터를 가져오는데 실패했습니다.")
-	    	 return
-	    }
-		
-	    var template = Handlebars.compile($('#reTemplateText').html())
-	    $("#boardTable tbody").html(template(result))
-	    
-    })
+			alert("서버에서 데이터를 가져오는데 실패했습니다.")
+			return
+		}
+
+		var template = Handlebars.compile($('#reTemplateText').html())
+		$("#boardTable tbody").html(template(result))
+
+		$(".buildList").click(function(event) {
+			window.location.href = serverAddr + "/html/auth/builddelete.html?no=" + $(this).attr("data-no")
+
+		})
+	})
 }
 
 
@@ -63,7 +67,7 @@ function ajaxLoginUser() {
 		$("#userName1").html(result.data.name);
 		$("#userName2").html(result.data.name);
 		$("authLevel").html(result.data.name);
-		
+
 		var auth = result.data.auth;
 		var gender = result.data.gender;
 
@@ -150,4 +154,4 @@ $(document).ready(function() {
 //}
 //})
 //}
-///*----------------------------------------------------- /로그인 정보 불러오기 -----------------------------------------------------*/
+/*----------------------------------------------------- /로그인 정보 불러오기 -----------------------------------------------------*/

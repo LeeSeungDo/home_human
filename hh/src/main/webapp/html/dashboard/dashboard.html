@@ -238,9 +238,7 @@
               <span> 민원사항 </span>
             </a>
           </li>
-          <li><a href="#" class=" waves-effect waves-blue"> <i class="fa fa-building-o"></i> 건물정보
-          </a></li>
-          <li><a href="#" class=" waves-effect waves-blue"> <i
+          <li><a href="#" class=" waves-effect waves-blue" id="tenantLink"> <i
               class="fa fa-users"></i> 세입자관리
           </a></li>
           <li><a href="#" class=" waves-effect waves-blue"> <i
@@ -584,8 +582,7 @@
    <script id="buildList" type="text/x-handlebars-template">
      {{#each data}}
          <li>
-            <a href="#">
-               <img src="" onerror="this.src='../../images/user_default.png'" class="circle">
+            <a href="../auth/myinfo.html">
                <h4>{{reID}}</h4>
                <p>상세주소 : {{basicAddr}}</p>
             </a>

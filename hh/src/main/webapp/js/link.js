@@ -25,3 +25,9 @@ $("#freeBoardLink").click(function(event) {
    window.location.href = serverAddr + "/html/board/freeboard.html"
 });
 
+$("#tenantLink").click(function(event) {
+	window.location.href = serverAddr + "/html/contract/contractMnge.html"
+});
+
+
+
