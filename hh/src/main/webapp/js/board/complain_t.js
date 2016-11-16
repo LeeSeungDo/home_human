@@ -33,6 +33,27 @@ function ajaxDeleteComplain(no) {
 	})
 }
 
+$("#prevBtn").click(function(event) {
+	pageNo--;
+	ajaxComplainListRsvd1_t()
+});
+
+$("#nextBtn").click(function(event) {
+	pageNo++;
+	ajaxComplainListRsvd1_t()
+});
+
+$("#prevBtn0").click(function(event) {
+	pageNo--;
+	ajaxComplainListRsvd0_t()
+});
+
+$("#nextBtn0").click(function(event) {
+	pageNo++;
+	ajaxComplainListRsvd0_t()
+});
+
+
 //글로벌 변수 = window 프로퍼티 
 var pageNo = 1, /* window.pageNo */
   pageLength = 6; /* window.pageLength */
@@ -76,18 +97,22 @@ function ajaxComplainListRsvd1_t() {
 	    totalPage = result.data.totalPage;
 	    $('#pageNo').text(pageNo);
 	    
-	    // 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
+	    / // 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
 	    if (pageNo <= 1) {
-	    	$('#prevBtn').attr('disabled', true);
+	    	$("#prevBtn").css({ 'pointer-events': 'none' });
+	    	$('#prevBtn').addClass("disabled");
 	    } else {
-	    	$('#prevBtn').removeAttr('disabled');
+	    	$("#prevBtn").css({ 'pointer-events': 'visible' });
+	    	$('#prevBtn').removeClass("disabled");
 	    } 
 	    
 	    // 페이지 번호가 마지막 페이지라면 [다음] 버튼을 비활성화시킨다.
 	    if (pageNo >= totalPage) {
-	    	$('#nextBtn').attr('disabled', true);
+	    	$("#nextBtn").css({ 'pointer-events': 'none' });
+	    	$('#nextBtn').addClass("disabled");
 	    } else {
-	    	$('#nextBtn').removeAttr('disabled');
+	    	$("#nextBtn").css({ 'pointer-events': 'visible' });
+	    	$('#nextBtn').removeClass("disabled");
 	    }
   })
 	})
@@ -126,19 +151,23 @@ function ajaxComplainListRsvd0_t() {
 	    totalPage = result.data.totalPage;
 	    $('#pageNo').text(pageNo);
 	    
-	    // 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
-	    if (pageNo <= 1) {
-	    	$('#prevBtn').attr('disabled', true);
-	    } else {
-	    	$('#prevBtn').removeAttr('disabled');
-	    } 
-	    
-	    // 페이지 번호가 마지막 페이지라면 [다음] 버튼을 비활성화시킨다.
-	    if (pageNo >= totalPage) {
-	    	$('#nextBtn').attr('disabled', true);
-	    } else {
-	    	$('#nextBtn').removeAttr('disabled');
-	    }
+	 // 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
+   	    if (pageNo <= 1) {
+   	    	$("#prevBtn0").css({ 'pointer-events': 'none' });
+   	    	$('#prevBtn0').addClass("disabled");
+   	    } else {
+   	    	$("#prevBtn0").css({ 'pointer-events': 'visible' });
+   	    	$('#prevBtn0').removeClass("disabled");
+   	    } 
+   	    
+   	    // 페이지 번호가 마지막 페이지라면 [다음] 버튼을 비활성화시킨다.
+   	    if (pageNo >= totalPage - 1) {
+   	    	$("#nextBtn0").css({ 'pointer-events': 'none' });
+   	    	$('#nextBtn0').addClass("disabled");
+   	    } else {
+   	    	$("#nextBtn0").css({ 'pointer-events': 'visible' });
+   	    	$('#nextBtn0').removeClass("disabled");
+   	    }
   })
 	})
 }

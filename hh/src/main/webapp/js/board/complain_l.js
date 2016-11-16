@@ -117,6 +117,7 @@ function ajaxComplainListRsvd1() {
        // 현재 페이지 번호를 span 태그에 출력한다.
        pageNo = result.data.pageNo;
        totalPage = result.data.totalPage;
+       //console.log(totalPage)
        $('#pageNo').text(pageNo);
        
     // 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
@@ -129,7 +130,7 @@ function ajaxComplainListRsvd1() {
 	    } 
 	    
 	    // 페이지 번호가 마지막 페이지라면 [다음] 버튼을 비활성화시킨다.
-	    if (pageNo >= totalPage - 1) {
+	    if (pageNo >= totalPage) {
 	    	$("#nextBtn").css({ 'pointer-events': 'none' });
 	    	$('#nextBtn').addClass("disabled");
 	    } else {
@@ -163,7 +164,7 @@ function ajaxComplainListRsvd0() {
        // 현재 페이지 번호를 span 태그에 출력한다.
        pageNo = result.data.pageNo;
        totalPage = result.data.totalPage;
-       console.log(totalPage)
+       //console.log(totalPage)
        $('#pageNo').text(pageNo);
        
        
