@@ -74,7 +74,7 @@ function ajaxLoginUser() {
 		$("#userName1").html(result.data.name);
 		$("#userName2").html(result.data.name);
 		$("#password3").val(result.data.password);
-		$("#authLevel").html("임대인");
+		$("#authLevel").html("임차인");
 
 		if (result.data.phoPath != null && result.data.phoPath != "") {
 			$('#myPhoto1').attr('src', '../../upload/' + result.data.phoPath);
