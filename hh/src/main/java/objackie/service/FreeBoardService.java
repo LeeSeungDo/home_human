@@ -8,7 +8,7 @@ import objackie.vo.FreeBoard;
 
 public interface FreeBoardService {
 
-  List<FreeBoard> getFreeBoardList(int pageNo, int length) throws Exception;
+  List<FreeBoard> getFreeBoardList(int pageNo, int length, String keyword) throws Exception;
   void insertFreeBoard(FreeBoard freeboard, MultipartFile file, String uploadDir) throws Exception; 
   void insertFreeBoard1(FreeBoard freeboard, String uploadDir) throws Exception; 
   FreeBoard getFreeBoard(int no) throws Exception;

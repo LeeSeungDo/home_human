@@ -349,9 +349,7 @@
 					<h3>건물정보</h3>
 					<table id="boardTable">
 					<thead>
-						<tr>
-							<th>임대건물번호</th>
-							<th>소유주이메일</th>
+						<tr>							
 							<th>부동산아이디</th>
 							<th>우편번호</th>
 							<th>기본주소</th>
@@ -377,9 +375,7 @@
 		</div>
 		<script id="reTemplateText" type="text/x-handlebars-template">
 {{#each data}}
-<tr class="buildList" data-no="{{buildNo}}">
-  <td>{{buildNo}}</td>
-  <td>{{email}}</td>
+<tr class="buildList" data-no="{{buildNo}}">  
   <td>{{reID}}</td>
   <td>{{postNo}}</td>
   <td>{{basicAddr}}</td>
