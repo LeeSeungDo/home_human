@@ -21,7 +21,7 @@ var pageNo = 1, /* window.pageNo */
 function ajaxFreeBoardList() {
 	$.getJSON(serverAddr + "/freeboard/list.json", {"pageNo": pageNo, "length": pageLength}, function(obj) {
 		var result = obj.jsonResult 
-		console.log(result.data)
+		//console.log(result.data)
 		if (result.state != "success") {
 	    	 alert("서버에서 데이터를 가져오는데 실패했습니다.")
 	    	 return
@@ -42,9 +42,9 @@ function ajaxFreeBoardList() {
 	    totalPage = result.data.totalPage;
 	    
 	    var test = result.data.list[0].filename;
-	    console.log(test);
-	    console.log(pageNo);
-	    console.log(totalPage);
+	    //console.log(test);
+	    //console.log(pageNo);
+	    //console.log(totalPage);
 	    
 	 // 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
 	    if (pageNo <= 1) {
