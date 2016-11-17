@@ -22,6 +22,15 @@
 
 
 	<section>
+	
+	<div id="buildSelect">	
+	  <div></div>
+	</div>
+            <script id="buildTemplateText" type="text/x-handlebars-template">
+{{#each data}}
+  <button type="button" class="selectB" data-no1="{{buildNo}}">{{reID}}</button>
+{{/each}}
+</script>
 
 		<div class="crud-bar">
 			<button class="button_1 button_1 btn btn-warning" type="button"
@@ -108,9 +117,7 @@
 	<script type="text/javascript" src="../../js/bit.js"></script>
 	<script type="text/javascript" src="../../js/contract/contractMnge.js"></script>
 	<script>
-	  ajaxRealEstateContractList1()
-    ajaxRealEstateContractList2()
-    ajaxRealEstateContractList3()
+    ajaxLoginUser()
     </script>
 
 </body>

@@ -50,15 +50,17 @@ public class RealEstateContractController {
   @RequestMapping(path="list1")
   public Object list1(
       @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="12") int length) throws Exception {
+      @RequestParam(defaultValue="12") int length,
+      int no) throws Exception {
     
     try {
-      List<RealEstateContract> list = realEstateContractService.getRealEstateContractList1(pageNo, length);
+      List<RealEstateContract> list = realEstateContractService.getRealEstateContractList1(pageNo, length, no);
       
       HashMap<String,Object> data = new HashMap<>();
       data.put("list", list);
       data.put("pageNo", pageNo);
       data.put("length", length);
+      data.put("buildNo", no);
       
       return JsonResult.success(data);
       
@@ -70,15 +72,17 @@ public class RealEstateContractController {
   @RequestMapping(path="list2")
   public Object list2(
       @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="12") int length) throws Exception {
+      @RequestParam(defaultValue="12") int length,
+      int no) throws Exception {
     
     try {
-      List<RealEstateContract> list = realEstateContractService.getRealEstateContractList2(pageNo, length);
+      List<RealEstateContract> list = realEstateContractService.getRealEstateContractList2(pageNo, length, no);
       
       HashMap<String,Object> data = new HashMap<>();
       data.put("list", list);
       data.put("pageNo", pageNo);
       data.put("length", length);
+      data.put("buildNo", no);
       
       return JsonResult.success(data);
       
@@ -90,15 +94,17 @@ public class RealEstateContractController {
   @RequestMapping(path="list3")
   public Object list3(
       @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="12") int length) throws Exception {
+      @RequestParam(defaultValue="12") int length,
+      int no) throws Exception {
     
     try {
-      List<RealEstateContract> list = realEstateContractService.getRealEstateContractList3(pageNo, length);
+      List<RealEstateContract> list = realEstateContractService.getRealEstateContractList3(pageNo, length, no);
       
       HashMap<String,Object> data = new HashMap<>();
       data.put("list", list);
       data.put("pageNo", pageNo);
       data.put("length", length);
+      data.put("buildNo", no);
       
       return JsonResult.success(data);
       

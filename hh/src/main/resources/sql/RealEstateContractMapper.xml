@@ -32,10 +32,10 @@
 
   <select id="selectList1" resultMap="realestatecontractMap"
     parameterType="map">
-    select t1.T_EMAIL, t1.CRCT_NO, t1.CRCT_STAT, t2.NAME, t2.EMAIL
+    select t1.T_EMAIL, t1.BUILD_NO, t1.CRCT_NO, t1.CRCT_STAT, t2.NAME, t2.EMAIL
     from RE_CRCT as t1 LEFT OUTER JOIN MEMBS as t2
     on t1.T_EMAIL = t2.EMAIL
-    where t2.AUTH = 1 and t1.CRCT_STAT=0
+    where t2.AUTH = 1 and t1.CRCT_STAT=0 and t1.BUILD_NO=#{buildNo}
     order by CRCT_NO desc
 
     limit #{startIndex}, #{length}
@@ -43,10 +43,10 @@
 
   <select id="selectList2" resultMap="realestatecontractMap"
     parameterType="map">
-    select t1.T_EMAIL, t1.CRCT_NO, t1.CRCT_STAT, t2.NAME, t2.EMAIL
+    select t1.T_EMAIL, t1.BUILD_NO, t1.CRCT_NO, t1.CRCT_STAT, t2.NAME, t2.EMAIL
     from RE_CRCT as t1 LEFT OUTER JOIN MEMBS as t2
     on t1.T_EMAIL = t2.EMAIL
-    where t2.AUTH = 1 and t1.CRCT_STAT=1
+    where t2.AUTH = 1 and t1.CRCT_STAT=1 and t1.BUILD_NO=#{buildNo}
     order by CRCT_NO desc
 
     limit #{startIndex}, #{length}
@@ -54,10 +54,10 @@
 
   <select id="selectList3" resultMap="realestatecontractMap"
     parameterType="map">
-    select t1.T_EMAIL, t1.CRCT_NO, t1.CRCT_STAT, t2.NAME, t2.EMAIL
+    select t1.T_EMAIL, t1.BUILD_NO, t1.CRCT_NO, t1.CRCT_STAT, t2.NAME, t2.EMAIL
     from RE_CRCT as t1 LEFT OUTER JOIN MEMBS as t2
     on t1.T_EMAIL = t2.EMAIL
-    where t2.AUTH = 1 and t1.CRCT_STAT=2
+    where t2.AUTH = 1 and t1.CRCT_STAT=2 and t1.BUILD_NO=#{buildNo}
     order by CRCT_NO desc
 
     limit #{startIndex}, #{length}
