@@ -8,8 +8,8 @@ function ajaxRealEstateContractList1(no) {
 			return
 		}
 
-		var template = Handlebars.compile($('#crTemplateText1').html())	    
-		$("#contractTable1").html(template(result.data))		
+		var template = Handlebars.compile($('#crTemplateText1').html())	  
+		$("#contractTable1").html(template(result.data))
 
 		$(document.body).on('click', '.contractForm1', function(event) {
 			window.location.href = serverAddr + "/html/contract/viewMyContract.html?no=" + $(this).attr("data-no")
@@ -76,10 +76,10 @@ function ajaxBuildList(email) {
 		}
 
 		var template = Handlebars.compile($('#buildTemplateText').html())
-		$("#buildSelect div").html(template(result))
+		$("#buildSelect select").html(template(result))
 
-		$(".selectB").click(function(event) {
-			var no = $(this).attr("data-no1")
+		$(".selectB").change(function(event) {
+			var no =  $('.selectB option:selected').attr("data-no1")
 			console.log(no)
 			ajaxRealEstateContractList1(no)
 			ajaxRealEstateContractList2(no)

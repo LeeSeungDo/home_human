@@ -5,127 +5,137 @@
 <title>입차인 정보</title>
 
 <link rel="stylesheet"
-  href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+	href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet"
-  href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+	href="../../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
 <link rel="stylesheet" type="text/css"
-  href="../../css/contract/tenantRegiForm.css">
+	href="../../css/contract/tenantRegiForm.css">
 
 </head>
 <body>
-  <header>
-    <h1 style="text-align: center">Header</h1>
-  </header>
+	<header>
+		<h1 style="text-align: center">Header</h1>
+	</header>
 
-  <section>
-    <h1>임차인정보 입력</h1>
-
-    <form class="form-horizontal">
-      <div class="form-group">
-        <label for="buildNo" class="col-sm-2 control-label">건물번호</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="buildNo" name="buildNo"
-            placeholder="건물번호">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for=tenantEmail class="col-sm-2 control-label">임차인이메일</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="tenantEmail" name="tenantEmail"
-            placeholder="임차인이메일">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="deposit" class="col-sm-2 control-label">보증금</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="deposit" name="deposit"
-            placeholder="보증금">
-        </div>
-      </div>
-  
-  
-      <div class="form-group">
-        <label for="contractType" class="col-sm-2 control-label">임대유형</label>
-        <div>
-          <input type="radio" name="contractType" value=0 checked>월세 
-          <input type="radio" name="contractType" value=1>전세
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="contractDate" class="col-sm-2 control-label">계약일</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="contractDate" name="contractDate"
-            placeholder="계약일">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="endDate" class="col-sm-2 control-label">만료일</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="endDate" name="endDate"
-            placeholder="만료일">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="rentPayDate" class="col-sm-2 control-label">월세납입일</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="rentPayDate" name="rentPayDate"
-            placeholder="월세납입일">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="utilityPayDate" class="col-sm-2 control-label">관리비납입일</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="utilityPayDate" name="utilityPayDate"
-            placeholder="관리비납입일">
-        </div>
-      </div>
-    
-
-      <div class="form-group">
-        <label for="contractStatus" class="col-sm-2 control-label">계약상태</label>
-        <div>
-          <input type="radio" name="contractStatus" value=0 checked>계약대기 
-          <input type="radio" name="contractStatus" value=1>계약중 
-          <input type="radio" name="contractStatus" value=2>계약만료
-        </div>
-      </div>
+	<section>
+		<h1>임차인정보 입력</h1>
 
 
-      <div class="form-group my-view">
-        <label class="col-sm-2 control-label">사진</label>
-        <div class="col-sm-10">
-          <input type="file" class="form-control" name="file">
-        </div>
-      </div>
-      
-      
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button id="addBtn" type="button" class="btn btn-default my-new">저장</button>
-          <button id="cancelBtn" type="button" class="btn btn-default"
-            onclick="location.href='contractMnge.html'">취소</button>
-        </div>
-      </div>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label for="buildNo" class="col-sm-2 control-label">건물명</label>
+				<div id="buildSelect">
+					<select name="buildNo" class="selectB"></select>
+				</div>
+			</div>
+			<script id="buildTemplateText" type="text/x-handlebars-template">
+        {{#each data}}
+          <option name="buildNo" val="{{buildNo}}" data-no1="{{buildNo}}">{{reID}}</option>
+        {{/each}}
+      </script>
 
-    </form>
+			<div class="form-group">
+				<label for=tenantEmail class="col-sm-2 control-label">임차인이메일</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="tenantEmail"
+						name="tenantEmail" placeholder="임차인이메일">
+				</div>
+			</div>
 
-  </section>
+			<div class="form-group">
+				<label for="deposit" class="col-sm-2 control-label">보증금</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="deposit" name="deposit"
+						placeholder="보증금">
+				</div>
+			</div>
 
-  <footer>
-    <h1 style="text-align: center">footer</h1>
-  </footer>
 
-  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../../js/common.js"></script>
-  <script type="text/javascript" src="../../js/bit.js"></script>
-  <script type="text/javascript" src="../../js/contract/tenantRegiForm.js"></script>
+			<div class="form-group">
+				<label for="contractType" class="col-sm-2 control-label">임대유형</label>
+				<div>
+					<input type="radio" name="contractType" value=0 checked>월세
+					<input type="radio" name="contractType" value=1>전세
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="contractDate" class="col-sm-2 control-label">계약일</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="contractDate"
+						name="contractDate" placeholder="계약일">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="endDate" class="col-sm-2 control-label">만료일</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="endDate" name="endDate"
+						placeholder="만료일">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="rentPayDate" class="col-sm-2 control-label">월세납입일</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="rentPayDate"
+						name="rentPayDate" placeholder="월세납입일">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="utilityPayDate" class="col-sm-2 control-label">관리비납입일</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="utilityPayDate"
+						name="utilityPayDate" placeholder="관리비납입일">
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for="contractStatus" class="col-sm-2 control-label">계약상태</label>
+				<div>
+					<input type="radio" name="contractStatus" value=0 checked>계약대기
+					<input type="radio" name="contractStatus" value=1>계약중 <input
+						type="radio" name="contractStatus" value=2>계약만료
+				</div>
+			</div>
+
+
+			<div class="form-group my-view">
+				<label class="col-sm-2 control-label">사진</label>
+				<div class="col-sm-10">
+					<input type="file" class="form-control" name="file">
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button id="addBtn" type="button" class="btn btn-default my-new">저장</button>
+					<button id="cancelBtn" type="button" class="btn btn-default"
+						onclick="location.href='contractMnge.html'">취소</button>
+				</div>
+			</div>
+
+		</form>
+
+	</section>
+
+	<footer>
+		<h1 style="text-align: center">footer</h1>
+	</footer>
+
+	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/bit.js"></script>
+	<script type="text/javascript"
+		src="../../js/contract/tenantRegiForm.js"></script>			
+	<script>
+		ajaxLoginUser()
+		</script>
 
 </body>
 </html>
