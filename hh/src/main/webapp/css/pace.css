@@ -73,7 +73,6 @@
 }
 
 .pace-running > :not(.pace) {
-    background-color: black;
     opacity: -1;
 }
 

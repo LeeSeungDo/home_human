@@ -20,6 +20,10 @@ $("#addBtn").click(function(event) {
 	}
 });
 
+$("#cancelBtn").click(function(event) {
+	window.location.href = serverAddr + "/html/board/freeboard.html";
+})
+
 
 function ajaxAddFreeBoardFile(formData) {
 	$.ajax({
@@ -29,8 +33,13 @@ function ajaxAddFreeBoardFile(formData) {
 	    contentType: false,
 	    type: 'POST',
 	    success: function(data){
-	    	alert("EE");
-	    	window.location.href = serverAddr + "/html/board/freeboard.html"
+	    	swal({
+				  title: '등록 되었습니다.',
+				  confirmButtonColor: '#3085d6',
+				  confirmButtonText: '확인'
+				}).then(function () {
+					window.location.href = serverAddr + "/html/board/freeboard.html"
+				});
 	    }
 	  });
 }
@@ -43,8 +52,13 @@ function ajaxAddFreeBoardFile1(formData) {
 	    contentType: false,
 	    type: 'POST',
 	    success: function(data){
-	    	alert("EE");
-	    	window.location.href = serverAddr + "/html/board/freeboard.html"
+	    	swal({
+				  title: '등록 되었습니다.',
+				  confirmButtonColor: '#3085d6',
+				  confirmButtonText: '확인'
+				}).then(function () {
+					window.location.href = serverAddr + "/html/board/freeboard.html"
+				});
 	    }
 	  });
 }
