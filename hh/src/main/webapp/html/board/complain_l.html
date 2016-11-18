@@ -79,7 +79,7 @@
 -->
 
 <body>
-<div class="pace"></div>
+	<div class="pace"></div>
 	<!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
 	<!--
      Top Navbar
@@ -254,8 +254,9 @@
 					<li><a href="#" class=" waves-effect waves-blue"> <i
 							class="fa fa-credit-card"></i> 관리비내역
 					</a></li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i
-							class="fa fa-hand-o-right"></i> 자유게시판
+					<li><a href="#" class=" waves-effect waves-blue"
+						id="freeBoardLink"> <i class="fa fa-hand-o-right"></i> <span>
+								자유게시판 </span>
 					</a></li>
 				</ul>
 
@@ -295,28 +296,28 @@
 							<li class="tab col s3" rel="complain2"><a href="#"> 처리된
 									민원</a></li>
 						</ul>
-						
-				
+
+
 					</div>
 				</div>
 
 
 				<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
 				<div id="complain1" class="tab_content">
-				<div class="row">
-					<div class="col l3 s12">
-						<div class="card">
-							<a class="waves-effect waves-dark btn cyan" id="prevBtn"
-								style="width: 100%;">&lt;&lt; 이전</a>
+					<div class="row">
+						<div class="col l3 s12">
+							<div class="card">
+								<a class="waves-effect waves-dark btn cyan" id="prevBtn"
+									style="width: 100%;">&lt;&lt; 이전</a>
+							</div>
+						</div>
+						<div class="col l3 s12 offset-l6">
+							<div class="card">
+								<a class="waves-effect waves-dark btn cyan" id="nextBtn"
+									style="width: 100%;">다음 &gt;&gt;</a>
+							</div>
 						</div>
 					</div>
-					<div class="col l3 s12 offset-l6">
-						<div class="card">
-							<a class="waves-effect waves-dark btn cyan" id="nextBtn"
-								style="width: 100%;">다음 &gt;&gt;</a>
-						</div>
-					</div>
-				</div>
 					<div class="row" id="complainTable"></div>
 					<script id="trTemplateText" type="text/x-handlebars-template">
 {{#each list}}
@@ -358,29 +359,29 @@
 
 {{/each}}
 </script>
-</div>
-</div>
-				<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
-				<div class="row sortable" style="margin-right: 0;">
-			<div style="margin: 0 auto; width: 80%;">
-			
-				<div id="complain2" class="tab_content">
-				<div class="row">
-					<div class="col l3 s12">
-						<div class="card">
-							<a class="waves-effect waves-dark btn cyan" id="prevBtn0"
-								style="width: 100%;">&lt;&lt; 이전</a>
-						</div>
-					</div>
-					<div class="col l3 s12 offset-l6">
-						<div class="card">
-							<a class="waves-effect waves-dark btn cyan" id="nextBtn0"
-								style="width: 100%;">다음 &gt;&gt;</a>
-						</div>
-					</div>
 				</div>
-					<div class="row" id="complainTable2"></div>
-					<script id="trTemplateText2" type="text/x-handlebars-template">
+			</div>
+			<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
+			<div class="row sortable" style="margin-right: 0;">
+				<div style="margin: 0 auto; width: 80%;">
+
+					<div id="complain2" class="tab_content">
+						<div class="row">
+							<div class="col l3 s12">
+								<div class="card">
+									<a class="waves-effect waves-dark btn cyan" id="prevBtn0"
+										style="width: 100%;">&lt;&lt; 이전</a>
+								</div>
+							</div>
+							<div class="col l3 s12 offset-l6">
+								<div class="card">
+									<a class="waves-effect waves-dark btn cyan" id="nextBtn0"
+										style="width: 100%;">다음 &gt;&gt;</a>
+								</div>
+							</div>
+						</div>
+						<div class="row" id="complainTable2"></div>
+						<script id="trTemplateText2" type="text/x-handlebars-template">
 {{#each list}}
    <div class="col l4 s12">
    <div class="card of-h">
@@ -419,11 +420,11 @@
 </div>
 {{/each}}
    </script>
-   </div>
-   </div>
-<div class="col"></div>
-					<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+					</div>
 				</div>
+				<div class="col"></div>
+				<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+			</div>
 	</section>
 	<!-- /Main Content -->
 	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->

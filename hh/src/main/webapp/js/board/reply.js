@@ -5,6 +5,7 @@ function ajaxReplyList(no) {
 			alert("서버에서 데이터를 가져오는데 실패했습니다.")
 			return
 		}
+		//console.log(result.data);
 		var template = Handlebars.compile($('#rrTemplateText').html())	    
 		$("#replyTable tbody").html(template(result))	    
 
@@ -21,14 +22,28 @@ function ajaxReplyList(no) {
 
 
 $("#reAddBtn").click(function(event) {	
-	if (location.search.startsWith("?")) {
-		var no = location.search.split("=")[1];
-	}
-	var reply = {
+	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
+		var result = obj.jsonResult
+	    if (result.state != "success") { // 로그아웃 상태일 경우 로그인 상태와 관련된 태그를 감춘다.
+	    	alert("로그아웃 되었습니다.");
+	    	window.location.href = serverAddr + "/html/index.html"
+	         return
+	    }
+		var email = result.data.email;
+		
+		if (location.search.startsWith("?")) {
+			var no = location.search.split("=")[1];
+		}
+		var reply = {
 			no: no,	
+			email: email,
 			reContents: $("#reContents").val()
-	}
-	ajaxAddReply(reply)
+		}
+	
+		//console.log(reply);
+	
+		ajaxAddReply(reply)
+	});
 });
 
 
@@ -95,19 +110,18 @@ function ajaxLoadReply(no) {
 			alert("조회 실패입니다.")
 			return
 		} else {
+			$("#replyTable tr[data-no=" + no + "]").find("p").html(
+				"<textarea id='reUpdateLimit' name='contents' class='materialize-textarea update-contents limitation reAddLimit' style='padding-bottom: 0;'></textarea>");
 			$("#replyTable tr[data-no=" + no + "]").find("td:eq(2)").html(
-			"<textarea cols='75' rows='2' class='update-contents reAddLimit' id='reUpdateLimit'></textarea>");
-			$("#replyTable tr[data-no=" + no + "]").find("td:eq(5)").html(
-					"<button type='button' class='bit-save-btn' data-no=" + no + ">저장</button>" +
-			"<button type='button' class='bit-cancel-btn' data-no=" + no + ">취소</button>");
+				"<button type='button' class='btn btn-primary btn-sm bit-save-btn' style='margin-bottom: 2%;' data-no=" + no + ">저장</button>" +
+				"<button type='button' class='btn btn-primary btn-sm bit-cancel-btn' data-no=" + no + ">취소</button>");
 			
 			$("#replyTable tr[data-no=" + no + "]").find(".update-contents").val(result.data.reContents);
-			
 		}
 	})	
-	
-	
 }
+
+
 
 
 $(document.body).ready(function() {
@@ -145,10 +159,10 @@ function ajaxCancelReply(no) {
 			alert("조회 실패입니다.")
 			return
 		} else {			
-			$("#replyTable tr[data-no=" + no + "]").find("td:eq(2)").html(
+			$("#replyTable tr[data-no=" + no + "]").find("p").html(
 					result.data.reContents);
-			$("#replyTable tr[data-no=" + no + "]").find("td:eq(5)").html(
-					"<button type='button' class='btn btn-primary btn-sm bit-update-btn' data-no="+ no +">수정</button>" +
+			$("#replyTable tr[data-no=" + no + "]").find("td:eq(2)").html(
+					"<button type='button' class='btn btn-primary btn-sm bit-update-btn' style='margin-bottom: 2%;' data-no="+ no +">수정</button>" +
 					"<button type='button' class='btn btn-primary btn-sm bit-delete-btn' data-no="+ no +">삭제</button>");	
 		}
 	})		
