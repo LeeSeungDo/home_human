@@ -11,17 +11,6 @@ $("#cancelBtn").click(function(event) {
 	window.location.href = serverAddr + "/html/auth/myinfo.html"
 });
 
-$("#updateBtn").click(function(event) {
-	var build = {
-			postNo: $("#postNo").val(),
-			basicAddr: $("#basicAddr").val(),
-			detailAddr: $("#detailAddr").val(),
-			tel: $("#tel").val()
-	}
-	console.log(build)
-	//ajaxUpdateBuild(build)
-
-});
 
 //회원정보수정 회원데이터 출력
 function ajaxLoginUser() {
@@ -56,7 +45,35 @@ function ajaxLoginUser() {
 			$('#myPhoto2').attr('src', '../../images/user_default.png');
 		}
 
-		ajaxLoginUser();
+		var email = result.data.email;
+
+		$("#agreeBtn").click(function(event) {	
+			var building = {
+					email: email,
+					reID: $(".reID").val(),
+					postNo: $(".postNo").val(),
+					basicAddr: $(".basicAddr").val(),
+					detailAddr: $(".detailAddr").val(),
+					reType: $(".reType").val(),
+					park: $(".park").val()
+			}
+			ajaxAddBuilding(building)
+		});
+		
+		$("#updateBtn").click(function(event) {
+			var no = location.search.split("=")[1];
+			var buildinging = {
+					buildNo: no,
+					email: email,
+					reID: $(".reID").val(),
+					postNo: $(".postNo").val(),
+					basicAddr: $(".basicAddr").val(),
+					detailAddr: $(".detailAddr").val(),
+					reType: $(".reType").val(),
+					park: $(".park").val()
+			}
+			ajaxUpdateBuilding(buildinging)
+		});
 	})
 }
 
@@ -117,20 +134,6 @@ function DaumPostcode() {
 	}).open();
 }
 
-
-$("#agreeBtn").click(function(event) {	
-	var building = {
-			email: "jun@bit.com",
-			reID: $(".reID").val(),
-			postNo: $(".postNo").val(),
-			basicAddr: $(".basicAddr").val(),
-			detailAddr: $(".detailAddr").val(),
-			reType: $(".reType").val(),
-			park: $(".park").val()
-	}
-	ajaxAddBuilding(building)
-});
-
 function ajaxAddBuilding(building) {
 	$.post(serverAddr + "/build/add.json", building, function(obj) {
 		var result = obj.jsonResult
@@ -160,20 +163,6 @@ function ajaxLoadBuilding(no) {
 	})
 }
 
-$("#updateBtn").click(function(event) {
-	var no = location.search.split("=")[1];
-	var buildinging = {
-			buildNo: no,
-			email: "jun@bit.com",
-			reID: $(".reID").val(),
-			postNo: $(".postNo").val(),
-			basicAddr: $(".basicAddr").val(),
-			detailAddr: $(".detailAddr").val(),
-			reType: $(".reType").val(),
-			park: $(".park").val()
-	}
-	ajaxUpdateBuilding(buildinging)
-});
 
 function ajaxUpdateBuilding(building) {
 	$.post(serverAddr + "/build/update.json", building, function(obj) {

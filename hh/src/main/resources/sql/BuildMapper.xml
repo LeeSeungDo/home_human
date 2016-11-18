@@ -19,7 +19,7 @@
   <select id="selectList" resultMap="buildMap" parameterType="map">
     select A.EMAIL, A.NAME, A.AUTH, B.BUILD_NO, B.RE_ID, B.POSTNO, B.BAS_ADDR, B.DIT_ADDR, B.RE_TYPE, B.PK
     from MEMBS A RIGHT JOIN RE B ON A.EMAIL = B.L_EMAIL
-    where A.AUTH=0
+    where A.AUTH=0 and B.L_EMAIL=#{email}
     order by B.BUILD_NO desc
     
     limit #{startIndex}, #{length}
@@ -33,7 +33,7 @@
   
   <insert id="insert" parameterType="build">
     insert into re(L_EMAIL, RE_ID, POSTNO, BAS_ADDR, DIT_ADDR, RE_TYPE, PK)
-    values("jun@bit.com", #{reID}, #{postNo}, #{basicAddr}, #{detailAddr}, #{reType}, #{park})
+    values(#{email}, #{reID}, #{postNo}, #{basicAddr}, #{detailAddr}, #{reType}, #{park})
   </insert>
   
   <update id="update" parameterType="build">

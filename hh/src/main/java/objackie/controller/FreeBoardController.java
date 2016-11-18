@@ -28,24 +28,37 @@ public class FreeBoardController {
   @RequestMapping(path="list")
   public Object list(
       @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="10") int length) throws Exception {
+      @RequestParam(defaultValue="12") int length, 
+      String keyword) throws Exception {
     
     try {
-      List<FreeBoard> list = freeboardService.getFreeBoardList(pageNo, length);
+      if ((keyword == null) || (keyword == "")) {
+        keyword = "";
+        System.out.println(keyword);
+      } else {
+        System.out.println(keyword);
+      }
+      
+      List<FreeBoard> list = freeboardService.getFreeBoardList(pageNo, length, keyword);
       int totalPage = freeboardService.getTotalPage(length);
+      
+      for (int i = 0; i < list.size(); i++) {
+        System.out.println(list.get(i));
+      }
       
       HashMap<String,Object> data = new HashMap<>();      
       data.put("list", list);
       data.put("totalPage", totalPage);
       data.put("pageNo", pageNo);
       data.put("length", length);
+      data.put("keyword", keyword);
       
       return JsonResult.success(data);
       
     } catch (Exception e) {
       return JsonResult.fail(e.getMessage());
     }
-  }  
+  }   
   
   
   @RequestMapping(path="add")
