@@ -28,11 +28,7 @@
 					<select name="buildNo" class="selectB"></select>
 				</div>
 			</div>
-			<script id="buildTemplateText" type="text/x-handlebars-template">
-        {{#each data}}
-          <option name="buildNo" val="{{buildNo}}" data-no1="{{buildNo}}">{{reID}}</option>
-        {{/each}}
-      </script>
+
 
 			<div class="form-group">
 				<label for=tenantEmail class="col-sm-2 control-label">임차인이메일</label>
@@ -132,10 +128,15 @@
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../js/bit.js"></script>
 	<script type="text/javascript"
-		src="../../js/contract/tenantRegiForm.js"></script>			
+		src="../../js/contract/tenantRegiForm.js"></script>
 	<script>
 		ajaxLoginUser()
-		</script>
+  </script>
+	<script id="buildTemplateText" type="text/x-handlebars-template">
+    {{#each data}}
+      <option name="buildNo" value="{{buildNo}}" data-no1="{{buildNo}}">{{reID}}</option>
+    {{/each}}
+  </script>
 
 </body>
 </html>
