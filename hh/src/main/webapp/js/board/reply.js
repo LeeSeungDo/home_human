@@ -9,51 +9,43 @@ function ajaxReplyList(no) {
 		var template = Handlebars.compile($('#rrTemplateText').html())	    
 		$("#replyTable tbody").html(template(result))	    
 
-	})
-
-	$(document.body).on("click",".bit-delete-btn",function(event) {	
-		if (confirm("정말 삭제하시겠습니까?") == true) {
-			ajaxDeleteReply($(this).attr("data-no"))
-		} else {
-			return;
-		}  
-	});
+	})	
 }
 
 
 $("#reAddBtn").click(function(event) {	
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
-	    if (result.state != "success") { // 로그아웃 상태일 경우 로그인 상태와 관련된 태그를 감춘다.
-	    	alert("로그아웃 되었습니다.");
-	    	window.location.href = serverAddr + "/html/index.html"
-	         return
-	    }
+		if (result.state != "success") { // 로그아웃 상태일 경우 로그인 상태와 관련된 태그를 감춘다.
+			alert("로그아웃 되었습니다.");
+			window.location.href = serverAddr + "/html/index.html"
+			return
+		}
 		var email = result.data.email;
-		
+
 		if (location.search.startsWith("?")) {
 			var no = location.search.split("=")[1];
 		}
 		var reply = {
-			no: no,	
-			email: email,
-			reContents: $("#reContents").val()
+				no: no,	
+				email: email,
+				reContents: $("#reContents").val()
 		}
-	
+
 		//console.log(reply);
-	
+
 		ajaxAddReply(reply)
 	});
 });
 
 
 $(document.body).ready(function() {
-    $('.reAddLimit').on('keyup', function() {
-        if($(this).val().length > 50) {
-        	 alert("글자수는 50자 이내로 제한됩니다.!");  
-            $(this).val($(this).val().substring(0, 50));
-        }
-    });
+	$('.reAddLimit').on('keyup', function() {
+		if($(this).val().length > 50) {
+			alert("글자수는 50자 이내로 제한됩니다.!");  
+			$(this).val($(this).val().substring(0, 50));
+		}
+	});
 });
 
 
@@ -83,12 +75,6 @@ function ajaxDeleteReply(no) {
 }
 
 
-$(document.body).on("click",".bit-update-btn",function(event) {
-	var tno = $(this).attr("data-no")
-	ajaxLoadReply(tno)
-});
-
-
 $(document.body).on("click",".bit-save-btn",function(event) {
 	var reply = {
 			reno: $(this).attr("data-no"),
@@ -111,11 +97,11 @@ function ajaxLoadReply(no) {
 			return
 		} else {
 			$("#replyTable tr[data-no=" + no + "]").find("p").html(
-				"<textarea id='reUpdateLimit' name='contents' class='materialize-textarea update-contents limitation reAddLimit' style='padding-bottom: 0;'></textarea>");
+			"<textarea id='reUpdateLimit' name='contents' class='materialize-textarea update-contents limitation reAddLimit' style='padding-bottom: 0;'></textarea>");
 			$("#replyTable tr[data-no=" + no + "]").find("td:eq(2)").html(
-				"<button type='button' class='btn btn-primary btn-sm bit-save-btn' style='margin-bottom: 2%;' data-no=" + no + ">저장</button>" +
-				"<button type='button' class='btn btn-primary btn-sm bit-cancel-btn' data-no=" + no + ">취소</button>");
-			
+					"<button type='button' class='btn btn-primary btn-sm bit-save-btn' style='margin-bottom: 2%;' data-no=" + no + ">저장</button>" +
+					"<button type='button' class='btn btn-primary btn-sm bit-cancel-btn' data-no=" + no + ">취소</button>");
+
 			$("#replyTable tr[data-no=" + no + "]").find(".update-contents").val(result.data.reContents);
 		}
 	})	
@@ -125,12 +111,12 @@ function ajaxLoadReply(no) {
 
 
 $(document.body).ready(function() {
-    $('.reUpdateLimit').on('keyup', function() {
-        if($(this).val().length > 50) {
-        	 alert("글자수는 50자 이내로 제한됩니다.!");  
-            $(this).val($(this).val().substring(0, 50));
-        }
-    });
+	$('.reUpdateLimit').on('keyup', function() {
+		if($(this).val().length > 50) {
+			alert("글자수는 50자 이내로 제한됩니다.!");  
+			$(this).val($(this).val().substring(0, 50));
+		}
+	});
 });
 
 
@@ -167,6 +153,68 @@ function ajaxCancelReply(no) {
 		}
 	})		
 }
+
+
+
+function ajaxLoginUserReplyComparison() {
+	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
+		var result = obj.jsonResult
+		if (result.state != "success") { 
+			window.location.href = serverAddr + "/html/index.html"
+			return
+		}
+		var loginEmail = result.data.email;
+		console.log(loginEmail)
+
+		$(document.body).on("click",".bit-update-btn",function(event) {				
+			var tno = $(this).attr("data-no")
+			$.getJSON(serverAddr + "/reply/detail2.json?no=" + tno, function(obj) {
+				var result = obj.jsonResult
+				if (result.state != "success") {
+					alert("서버에서 데이터를 가져오는데 실패했습니다.")
+					return
+				}
+				var replyEmail = result.data.email;
+				if (loginEmail != replyEmail) {
+					alert("댓글 수정 권한이 없습니다.")
+				} else {
+					ajaxLoadReply(tno)
+				}
+			})
+		})
+
+		$(document.body).on("click",".bit-delete-btn",function(event) {	
+			var dno = $(this).attr("data-no")
+			$.getJSON(serverAddr + "/reply/detail2.json?no=" + dno, function(obj) {
+				var result = obj.jsonResult
+				if (result.state != "success") {
+					alert("서버에서 데이터를 가져오는데 실패했습니다.")
+					return
+				}
+				var replyEmail = result.data.email;
+				if (loginEmail != replyEmail) {
+					alert("댓글 삭제 권한이 없습니다.")
+				} else {				
+					if (confirm("정말 삭제하시겠습니까?") == true) {
+						ajaxDeleteReply(dno)
+					} else {
+						return;
+					}  
+				}
+			})		
+		})
+	})
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
