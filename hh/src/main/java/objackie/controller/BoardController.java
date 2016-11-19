@@ -27,12 +27,14 @@ public class BoardController {
   @Autowired BoardService boardService;
 
   @RequestMapping(path="firstlist")
-  public Object firstlist() throws Exception {
+  public Object firstlist(String email) throws Exception {
 
     try {
-      List<Board> list = boardService.getFirstList();
+      List<Board> list = boardService.getFirstList(email);
+      System.out.println(list);
       HashMap<String, Object> data = new HashMap<>();
       data.put("list", list);
+      data.put("email", email);
 
       return JsonResult.success(data);
 
@@ -44,16 +46,17 @@ public class BoardController {
   @RequestMapping(path="list")
   public Object list(
       @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="4") int length) throws Exception {
-
+      @RequestParam(defaultValue="4") int length, String email) throws Exception {
     try {
       //System.out.println("board list controller 들어왔어요.");
-      List<Board> list = boardService.getBoardList(pageNo, length);
+      List<Board> list = boardService.getBoardList(pageNo, length, email);
+      System.out.println(list);
       int totalPage = boardService.getTotalPage(length);
 
       HashMap<String,Object> data = new HashMap<>();      
       data.put("list", list);
       data.put("totalPage", totalPage);
+      data.put("email", email);
       data.put("pageNo", pageNo);
       data.put("length", length);
 
@@ -88,17 +91,17 @@ public class BoardController {
   public Object detail(int no) throws Exception {
     try {
       Board board = boardService.getBoard(no);
-      
+
       if (board == null) 
         throw new Exception("해당 번호의 게시물이 존재하지 않습니다.");
-      
+
       return JsonResult.success(board);
-      
+
     } catch (Exception e) {
       return JsonResult.fail(e.getMessage());
     }
   }
-  
+
   @RequestMapping(path="update")
   public Object update(Board board) throws Exception {
     try {
@@ -107,12 +110,12 @@ public class BoardController {
       }
       boardService.updateBoard(board);
       return JsonResult.success();
-      
+
     } catch (Exception e) {
       return JsonResult.fail(e.getMessage());
     }
   }
-  
+
   @RequestMapping(path="updateVW_CNT")
   public Object updateVW_CNT(int no) throws Exception {
     try {
@@ -121,13 +124,13 @@ public class BoardController {
       }
       boardService.updateVW_CNTBoard(no);
       return JsonResult.success();
-      
+
     } catch (Exception e) {
       return JsonResult.fail(e.getMessage());
     }
   }
-  
-  
+
+
   @RequestMapping(path="delete")
   public Object delete(int no) throws Exception {
     try {      
@@ -138,7 +141,7 @@ public class BoardController {
       System.out.println(no);
       boardService.deleteBoard(no);
       return JsonResult.success();
-      
+
     } catch (Exception e) {
       e.printStackTrace();
       return JsonResult.fail(e.getMessage());

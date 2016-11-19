@@ -17,13 +17,13 @@
 
 	<select id="selectFirstList" resultMap="boardMap" parameterType="map">
 		select * from board
-		where type = 0
+		where EMAIL=#{email} and type = 0
 		order by BOD_NO desc limit 0, 1
 	</select>
 
 	<select id="selectList" resultMap="boardMap" parameterType="map">
 		select * from board
-		where type = 0 and bod_no != (select max(bod_no) from board where type = 0)
+		where EMAIL=#{email} and type = 0 and bod_no != (select max(bod_no) from board where EMAIL=#{email} and type = 0)
 		order by bod_no desc
 
 		limit #{startIndex}, #{length}

@@ -20,14 +20,29 @@ $(document.body).on('click', '.hidden_no', function(event) {
     window.location.href = serverAddr + "/html/board/gongziForm.html?no=" + $("#hidden_no").val();
 })
 
+function ajaxLoginUser() {
+	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
+		var result = obj.jsonResult
+		if (result.state != "success") { // 로그아웃 상태일 경우 로그인 상태와 관련된 태그를 감춘다.
+			window.location.href = serverAddr + "/html/index.html"
+			return
+		}	
+		
+		var email = result.data.email;
+		ajaxFirstList(email)
+		ajaxGongziList(email)		
+	})
+}
 
-function ajaxFirstList() {
-	$.getJSON(serverAddr + "/board/firstlist.json", function(obj) {
+function ajaxFirstList(email) {
+	$.getJSON(serverAddr + "/board/firstlist.json", {"email": email}, function(obj) {
 		var result = obj.jsonResult
 		if (result.state != "success") {
 			alert("서버에서 데이터를 가져오는데 실패했습니다.")
 			return
 		}
+		
+		
 		//console.log(result.data);
 		$("#hidden_no").val(result.data.list[0].boardNo);
 		$("#recent_title").html(result.data.list[0].title);
@@ -41,15 +56,20 @@ function ajaxFirstList() {
 var pageNo = 1, /* window.pageNo */
     pageLength = 4; /* window.pageLength */
 
-function ajaxGongziList() {
-	$.getJSON(serverAddr + "/board/list.json", {"pageNo": pageNo, "length": pageLength}, function(obj) {
+function ajaxGongziList(email) {
+	console.log(email)
+	$.getJSON(serverAddr + "/board/list.json", {"pageNo": pageNo, "length": pageLength, "email": email}, 
+			function(obj) {
 		var result = obj.jsonResult
+		console.log(result)
 		if (result.state != "success") {
 	    	 alert("서버에서 데이터를 가져오는데 실패했습니다.")
 	    	 return
 	    }
 	    var template = Handlebars.compile($('#trTemplateText').html())	    
 	    $("#gongziTable").html(template(result.data))
+	    
+	   
 	    
 	    $(document.body).on('click', '.card1', function(event) {
 	    	var clno= $(this).attr("data-no")
