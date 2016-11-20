@@ -322,7 +322,7 @@
 					<script id="trTemplateText" type="text/x-handlebars-template">
 {{#each list}}
    <div class="col l4 s12">
-   <div class="card of-h">
+   <div class="card of-h aaa" id="{{no}}">
   <div class="thumbnail waves-effect waves-block waves-light">
     <img src="../../upload/{{filename}}" alt="Canada" 
       onerror="this.onerror=null;this.src='../../images/camera.png';"
@@ -332,26 +332,26 @@
     <span class="card-title activator grey-text text-darken-4">
 	<p class="tenant-title ellipsis" id="title1" 
 	style="text-overflow: ellipsis;">{{title}}</p>
-     <p class="tenant-writer card1" data-val1={{no}}>{{writer}} 세입자</p>
+     <p class="tenant-writer card1" data-val1="{{no}}">{{writer}} 세입자</p>
   </div>
   <div class="card-reveal">
     <span class="card-title grey-text text-darken-4">
-	<p id="title"  style="font-size: 18px;">{{title}}</p><i class="mdi-content-clear right"></i></span>
-      <p id="complain_conts1">{{contents}}</p>
+	<p id="title1-{{no}}"  style="font-size: 18px;">{{title}}</p><i class="mdi-content-clear right"></i></span>
+      <p id="complain_conts1-{{no}}">{{contents}}</p>
 	<div class="complain_radio">
 	<form action="#">
     <p>
-      <input type="radio" id="rsvd1"  name="rsvdMaterial1" value="미처리" checked/>
-      <label for="rsvd1">미처리</label>
+      <input type="radio" id="rsvd1-{{no}}"  name="rsvdMaterial1-{{no}}" value="미처리" checked/>
+      <label for="rsvd1-{{no}}">미처리</label>
     </p> 
     <p>
-      <input name="rsvdMaterial1" id="rsvd_1_0" value="처리" type="radio"/>
-      <label for="rsvd_1_0">처리</label>
+      <input name="rsvdMaterial1-{{no}}" id="rsvd_1_0-{{no}}" value="처리" type="radio"/>
+      <label for="rsvd_1_0-{{no}}">처리</label>
     </p> 
   </form>
 	</div>
    <div class="button-group">
-           <button type="button" class="btn" id="updateBtn1">수정</button>
+           <button type="button" class="btn" id="updateBtn1-{{no}}">수정</button>
                   </div>
   </div>
 </div>
@@ -384,7 +384,7 @@
 						<script id="trTemplateText2" type="text/x-handlebars-template">
 {{#each list}}
    <div class="col l4 s12">
-   <div class="card of-h">
+   <div class="card of-h bbb" id="{{no}}">
   <div class="thumbnail waves-effect waves-block waves-light">
     <img src="../../upload/{{filename}}" alt="Canada" 
       onerror="this.onerror=null;this.src='../../images/camera.png';"
@@ -398,22 +398,22 @@
   </div>
   <div class="card-reveal">
     <span class="card-title grey-text text-darken-4">
-<p id="title"  style="font-size: 18px;">{{title}}</p><i class="mdi-content-clear right"></i></span>
-      <p id="complain_conts0">{{contents}}</p>
+<p id="title0-{{no}}"  style="font-size: 18px;">{{title}}</p><i class="mdi-content-clear right"></i></span>
+      <p id="complain_conts0-{{no}}">{{contents}}</p>
 	<div class="complain_radio">
 	<form action="#">
     <p>
-      <input type="radio" id="rsvd0"  name="rsvdMaterial0" value="처리" checked/>
-      <label for="rsvd0">처리</label>
+      <input type="radio" id="rsvd0-{{no}}"  name="rsvdMaterial0-{{no}}" value="처리" checked/>
+      <label for="rsvd0-{{no}}">처리</label>
     </p>
     <p>
-      <input id="rsvd0_1" name="rsvdMaterial0" value="미처리" type="radio"/>
-      <label for="rsvd0_1">미처리</label> 
+      <input id="rsvd0_1-{{no}}" name="rsvdMaterial0-{{no}}" value="미처리" type="radio"/>
+      <label for="rsvd0_1-{{no}}">미처리</label> 
     </p>
   </form>
 </div>
    <div class="button-group">
-                     <a class="btn" id="updateBtn0">수정</a>
+                     <a class="btn" id="updateBtn0-{{no}}">수정</a>
                   </div>
   </div>
 </div>

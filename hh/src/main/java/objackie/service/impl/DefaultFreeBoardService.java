@@ -85,8 +85,7 @@ public class DefaultFreeBoardService implements FreeBoardService {
     }
     return totalPage;
   }
-
-
+  
   public void updateFreeBoard(FreeBoard freeboard, MultipartFile file, String uploadDir) throws Exception {
     try{
       HashMap<String,Object> paramMap = new HashMap<>();

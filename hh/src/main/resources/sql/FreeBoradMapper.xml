@@ -16,12 +16,13 @@
 	</resultMap>
 
 	<select id="selectList" resultMap="freeboardMap" parameterType="map">
-    select BOD_NO,TITLE,CRE_DT,VW_CNT,CONTS,WRITER,TYPE
-    from board
+    select A.BOD_NO, A.WRITER, A.EMAIL, A.TITLE, A.CRE_DT, A.VW_CNT, A.CONTS, B.PHO_PATH
+	from BOARD A LEFT OUTER JOIN BOD_PHO B
+	on A.BOD_NO = B.BOD_NO
     where TYPE=3
     <if test="keyword != ''">
-     and (TITLE like concat('%',#{keyword},'%')
-     or WRITER like concat('%',#{keyword},'%')) 
+     and (A.TITLE like concat('%',#{keyword},'%'))
+     or (A.WRITER like concat('%',#{keyword},'%'))
     </if>      
     order by BOD_NO desc
 

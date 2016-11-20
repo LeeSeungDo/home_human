@@ -17,24 +17,30 @@ $("#new_freeBoard").click(function(event) {
 $("#searchBtn").click(function(event) {	
 	var keyword = $("#keyword").val();
 	
-	console.log(keyword);
+	//console.log(keyword);
+	ajaxFreeBoardList(keyword);	
+});
+
+$("#searchAllBtn").click(function(event) {	
+	var keyword = "";
 	ajaxFreeBoardList(keyword);	
 });
 
 
 //글로벌 변수 = window 프로퍼티 
 var pageNo = 1, /* window.pageNo */
-pageLength = 12; /* window.pageLength */
+pageLength = 10; /* window.pageLength */
 
 function ajaxFreeBoardList(keyword) {
 	$.post(serverAddr + "/freeboard/list.json", {"pageNo": pageNo, "length": pageLength, "keyword": keyword}, 
 			function(obj) {
 		var result = obj.jsonResult 
-		console.log(result)
 		if (result.state != "success") {
 			alert("서버에서 데이터를 가져오는데 실패했습니다.")
 			return
 		}
+		
+		console.log(result.data)
 
 
 		var template = Handlebars.compile($("#frTemplateText").html())	
@@ -53,18 +59,22 @@ function ajaxFreeBoardList(keyword) {
 		$('#pageNo').text(pageNo);
 
 		// 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
-		if (pageNo <= 1) {
-			$('#prevBtn').attr('disabled', true);
-		} else {
-			$('#prevBtn').removeAttr('disabled');
-		} 
-
-		// 페이지 번호가 마지막 페이지라면 [다음] 버튼을 비활성화시킨다.
-		if (pageNo >= totalPage) {
-			$('#nextBtn').attr('disabled', true);
-		} else {
-			$('#nextBtn').removeAttr('disabled');
-		}
+	    if (pageNo <= 1) {
+	    	$("#prevBtn").css({ 'pointer-events': 'none' });
+	    	$('#prevBtn').addClass("disabled");
+	    } else {
+	    	$("#prevBtn").css({ 'pointer-events': 'visible' });
+	    	$('#prevBtn').removeClass("disabled");
+	    } 
+	    
+	    // 페이지 번호가 마지막 페이지라면 [다음] 버튼을 비활성화시킨다.
+	    if (pageNo >= totalPage) {
+	    	$("#nextBtn").css({ 'pointer-events': 'none' });
+	    	$('#nextBtn').addClass("disabled");
+	    } else {
+	    	$("#nextBtn").css({ 'pointer-events': 'visible' });
+	    	$('#nextBtn').removeClass("disabled");
+	    }
 	})
 }
 
@@ -72,12 +82,12 @@ function ajaxFreeBoardList1() {
 	$.post(serverAddr + "/freeboard/list.json", {"pageNo": pageNo, "length": pageLength}, 
 			function(obj) {
 		var result = obj.jsonResult 
-		console.log(result)
 		if (result.state != "success") {
 			alert("서버에서 데이터를 가져오는데 실패했습니다.")
 			return
 		}
 
+		console.log(result.data);
 
 		var template = Handlebars.compile($("#frTemplateText").html())	
 		$("#freeboardTable tbody").html(template(result.data))
@@ -95,18 +105,22 @@ function ajaxFreeBoardList1() {
 		$('#pageNo').text(pageNo);
 
 		// 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
-		if (pageNo <= 1) {
-			$('#prevBtn').attr('disabled', true);
-		} else {
-			$('#prevBtn').removeAttr('disabled');
-		} 
-
-		// 페이지 번호가 마지막 페이지라면 [다음] 버튼을 비활성화시킨다.
-		if (pageNo >= totalPage) {
-			$('#nextBtn').attr('disabled', true);
-		} else {
-			$('#nextBtn').removeAttr('disabled');
-		}
+	    if (pageNo <= 1) {
+	    	$("#prevBtn").css({ 'pointer-events': 'none' });
+	    	$('#prevBtn').addClass("disabled");
+	    } else {
+	    	$("#prevBtn").css({ 'pointer-events': 'visible' });
+	    	$('#prevBtn').removeClass("disabled");
+	    } 
+	    
+	    // 페이지 번호가 마지막 페이지라면 [다음] 버튼을 비활성화시킨다.
+	    if (pageNo >= totalPage) {
+	    	$("#nextBtn").css({ 'pointer-events': 'none' });
+	    	$('#nextBtn').addClass("disabled");
+	    } else {
+	    	$("#nextBtn").css({ 'pointer-events': 'visible' });
+	    	$('#nextBtn').removeClass("disabled");
+	    }
 	})
 }
 

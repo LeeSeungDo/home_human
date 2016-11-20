@@ -35,54 +35,74 @@ $("#nextBtn0").click(function(event) {
 	ajaxComplainListRsvd0()
 });
 
-$(document).on('click','#updateBtn1',function(event){
-	var complain = {
-			no: $(".card1").attr("data-val1"),
-			title: $("#title1").text(),
-			contents: $("#complain_conts1").text(),
-	        rsvd: $("#rsvd1").is(":checked") ? 1 : 0
-	        };
-	
-	swal({
-		  title: '미처리 민원을 처리했습니까?',
-		  type: 'warning',
-		  showCancelButton: true,
-		  confirmButtonColor: '#3085d6',
-		  cancelButtonColor: '#d33',
-		  cancelButtonText: '취소',
-		  confirmButtonText: '처리'
-		}).then(function () {
-		  swal(
-		    '처리 되었습니다.'
-		  ).then(function () {
-			  ajaxUpdateComplain(complain)
-		  })
-		});
+
+$(document).on('click','.aaa',function(event){
+	//console.log("찾아봅니다.");
+	//console.log(this.id);
+	var superBtn = this.id;
+	//console.log('#updateBtn1-' + superBtn);
+
+	$(document).on('click', '#updateBtn1-' + superBtn, function(event){
+		var complain = {
+				no: superBtn,
+				title: $("#title1-" + superBtn).text(),
+				contents: $("#complain_conts1-" + superBtn).text(),
+		        rsvd: $('#rsvd1-' + superBtn).is(":checked") ? 1 : 0
+		        };
+		
+		console.log(complain);
+		
+		swal({
+			  title: '미처리 민원을 처리했습니까?',
+			  type: 'warning',
+			  showCancelButton: true,
+			  confirmButtonColor: '#3085d6',
+			  cancelButtonColor: '#d33',
+			  cancelButtonText: '취소',
+			  confirmButtonText: '처리'
+			}).then(function () {
+			  swal(
+			    '처리 되었습니다.'
+			  ).then(function () {
+				  ajaxUpdateComplain(complain)
+			  })
+			});
+	});
 });
 
-$(document).on('click','#updateBtn0',function(event){
-	var complain = {
-			no: $(".card0").attr("data-val0"),
-			title: $("#title0").text(),
-			contents: $("#complain_conts0").text(),
-	        rsvd: $("#rsvd1").is(":checked") ? 1 : 0
-	        }
+
+$(document).on('click','.bbb',function(event){
+	//console.log("찾아봅니다.");
+	//console.log(this.id);
+	var superBtn = this.id;
+	//console.log('#updateBtn0-' + superBtn);
 	
-	swal({
-		  title: '처리 민원을 미처리하겠습니까?',
-		  type: 'warning',
-		  showCancelButton: true,
-		  confirmButtonColor: '#3085d6',
-		  cancelButtonColor: '#d33',
-		  cancelButtonText: '취소',
-		  confirmButtonText: '미처리'
-		}).then(function () {
-		  swal(
-		    '미처리 되었습니다.'
-		  ).then(function () {
-			  ajaxUpdateComplain(complain)
-		  })
-		});
+	$(document).on('click','#updateBtn0-' + superBtn,function(event){
+		var complain = {
+				no: superBtn,
+				title: $("#title0-" + superBtn).text(),
+				contents: $("#complain_conts0-" + superBtn).text(),
+		        rsvd: $('#rsvd0-' + superBtn).is(":checked") ? 0 : 1
+		        }
+		
+		console.log(complain);
+		
+		swal({
+			  title: '처리 민원을 미처리하겠습니까?',
+			  type: 'warning',
+			  showCancelButton: true,
+			  confirmButtonColor: '#3085d6',
+			  cancelButtonColor: '#d33',
+			  cancelButtonText: '취소',
+			  confirmButtonText: '미처리'
+			}).then(function () {
+			  swal(
+			    '미처리 되었습니다.'
+			  ).then(function () {
+				  ajaxUpdateComplain(complain)
+			  })
+			});
+	});
 });
 
 
@@ -117,7 +137,7 @@ function ajaxComplainListRsvd1() {
        // 현재 페이지 번호를 span 태그에 출력한다.
        pageNo = result.data.pageNo;
        totalPage = result.data.totalPage;
-       //console.log(totalPage)
+       // console.log(totalPage)
        $('#pageNo').text(pageNo);
        
     // 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
@@ -164,7 +184,7 @@ function ajaxComplainListRsvd0() {
        // 현재 페이지 번호를 span 태그에 출력한다.
        pageNo = result.data.pageNo;
        totalPage = result.data.totalPage;
-       //console.log(totalPage)
+       // console.log(totalPage)
        $('#pageNo').text(pageNo);
        
        
