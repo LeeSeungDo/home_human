@@ -15,6 +15,7 @@
 		<result column="DIT_ADDR" property="detailAddr" />
 		<result column="RE_TYPE" property="reType" />
 		<result column="PK" property="park" />
+		<result column="RTPAY_DT" property="rentPayDate" />
 	</resultMap>
 
 	<select id="selectList" resultMap="buildMap" parameterType="map">
@@ -39,6 +40,15 @@
 		on a.build_no = b.build_no
 		where b.t_email=#{TEmail}
 	</select>
+	
+	<select id="selectReqList" resultMap="realestatecontractMap" parameterType="map">
+    select A.build_no, A.l_email, B.t_email, A.re_id, b.rtpay_dt, c.name
+    from re a inner join re_crct b
+    on a.build_no = b.build_no
+    left outer join membs c
+    on b.t_email = c.email
+    where a.l_email=#{email} and req=1;
+  </select>
 
 	<insert id="insert" parameterType="build">
 		insert into re(L_EMAIL, RE_ID, POSTNO, BAS_ADDR, DIT_ADDR, RE_TYPE, PK)

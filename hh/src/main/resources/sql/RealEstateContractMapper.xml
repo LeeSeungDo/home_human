@@ -20,6 +20,7 @@
     <result column="DIT_ADDR" property="detailAddress" />
     <result column="PHO_PATH" property="filename" />
     <result column="PHO_PATH" property="phoPath" />
+    <result column="REQ" property="request" />
   </resultMap>
 
     <select id="selectList" resultMap="realestatecontractMap"
@@ -63,7 +64,7 @@
 
     limit #{startIndex}, #{length}
   </select>
-
+  
   <select id="selectOne" resultMap="realestatecontractMap"
     parameterType="int">
     select T1.CRCT_NO, T1.BUILD_NO, T1.T_EMAIL, T1.CRCT_TYPE, T1.CRCT_DT, T1.END_DT, T1.DPST,
@@ -75,7 +76,13 @@
     where T1.CRCT_NO= #{value};
   </select>
   
-  
+  <select id="selectRtpaydt" resultMap="realestatecontractMap" parameterType="map">
+    select b.rtpay_dt
+    from membs a left outer join re_crct b
+    on a.email=b.t_email
+    where a.email=#{email}
+  </select>
+    
   <insert id="insert" parameterType="realestatecontract" useGeneratedKeys="true" keyColumn="contractNo" keyProperty="contractNo">
     insert into RE_CRCT(BUILD_NO, T_EMAIL, CRCT_TYPE, DPST, CRCT_DT, END_DT,
     RTPAY_DT, UTPAY_DT, CRCT_STAT)
@@ -93,6 +100,13 @@
     RTPAY_DT=#{rentPayDate},
     UTPAY_DT=#{utilityPayDate}, CRCT_STAT=#{contractStatus}
     where CRCT_NO=#{contractNo}
+  </update>
+  
+  <update id="updateReq" parameterType="realestatecontract">
+    update
+    RE_CRCT set
+    REQ=#{request}
+    where T_EMAIL=#{tenantEmail}
   </update>
 
   <delete id="delete" parameterType="int">

@@ -16,6 +16,7 @@ public class Build implements Serializable {
   protected String detailAddr;        // 상세주소
   protected int reType;               // 부동산유형 [0:원룸 / 1:오피스텔 / 2:다세대주택]
   protected int park;                 // 주차가능유형 [0: 가능 / 1: 불가능]
+  protected int rentPayDate;
   
   public int getBuildNo() {
     return buildNo;
@@ -84,12 +85,20 @@ public class Build implements Serializable {
   }
   public void setTEmail(String tEmail) {
     TEmail = tEmail;
+  }  
+  
+  public int getRentPayDate() {
+    return rentPayDate;
   }
+  public void setRentPayDate(int rentPayDate) {
+    this.rentPayDate = rentPayDate;
+  }
+  
   
   @Override
   public String toString() {
     return "Build [buildNo=" + buildNo + ", email=" + email + ", TEmail=" + TEmail + ", name=" + name + ", auth=" + auth
         + ", reID=" + reID + ", postNo=" + postNo + ", basicAddr=" + basicAddr + ", detailAddr=" + detailAddr
-        + ", reType=" + reType + ", park=" + park + "]";
-  }
+        + ", reType=" + reType + ", park=" + park + ", rentPayDate=" + rentPayDate + "]";
+  }  
 }

@@ -14,7 +14,9 @@ public interface RealEstateContractService {
   List<RealEstateContract> getRealEstateContractTenantList(String email) throws Exception;
   void insertRealEstateContract(RealEstateContract realEstateContract, MultipartFile file, String uploadDir) throws Exception;
   RealEstateContract getRealEstateContract(int no) throws Exception;
+  RealEstateContract getSelectRtpaydt(String email) throws Exception;
   void updateRealEstateContract(RealEstateContract realEstateContract, MultipartFile file, String uploadDir) throws Exception;
+  void updateReqRealEstateContract(RealEstateContract realEstateContract) throws Exception;
   void deleteRealEstateContract(int no) throws Exception;
 }
 

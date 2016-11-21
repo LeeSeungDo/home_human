@@ -86,6 +86,11 @@ public class DefaultRealEstateContractService implements RealEstateContractServi
     return realEstateContractDao.selectOne(no);
   }
 
+  public RealEstateContract getSelectRtpaydt(String email) throws Exception {
+    HashMap<String,Object> map = new HashMap<>();
+    map.put("email", email);    
+    return realEstateContractDao.selectRtpaydt(map);
+  }
 
   public void updateRealEstateContract(RealEstateContract realEstateContract, MultipartFile file, String uploadDir) throws Exception {
     try{
@@ -107,7 +112,11 @@ public class DefaultRealEstateContractService implements RealEstateContractServi
       e.printStackTrace();
     }
   }
-
+  
+  public void updateReqRealEstateContract(RealEstateContract realEstateContract) throws Exception {     
+    realEstateContractDao.updateReq(realEstateContract);
+  }
+  
   public void deleteRealEstateContract(int no) throws Exception {
     realEstateContractDao.delete(no);
   }
