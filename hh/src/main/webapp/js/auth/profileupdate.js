@@ -138,10 +138,11 @@ function ajaxInputUser() {
 }
 
 // 비밀번호 확인
-function verifynotify(field1, field2, result_id, match_html, nomatch_html) {
+function verifynotify(field1, field2, result_id, default_html, match_html, nomatch_html) {
 	this.field1 = field1;
 	this.field2 = field2;
 	this.result_id = result_id;
+	this.default_html = default_html;
 	this.match_html = match_html;
 	this.nomatch_html = nomatch_html;
 
@@ -159,10 +160,14 @@ function verifynotify(field1, field2, result_id, match_html, nomatch_html) {
 			return false;
 		}
 
-		if (this.field1.value != "" && this.field1.value == this.field2.value) {
-			r.innerHTML = this.match_html;
+		if (this.field1.value == "" && this.field2.value == "") {
+			r.innerHTML = this.default_html;
 		} else {
-			r.innerHTML = this.nomatch_html;
+			if (this.field1.value != "" && this.field1.value == this.field2.value) {
+				r.innerHTML = this.match_html;
+			} else {
+				r.innerHTML = this.nomatch_html;
+			}
 		}
 	}
 }
@@ -172,6 +177,7 @@ function verifyInput() {
 	verify.field1 = document.password_form.password1;
 	verify.field2 = document.password_form.password2;
 	verify.result_id = "password_result";
+	verify.default_html = "<span style=\"color:green\">비밀번호를 입력하세요.<\/span>";
 	verify.match_html = "<span style=\"color:blue\">비밀번호가 일치합니다.<\/span>";
 	verify.nomatch_html = "<span style=\"color:red\">비밀번호가 일치하지 않습니다.<\/span>";
 

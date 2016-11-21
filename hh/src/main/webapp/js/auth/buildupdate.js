@@ -61,7 +61,12 @@ function ajaxLoginUser() {
 					reType: $("#radios2-1").is(":checked") ? 0 : 1,
 					park: $("#radios2-3").is(":checked") ? 0 : 1
 			}
-			ajaxAddBuilding(building)
+			
+			if (building.reID == "" || building.postNo == "" || building.basicAddr == "" || building.detailAddr == "") {
+				alert("빈공간이 있습니다.");
+			} else {
+				ajaxAddBuilding(building)
+			}
 		});
 		
 		$("#updateBtn").click(function(event) {
@@ -158,6 +163,7 @@ function ajaxLoadBuilding(no) {
 			alert("조회 실패입니다.")
 			return
 		}
+		
 		$(".reID").val(result.data.reID);
 		$(".postNo").val(result.data.postNo);
 		$(".basicAddr").val(result.data.basicAddr);

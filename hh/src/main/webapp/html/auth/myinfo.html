@@ -237,9 +237,11 @@
 						id="complainLink"> <i class="fa fa-bullhorn"></i> <span>
 								민원사항 </span>
 					</a></li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i
-							class="fa fa-building-o"></i> 건물정보
-					</a></li>
+					<li>
+						<a href="#" class=" waves-effect waves-blue" id="buildingLink"> <i class="fa fa-building-o"></i>
+							<span> 건물정보 </span>
+						</a>
+					</li>
 					<li><a href="#" class=" waves-effect waves-blue"> <i
 							class="fa fa-users"></i> 세입자관리
 					</a></li>
@@ -293,7 +295,7 @@
 									style="width: 100%; height: 140px;">
 							</div>
 						</div>
-						<div class="col l6 s12" style="padding-bottom: 0;">
+						<div class="col l6 s12" style="padding-bottom: 0; padding-right: 0;">
 							<table>
 								<thead>
 									<tr>
@@ -318,7 +320,7 @@
 								</thead>
 							</table>
 						</div>
-						<div class="col l12 s12" style="padding-bottom: 0;">
+						<div class="col l12 s12" style="padding-bottom: 0; padding-right: 0;">
 						<hr>
 							<a class="waves-effect waves-dark btn cyan" id="proUpBtn"
 								style="width: 100%;">프로필 변경</a>
@@ -374,7 +376,7 @@
 					<table id="boardTable" class="table-hover">
 						<thead>
 							<tr>
-								<th class="center-align" style="width: 15%;">부동산아이디</th>
+								<th class="center-align" style="width: 15%;">건물 이름</th>
 								<th class="center-align" style="width: 10%;">우편번호</th>
 								<th class="" style="width: 45%;">기본주소</th>
 								<th class="center-align" style="width: 10%;">상세주소</th>
@@ -464,20 +466,20 @@
 	<script id="reTemplateText" type="text/x-handlebars-template">
 	{{#each data}}
 		<tr class="buildList" data-no="{{buildNo}}" style="border-top: 1px solid #e6e6e6;">  
-			<td class="center-align">{{reID}}</td>
-			<td class="center-align">{{postNo}}</td>
-			<td>{{basicAddr}}</td>
-			<td class="center-align">{{detailAddr}}</td>
+			<td class="center-align cursor">{{reID}}</td>
+			<td class="center-align cursor">{{postNo}}</td>
+			<td class="cursor">{{basicAddr}}</td>
+			<td class="center-align cursor">{{detailAddr}}</td>
 		{{#if reType}}
-			<td class="center-align">오피스텔</td>
+			<td class="center-align cursor">오피스텔</td>
 		{{else}}
-			<td class="center-align">원룸</td>
+			<td class="center-align cursor">원룸</td>
 		{{/if}}
 
 		{{#if park}}
-			<td class="center-align">불가능</td>
+			<td class="center-align cursor">불가능</td>
 		{{else}}
-			<td class="center-align">가능</td>
+			<td class="center-align cursor">가능</td>
 		{{/if}}
 		</tr>
 	{{/each}}

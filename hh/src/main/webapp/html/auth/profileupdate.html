@@ -233,9 +233,11 @@
 						id="complainLink"> <i class="fa fa-bullhorn"></i> <span>
 								민원사항 </span>
 					</a></li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i
-							class="fa fa-building-o"></i> 건물정보
-					</a></li>
+					<li>
+						<a href="#" class=" waves-effect waves-blue" id="buildingLink"> <i class="fa fa-building-o"></i>
+							<span> 건물정보 </span>
+						</a>
+					</li>
 					<li><a href="#" class=" waves-effect waves-blue"> <i
 							class="fa fa-users"></i> 세입자관리
 					</a></li>
@@ -326,14 +328,20 @@
 									<div class="content">
 										<form name="password_form">
 											<input type="hidden" name="email1" id="loginUserEmail1">
-											<span>새 비밀번호</span><br> <input type="password"
-												name="password1" class="form-control"
-												onkeyup="verify.check()"><br> <span>새
-												비밀번호 확인</span><br> <input type="password" name="password2"
-												class="form-control" id="passwordUp"
-												onkeyup="verify.check()">
+											<div class="input-field col l12 s12" style="padding-bottom: 0;">
+												<i class="mdi-content-send prefix"></i>
+												<input type="password" class="form-control" name="password1" onkeyup="verify.check()">
+												<label for="input_text">새 비밀번호</label>
+											</div>
+											<div class="input-field col l12 s12" style="padding-bottom: 0;">
+												<i class="mdi-content-send prefix"></i>
+												<input type="password" class="form-control" id="passwordUp" name="password2" onkeyup="verify.check()">
+												<label for="input_text">새 비밀번호 확인</label>
+											</div>
 											<!-- Display a message if the passwords match or don't match -->
-											<div id="password_result"></div>
+											<div class="input-field col l12 s12" style="padding-bottom: 0;">
+												<div id="password_result"></div>
+											</div>
 										</form>
 									</div>
 								</div>
