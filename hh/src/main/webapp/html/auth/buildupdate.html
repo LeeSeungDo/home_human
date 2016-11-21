@@ -53,6 +53,14 @@
 <!-- dossierbit -->
 <link rel="stylesheet" type="text/css"
 	href="../../css/dashboard/dossierbit.css" />
+<<<<<<< HEAD =======
+
+<!-- buildupdate -->
+<link rel="stylesheet" type="text/css"
+	href="../../css/auth/buildupdate.css" />
+
+
+>>>>>>> branch 'master' of https://github.com/tessajun/hh.git
 
 <!--[if lt IE 9]>
         <script src="../../bower_components/html5shiv/dist/html5shiv.min.js"></script>
@@ -278,55 +286,60 @@
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
 			<div class="col l8 s12 offset-l2">
 				<div class="card-panel" style="padding-bottom: 0; padding-right: 0;">
-				
+
 					<div class="input-field col l12 s12">
-						<i class="mdi-content-create prefix"></i>
-						<input type="text" class="form-control reID" id="reID" name="title" required>
+						<i class="mdi-content-create prefix"></i> <input type="text"
+							class="form-control reID" id="reID" name="title" required>
 						<label for="reID">건물 이름을 적어주세요.</label>
 					</div>
 					<p>[ 검색버튼을 이용하여 주소를 입력해주세요. ]</p>
 					<div class="input-field col l2 s12">
-						<i class="mdi-content-create prefix active"></i>
-						<input type="text" class="form-control postNo" id="postcode" name="title" placeholder="" readonly>
-						<label for="reID" class="active">우편번호</label>
+						<i class="mdi-content-create prefix active"></i> <input
+							type="text" class="form-control postNo" id="postcode"
+							name="title" placeholder="" readonly> <label for="reID"
+							class="active">우편번호</label>
 					</div>
 					<div class="input-field col l8 s12">
-						<i class="mdi-content-create prefix active"></i>
-						<input type="text" class="form-control basicAddr" id="address" name="title" placeholder="" readonly>
-						<label for="reID" class="active">기본주소</label>
+						<i class="mdi-content-create prefix active"></i> <input
+							type="text" class="form-control basicAddr" id="address"
+							name="title" placeholder="" readonly> <label for="reID"
+							class="active">기본주소</label>
 					</div>
 					<div class="input-field col l2 s12">
-						<a class="waves-effect waves-dark btn cyan" id="postBtn" onclick="DaumPostcode()" style="width: 100%;">검색</a>
+						<a class="waves-effect waves-dark btn cyan" id="postBtn"
+							onclick="DaumPostcode()" style="width: 100%;">검색</a>
 					</div>
 					<div class="input-field col l12 s12">
-						<i class="mdi-content-create prefix"></i>
-						<input type="text" class="form-control detailAddr" id="address2" name="title" required>
-						<label for="reID">상세주소</label>
+						<i class="mdi-content-create prefix"></i> <input type="text"
+							class="form-control detailAddr" id="address2" name="title"
+							required> <label for="reID">상세주소</label>
 					</div>
 					<div class="input-field col l6 s12">
 						<!-- <input type="text" class="reType"> -->
 						<p>[ 부동산 유형 ]</p>
-						<input class="with-gap1" name="radios2-1" type="radio" id="radios2-1" checked />
-  						<label for="radios2-1">원룸</label>
-  						<input class="with-gap1" name="radios2-1" type="radio" id="radios2-2" />
+						<input class="with-gap1" name="radios2-1" type="radio"
+							id="radios2-1" checked /> <label for="radios2-1">원룸</label> <input
+							class="with-gap1" name="radios2-1" type="radio" id="radios2-2" />
 						<label for="radios2-2">오피스텔</label>
 					</div>
 					<div class="input-field col l6 s12">
 						<!-- <input type="text" class="park"> -->
 						<p>[ 주차 가능여부 ]</p>
-						<input class="with-gap2" name="radios2-2" type="radio" id="radios2-3" checked />
-  						<label for="radios2-3">가능</label>
-  						<input class="with-gap2" name="radios2-2" type="radio" id="radios2-4" />
+						<input class="with-gap2" name="radios2-2" type="radio"
+							id="radios2-3" checked /> <label for="radios2-3">가능</label> <input
+							class="with-gap2" name="radios2-2" type="radio" id="radios2-4" />
 						<label for="radios2-4">불가능</label>
 					</div>
 					<div class="input-field col l12 s12" style="padding-bottom: 0;">
 						<hr>
 					</div>
 					<div class="input-field col l6 s12">
-						<a class="waves-effect waves-dark btn cyan" id="agreeBtn" style="width: 100%;">등록</a>
+						<a class="waves-effect waves-dark btn cyan" id="agreeBtn"
+							style="width: 100%;">등록</a>
 					</div>
 					<div class="input-field col l6 s12">
-						<a class="waves-effect waves-dark btn cyan" id="cancelBtn" style="width: 100%;">취소</a>
+						<a class="waves-effect waves-dark btn cyan" id="cancelBtn"
+							style="width: 100%;">취소</a>
 					</div>
 				</div>
 			</div>
