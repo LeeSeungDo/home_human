@@ -18,9 +18,8 @@ public class ReplyController {
   
   @RequestMapping(path="list2")
   public Object list(int no) throws Exception {
-    
     try {
-      
+      System.out.println("댓글 컨트롤러 들어옵니다.");
       return JsonResult.success(replyDao.selectList(no));
       
     } catch (Exception e) {

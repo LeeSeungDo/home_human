@@ -20,6 +20,10 @@ $("#addBtn").click(function(event) {
 	}
 });
 
+$("#cancelBtn").click(function(event) {
+	window.location.href = serverAddr + "/html/board/freeboard.html";
+})
+
 
 function ajaxAddFreeBoardFile(formData) {
 	$.ajax({
@@ -29,8 +33,13 @@ function ajaxAddFreeBoardFile(formData) {
 	    contentType: false,
 	    type: 'POST',
 	    success: function(data){
-	    	alert("EE");
-	    	window.location.href = serverAddr + "/html/board/freeboard.html"
+	    	swal({
+				  title: '등록 되었습니다.',
+				  confirmButtonColor: '#3085d6',
+				  confirmButtonText: '확인'
+				}).then(function () {
+					window.location.href = serverAddr + "/html/board/freeboard.html"
+				});
 	    }
 	  });
 }
@@ -43,41 +52,35 @@ function ajaxAddFreeBoardFile1(formData) {
 	    contentType: false,
 	    type: 'POST',
 	    success: function(data){
-	    	alert("EE");
-	    	window.location.href = serverAddr + "/html/board/freeboard.html"
+	    	swal({
+				  title: '등록 되었습니다.',
+				  confirmButtonColor: '#3085d6',
+				  confirmButtonText: '확인'
+				}).then(function () {
+					window.location.href = serverAddr + "/html/board/freeboard.html"
+				});
 	    }
 	  });
 }
 
 
-/*
-$("#addBtn").click(function(event) {
-	var freeboard = {
-			writer: $("#writer").val(),
-			title: $("#title").val(),
-			contents: $("#contents").val()
-	}
-	ajaxAddFreeBoard(freeboard)
-});
-
-function ajaxAddFreeBoard(freeboard) {
-	$.post(serverAddr + "/freeboard/add.json", freeboard, function(obj) {
+function ajaxLoginUser() {
+	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
-		if (result.state != "success") {
-			alert("등록 실패입니다.")
-			return
-		} 
-		window.location.href = serverAddr + "/html/board/freeboard.html"
-	}, "json")		
+	    if (result.state != "success") { // 로그아웃 상태일 경우 로그인 상태와 관련된 태그를 감춘다.
+	    	alert("로그아웃 되었습니다.");
+	    	window.location.href = serverAddr + "/html/index.html"
+	         return
+	    }
+
+		console.log(result.data.email);
+		console.log(result.data.name);
+		
+		$(".email").val(result.data.email);
+		$(".writer").val(result.data.name);
+		
+    })
 }
-*/
-
-
-
-
-
-
-
 
 
 

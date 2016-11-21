@@ -21,6 +21,7 @@ public class RealEstateContract implements Serializable {
   protected Date rentPayDate;
   protected Date utilityPayDate;
   protected String filename;
+  protected String phoPath;
   
   
   public int getContractNo() {
@@ -141,6 +142,14 @@ public class RealEstateContract implements Serializable {
 
   public void setFilename(String filename) {
     this.filename = filename;
+  }
+
+  public String getPhoPath() {
+    return phoPath;
+  }
+
+  public void setPhoPath(String phoPath) {
+    this.phoPath = phoPath;
   }     
 }
 

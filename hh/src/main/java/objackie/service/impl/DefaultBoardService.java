@@ -25,10 +25,11 @@ public class DefaultBoardService implements BoardService {
   BoardFileDao boardFileDao;
 
 
-  public List<Board> getBoardList(int pageNo, int length) throws Exception {
+  public List<Board> getBoardList(int pageNo, int length, String email) throws Exception {
     HashMap<String,Object> map = new HashMap<>();
     map.put("startIndex", (pageNo - 1) * length);
     map.put("length", length);
+    map.put("email", email);
     return boardDao.selectList(map);
   }
 
@@ -93,8 +94,8 @@ public class DefaultBoardService implements BoardService {
   }
 
   @Override
-  public List<Board> getFirstList() throws Exception {
-    return boardDao.selectFirstList();
+  public List<Board> getFirstList(String email) throws Exception {
+    return boardDao.selectFirstList(email);
   }
 }
 

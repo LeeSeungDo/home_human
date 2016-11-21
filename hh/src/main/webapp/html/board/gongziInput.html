@@ -46,10 +46,6 @@
 
 
 
-<!-- Full Calendar -->
-<link rel="stylesheet" type="text/css"
-	href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
-
 <!-- sseung -->
 <link rel="stylesheet" type="text/css"
 	href="../../css/dashboard/sseung.css" />
@@ -59,7 +55,8 @@
 	href="../../css/dashboard/dossierbit.css" />
 
 <!-- Sweet Alert -->
-<link rel="stylesheet" href="../../bower_components/sweetalert2/dist/sweetalert2.min.css">
+<link rel="stylesheet"
+	href="../../bower_components/sweetalert2/dist/sweetalert2.min.css">
 
 <!--[if lt IE 9]>
         <script src="../../bower_components/html5shiv/dist/html5shiv.min.js"></script>
@@ -249,8 +246,9 @@
 					<li><a href="#" class=" waves-effect waves-blue"> <i
 							class="fa fa-credit-card"></i> 관리비내역
 					</a></li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i
-							class="fa fa-hand-o-right"></i> 자유게시판
+					<li><a href="#" class=" waves-effect waves-blue"
+						id="freeBoardLink"> <i class="fa fa-hand-o-right"></i> <span>
+								자유게시판 </span>
 					</a></li>
 				</ul>
 
@@ -287,7 +285,7 @@
 					<div class="title card-panel grey darken-4 white-text">
 						<h5>새 공지 쓰기</h5>
 					</div>
-					
+
 					<div class="content">
 						<form>
 							<div class="input-field col l6 s12">
@@ -318,10 +316,12 @@
 							</div>
 
 							<div class="col s24 m12 l6">
-								<a class="waves-effect waves-dark btn cyan" id="addBtn" style="width: 100%;">등록</a>
+								<a class="waves-effect waves-dark btn cyan" id="addBtn"
+									style="width: 100%;">등록</a>
 							</div>
 							<div class="col s24 m12 l6">
-								<a class="waves-effect waves-dark btn cyan" id="cancelBtn" style="width: 100%;">취소</a>
+								<a class="waves-effect waves-dark btn cyan" id="cancelBtn"
+									style="width: 100%;">취소</a>
 							</div>
 						</form>
 					</div>
@@ -376,10 +376,12 @@
 
 	<!-- Common Dashboard -->
 	<script type="text/javascript" src="../../js/commonDashboard.js"></script>
-	
+
 	<!-- Sweet Alert -->
-	<script src="../../bower_components/es6-promise/es6-promise.auto.min.js"></script>
-	<script src="../../bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+	<script
+		src="../../bower_components/es6-promise/es6-promise.auto.min.js"></script>
+	<script
+		src="../../bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
 
 
 

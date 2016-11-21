@@ -22,6 +22,15 @@
 
 
 	<section>
+	
+	<div id="buildSelect">
+	  <select class="selectB"></select>
+	</div>
+            <script id="buildTemplateText" type="text/x-handlebars-template">
+{{#each data}}
+  <option data-no1="{{buildNo}}">{{reID}}</option>
+{{/each}}
+</script>
 
 		<div class="crud-bar">
 			<button class="button_1 button_1 btn btn-warning" type="button"
@@ -47,7 +56,7 @@
 {{#each list}}
 <div class="col-sm-6 col-md-4 contractForm1" data-no={{contractNo}}>
 <div class="thumbnail">
-<img src="../../images/bang.jpg" alt="계약사진">
+<img class="phoPath" src="../../upload/{{phoPath}}" alt="계약사진">
 <div class="caption">
 <h4>{{name}}</h4>
 </div>
@@ -66,7 +75,7 @@
 {{#each list}}
 <div class="col-sm-6 col-md-4 contractForm2" data-no={{contractNo}}>
 <div class="thumbnail">
-<img src="../../images/bang.jpg" alt="계약사진">
+<img src="../../upload/{{phoPath}}" alt="계약사진">
 <div class="caption">
 <h4>{{name}}</h4>
 </div>
@@ -85,7 +94,7 @@
 {{#each list}}
 <div class="col-sm-6 col-md-4 contractForm3" data-no={{contractNo}}>
 <div class="thumbnail">
-<img src="../../images/bang.jpg" alt="계약사진">
+<img src="../../upload/{{phoPath}}" alt="계약사진">
 <div class="caption">
 <h4>{{name}}</h4>
 </div>
@@ -108,9 +117,7 @@
 	<script type="text/javascript" src="../../js/bit.js"></script>
 	<script type="text/javascript" src="../../js/contract/contractMnge.js"></script>
 	<script>
-	  ajaxRealEstateContractList1()
-    ajaxRealEstateContractList2()
-    ajaxRealEstateContractList3()
+    ajaxLoginUser()
     </script>
 
 </body>

@@ -7,6 +7,33 @@ $(document.body).ready(function() {
 	});
 });
 
+function ajaxLoginUser() {
+	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
+		var result = obj.jsonResult
+		if (result.state != "success") { // 로그아웃 상태일 경우 로그인 상태와 관련된 태그를 감춘다.
+			window.location.href = serverAddr + "/html/index.html"
+			return
+		}
+
+		var email = result.data.email;
+		ajaxBuildList(email)
+	})
+}
+
+
+function ajaxBuildList(email) {
+	$.getJSON(serverAddr + "/build/list.json", {"email": email}, function(obj) {
+		var result = obj.jsonResult
+		if (result.state != "success") {
+			alert("서버에서 데이터를 가져오는데 실패했습니다.")
+			return
+		}
+
+		var template = Handlebars.compile($('#buildTemplateText').html())
+		$("#buildSelect select").html(template(result))				
+		
+	})
+}
 
 
 $("#addBtn").click(function(event) {
@@ -22,6 +49,8 @@ $("#addBtn").click(function(event) {
 			contractStatus:	$(":input:radio[name=radio]:checked").val() 		
 
 	}*/
+	var buildNo = $("select[name=buildNo]").val();
+	
 	var val1 = $(":input:radio[name=contractType]:checked").val();
 
 	if (val1 == 0) {
@@ -40,12 +69,14 @@ $("#addBtn").click(function(event) {
 	} else {
 		$('input:radio[name=contractStatus]:input[value=2]').attr("checked", true);
 	}
-
+    
 	//contractStatus:	$(":input:radio[name=radio]:checked").val()
 
 
 	var form = $('form')[0];
 	var formData = new FormData(form);	
+	formData.append(buildNo, buildNo)
+	
 
 	ajaxAddContractFile(formData)
 });

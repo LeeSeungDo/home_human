@@ -31,24 +31,27 @@ public class DefaultRealEstateContractService implements RealEstateContractServi
   }
 
 
-  public List<RealEstateContract> getRealEstateContractList1(int pageNo, int length) throws Exception {
+  public List<RealEstateContract> getRealEstateContractList1(int pageNo, int length, int no) throws Exception {
     HashMap<String,Object> map = new HashMap<>();
     map.put("startIndex", (pageNo - 1) * length);
     map.put("length", length);
+    map.put("buildNo", no);
     return realEstateContractDao.selectList1(map);
   }
 
-  public List<RealEstateContract> getRealEstateContractList2(int pageNo, int length) throws Exception {
+  public List<RealEstateContract> getRealEstateContractList2(int pageNo, int length, int no) throws Exception {
     HashMap<String,Object> map = new HashMap<>();
     map.put("startIndex", (pageNo - 1) * length);
     map.put("length", length);
+    map.put("buildNo", no);
     return realEstateContractDao.selectList2(map);
   }
 
-  public List<RealEstateContract> getRealEstateContractList3(int pageNo, int length) throws Exception {
+  public List<RealEstateContract> getRealEstateContractList3(int pageNo, int length, int no) throws Exception {
     HashMap<String,Object> map = new HashMap<>();
     map.put("startIndex", (pageNo - 1) * length);
     map.put("length", length);
+    map.put("buildNo", no);
     return realEstateContractDao.selectList3(map);
   }
   

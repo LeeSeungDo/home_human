@@ -20,12 +20,13 @@ public class BuildController {
   @RequestMapping(path="list")
   public Object list(
       @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="4") int length) throws Exception {
+      @RequestParam(defaultValue="4") int length, String email) throws Exception {
 
     try {
       HashMap<String,Object> map = new HashMap<>();
       map.put("startIndex", (pageNo - 1) * length);
       map.put("length", length);
+      map.put("email", email);
 
       return JsonResult.success(buildDao.selectList(map));
 
@@ -35,6 +36,20 @@ public class BuildController {
     }
   }
 
+  @RequestMapping(path="lemail")
+  public Object lemail(String TEmail) throws Exception {
+    try {
+      HashMap<String,Object> map = new HashMap<>();
+      map.put("TEmail", TEmail);
+
+      return JsonResult.success(buildDao.selectLEmail(map));
+
+    } catch (Exception e) {
+      e.printStackTrace();
+      return JsonResult.fail(e.getMessage());
+    }
+  }
+  
   @RequestMapping(path="add")
   public Object add(Build build)throws Exception {
     try {

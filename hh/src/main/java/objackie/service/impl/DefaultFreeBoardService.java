@@ -27,11 +27,13 @@ public class DefaultFreeBoardService implements FreeBoardService {
   @Autowired
   ReplyDao replyDao;
 
-  public List<FreeBoard> getFreeBoardList(int pageNo, int length) throws Exception {
-    HashMap<String,Object> map = new HashMap<>();
+  public List<FreeBoard> getFreeBoardList(int pageNo, int length, String keyword) throws Exception {
+    HashMap<String, Object> map = new HashMap<>();
     map.put("startIndex", (pageNo - 1) * length);
     map.put("length", length);
+    map.put("keyword", keyword);
     return freeboardDao.selectList(map);
+
   }
 
   @Override
@@ -83,8 +85,7 @@ public class DefaultFreeBoardService implements FreeBoardService {
     }
     return totalPage;
   }
-
-
+  
   public void updateFreeBoard(FreeBoard freeboard, MultipartFile file, String uploadDir) throws Exception {
     try{
       HashMap<String,Object> paramMap = new HashMap<>();

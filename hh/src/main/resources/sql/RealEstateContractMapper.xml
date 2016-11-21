@@ -19,6 +19,7 @@
     <result column="EMAIL" property="email" />
     <result column="DIT_ADDR" property="detailAddress" />
     <result column="PHO_PATH" property="filename" />
+    <result column="PHO_PATH" property="phoPath" />
   </resultMap>
 
     <select id="selectList" resultMap="realestatecontractMap"
@@ -32,10 +33,10 @@
 
   <select id="selectList1" resultMap="realestatecontractMap"
     parameterType="map">
-    select t1.T_EMAIL, t1.CRCT_NO, t1.CRCT_STAT, t2.NAME, t2.EMAIL
+    select t1.T_EMAIL, t1.BUILD_NO, t1.CRCT_NO, t1.CRCT_STAT, t2.NAME, t2.EMAIL, t2.PHO_PATH
     from RE_CRCT as t1 LEFT OUTER JOIN MEMBS as t2
     on t1.T_EMAIL = t2.EMAIL
-    where t2.AUTH = 1 and t1.CRCT_STAT=0
+    where t2.AUTH = 1 and t1.CRCT_STAT=0 and t1.BUILD_NO=#{buildNo}
     order by CRCT_NO desc
 
     limit #{startIndex}, #{length}
@@ -43,10 +44,10 @@
 
   <select id="selectList2" resultMap="realestatecontractMap"
     parameterType="map">
-    select t1.T_EMAIL, t1.CRCT_NO, t1.CRCT_STAT, t2.NAME, t2.EMAIL
+    select t1.T_EMAIL, t1.BUILD_NO, t1.CRCT_NO, t1.CRCT_STAT, t2.NAME, t2.EMAIL, t2.PHO_PATH
     from RE_CRCT as t1 LEFT OUTER JOIN MEMBS as t2
     on t1.T_EMAIL = t2.EMAIL
-    where t2.AUTH = 1 and t1.CRCT_STAT=1
+    where t2.AUTH = 1 and t1.CRCT_STAT=1 and t1.BUILD_NO=#{buildNo}
     order by CRCT_NO desc
 
     limit #{startIndex}, #{length}
@@ -54,10 +55,10 @@
 
   <select id="selectList3" resultMap="realestatecontractMap"
     parameterType="map">
-    select t1.T_EMAIL, t1.CRCT_NO, t1.CRCT_STAT, t2.NAME, t2.EMAIL
+    select t1.T_EMAIL, t1.BUILD_NO, t1.CRCT_NO, t1.CRCT_STAT, t2.NAME, t2.EMAIL, t2.PHO_PATH
     from RE_CRCT as t1 LEFT OUTER JOIN MEMBS as t2
     on t1.T_EMAIL = t2.EMAIL
-    where t2.AUTH = 1 and t1.CRCT_STAT=2
+    where t2.AUTH = 1 and t1.CRCT_STAT=2 and t1.BUILD_NO=#{buildNo}
     order by CRCT_NO desc
 
     limit #{startIndex}, #{length}
@@ -73,7 +74,7 @@
     on T1.CRCT_NO = T3.CRCT_NO
     where T1.CRCT_NO= #{value};
   </select>
-
+  
   
   <insert id="insert" parameterType="realestatecontract" useGeneratedKeys="true" keyColumn="contractNo" keyProperty="contractNo">
     insert into RE_CRCT(BUILD_NO, T_EMAIL, CRCT_TYPE, DPST, CRCT_DT, END_DT,

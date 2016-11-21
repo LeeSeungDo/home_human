@@ -7,6 +7,7 @@ public class Build implements Serializable {
   
   protected int buildNo;              // 임대건물번호 [Primary-key / Auto-increment]
   protected String email;             // 소유주이메일 [Foreign-key]
+  protected String TEmail;   
   protected String name;              // 이름
   protected String auth;              // 권한 [0:임대인/ 1:임차인]
   protected String reID;              // 부동산아이디
@@ -77,11 +78,18 @@ public class Build implements Serializable {
     this.park = park;
   }
   
+  
+  public String getTEmail() {
+    return TEmail;
+  }
+  public void setTEmail(String tEmail) {
+    TEmail = tEmail;
+  }
+  
   @Override
   public String toString() {
-    return "Build [buildNo=" + buildNo + ", email=" + email + ", name=" + name + ", auth=" + auth + ", reID=" + reID
-        + ", postNo=" + postNo + ", basicAddr=" + basicAddr + ", detailAddr=" + detailAddr + ", reType=" + reType
-        + ", park=" + park + "]";
+    return "Build [buildNo=" + buildNo + ", email=" + email + ", TEmail=" + TEmail + ", name=" + name + ", auth=" + auth
+        + ", reID=" + reID + ", postNo=" + postNo + ", basicAddr=" + basicAddr + ", detailAddr=" + detailAddr
+        + ", reType=" + reType + ", park=" + park + "]";
   }
-
 }

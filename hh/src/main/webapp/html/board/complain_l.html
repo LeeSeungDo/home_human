@@ -79,7 +79,7 @@
 -->
 
 <body>
-<div class="pace"></div>
+	<div class="pace"></div>
 	<!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
 	<!--
      Top Navbar
@@ -254,8 +254,9 @@
 					<li><a href="#" class=" waves-effect waves-blue"> <i
 							class="fa fa-credit-card"></i> 관리비내역
 					</a></li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i
-							class="fa fa-hand-o-right"></i> 자유게시판
+					<li><a href="#" class=" waves-effect waves-blue"
+						id="freeBoardLink"> <i class="fa fa-hand-o-right"></i> <span>
+								자유게시판 </span>
 					</a></li>
 				</ul>
 
@@ -295,33 +296,33 @@
 							<li class="tab col s3" rel="complain2"><a href="#"> 처리된
 									민원</a></li>
 						</ul>
-						
-				
+
+
 					</div>
 				</div>
 
 
 				<!---------------------------------------------------- #tab1 미처리 --------------------------------------------->
 				<div id="complain1" class="tab_content">
-				<div class="row">
-					<div class="col l3 s12">
-						<div class="card">
-							<a class="waves-effect waves-dark btn cyan" id="prevBtn"
-								style="width: 100%;">&lt;&lt; 이전</a>
+					<div class="row">
+						<div class="col l3 s12">
+							<div class="card">
+								<a class="waves-effect waves-dark btn cyan" id="prevBtn"
+									style="width: 100%;">&lt;&lt; 이전</a>
+							</div>
+						</div>
+						<div class="col l3 s12 offset-l6">
+							<div class="card">
+								<a class="waves-effect waves-dark btn cyan" id="nextBtn"
+									style="width: 100%;">다음 &gt;&gt;</a>
+							</div>
 						</div>
 					</div>
-					<div class="col l3 s12 offset-l6">
-						<div class="card">
-							<a class="waves-effect waves-dark btn cyan" id="nextBtn"
-								style="width: 100%;">다음 &gt;&gt;</a>
-						</div>
-					</div>
-				</div>
 					<div class="row" id="complainTable"></div>
 					<script id="trTemplateText" type="text/x-handlebars-template">
 {{#each list}}
    <div class="col l4 s12">
-   <div class="card of-h">
+   <div class="card of-h aaa" id="{{no}}">
   <div class="thumbnail waves-effect waves-block waves-light">
     <img src="../../upload/{{filename}}" alt="Canada" 
       onerror="this.onerror=null;this.src='../../images/camera.png';"
@@ -331,26 +332,26 @@
     <span class="card-title activator grey-text text-darken-4">
 	<p class="tenant-title ellipsis" id="title1" 
 	style="text-overflow: ellipsis;">{{title}}</p>
-     <p class="tenant-writer card1" data-val1={{no}}>{{writer}} 세입자</p>
+     <p class="tenant-writer card1" data-val1="{{no}}">{{writer}} 세입자</p>
   </div>
   <div class="card-reveal">
     <span class="card-title grey-text text-darken-4">
-	<p id="title"  style="font-size: 18px;">{{title}}</p><i class="mdi-content-clear right"></i></span>
-      <p id="complain_conts1">{{contents}}</p>
+	<p id="title1-{{no}}"  style="font-size: 18px;">{{title}}</p><i class="mdi-content-clear right"></i></span>
+      <p id="complain_conts1-{{no}}">{{contents}}</p>
 	<div class="complain_radio">
 	<form action="#">
     <p>
-      <input type="radio" id="rsvd1"  name="rsvdMaterial1" value="미처리" checked/>
-      <label for="rsvd1">미처리</label>
+      <input type="radio" id="rsvd1-{{no}}"  name="rsvdMaterial1-{{no}}" value="미처리" checked/>
+      <label for="rsvd1-{{no}}">미처리</label>
     </p> 
     <p>
-      <input name="rsvdMaterial1" id="rsvd_1_0" value="처리" type="radio"/>
-      <label for="rsvd_1_0">처리</label>
+      <input name="rsvdMaterial1-{{no}}" id="rsvd_1_0-{{no}}" value="처리" type="radio"/>
+      <label for="rsvd_1_0-{{no}}">처리</label>
     </p> 
   </form>
 	</div>
    <div class="button-group">
-           <button type="button" class="btn" id="updateBtn1">수정</button>
+           <button type="button" class="btn" id="updateBtn1-{{no}}">수정</button>
                   </div>
   </div>
 </div>
@@ -358,32 +359,32 @@
 
 {{/each}}
 </script>
-</div>
-</div>
-				<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
-				<div class="row sortable" style="margin-right: 0;">
-			<div style="margin: 0 auto; width: 80%;">
-			
-				<div id="complain2" class="tab_content">
-				<div class="row">
-					<div class="col l3 s12">
-						<div class="card">
-							<a class="waves-effect waves-dark btn cyan" id="prevBtn0"
-								style="width: 100%;">&lt;&lt; 이전</a>
-						</div>
-					</div>
-					<div class="col l3 s12 offset-l6">
-						<div class="card">
-							<a class="waves-effect waves-dark btn cyan" id="nextBtn0"
-								style="width: 100%;">다음 &gt;&gt;</a>
-						</div>
-					</div>
 				</div>
-					<div class="row" id="complainTable2"></div>
-					<script id="trTemplateText2" type="text/x-handlebars-template">
+			</div>
+			<!---------------------------------------------------- #tab2 처리 --------------------------------------------->
+			<div class="row sortable" style="margin-right: 0;">
+				<div style="margin: 0 auto; width: 80%;">
+
+					<div id="complain2" class="tab_content">
+						<div class="row">
+							<div class="col l3 s12">
+								<div class="card">
+									<a class="waves-effect waves-dark btn cyan" id="prevBtn0"
+										style="width: 100%;">&lt;&lt; 이전</a>
+								</div>
+							</div>
+							<div class="col l3 s12 offset-l6">
+								<div class="card">
+									<a class="waves-effect waves-dark btn cyan" id="nextBtn0"
+										style="width: 100%;">다음 &gt;&gt;</a>
+								</div>
+							</div>
+						</div>
+						<div class="row" id="complainTable2"></div>
+						<script id="trTemplateText2" type="text/x-handlebars-template">
 {{#each list}}
    <div class="col l4 s12">
-   <div class="card of-h">
+   <div class="card of-h bbb" id="{{no}}">
   <div class="thumbnail waves-effect waves-block waves-light">
     <img src="../../upload/{{filename}}" alt="Canada" 
       onerror="this.onerror=null;this.src='../../images/camera.png';"
@@ -397,33 +398,33 @@
   </div>
   <div class="card-reveal">
     <span class="card-title grey-text text-darken-4">
-<p id="title"  style="font-size: 18px;">{{title}}</p><i class="mdi-content-clear right"></i></span>
-      <p id="complain_conts0">{{contents}}</p>
+<p id="title0-{{no}}"  style="font-size: 18px;">{{title}}</p><i class="mdi-content-clear right"></i></span>
+      <p id="complain_conts0-{{no}}">{{contents}}</p>
 	<div class="complain_radio">
 	<form action="#">
     <p>
-      <input type="radio" id="rsvd0"  name="rsvdMaterial0" value="처리" checked/>
-      <label for="rsvd0">처리</label>
+      <input type="radio" id="rsvd0-{{no}}"  name="rsvdMaterial0-{{no}}" value="처리" checked/>
+      <label for="rsvd0-{{no}}">처리</label>
     </p>
     <p>
-      <input id="rsvd0_1" name="rsvdMaterial0" value="미처리" type="radio"/>
-      <label for="rsvd0_1">미처리</label> 
+      <input id="rsvd0_1-{{no}}" name="rsvdMaterial0-{{no}}" value="미처리" type="radio"/>
+      <label for="rsvd0_1-{{no}}">미처리</label> 
     </p>
   </form>
 </div>
    <div class="button-group">
-                     <a class="btn" id="updateBtn0">수정</a>
+                     <a class="btn" id="updateBtn0-{{no}}">수정</a>
                   </div>
   </div>
 </div>
 </div>
 {{/each}}
    </script>
-   </div>
-   </div>
-<div class="col"></div>
-					<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+					</div>
 				</div>
+				<div class="col"></div>
+				<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+			</div>
 	</section>
 	<!-- /Main Content -->
 	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
