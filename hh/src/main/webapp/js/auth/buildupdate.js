@@ -1,11 +1,3 @@
-$("#myinfoLink").click(function(event) {
-	window.location.href = serverAddr + "/html/dashboard/dashboard.html"
-});
-
-$("#myinfo").click(function(event) {
-	window.location.href = serverAddr + "/html/auth/myinfo.html"
-});
-
 $("#cancelBtn").click(function(event) {
 	//alert("취소")
 	window.location.href = serverAddr + "/html/auth/myinfo.html"
@@ -35,18 +27,30 @@ function ajaxLoginUser() {
 			$("#authLevel").html("임차인");
 		}
 
-		if (result.data.phoPath != null && result.data.phoPath != "") {
-			$('#phoPath').attr('src', '../../upload/' + result.data.phoPath);
-			$('#myPhoto1').attr('src', '../../upload/' + result.data.phoPath);
-			$('#myPhoto2').attr('src', '../../upload/' + result.data.phoPath);
-		} else {
-			$('#phoPath').attr('src', '../../images/user_default.png');
-			$('#myPhoto1').attr('src', '../../images/user_default.png');
-			$('#myPhoto2').attr('src', '../../images/user_default.png');
-		}
+		if($.isNumeric(result.data.email)) {
+	    	  if (result.data.phoPath != null && result.data.phoPath != "") {
+	        	  $('#myPhoto1').attr('src', result.data.phoPath);
+	        	  $('#myPhoto2').attr('src', result.data.phoPath);
+	        	  $('#phoPath').attr('src', result.data.phoPath);
+	          } else {
+	        	  $('#myPhoto1').attr('src', '../../images/user_default.png');
+	        	  $('#myPhoto2').attr('src', '../../images/user_default.png');
+	        	  $('#phoPath').attr('src', '../../images/user_default.png');
+	          }
+	      } else {
+	    	  if (result.data.phoPath != null && result.data.phoPath != "") {
+	        	  $('#myPhoto1').attr('src', '../../upload/' + result.data.phoPath);
+	        	  $('#myPhoto2').attr('src', '../../upload/' + result.data.phoPath);
+	        	  $('#phoPath').attr('src', '../../upload/' + result.data.phoPath);
+	          } else {
+	        	  $('#myPhoto1').attr('src', '../../images/user_default.png');
+	        	  $('#myPhoto2').attr('src', '../../images/user_default.png');
+	        	  $('#phoPath').attr('src', '../../images/user_default.png');
+	          }
+	      }
 
 		var email = result.data.email;
-
+		
 		$("#agreeBtn").click(function(event) {	
 			var building = {
 					email: email,
@@ -54,8 +58,8 @@ function ajaxLoginUser() {
 					postNo: $(".postNo").val(),
 					basicAddr: $(".basicAddr").val(),
 					detailAddr: $(".detailAddr").val(),
-					reType: $(".reType").val(),
-					park: $(".park").val()
+					reType: $("#radios2-1").is(":checked") ? 0 : 1,
+					park: $("#radios2-3").is(":checked") ? 0 : 1
 			}
 			ajaxAddBuilding(building)
 		});
@@ -158,8 +162,20 @@ function ajaxLoadBuilding(no) {
 		$(".postNo").val(result.data.postNo);
 		$(".basicAddr").val(result.data.basicAddr);
 		$(".detailAddr").val(result.data.detailAddr);
-		$(".reType").val(result.data.reType);
-		$(".park").val(result.data.park);
+		var reType = result.data.reType;
+		var park = result.data.park;
+		if (reType == 0) {
+			$('input:radio[name=radios2-1]:input[id=radios2-1]').attr("checked", true);
+		} else {
+			$('input:radio[name=radios2-1]:input[id=radios2-2]').attr("checked", true);
+		}
+		
+		if (park == 0) {
+			$('input:radio[name=radios2-2]:input[id=radios2-3]').attr("checked", true);
+		} else {
+			$('input:radio[name=radios2-2]:input[id=radios2-4]').attr("checked", true);
+		}
+		
 	})
 }
 

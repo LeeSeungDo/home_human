@@ -1,32 +1,10 @@
-$("#logoBtn").click(function(event) {
-	window.location.href = serverAddr + "/html/index.html"
-});
-
-$("#myinfoLink").click(function(event) {
-	window.location.href = serverAddr + "/html/dashboard/dashboard.html"
-});
-
-$("#phoPath").click(function(event) {
-	window.location.href = serverAddr + "/html/auth/profileupdate.html"
-});
-
 $("#proUpBtn").click(function(event) {
-	window.location.href = serverAddr + "/html/auth/profileupdate.html"
-});
-
-$("#contactUpBtn").click(function(event) {
-	window.location.href = serverAddr + "/html/auth/contactupdate.html"
-});
+	window.location.href = serverAddr + "/html/auth/profileupdate.html";
+})
 
 $("#buildUpBtn").click(function(event) {
-	window.location.href = serverAddr + "/html/auth/buildupdate.html"
-});
-
-$("#memberUpBtn").click(function(event) {
-	alert("탈퇴")
-	//window.location.href = serverAddr + ""
-});
-
+	window.location.href = serverAddr + "/html/auth/buildupdate.html";
+})
 
 function ajaxBuildList(email) {
 	$.getJSON(serverAddr + "/build/list.json", {"email": email}, function(obj) {
@@ -35,6 +13,8 @@ function ajaxBuildList(email) {
 			alert("서버에서 데이터를 가져오는데 실패했습니다.")
 			return
 		}
+		
+		console.log(result.data);
 
 		var template = Handlebars.compile($('#reTemplateText').html())
 		$("#boardTable tbody").html(template(result))
@@ -72,25 +52,34 @@ function ajaxLoginUser() {
 		var auth = result.data.auth;
 		var gender = result.data.gender;
 
-		if (auth == 0, gender == 0) {
-			$("#authLevel").html("임대인");
+		if (gender == 0) {
 			$("#gender").html("남자");
 		} else {
-			$("#authLevel").html("임차인");
 			$("#gender").html("여자");
 		}
 
-		if (result.data.phoPath != null && result.data.phoPath != "") {
-			$('#phoPath').attr('src', '../../upload/' + result.data.phoPath);
-			$('#myPhoto1').attr('src', '../../upload/' + result.data.phoPath);
-			$('#myPhoto2').attr('src', '../../upload/' + result.data.phoPath);
-		} else {
-			$('#phoPath').attr('src', '../../images/user_default.png');
-			$('#myPhoto1').attr('src', '../../images/user_default.png');
-			$('#myPhoto2').attr('src', '../../images/user_default.png');
-
-			
-		}		
+		if($.isNumeric(result.data.email)) {
+	    	  if (result.data.phoPath != null && result.data.phoPath != "") {
+	        	  $('#myPhoto1').attr('src', result.data.phoPath);
+	        	  $('#myPhoto2').attr('src', result.data.phoPath);
+	        	  $('#phoPath').attr('src', result.data.phoPath);
+	          } else {
+	        	  $('#myPhoto1').attr('src', '../../images/user_default.png');
+	        	  $('#myPhoto2').attr('src', '../../images/user_default.png');
+	        	  $('#phoPath').attr('src', '../../images/user_default.png');
+	          }
+	      } else {
+	    	  if (result.data.phoPath != null && result.data.phoPath != "") {
+	        	  $('#myPhoto1').attr('src', '../../upload/' + result.data.phoPath);
+	        	  $('#myPhoto2').attr('src', '../../upload/' + result.data.phoPath);
+	        	  $('#phoPath').attr('src', '../../upload/' + result.data.phoPath);
+	          } else {
+	        	  $('#myPhoto1').attr('src', '../../images/user_default.png');
+	        	  $('#myPhoto2').attr('src', '../../images/user_default.png');
+	        	  $('#phoPath').attr('src', '../../images/user_default.png');
+	          }
+	      }
+		
 		var email = result.data.email;			
 		ajaxBuildList(email);			
 	})
@@ -138,24 +127,4 @@ $(document).ready(function() {
 });
 
 
-///*----------------------------------------------------- 로그인 정보 불러오기 -----------------------------------------------------*/
-//function ajaxLoginUser() {
-//$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
-//var result = obj.jsonResult
-//if (result.state != "success") { // 로그아웃 상태일 경우 로그인 상태와 관련된 태그를 감춘다.
-//window.location.href = serverAddr + "/html/index.html"
-//return
-//}
 
-//$("#userName1").html(result.data.name);
-//$("#userName2").html(result.data.name);
-
-//var auth = result.data.auth;
-//if (auth == 0) {
-//$("#authLevel").html("임대인");
-//} else {
-//$("#authLevel").html("[임차인]");
-//}
-//})
-//}
-/*----------------------------------------------------- /로그인 정보 불러오기 -----------------------------------------------------*/

@@ -46,10 +46,6 @@
 
 
 
-<!-- Full Calendar -->
-<link rel="stylesheet" type="text/css"
-	href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
-
 <!-- sseung -->
 <link rel="stylesheet" type="text/css"
 	href="../../css/dashboard/sseung.css" />
@@ -57,10 +53,6 @@
 <!-- dossierbit -->
 <link rel="stylesheet" type="text/css"
 	href="../../css/dashboard/dossierbit.css" />
-
-<!-- buildupdate -->
-
-
 
 <!--[if lt IE 9]>
         <script src="../../bower_components/html5shiv/dist/html5shiv.min.js"></script>
@@ -78,12 +70,12 @@
 <body>
 	<!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
 	<!--
-    Top Navbar
-      Options:
-        .navbar-dark - dark color scheme
-        .navbar-static - static navbar
-        .navbar-under - under sidebar
-  -->
+     Top Navbar
+       Options:
+         .navbar-dark - dark color scheme
+         .navbar-static - static navbar
+         .navbar-under - under sidebar
+   -->
 	<nav class="navbar-top">
 		<div class="nav-wrapper">
 
@@ -148,8 +140,9 @@
 						</div>
 					</div></li>
 				<li class="user"><a class="dropdown-button"
-					data-activates="user-dropdown" href="#!"> <span id="userName1"></span>
-						<i class="mdi-navigation-expand-more right"></i>
+					data-activates="user-dropdown" href="#!"> <img id="myPhoto1"
+						src="" class="circle"><span id="userName1"></span><i
+						class="mdi-navigation-expand-more right"></i>
 				</a>
 
 					<ul id="user-dropdown" class="dropdown-content">
@@ -215,7 +208,9 @@
 			<div class="nano-content">
 
 				<ul>
-					<li class="yay-user-info"><a href="../auth/myinfo.html">
+					<li class="yay-user-info"><a href="#" id="myinfoLink"> <img
+							id="myPhoto2" src="" class="circle"
+							onerror="this.onerror=null;this.src='../../images/user_default.png'">
 							<h3 class="yay-user-info-name">
 								<span id="userName2"></span>
 							</h3>
@@ -223,16 +218,20 @@
 								<i class="fa fa-map-marker"></i><span id="authLevel"></span>
 							</div>
 					</a></li>
+
 					<li class="label">메뉴</li>
 
 					<li class="active"><a href="#"
-						class=" waves-effect waves-blue" id="myinfoLink"><i
-							class="fa fa-tachometer"></i> Home &#38; Human </a></li>
-					<li><a href="#" class=" waves-effect waves-blue"
-						id="gongziLink"> <i class="fa fa-check"></i><span> 공지사항
-						</span></a></li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i
-							class="fa fa-bullhorn"></i> 민원사항
+						class=" waves-effect waves-blue" id="dashboardLink"> <i
+							class="fa fa-tachometer"></i> <span> Home &#38; Human </span>
+					</a></li>
+					<li><a href="#" class="waves-effect waves-blue"
+						id="gongziLink"> <i class="fa fa-check"></i> <span>
+								공지사항 </span>
+					</a></li>
+					<li><a href="#" class="waves-effect waves-blue"
+						id="complainLink"> <i class="fa fa-bullhorn"></i> <span>
+								민원사항 </span>
 					</a></li>
 					<li><a href="#" class=" waves-effect waves-blue"> <i
 							class="fa fa-building-o"></i> 건물정보
@@ -243,8 +242,9 @@
 					<li><a href="#" class=" waves-effect waves-blue"> <i
 							class="fa fa-credit-card"></i> 관리비내역
 					</a></li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i
-							class="fa fa-hand-o-right"></i> 자유게시판
+					<li><a href="#" class=" waves-effect waves-blue"
+						id="freeBoardLink"> <i class="fa fa-hand-o-right"></i> <span>
+								자유게시판 </span>
 					</a></li>
 				</ul>
 
@@ -266,156 +266,77 @@
 				<div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
 					<a href="../../html/index.html" class="hh-logo-black"> <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
 					</a>
-					<h1>Home &#38; Human</h1>
+					<h1>집 등록하기</h1>
 				</div>
 			</div>
 
 		</div>
 		<!-- /Breadcrumb -->
 
-		<div class="row sortable">
+		<div class="row sortable" style="margin-right: 0;">
 
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
-
-			<div id="main1">
-				<div id="main2">
-					<h3>건물정보 수정</h3>
-					<span>건물정보를 수정하거나 새로 등록하실수 있습니다.</span><br>
-				</div>
-				<div class="main3">
-
-					<input id="reID" type="text" class="reID" placeholder="건물이름">
-					<div id="buildupdate"></div>
-					<span>검색버튼을 이용하여 주소를 입력해주세요.</span><br> 
-					<input type="text" id="postcode" class="postNo" placeholder="우편번호"> 
-					<button type="button" id="postBtn" onclick="DaumPostcode()">검색</button>
-					<input type="text" id="address"  class="basicAddr" placeholder="기본주소"> 
-					<input type="text" id="address2" class="detailAddr" placeholder="상세주소">
-					<input type="text" id="" class="reType" placeholder="부동산유형">
-					<input type="text" id="" class="park" placeholder="주차가능여부"><br>
-
-					
-					<button id="agreeBtn" type="button">등록</button>
-					<button id="cancelBtn" type="button">취소</button>
-					
+			<div class="col l8 s12 offset-l2">
+				<div class="card-panel" style="padding-bottom: 0; padding-right: 0;">
+				
+					<div class="input-field col l12 s12">
+						<i class="mdi-content-create prefix"></i>
+						<input type="text" class="form-control reID" id="reID" name="title" required>
+						<label for="reID">건물 이름을 적어주세요.</label>
+					</div>
+					<p>[ 검색버튼을 이용하여 주소를 입력해주세요. ]</p>
+					<div class="input-field col l2 s12">
+						<i class="mdi-content-create prefix active"></i>
+						<input type="text" class="form-control postNo" id="postcode" name="title" placeholder="" readonly>
+						<label for="reID" class="active">우편번호</label>
+					</div>
+					<div class="input-field col l8 s12">
+						<i class="mdi-content-create prefix active"></i>
+						<input type="text" class="form-control basicAddr" id="address" name="title" placeholder="" readonly>
+						<label for="reID" class="active">기본주소</label>
+					</div>
+					<div class="input-field col l2 s12">
+						<a class="waves-effect waves-dark btn cyan" id="postBtn" onclick="DaumPostcode()" style="width: 100%;">검색</a>
+					</div>
+					<div class="input-field col l12 s12">
+						<i class="mdi-content-create prefix"></i>
+						<input type="text" class="form-control detailAddr" id="address2" name="title" required>
+						<label for="reID">상세주소</label>
+					</div>
+					<div class="input-field col l6 s12">
+						<!-- <input type="text" class="reType"> -->
+						<p>[ 부동산 유형 ]</p>
+						<input class="with-gap1" name="radios2-1" type="radio" id="radios2-1" checked />
+  						<label for="radios2-1">원룸</label>
+  						<input class="with-gap1" name="radios2-1" type="radio" id="radios2-2" />
+						<label for="radios2-2">오피스텔</label>
+					</div>
+					<div class="input-field col l6 s12">
+						<!-- <input type="text" class="park"> -->
+						<p>[ 주차 가능여부 ]</p>
+						<input class="with-gap2" name="radios2-2" type="radio" id="radios2-3" checked />
+  						<label for="radios2-3">가능</label>
+  						<input class="with-gap2" name="radios2-2" type="radio" id="radios2-4" />
+						<label for="radios2-4">불가능</label>
+					</div>
+					<div class="input-field col l12 s12" style="padding-bottom: 0;">
+						<hr>
+					</div>
+					<div class="input-field col l6 s12">
+						<a class="waves-effect waves-dark btn cyan" id="agreeBtn" style="width: 100%;">등록</a>
+					</div>
+					<div class="input-field col l6 s12">
+						<a class="waves-effect waves-dark btn cyan" id="cancelBtn" style="width: 100%;">취소</a>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+
+			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+		</div>
 	</section>
 	<!-- /Main Content -->
 	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
-
-	<div class="chat">
-		<!--------------------------------------------------------메세지 부분---------------------------------------------------------->
-		<!-- Messages -->
-		<div class="messages">
-
-			<!-- Top Bar with back link -->
-			<div class="topbar">
-				<a href="#!" class="chat-toggle"><i class="mdi-navigation-close"></i></a>
-				<a href="#!" class="chat-back"><i
-					class="mdi-hardware-keyboard-arrow-left"></i> Back</a>
-			</div>
-			<!-- /Top Bar with back link -->
-
-			<!-- All messages list -->
-			<div class="list">
-				<div class="nano scroll-bottom">
-					<div class="nano-content">
-
-						<div class="date">Monday, Feb 23, 8:23 pm</div>
-
-						<div class="from-me">
-							Hi, Felicia. <br> How are you?
-						</div>
-
-						<div class="clear"></div>
-
-						<div class="from-them">
-							<img src="../../bower_components/assets/_con/images/user2.jpg"
-								alt="John Doe" class="circle photo"> Hi! I am good!
-						</div>
-
-						<div class="clear"></div>
-
-						<div class="from-me">
-							Glad to see you :) <br> This long text is intended to show
-							how the chat will display it.
-						</div>
-
-						<div class="clear"></div>
-
-						<div class="from-them">
-							<img src="../../bower_components/assets/_con/images/user2.jpg"
-								alt="John Doe" class="circle photo"> Also, we will send
-							the longest word to show how it will fit in the chat window: <strong>Pneumonoultramicroscopicsilicovolcanoconiosis</strong>
-						</div>
-
-						<div class="date">Friday, Mar 10, 5:07 pm</div>
-
-						<div class="from-me">Hi again!</div>
-
-						<div class="clear"></div>
-
-						<div class="from-them">
-							<img src="../../bower_components/assets/_con/images/user2.jpg"
-								alt="John Doe" class="circle photo"> Hi! Glad to see you.
-						</div>
-
-						<div class="clear"></div>
-
-						<div class="from-me">I want to add you in my Facebook.</div>
-
-						<div class="clear"></div>
-
-						<div class="from-me">Can you give me your page?</div>
-
-						<div class="clear"></div>
-
-						<div class="from-them">
-							<img src="../../bower_components/assets/_con/images/user2.jpg"
-								alt="John Doe" class="circle photo"> I do not use
-							Facebook. But you can follow me in Twitter.
-						</div>
-
-						<div class="clear"></div>
-
-						<div class="from-me">It's good idea!</div>
-
-						<div class="clear"></div>
-
-						<div class="from-them">
-							<img src="../../bower_components/assets/_con/images/user2.jpg"
-								alt="John Doe" class="circle photo"> You can find me here
-							- <a href="https://twitter.com/nkdevv">https://twitter.com/nkdevv</a>
-						</div>
-
-					</div>
-				</div>
-			</div>
-			<!-- /All messages list -->
-
-			<!-- Send message -->
-			<div class="send">
-				<form action="#!">
-					<div class="input-field">
-						<input id="chat-message" type="text" name="chat-message">
-					</div>
-
-					<button class="btn waves-effect z-depth-0">
-						<i class="mdi-content-send"></i>
-					</button>
-				</form>
-			</div>
-			<!-- /Send message -->
-
-		</div>
-		<!-- /Messages -->
-		<!-----------------------------------------------------/메세지 부분-------------------------------------------------------->
-	</div>
-	<!-- /Chat -->
 
 	<!---------------------------------------------------------푸터 부분---------------------------------------------------------->
 	<footer>
@@ -443,18 +364,6 @@
 	<script type="text/javascript"
 		src="../../bower_components/materialize/bin/materialize.js"></script>
 
-
-
-	<!-- Full Calendar -->
-	<script type="text/javascript"
-		src="../../bower_components/moment/min/moment.min.js"></script>
-
-	<script type="text/javascript"
-		src="../../bower_components/jquery-ui/jquery-ui.min.js"></script>
-	<script type="text/javascript"
-		src="../../bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-
-
 	<!-- Sortable -->
 	<script type="text/javascript"
 		src="../../bower_components/Sortable/Sortable.min.js"></script>
@@ -463,95 +372,34 @@
 	<script type="text/javascript"
 		src="../../bower_components/assets/_con/js/_con.js"></script>
 
-	<!-- Google Prettify -->
-	<script type="text/javascript"
-		src="../../bower_components/code-prettify/src/prettify.js"></script>
+	<!-- Loading Bar -->
+	<script type="text/javascript" src="../../js/pace.js"></script>
 
-	<script>
-    /* 
-     * Init Calendar
-     */
-    $('#calendar').fullCalendar({
-      height : 700,
-      header : {
-        left : 'prev,next today',
-        center : 'title',
-        right : 'month,agendaWeek,agendaDay'
-      },
-      defaultDate : '2015-02-12',
-      editable : true,
-      droppable : true,
-      drop : function() {
-        // is the "remove after drop" checkbox checked?
-        if (removeDraggable.is(':checked')) {
-          // if so, remove the element from the "Draggable Events" list
-          $(this).remove();
-        }
-      }
-    /* 
-    events: [{
-        title: 'All Day Event',
-        start: '2015-02-01'
-    }, {
-        title: 'Long Event',
-        start: '2015-02-07',
-        end: '2015-02-10'
-    }, {
-        id: 999,
-        title: 'Repeating Event',
-        start: '2015-02-09T16:00:00'
-    }, {
-        id: 999,
-        title: 'Repeating Event',
-        start: '2015-02-16T16:00:00'
-    }, {
-        title: 'Conference',
-        start: '2015-02-11',
-        end: '2015-02-13'
-    }, {
-        title: 'Meeting',
-        start: '2015-02-12T10:30:00',
-        end: '2015-02-12T12:30:00'
-    }, {
-        title: 'Lunch',
-        start: '2015-02-12T12:00:00'
-    }, {
-        title: 'Meeting',
-        start: '2015-02-12T14:30:00'
-    }, {
-        title: 'Click for Google',
-        url: 'http://google.com/',
-        start: '2015-02-28'
-    }]
-     */
-    });
-  </script>
+	<!-- Link Sort -->
+	<script type="text/javascript" src="../../js/link.js"></script>
+
+	<!-- Common Dashboard -->
+	<script type="text/javascript" src="../../js/commonDashboard.js"></script>
 
 
+
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/bit.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+	<script type="text/javascript" src="//cdn.poesis.kr/post/search.min.js"></script>
 	<script
 		src="http://dmaps.daum.net/map_js_init/postcode.v2.js?autoload=false"></script>
-	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../js/auth/buildupdate.js"></script>
 
 	<script>
-    ajaxLoginUser();
-  </script>
+		ajaxDashboardUser();
+		ajaxLoginUser();
+	</script>
 
-	<!-- 사진 미리보기 -->
-	<script type="text/javascript">
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                    $('#phoPath').attr('src', e.target.result);
-                }
-
-              reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
 
 </body>
 
 </html>
+
+
