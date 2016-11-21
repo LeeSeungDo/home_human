@@ -59,6 +59,8 @@
 	href="../../css/dashboard/dossierbit.css" />
 
 <!-- buildupdate -->
+<link rel="stylesheet" type="text/css"
+  href="../../css/auth/buildupdate.css" />
 
 
 
@@ -283,22 +285,30 @@
 					<span>건물정보를 수정하거나 새로 등록하실수 있습니다.</span><br>
 				</div>
 				<div class="main3">
-
+        <table>
+        <tr>
+          <th class="th_cell">
 					<input id="reID" type="text" class="reID" placeholder="건물이름">
+          </th>
+          
+          <td class="td_cell">
 					<div id="buildupdate"></div>
 					<span>검색버튼을 이용하여 주소를 입력해주세요.</span><br> 
 					<input type="text" id="postcode" class="postNo" placeholder="우편번호"> 
-					<button type="button" id="postBtn" onclick="DaumPostcode()">검색</button>
+					<button type="button" id="postBtn" onclick="DaumPostcode()">검색</button><br>
 					<input type="text" id="address"  class="basicAddr" placeholder="기본주소"> 
 					<input type="text" id="address2" class="detailAddr" placeholder="상세주소">
 					<input type="text" id="" class="reType" placeholder="부동산유형">
 					<input type="text" id="" class="park" placeholder="주차가능여부"><br>
 
 					
+          </td>
+					
+        </tr>
+        </table>
+				</div>
 					<button id="agreeBtn" type="button">등록</button>
 					<button id="cancelBtn" type="button">취소</button>
-					
-				</div>
 			</div>
 		</div>
 
