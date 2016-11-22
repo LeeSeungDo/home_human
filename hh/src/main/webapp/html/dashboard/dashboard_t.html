@@ -283,20 +283,6 @@
 		</div>
 		<!-- /Breadcrumb -->
 
-		<div class="row sortable">
-		
-		<div class="page-title" style="height: 80px;">
-
-			<div class="row">
-				<div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
-					<a href="../../html/index.html" class="hh-logo-black"> <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
-					</a>
-					<h1>Home &#38; Human</h1>
-				</div>
-			</div>
-
-		</div>
-		<!-- /Breadcrumb -->
 
 		<div class="row sortable">
 
@@ -355,21 +341,18 @@
 
 					<div class="content todo-card">
 						<div class="todo-task">
-							<input type="checkbox" id="checkbox1" checked /> <label
-								for="checkbox1">10월 월세 납부 완료 </label>
-							<button type="button" class="ten">요청하기</button>
+							<input type="checkbox" id="checkbox1" /> <label for="checkbox1">10월
+								월세 납부 완료 </label>
 						</div>
 
 						<div class="todo-task">
-							<input type="checkbox" id="checkbox2"> <label
+							<input type="checkbox" id="checkbox2" checked /> <label
 								for="checkbox2">11월 월세 납부 완료 </label>
-							<button type="button" class="ten">요청하기</button>
 						</div>
 
 						<div class="todo-task">
-							<input type="checkbox" id="checkbox4"> <label
+							<input type="checkbox" id="checkbox4" checked /> <label
 								for="checkbox4">12월 월세 납부 완료 </label>
-							<button type="button" class="ten">요청하기</button>
 						</div>
 
 						<!-- <div class="input-field">
@@ -418,14 +401,14 @@
 						<ul id="complaintListTable">
 						</ul>
 						<script id="complaintList" type="text/x-handlebars-template">
-      {{#each list}}	
-		<li>
-		<a href="../board/complain_t.html" style="color:black;">
-               <h5>{{title}}</h5>
-		</a>
-		</li>
-      {{/each}}
-   </script>
+      					{{#each list}}	
+							<li>
+								<a href="../board/complain_t.html" style="color:black;">
+									<h5>{{title}}</h5>
+								</a>
+							</li>
+						{{/each}}
+						</script>
 						<!-- /핸들바스 부분 -->
 					</div>
 				</div>
@@ -449,9 +432,9 @@
 					</div>
 				</div>
 			</div>
-			
-			
-<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+
+
+			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 		</div>
 	</section>
 	<!-- /Main Content -->
@@ -513,11 +496,11 @@
 
 	<!-- Common Dashboard -->
 	<script type="text/javascript" src="../../js/commonDashboard_t.js"></script>
-	
+
 	<!-- Dday -->
 	<script type="text/javascript" src="../../js/dashboard/dday.js"></script>
 
-	
+
 
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../js/bit.js"></script>
@@ -528,49 +511,13 @@
 	<script>
 		ajaxDashboardUser()
 		ajaxRealEstateContractList()
-		ajaxFirstList();
+		//ajaxFirstList();
 		ajaxComplainListRsvd1_t()
 	</script>
-	
-	
-	
-	<script id="tenantList" type="text/x-handlebars-template">
-	{{#each list}}
-		<li>
-			<div class="col l12 s12 hover" style="padding-top: 20px; height: 94px;">
-				<a href="#">
-					<div class="col l3 s12 center-align">
-						<img src="" onerror="this.src='../../images/user_default.png'" class="circle" style="width: 50px; height: 50px;">
-					</div>
-					<div class="col l9 s12" style="height: 50px;">
-						<h4>{{name}}</h4>
-						<p>전화번호 : {{tel}} <span> |  상세주소 : {{detailAddress}}</span></p>
-						<hr>
-					</div>
-				</a>
-			</div>
-		</li>
-		
-	{{/each}}
-	</script>
-	<script id="buildList" type="text/x-handlebars-template">
-	{{#each data}}
-		<li>
-			<div class="col l12 s12 hover" style="padding-left: 40px; padding-top: 20px; height: 94px;">
-				<a href="../auth/myinfo.html">
-					<div class="col l12 s12" style="height: 50px;">
-						<h4>{{reID}}</h4>
-						<p>상세주소 : {{basicAddr}}</p>
-						<hr>
-					</div>
-				</a>
-			</div>
-		</li>
-	{{/each}}
-	</script>
+
 
 </body>
 
 </html>
-			
-			
+
+
