@@ -16,6 +16,7 @@
 		<result column="RE_TYPE" property="reType" />
 		<result column="PK" property="park" />
 		<result column="RTPAY_DT" property="rentPayDate" />
+		<result column="REQ" property="request" />
 	</resultMap>
 
 	<select id="selectList" resultMap="buildMap" parameterType="map">
@@ -41,7 +42,7 @@
 		where b.t_email=#{TEmail}
 	</select>
 	
-	<select id="selectReqList" resultMap="realestatecontractMap" parameterType="map">
+	<select id="selectReqList" resultMap="buildMap" parameterType="map">
     select A.build_no, A.l_email, B.t_email, A.re_id, b.rtpay_dt, c.name
     from re a inner join re_crct b
     on a.build_no = b.build_no

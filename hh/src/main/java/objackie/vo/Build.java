@@ -17,6 +17,7 @@ public class Build implements Serializable {
   protected int reType;               // 부동산유형 [0:원룸 / 1:오피스텔 / 2:다세대주택]
   protected int park;                 // 주차가능유형 [0: 가능 / 1: 불가능]
   protected int rentPayDate;
+  protected int request;
   
   public int getBuildNo() {
     return buildNo;
@@ -92,6 +93,13 @@ public class Build implements Serializable {
   }
   public void setRentPayDate(int rentPayDate) {
     this.rentPayDate = rentPayDate;
+  }
+  
+  public int getRequest() {
+    return request;
+  }
+  public void setRequest(int request) {
+    this.request = request;
   }
   
   
