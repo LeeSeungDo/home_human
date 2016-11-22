@@ -89,8 +89,8 @@ function ajaxLoginUser() {
 				postNo : $(".postNo").val(),
 				basicAddr : $(".basicAddr").val(),
 				detailAddr : $(".detailAddr").val(),
-				reType : $(".reType").val(),
-				park : $(".park").val()
+				reType : $(":input:radio[name=radios2-1]:checked").val(),
+				park : $(":input:radio[name=radios2-2]:checked").val()
 			}
 			swal({
 				title : '정말 변경하시겠습니까?',
