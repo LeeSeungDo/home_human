@@ -226,48 +226,96 @@
     <!-- /Yay Sidebar -->
 
     <!-- Main Content -->
-    <section class="content-wrap">
+    
+	<section class="content-wrap">
 
+    <!-- Breadcrumb -->
+    <div class="page-title" style="height: 80px;">
 
-        <!-- Breadcrumb -->
-       <div class="page-title" style="height: 80px;">
-
-         <div class="row">
-            <div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
-               <a href="../../html/index.html" class="hh-logo-black">
-                      <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
-                  </a>
-                  <h1>자유게시판</h1>
-            </div>
-         </div>
-
+      <div class="row">
+        <div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
+          <a href="../../html/index.html" class="hh-logo-black"> <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
+          </a>
+          <h1>자유게시판</h1>
+        </div>
       </div>
-		<!-- /Breadcrumb -->
 
-		<div class="row sortable" style="margin-right: 0;">
-	<section>
-<p><button type="button" class="btn btn-primary btn-sm" 
-           onclick="location.href='freeboardInput_t.html'">새 글</button></p>
+    </div>
+    <!-- /Breadcrumb -->
 
-<table id="freeboardTable" class="table table-hover">
-<thead>
-<tr>
-  <th>번호</th>
-  <th>제목</th>
-  <th>작성자</th>
-  <th>등록일</th>
-  <th>조회수</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
-      
-<button id="prevBtn" type="button" class="btn btn-default btn-sm">이전</button>
-<span id="pageNo">1</span>
-<button id="nextBtn" type="button" class="btn btn-default btn-sm">다음</button>
-</div>
+    <!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
+    <div class="row sortable" style="margin-right: 0;">
+      <div class="row" style="margin: 0 auto; width: 65%;">
+        <form>
+          <div class="card">
+            <div class="title card-panel grey darken-4 white-text">
+              <h5 id="title1"></h5>
+            </div>
+            <div class="content">
+              <input type="hidden" id="boardNo" name="boardNo"> <input
+                type="hidden" id="email" name="email">
 
-	<!---------------------------------------------------------푸터 부분---------------------------------------------------------->
+              <div class="input-field col l8 s12">
+                <i class="mdi-social-person prefix active"></i> <input
+                  type="text" class="form-control writer" id="writer"
+                  name="writer" placeholder="" readonly> <label
+                  for="input_text" class="active">작성자</label>
+              </div>
+              <div class="input-field col l4 s12">
+                <i class="mdi-social-person prefix active"></i> <input
+                  type="text" class="form-control writer" id="createDate"
+                  name="createDate" placeholder="" readonly> <label
+                  for="input_text" class="active">작성일</label>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="card">
+            <div class="title card-panel blue-grey lighten-2 white-text">
+              <h5>[ 수정부분 입니다. ]</h5>
+            </div>
+            <div class="content">
+              <div class="input-field col l12 s12">
+                <i class="mdi-social-person prefix active"></i> <input
+                  type="text" class="form-control writer" id="title" name="title"
+                  placeholder=""> <label for="input_text" class="active">제목</label>
+              </div>
+              <div class="input-field col l12 s12">
+                <i class="mdi-communication-chat prefix active"></i>
+                <textarea id="contents" name="contents"
+                  class="materialize-textarea updateLimit" placeholder=""></textarea>
+                <label for="contents" class="active">내용</label>
+              </div>
+
+              <div class="file-field input-field col s12">
+                <div class="btn">
+                  <span>첨부파일</span> <input type="file" name="file" id="file"
+                    style="height: 50%;">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                </div>
+              </div>
+
+              <div class="col l6 s12">
+                <a class="waves-effect waves-dark btn cyan" id="updateBtn"
+                  style="width: 100%;">변경</a>
+              </div>
+              <div class="col l6 s12">
+                <a class="waves-effect waves-dark btn cyan" id="cancelBtn"
+                  style="width: 100%;">취소</a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col"></div>
+      <!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+    </div>
+  </section>
+  
 	<footer>
 		&copy; 2016 <strong>Objackie</strong> Java85.
 	</footer>
@@ -328,12 +376,17 @@
 		<script type="text/javascript" src="../../js/bit.js"></script>
 		<script type="text/javascript" src="../../js/commonDashboard_t.js"></script>
   		<script type="text/javascript" src="../../js/link_t.js"></script>
-		<script type="text/javascript" src="../../js/board/freeboard_t.js"></script>
-		<script>		
-		    ajaxDashboardUser()
-			ajaxFreeBoardList()
-		</script>
-	</section>
+		<script type="text/javascript" src="../../js/board/freeboardUpdate_t.js"></script>
+		<script>
+    ajaxDashboardUser();
+  </script>
+
+  <script>
+    if (location.search.startsWith("?")) {
+      var no = location.search.split("=")[1];
+      ajaxLoadFreeBoard(no)
+    }
+  </script>
 	
 </body>
 </html>

@@ -13,3 +13,7 @@ $("#complainLink").click(function(event) {
 $("#myinfoLink").click(function(event) {
 	window.location.href = serverAddr + "/html/auth/myinfo_t.html"
 });
+
+$("#freeBoardLink").click(function(event) {
+	window.location.href = serverAddr + "/html/board/freeboard_t.html"
+});
