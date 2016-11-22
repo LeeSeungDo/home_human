@@ -54,6 +54,10 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/dashboard/dossierbit.css" />
 
+<!-- Sweet Alert -->
+<link rel="stylesheet"
+	href="../../bower_components/sweetalert2/dist/sweetalert2.min.css">
+
 <!--[if lt IE 9]>
         <script src="../../bower_components/html5shiv/dist/html5shiv.min.js"></script>
     <![endif]-->
@@ -233,16 +237,13 @@
 						id="complainLink"> <i class="fa fa-bullhorn"></i> <span>
 								민원사항 </span>
 					</a></li>
-					<li>
-						<a href="#" class=" waves-effect waves-blue" id="buildingLink"> <i class="fa fa-building-o"></i>
-							<span> 건물정보 </span>
-						</a>
-					</li>
-					<li>
-          	<a href="#" class=" waves-effect waves-blue" id="tenantLink">
-          		<i class="fa fa-users"></i> 세입자관리
-          	</a>
-          </li>
+					<li><a href="#" class=" waves-effect waves-blue"
+						id="buildingLink"> <i class="fa fa-building-o"></i> <span>
+								건물정보 </span>
+					</a></li>
+					<li><a href="#" class=" waves-effect waves-blue"
+						id="tenantLink"> <i class="fa fa-users"></i> 세입자관리
+					</a></li>
 					<li><a href="#" class=" waves-effect waves-blue"> <i
 							class="fa fa-credit-card"></i> 관리비내역
 					</a></li>
@@ -389,6 +390,12 @@
 
 	<!-- Common Dashboard -->
 	<script type="text/javascript" src="../../js/commonDashboard.js"></script>
+
+	<!-- Sweet Alert -->
+	<script
+		src="../../bower_components/es6-promise/es6-promise.auto.min.js"></script>
+	<script
+		src="../../bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
 
 
 
