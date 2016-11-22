@@ -55,7 +55,7 @@ function ajaxRealEstateContractList3(no) {
 
 		$(document.body).on('click', '.contractForm3', function(event) {
 			window.location.href = serverAddr + "/html/contract/viewMyContract.html?no=" + $(this).attr("data-no")
-		})
+		 })
 	})
 }
 
