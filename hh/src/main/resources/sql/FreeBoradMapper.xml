@@ -19,10 +19,10 @@
     select A.BOD_NO, A.WRITER, A.EMAIL, A.TITLE, A.CRE_DT, A.VW_CNT, A.CONTS, B.PHO_PATH
 	from BOARD A LEFT OUTER JOIN BOD_PHO B
 	on A.BOD_NO = B.BOD_NO
-    where TYPE=3
+    where A.TYPE=3
     <if test="keyword != ''">
-     and (A.TITLE like concat('%',#{keyword},'%'))
-     or (A.WRITER like concat('%',#{keyword},'%'))
+     and ((A.TITLE like concat('%',#{keyword},'%'))
+     or (A.WRITER like concat('%',#{keyword},'%')))
     </if>      
     order by BOD_NO desc
 

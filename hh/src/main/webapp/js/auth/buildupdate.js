@@ -78,8 +78,8 @@ function ajaxLoginUser() {
 					postNo: $(".postNo").val(),
 					basicAddr: $(".basicAddr").val(),
 					detailAddr: $(".detailAddr").val(),
-					reType: $(".reType").val(),
-					park: $(".park").val()
+					reType: $(":input:radio[name=radios2-1]:checked").val(),
+					park: $(":input:radio[name=radios2-2]:checked").val()
 			}
 			ajaxUpdateBuilding(buildinging)
 		});
