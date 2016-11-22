@@ -3,8 +3,7 @@ $("#dashboardLink").click(function(event) {
 });
 
 $("#myInfo").click(function(event) {
-   alert("내정보");
-   window.location.href = serverAddr + "/html/auth/myinfo.html"
+	window.location.href = serverAddr + "/html/auth/myinfo.html"
 });
 
 $("#gongziLink").click(function(event) {
@@ -16,13 +15,11 @@ $("#complainLink").click(function(event) {
 });
 
 $("#myinfoLink").click(function(event) {
-	alert("내정보");
 	window.location.href = serverAddr + "/html/auth/myinfo.html"
 });
 
 $("#freeBoardLink").click(function(event) {
-   alert("자유게시판");
-   window.location.href = serverAddr + "/html/board/freeboard.html"
+	window.location.href = serverAddr + "/html/board/freeboard.html"
 });
 
 $("#tenantLink").click(function(event) {
@@ -30,8 +27,5 @@ $("#tenantLink").click(function(event) {
 });
 
 $("#buildingLink").click(function(event) {
-	   alert("건물정보");
-	   window.location.href = serverAddr + "/html/auth/myinfo.html"
-	});
-
-
+	window.location.href = serverAddr + "/html/auth/myinfo.html"
+});

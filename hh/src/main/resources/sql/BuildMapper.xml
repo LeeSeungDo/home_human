@@ -24,9 +24,7 @@
 		B.BAS_ADDR, B.DIT_ADDR, B.RE_TYPE, B.PK
 		from MEMBS A RIGHT JOIN RE B ON A.EMAIL = B.L_EMAIL
 		where A.AUTH=0 and B.L_EMAIL=#{email}
-		order by B.BUILD_NO desc
-
-		limit #{startIndex}, #{length}
+		order by B.BUILD_NO asc
 	</select>
 
 	<select id="selectOne" resultMap="buildMap" parameterType="int">

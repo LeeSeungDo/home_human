@@ -71,7 +71,7 @@ function ajaxLoginUserList() {
 
 		var email = result.data.email;
 		ajaxBuildList(email)
-		ajaxBuildReqList(email)
+		//ajaxBuildReqList(email)
 	})
 }
 
@@ -98,7 +98,7 @@ function ajaxBuildReqList(email) {
 	$.getJSON(serverAddr + "/build/reqList.json", {"email": email}, function(obj) {
 		var result = obj.jsonResult
 		if (result.state != "success") {
-			alert("서버에서 데이터를 가져오는데 실패했습니다.")
+			alert("서버에서 데이터를 가져오는데 실패했습니다.build")
 			return
 		}
 
