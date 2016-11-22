@@ -16,8 +16,18 @@ $("#cancelBtn").click(function(event) {
 $("#updateBtn").click(function(event) {
 	var form = $('form')[0];
 	var formData = new FormData(form);
-
-	ajaxUpdateFreeBoard(formData);
+	
+	swal({
+		title : '정말 변경하시겠습니까?',
+		type : 'warning',
+		showCancelButton : true,
+		confirmButtonColor : '#3085d6',
+		cancelButtonColor : '#d33',
+		confirmButtonText : '변경',
+		cancelButtonText : '취소'
+	}).then(function() {
+		ajaxUpdateFreeBoard(formData);
+	})
 });
 
 
@@ -49,8 +59,14 @@ function ajaxUpdateFreeBoard(formData) {
 		contentType: false,
 		type: 'POST',
 		success: function(data){
-			var no = location.search.split("=")[1];	 
-			location.href= serverAddr + "/html/board/freeboardForm.html?no=" + no
+			var no = location.search.split("=")[1];
+			swal({
+				title : '게시물이 변경되었습니다.',
+				confirmButtonColor : '#3085d6',
+				confirmButtonText : '확인'
+			}).then(function() {
+				window.location.href= serverAddr + "/html/board/freeboardForm.html?no=" + no
+			});
 		}
 	});
 }

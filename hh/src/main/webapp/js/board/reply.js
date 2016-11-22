@@ -69,8 +69,14 @@ function ajaxDeleteReply(no) {
 		if (result.state != "success") {
 			alert("삭제 실패입니다.")
 			return
-		}		
-		location.reload();
+		}
+		swal({
+			title : '댓글이 삭제되었습니다.',
+			confirmButtonColor : '#3085d6',
+			confirmButtonText : '확인'
+		}).then(function() {
+			location.reload();
+		});
 	})
 }
 
@@ -80,12 +86,17 @@ $(document.body).on("click",".bit-save-btn",function(event) {
 			reno: $(this).attr("data-no"),
 			reContents: $(".update-contents").val()
 	}
-	if (confirm("정말 변경하시겠습니까?") == true) {
+	swal({
+		title : '정말 변경하시겠습니까?',
+		type : 'warning',
+		showCancelButton : true,
+		confirmButtonColor : '#3085d6',
+		cancelButtonColor : '#d33',
+		confirmButtonText : '변경',
+		cancelButtonText : '취소'
+	}).then(function() {
 		ajaxUpdateReply(reply)
-	} else {
-		return;
-	}
-
+	})
 });
 
 
@@ -127,7 +138,13 @@ function ajaxUpdateReply(reply) {
 			alert("변경 실패입니다.")
 			return
 		}
-		location.reload();
+		swal({
+			title : '댓글이 변경되었습니다.',
+			confirmButtonColor : '#3085d6',
+			confirmButtonText : '확인'
+		}).then(function() {
+			location.reload();
+		});
 	}, "json")
 }
 
@@ -143,7 +160,7 @@ function ajaxCancelReply(no) {
 		var result = obj.jsonResult		
 		if (result.state != "success") {
 			alert("조회 실패입니다.")
-			return
+			return;
 		} else {			
 			$("#replyTable tr[data-no=" + no + "]").find("p").html(
 					result.data.reContents);
@@ -176,7 +193,13 @@ function ajaxLoginUserReplyComparison() {
 				}
 				var replyEmail = result.data.email;
 				if (loginEmail != replyEmail) {
-					alert("댓글 수정 권한이 없습니다.")
+					//alert("댓글 수정 권한이 없습니다.")
+					swal({
+						title : '댓글 수정 권한이 없습니다.',
+						confirmButtonColor : '#3085d6',
+						confirmButtonText : '확인',
+						type: 'error'
+					})
 				} else {
 					ajaxLoadReply(tno)
 				}
@@ -193,13 +216,26 @@ function ajaxLoginUserReplyComparison() {
 				}
 				var replyEmail = result.data.email;
 				if (loginEmail != replyEmail) {
-					alert("댓글 삭제 권한이 없습니다.")
-				} else {				
-					if (confirm("정말 삭제하시겠습니까?") == true) {
+					//alert("댓글 삭제 권한이 없습니다.")
+					swal({
+						title : '댓글 삭제 권한이 없습니다.',
+						confirmButtonColor : '#3085d6',
+						confirmButtonText : '확인',
+						type: 'error'
+					})
+				} else {		
+					swal({
+						title : '정말 삭제하시겠습니까?',
+						text : "데이터를 되돌릴 수 없습니다.",
+						type : 'warning',
+						showCancelButton : true,
+						confirmButtonColor : '#3085d6',
+						cancelButtonColor : '#d33',
+						confirmButtonText : '삭제',
+						cancelButtonText : '취소'
+					}).then(function() {
 						ajaxDeleteReply(dno)
-					} else {
-						return;
-					}  
+					})
 				}
 			})		
 		})

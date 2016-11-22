@@ -52,26 +52,36 @@ $("#updateBtn").click(function(event) {
 		var result = obj.jsonResult
 		var dbPassword = result.data.password;
 		var dbPhoto = '../../upload/' + result.data.phoPath;
-		var test = $("#phoPath").attr("src");
+		var test = $("#phoPath1").attr("src");
+		
+		//console.log(dbPhoto);
+		//console.log(test);
 
 		// formData0 - 사진만 바꿈
 		// formData1 - 패스워드만 바꿈
 		// formData2 - 사진 & 패스워드 둘다 바꿈
 
 		if (dbPhoto != test && newPassword != "") {
-			console.log("사진 패스워드 둘다 바꿔요");
+			//console.log("사진 패스워드 둘다 바꿔요");
 			ajaxUpdateFile2(formData0);
 			
 		} else if (dbPhoto === test && newPassword != "") {
-			console.log("패스워드만 바꿔요");
+			//console.log("패스워드만 바꿔요");
 			ajaxUpdateFile1(formData1);
 			
 		} else if (dbPhoto != test && newPassword === "") {
-			console.log("사진만 바꿔요");
+			//console.log("사진만 바꿔요");
 			ajaxUpdateFile0(formData0);
 			
 		} else {
-			console.log("바꿀게 없네요");
+			//console.log("바꿀게 없네요");
+			swal({
+				  title: '변경할 부분이 없습니다.',
+				  confirmButtonColor: '#3085d6',
+				  confirmButtonText: '확인'
+				}).then(function () {
+					return;
+				});
 		}
 	})
 });
@@ -84,8 +94,14 @@ function ajaxUpdateFile0(formData) {
 		contentType : false,
 		type : 'POST',
 		success : function(data) {
-			alert("사진 변경");
-			window.location.href = serverAddr + "/html/auth/myinfo.html"
+			//alert("사진 변경");
+			swal({
+				  title: '사진만 변경하였습니다.',
+				  confirmButtonColor: '#3085d6',
+				  confirmButtonText: '확인'
+				}).then(function () {
+					window.location.href = serverAddr + "/html/auth/myinfo.html"
+				});
 		}
 	});
 }
@@ -98,8 +114,14 @@ function ajaxUpdateFile1(formData) {
 		contentType : false,
 		type : 'POST',
 		success : function(data) {
-			alert("패스워드 변경");
-			window.location.href = serverAddr + "/html/auth/myinfo.html"
+			//alert("패스워드 변경");
+			swal({
+				  title: '패스워드만 변경하였습니다.',
+				  confirmButtonColor: '#3085d6',
+				  confirmButtonText: '확인'
+				}).then(function () {
+					window.location.href = serverAddr + "/html/auth/myinfo.html"
+				});
 		}
 	});
 }
@@ -112,8 +134,14 @@ function ajaxUpdateFile2(formData) {
 		contentType : false,
 		type : 'POST',
 		success : function(data) {
-			alert("사진 & 패스워드 변경");
-			window.location.href = serverAddr + "/html/auth/myinfo.html"
+			//alert("사진 & 패스워드 변경");
+			swal({
+				  title: '사진 & 패스워드 변경하였습니다.',
+				  confirmButtonColor: '#3085d6',
+				  confirmButtonText: '확인'
+				}).then(function () {
+					window.location.href = serverAddr + "/html/auth/myinfo.html"
+				});
 		}
 	});
 }

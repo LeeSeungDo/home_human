@@ -34,7 +34,13 @@ function ajaxDeleteFreeBoard(no) {
 			alert("삭제 실패입니다.")
 			return
 		}
-		location.href = serverAddr + "/html/board/freeboard.html"
+		swal({
+			title : '게시물이 삭제되었습니다.',
+			confirmButtonColor : '#3085d6',
+			confirmButtonText : '확인'
+		}).then(function() {
+			window.location.href = serverAddr + "/html/board/freeboard.html"
+		});
 	})
 }
 
@@ -62,7 +68,12 @@ function ajaxLoginUserComparison() {
 				console.log(writerEmail)
 				console.log(no)
 				if (email != writerEmail) {
-					alert("게시글 수정 권한이 없습니다.")
+					swal({
+						title : '게시물 수정 권한이 없습니다.',
+						confirmButtonColor : '#3085d6',
+						confirmButtonText : '확인',
+						type: 'error'
+					})
 				} else {
 					window.location.href = serverAddr + "/html/board/freeboardUpdate.html?no=" + no					
 				}
@@ -70,13 +81,25 @@ function ajaxLoginUserComparison() {
 
 			$("#deleteBtn").click(function(event) {
 				if (email != writerEmail) {
-					alert("게시글 삭제 권한이 없습니다.")
+					swal({
+						title : '게시물 삭제 권한이 없습니다.',
+						confirmButtonColor : '#3085d6',
+						confirmButtonText : '확인',
+						type: 'error'
+					})
 				} else {
-					if (confirm("정말 삭제하시겠습니까?") == true) {
+					swal({
+						title : '정말 삭제하시겠습니까?',
+						text : "데이터를 되돌릴 수 없습니다.",
+						type : 'warning',
+						showCancelButton : true,
+						confirmButtonColor : '#3085d6',
+						cancelButtonColor : '#d33',
+						confirmButtonText : '삭제',
+						cancelButtonText : '취소'
+					}).then(function() {
 						ajaxDeleteFreeBoard($("#boardNo").val())
-					} else {
-						return;
-					}  				
+					})
 				}				
 			})
 		})
