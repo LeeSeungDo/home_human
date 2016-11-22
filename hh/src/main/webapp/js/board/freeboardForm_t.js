@@ -84,7 +84,7 @@ function ajaxLoginUserComparison() {
 					swal({
 						title : '게시물 삭제 권한이 없습니다.',
 						confirmButtonColor : '#3085d6',
-						confirmButtonText : '확인',
+						 confirmButtonText : '확인',
 						type: 'error'
 					})
 				} else {
