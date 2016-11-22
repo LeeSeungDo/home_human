@@ -44,12 +44,10 @@
 <link rel="stylesheet" type="text/css"
 	href="../../bower_components/assets/_con/css/con-base.css" />
 
-
-
-<!-- Full Calendar -->
+<!-- sseung -->
 <link rel="stylesheet" type="text/css"
-	href="../../bower_components/fullcalendar/dist/fullcalendar.min.css" />
-
+	href="../../css/dashboard/sseung.css" />
+	
 <!-- dossierbit -->
 <link rel="stylesheet" type="text/css"
 	href="../../css/dashboard/dossierbit.css" />
@@ -57,10 +55,11 @@
 <!-- complain css -->
 <link rel="stylesheet" type="text/css"
 	href="../../css/board/complain_t.css" />
-	
+
 <!-- Sweet Alert -->
-<link rel="stylesheet" href="../../bower_components/sweetalert2/dist/sweetalert2.min.css">
-	
+<link rel="stylesheet"
+	href="../../bower_components/sweetalert2/dist/sweetalert2.min.css">
+
 
 
 <!--[if lt IE 9]>
@@ -85,80 +84,74 @@
          .navbar-static - static navbar
          .navbar-under - under sidebar
    -->
-	  <nav class="navbar-top">
-        <div class="nav-wrapper">
+	<nav class="navbar-top">
+		<div class="nav-wrapper">
 
-            <!-- Sidebar toggle -->
-            <a href="#" class="yay-toggle">
-                <div class="burg1"></div>
-                <div class="burg2"></div>
-                <div class="burg3"></div>
-            </a>
-            <!-- Sidebar toggle -->
+			<!-- Sidebar toggle -->
+			<a href="#" class="yay-toggle">
+				<div class="burg1"></div>
+				<div class="burg2"></div>
+				<div class="burg3"></div>
+			</a>
+			<!-- Sidebar toggle -->
 
-            <!-- Logo -->
-           <a href="../../html/index.html" class="hh-logo">
-                <img src="../../images/hhlogo.png" alt="Home & Human">
-            </a>
-            
-            <!-- /Logo -->
+			<!-- Logo -->
+			<a href="../../html/index.html" class="hh-logo"> <img
+				src="../../images/hhlogo.png" alt="Home & Human">
+			</a>
 
-            <!-- Menu -->
-            <ul>
-                <li>
-                    <a class="dropdown-button" data-activates="test-dropdown" href="#!">
-                        <i class="mdi-communication-email"></i>
-                        <span class="badge new">2</span>
-                    </a>
-                    <div id="test-dropdown" class="dropdown-content dropdown-media">
-                        <div class="card-panel">
+			<!-- /Logo -->
 
-                            <div class="media-heading">메세지 <a href="mail-compose.html"><i class="mdi-content-add-circle-outline"></i></a></div>
+			<!-- Menu -->
+			<ul>
+				<li><a class="dropdown-button" data-activates="test-dropdown"
+					href="#!"> <i class="mdi-communication-email"></i> <span
+						class="badge new">2</span>
+				</a>
+					<div id="test-dropdown" class="dropdown-content dropdown-media">
+						<div class="card-panel">
 
-                            <div class="media-footer"><a href="mail-inbox.html"><i class="mdi-hardware-keyboard-control"></i></a></div>
+							<div class="media-heading">
+								메세지 <a href="mail-compose.html"><i
+									class="mdi-content-add-circle-outline"></i></a>
+							</div>
 
-                            <div class="row mt-0">
-                        </div>
-                    </div>
-                </li>
-                <li class="user">
-                    <a class="dropdown-button" data-activates="user-dropdown" href="#!">
-                        <img id="myPhoto1" src="" class="circle"><span id="userName1"></span><i class="mdi-navigation-expand-more right"></i>
-                    </a>
+							<div class="media-footer">
+								<a href="mail-inbox.html"><i
+									class="mdi-hardware-keyboard-control"></i></a>
+							</div>
 
-                    <ul id="user-dropdown" class="dropdown-content">
-                        <li>
-                            <a href="../auth/myinfo.html">
-                                <i class="fa fa-user"></i> 내 정보
-                            </a>
-                        </li>
-                        <li>
-                            <a href="mail-inbox.html">
-                                <i class="fa fa-envelope"></i> 알림
-                                <span class="badge new">2</span>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#" id="logout">
-                                <i class="fa fa-sign-out"></i><span> 로그아웃 </span>
-                            </a>
-                        </li>
-                        <li>
-                           <a href="#" id="getOut">
-                                <i class="fa fa-sign-out"></i><span> 카톡탈퇴 </span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- /Menu -->
+							<div class="row mt-0"></div>
+						</div></li>
+				<li class="user"><a class="dropdown-button"
+					data-activates="user-dropdown" href="#!"> <img id="myPhoto1"
+						src="" class="circle"><span id="userName1"></span><i
+						class="mdi-navigation-expand-more right"></i>
+				</a>
 
-        </div>
-    </nav>
-    <!-- /Top Navbar -->
+					<ul id="user-dropdown" class="dropdown-content">
+						<li><a href="../auth/myinfo.html"> <i class="fa fa-user"></i>
+								내 정보
+						</a></li>
+						<li><a href="mail-inbox.html"> <i class="fa fa-envelope"></i>
+								알림 <span class="badge new">2</span>
+						</a></li>
+						<li class="divider"></li>
+						<li><a href="#" id="logout"> <i class="fa fa-sign-out"></i><span>
+									로그아웃 </span>
+						</a></li>
+						<li><a href="#" id="getOut"> <i class="fa fa-sign-out"></i><span>
+									카톡탈퇴 </span>
+						</a></li>
+					</ul></li>
+			</ul>
+			<!-- /Menu -->
 
-    <!--
+		</div>
+	</nav>
+	<!-- /Top Navbar -->
+
+	<!--
   Yay Sidebar
   Options [you can use all of theme classnames]:
     .yay-hide-to-small         - no hide menu, just set it small with big icons
@@ -172,33 +165,34 @@
     .yay-push     - push content to right
     .yay-shrink   - shrink content width
 -->
-    <aside class="yaybar yay-shrink yay-hide-to-small yay-gestures yay-light yay-static">
+	<aside
+		class="yaybar yay-shrink yay-hide-to-small yay-gestures yay-light yay-static">
 
-        <div class="top">
-            <div>
-                <!-- Sidebar toggle -->
-                <a href="#" class="yay-toggle">
-                    <div class="burg1"></div>
-                    <div class="burg2"></div>
-                    <div class="burg3"></div>
-                </a>
-                <!-- Sidebar toggle -->
+		<div class="top">
+			<div>
+				<!-- Sidebar toggle -->
+				<a href="#" class="yay-toggle">
+					<div class="burg1"></div>
+					<div class="burg2"></div>
+					<div class="burg3"></div>
+				</a>
+				<!-- Sidebar toggle -->
 
-                <!-- Logo -->
-                <a href="#!" class="brand-logo">
-                <img src="../../images/hhlogo.png" alt="Home & Human">
-            </a>
-                <!-- /Logo -->
-            </div>
-        </div>
+				<!-- Logo -->
+				<a href="#!" class="brand-logo"> <img
+					src="../../images/hhlogo.png" alt="Home & Human">
+				</a>
+				<!-- /Logo -->
+			</div>
+		</div>
 
-          <div class="nano">
-            <div class="nano-content">
+		<div class="nano">
+			<div class="nano-content">
 
 				<ul>
-					<li class="yay-user-info">
-						<a href="#" id="myinfoLink">
-							<img id="myPhoto2" src="" class="circle" onerror="this.onerror=null;this.src='../../images/user_default.png'">
+					<li class="yay-user-info"><a href="#" id="myinfoLink"> <img
+							id="myPhoto2" src="" class="circle"
+							onerror="this.onerror=null;this.src='../../images/user_default.png'">
 							<h3 class="yay-user-info-name">
 								<span id="userName2"></span>
 							</h3>
@@ -209,26 +203,22 @@
 
 					<li class="label">메뉴</li>
 
-					<li class="active">
-						<a href="#" class=" waves-effect waves-blue" id="dashboardLink"> <i class="fa fa-tachometer"></i>
-							<span> Home &#38; Human </span>
-						</a>
-					</li>
-					<li>
-						<a href="#" class="waves-effect waves-blue" id="gongziLink"> <i class="fa fa-check"></i>
-							<span> 공지사항 </span>
-						</a>
-					</li>
-					<li>
-						<a href="#" class="waves-effect waves-blue" id="complainLink"> <i class="fa fa-bullhorn"></i>
-							<span> 나의 민원 </span>
-						</a>
-					</li>
-					<li>
-						<a href="#" class=" waves-effect waves-blue" id="buildingLink"> <i class="fa fa-building-o"></i>
-							<span> 건물정보 </span>
-						</a>
-					</li>
+					<li class="active"><a href="#"
+						class=" waves-effect waves-blue" id="dashboardLink"> <i
+							class="fa fa-tachometer"></i> <span> Home &#38; Human </span>
+					</a></li>
+					<li><a href="#" class="waves-effect waves-blue"
+						id="gongziLink"> <i class="fa fa-check"></i> <span>
+								공지사항 </span>
+					</a></li>
+					<li><a href="#" class="waves-effect waves-blue"
+						id="complainLink"> <i class="fa fa-bullhorn"></i> <span>
+								나의 민원 </span>
+					</a></li>
+					<li><a href="#" class=" waves-effect waves-blue"
+						id="buildingLink"> <i class="fa fa-building-o"></i> <span>
+								건물정보 </span>
+					</a></li>
 					<li><a href="#" class=" waves-effect waves-blue"> <i
 							class="fa fa-credit-card"></i> 관리비내역
 					</a></li>
@@ -239,9 +229,9 @@
 				</ul>
 
 			</div>
-        </div>
-    </aside>
-    <!-- /Yay Sidebar -->
+		</div>
+	</aside>
+	<!-- /Yay Sidebar -->
 
 	<!---------------------------------------------------------/사이드바 부분------------------------------------------------------------>
 
@@ -266,14 +256,14 @@
 		<div class="row sortable" style="margin-right: 0;">
 
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
-				<div class="row" style="margin: 0 auto; width: 65%;">
+			<div class="col l10 s12 offset-l1" style="padding-right: 0;">
+				<div class="row">
 					<div class="card-panel white">
 
 						<form>
 							<div class="input-field col l6 s12">
-								<i class="mdi-content-send prefix"></i> 
-								<input type="text"	class="form-control email" id="email" name="email"
-									readonly>
+								<i class="mdi-content-send prefix"></i> <input type="text"
+									class="form-control email" id="email" name="email" readonly>
 							</div>
 
 							<div class="input-field col l6 s12">
@@ -284,10 +274,10 @@
 
 							<div class="input-field col s12">
 								<i class="mdi-content-create prefix"></i> <input type="text"
-									class="form-control" id="title" name="title" required> <label
-									for="title">제목</label>
+									class="form-control" id="title" name="title" required>
+								<label for="title">제목</label>
 							</div>
-							
+
 							<div class="input-field col s12">
 								<i class="mdi-communication-chat prefix"></i>
 								<textarea id="contents" name="contents"
@@ -297,33 +287,32 @@
 
 							<div class="file-field input-field col s12">
 								<div class="btn">
-									<span>첨부파일</span> 
-									<input type="file" name="file" style="height: 50%;">
+									<span>첨부파일</span> <input type="file" name="file"
+										style="height: 50%;">
 								</div>
 								<div class="file-path-wrapper">
 									<input class="file-path validate" type="text">
 								</div>
 							</div>
-							<br><br><br><br>
-						<div class="col s24 m12 l6">
-							<button id="addBtn" type="button" class="btn btn-default my-new"
-								style="width: 100%;">등록</button>
-						</div>
-						<div class="col s24 m12 l6">
-							<button id="cancelBtn" type="button" class="btn btn-default"
-								onclick="location.href='complain_t.html'" style="width: 100%;">취소</button>
-						</div>
-					</form>
-				
+							<br> <br> <br> <br>
+							<div class="col s24 m12 l6">
+								<button id="addBtn" type="button" class="btn btn-default my-new"
+									style="width: 100%;">등록</button>
+							</div>
+							<div class="col s24 m12 l6">
+								<button id="cancelBtn" type="button" class="btn btn-default"
+									onclick="location.href='complain_t.html'" style="width: 100%;">취소</button>
+							</div>
+						</form>
+
 					</div>
 				</div>
-		
-
-				<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 			</div>
-			<br><br><br>
+			<div class="col s12"></div>
+			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+		</div>
 	</section>
-	
+
 	<!-- /Main Content -->
 	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
 
@@ -374,17 +363,19 @@
 	<!-- Main -->
 	<script type="text/javascript"
 		src="../../bower_components/assets/_con/js/_con.js"></script>
-		
+
 	<!-- Link Sort -->
 	<script type="text/javascript" src="../../js/link_t.js"></script>
 
 	<!-- Common Dashboard -->
 	<script type="text/javascript" src="../../js/commonDashboard_t.js"></script>
-	
+
 	<!-- Sweet Alert -->
-	<script src="../../bower_components/es6-promise/es6-promise.auto.min.js"></script>
-	<script src="../../bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
-		
+	<script
+		src="../../bower_components/es6-promise/es6-promise.auto.min.js"></script>
+	<script
+		src="../../bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+
 
 	<!-- Google Prettify -->
 	<script type="text/javascript"

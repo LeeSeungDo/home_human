@@ -27,24 +27,6 @@ $("#memberUpBtn").click(function(event) {
 	//window.location.href = serverAddr + ""
 });
 
-function ajaxBuildList() {
-	$.getJSON(serverAddr + "/build/list.json", function(obj) {
-		var result = obj.jsonResult
-		if (result.state != "success") {
-	    	 alert("서버에서 데이터를 가져오는데 실패했습니다.")
-	    	 return
-	    }
-		
-	    var template = Handlebars.compile($('#trTemplateText').html())
-	    $("#buildinfo tbody").html(template(result))
-	    
-	    $(".titleLink").click(function(event) {
-		    window.location.href = "myinfo.html?buildNo=" + $(this).attr("data-no")
-	    })
-    })
-}
-
-
 //회원정보수정 회원데이터 출력
 function ajaxLoginUser() {
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
