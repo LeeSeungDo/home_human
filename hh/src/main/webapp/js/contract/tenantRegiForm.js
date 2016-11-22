@@ -81,7 +81,7 @@ $("#addBtn").click(function(event) {
 	var formData = new FormData(form);	
 	formData.append(buildNo, buildNo)
 	
-	//console.log(formData.get("buildNo"));
+	console.log(formData.get("buildNo"));
 	//console.log(formData.get("contractStatus"));
 	//console.log(formData.get("contractType"));
 	ajaxAddContractFile(formData)

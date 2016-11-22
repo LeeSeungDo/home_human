@@ -7,7 +7,26 @@
 <meta name="description" content="">
 <meta name="author" content="_nK">
 <link rel="shortcut icon" href="../../images/favicon.ico">
+<style>
+.card-image {
+  position: relative;
+  height: 170px;
+  overflow: hidden;
+}
+.card-image img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
 
+}
+
+/* .card-image img.portrait {
+  width: 100%;
+  height: auto;
+} */
+</style>
 <title>Home &#38; Human</title>
 
 <link
@@ -413,7 +432,7 @@
 		<div class="card">
 			<div class="card-panel col l3 s12 offset-l1 contractForm1" data-no={{contractNo}} style="padding: 0;">
   				<div class="card-image">
-    				<img class="phoPath" src="../../upload/{{phoPath}}" style="width: 100%;" alt="계약사진">
+    				<img class="phoPath" src="../../upload/{{phoPath}}" alt="계약사진">
   				</div>
 				<div class="card-action">
 					<h4>{{name}}</h4>
@@ -427,8 +446,8 @@
 	{{#each list}}
 		<div class="card">
 			<div class="card-panel col l3 s12 offset-l1 contractForm2" data-no={{contractNo}} style="padding: 0;">
-  				<div class="card-image" style="margin: 20px 0; height: 120px;">
-    				<img class="phoPath" src="../../upload/{{phoPath}}" style="width: 100%;" alt="계약사진">
+  				<div class="card-image">
+    				<img class="phoPath" src="../../upload/{{phoPath}}" alt="계약사진">
   				</div>
 				<div class="card-action" style="padding-top: 10px; padding-bottom: 10px;">
 					<h4 class="center-align">{{name}}</h4>
@@ -443,7 +462,7 @@
 		<div class="card">
 			<div class="card-panel col l3 s12 offset-l1 contractForm3" data-no={{contractNo}} style="padding: 0;">
 	  			<div class="card-image">
-	    			<img class="phoPath" src="../../upload/{{phoPath}}" style="width: 100%;" alt="계약사진">
+	    			<img class="phoPath" src="../../upload/{{phoPath}}" alt="계약사진">
 	  			</div>
 				<div class="card-action">
 					<h4>{{name}}</h4>

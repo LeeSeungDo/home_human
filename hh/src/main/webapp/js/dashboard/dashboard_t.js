@@ -1,13 +1,13 @@
 /*----------------------------------------------------- 이 밑으로는 지우셔도 됩니다. -----------------------------------------------------*/
 /*----------------------------------------------------- 공지사항 불러오기 -----------------------------------------------------*/
-function ajaxFirstList() {
-	$.getJSON(serverAddr + "/board/firstlist.json", function(obj) {
+function ajaxFirstList(email) {
+	$.getJSON(serverAddr + "/board/firstlist.json", {"email": email}, function(obj) {
 		var result = obj.jsonResult
 		if (result.state != "success") {
 			alert("서버에서 데이터를 가져오는데 실패했습니다.")
 			return
 		}
-		//console.log(result.data.list[0]);
+		console.log(result.data);
 		var title = result.data.list[0].title;
 		var contents = result.data.list[0].contents;
 		var boardNo = result.data.list[0].boardNo;
@@ -34,7 +34,22 @@ function ajaxComplainListRsvd1_t() {
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
 		var userEmail = obj.member.email
-		console.log(userEmail);
+		//console.log(userEmail);
+		
+		var TEmail = result.data.email;
+		//console.log(TEmail);
+		
+		$.getJSON(serverAddr + "/build/lemail.json", {"TEmail": TEmail}, function(obj) {
+			var result = obj.jsonResult
+			console.log(result)
+			if (result.state != "success") {
+				alert("서버에서 데이터를 가져오는데 실패했습니다.")
+				return
+			}
+			var email = result.data.email;
+			console.log(email);
+			ajaxFirstList(email);
+		})
 
 		$.getJSON(serverAddr + "/complain/list5.json", {
 			"pageNo": pageNo,
