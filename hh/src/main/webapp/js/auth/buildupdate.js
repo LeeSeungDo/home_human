@@ -80,6 +80,7 @@ function ajaxLoginUser() {
 					detailAddr: $(".detailAddr").val(),
 					reType: $(":input:radio[name=radios2-1]:checked").val(),
 					park: $(":input:radio[name=radios2-2]:checked").val()
+					
 			}
 			ajaxUpdateBuilding(buildinging)
 		});
