@@ -22,10 +22,17 @@ function ajaxLoadContract(no) {
 		}
 
 		$("#email").val(result.data.tenantEmail);
+		$("#name").val(result.data.name);
+		$("#telePhone").val(result.data.telePhone);
+		$("#gender").val(result.data.gender);
+		$("#basicAddress").val(result.data.basicAddress);
+		$("#rentAmount").val(result.data.rentAmount);
+		$("#deposit").val(result.data.deposit);		
 		$("#detailAddress").val(result.data.detailAddress);		
 		$("#contractDate").val(result.data.contractDate);
 		$("#endDate").val(result.data.endDate);
 		$("#rentPayDate").val(result.data.rentPayDate);
+		$("#utilityPayDate").val(result.data.utilityPayDate);
 		$("#contractNo").val(result.data.contractNo);
 		if ((result.data.contractType) == 0) {
 			$("#contractType").val("월세");
