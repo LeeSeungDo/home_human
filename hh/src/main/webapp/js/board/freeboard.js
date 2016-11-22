@@ -23,6 +23,7 @@ $("#searchBtn").click(function(event) {
 
 $("#searchAllBtn").click(function(event) {	
 	var keyword = "";
+	pageNo = 1;
 	ajaxFreeBoardList(keyword);	
 });
 

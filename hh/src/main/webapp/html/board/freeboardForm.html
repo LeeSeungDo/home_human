@@ -278,92 +278,96 @@
 
 		<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
 		<div class="row sortable">
-			<div class="row" style="margin: 0 auto; width: 65%;">
-				<div class="col l4 s12">
-					<a class="waves-effect waves-dark btn cyan" id="freeUpdateBtn"
-						style="width: 100%;">수정</a>
-				</div>
-				<div class="col l4 s12">
-					<a class="waves-effect waves-dark btn cyan" id="cancelBtn"
-						style="width: 100%;">목록</a>
-				</div>
-				<div class="col l4 s12">
-					<a class="waves-effect waves-dark btn cyan" id="deleteBtn"
-						style="width: 100%;">삭제</a>
+			<div class="col l10 s12 offset-l1" style="padding: 0;">
+				<div class="row" style="margin: 0 auto;">
+					<div class="col l4 s12">
+						<a class="waves-effect waves-dark btn cyan" id="freeUpdateBtn"
+							style="width: 100%;">수정</a>
+					</div>
+					<div class="col l4 s12">
+						<a class="waves-effect waves-dark btn cyan" id="cancelBtn"
+							style="width: 100%;">목록</a>
+					</div>
+					<div class="col l4 s12">
+						<a class="waves-effect waves-dark btn cyan" id="deleteBtn"
+							style="width: 100%;">삭제</a>
+					</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="row sortable" style="margin-right: 0;">
-			<div class="row" style="margin: 0 auto; width: 65%;">
-				<div class="card">
-					<div class="title card-panel grey darken-4 white-text">
-						<h5 id="title"></h5>
+			<div class="col l10 s12 offset-l1" style="padding: 0;">
+				<div class="row" style="margin: 0 auto;">
+					<div class="card">
+						<div class="title card-panel grey darken-4 white-text">
+							<h5 id="title"></h5>
+						</div>
+						<div class="content">
+							<div class="input-field col l6 s12">
+								<input type="hidden" id="boardNo" name="boardNo"> <i
+									class="mdi-social-person prefix active"></i> <input type="text"
+									class="form-control writer" id="writer" name="writer"
+									placeholder="" readonly> <label for="input_text"
+									class="active">작성자</label>
+							</div>
+
+							<div class="input-field col l4 s12">
+								<i class="mdi-social-person prefix active"></i> <input
+									type="text" class="form-control writer" id="createdDate"
+									name="createdDate" placeholder="" readonly> <label
+									for="input_text" class="active">작성일</label>
+							</div>
+
+							<div class="input-field col l2 s12">
+								<i class="mdi-social-person prefix active"></i> <input
+									type="text" class="form-control writer" id="viewCount"
+									name="viewCount" placeholder="" readonly
+									style="text-align: center;"> <label for="input_text"
+									class="active">조회수</label>
+							</div>
+
+							<div class="input-field col l12 s12 center-align" style="padding-right: 0;">
+								<img id="file1" src="" width="500">
+								<hr class="col l10 s12 offset-l1">
+							</div>
+
+							<div class="input-field col l12 s12">
+								<i class="mdi-communication-chat prefix active"></i>
+								<textarea id="contents" name="contents"
+									class="materialize-textarea limitation" placeholder="" readonly
+									style="height: 130px;"></textarea>
+								<label for="contents" class="active">내용</label>
+							</div>
+						</div>
+
+						<div class="content">
+							<div class="input-field col l7 s12 offset-l2"
+								style="padding-bottom: 0;">
+								<i class="mdi-communication-chat prefix"></i>
+								<textarea id="reContents" name="contents"
+									class="materialize-textarea limitation reAddLimit"
+									style="padding-bottom: 0;"></textarea>
+								<label for="contents">댓글을 달아주세요.</label>
+							</div>
+							<div style="padding-top: 20px;">
+								<a class="waves-effect waves-dark btn cyan" id="reAddBtn"
+									style="">댓글 등록</a>
+							</div>
+
+							<div class="input-field col l12 s12" style="padding: 0">
+								<table id="replyTable" class="table table-hover"
+									style="background-color: beige; margin-bottom: 0;">
+									<tbody></tbody>
+								</table>
+							</div>
+						</div>
+
 					</div>
-					<div class="content">
-						<div class="input-field col l6 s12">
-							<input type="hidden" id="boardNo" name="boardNo"> <i
-								class="mdi-social-person prefix active"></i> <input type="text"
-								class="form-control writer" id="writer" name="writer"
-								placeholder="" readonly> <label for="input_text"
-								class="active">작성자</label>
-						</div>
+					<div class="col"></div>
 
-						<div class="input-field col l4 s12">
-							<i class="mdi-social-person prefix active"></i> <input
-								type="text" class="form-control writer" id="createdDate"
-								name="createdDate" placeholder="" readonly> <label
-								for="input_text" class="active">작성일</label>
-						</div>
-
-						<div class="input-field col l2 s12">
-							<i class="mdi-social-person prefix active"></i> <input
-								type="text" class="form-control writer" id="viewCount"
-								name="viewCount" placeholder="" readonly
-								style="text-align: center;"> <label for="input_text"
-								class="active">조회수</label>
-						</div>
-
-						<div class="input-field col l12 s12 center-align">
-							<img id="file1" src="" width="500">
-							<hr class="col l10 s12 offset-l1">
-						</div>
-
-						<div class="input-field col l12 s12">
-							<i class="mdi-communication-chat prefix active"></i>
-							<textarea id="contents" name="contents"
-								class="materialize-textarea limitation" placeholder="" readonly
-								style="height: 130px;"></textarea>
-							<label for="contents" class="active">내용</label>
-						</div>
-					</div>
-
-					<div class="content">
-						<div class="input-field col l7 s12 offset-l2"
-							style="padding-bottom: 0;">
-							<i class="mdi-communication-chat prefix"></i>
-							<textarea id="reContents" name="contents"
-								class="materialize-textarea limitation reAddLimit"
-								style="padding-bottom: 0;"></textarea>
-							<label for="contents">댓글을 달아주세요.</label>
-						</div>
-						<div style="padding-top: 20px;">
-							<a class="waves-effect waves-dark btn cyan" id="reAddBtn"
-								style="">댓글 등록</a>
-						</div>
-
-						<div class="input-field col l12 s12" style="padding: 0">
-							<table id="replyTable" class="table table-hover"
-								style="background-color: beige; margin-bottom: 0;">
-								<tbody></tbody>
-							</table>
-						</div>
-					</div>
-
+					<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 				</div>
-				<div class="col"></div>
-
-				<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 			</div>
 		</div>
 	</section>

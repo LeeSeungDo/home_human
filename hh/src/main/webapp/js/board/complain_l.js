@@ -150,7 +150,7 @@ function ajaxComplainListRsvd1() {
 	    } 
 	    
 	    // 페이지 번호가 마지막 페이지라면 [다음] 버튼을 비활성화시킨다.
-	    if (pageNo >= totalPage) {
+	    if (pageNo >= totalPage - 1) {
 	    	$("#nextBtn").css({ 'pointer-events': 'none' });
 	    	$('#nextBtn').addClass("disabled");
 	    } else {
