@@ -1,3 +1,7 @@
+$("#cancelBtn").click(function(event) {
+	window.location.href = serverAddr + "/html/contract/contractMnge.html";
+})
+
 $(document.body).ready(function() {
 	$('.limitation').on('keyup', function() {
 		if($(this).val().length > 200) {
@@ -30,7 +34,7 @@ function ajaxBuildList(email) {
 		}
 
 		var template = Handlebars.compile($('#buildTemplateText').html())
-		$("#buildSelect select").html(template(result))				
+		$(".buildList").html(template(result))				
 		
 	})
 }
@@ -49,7 +53,7 @@ $("#addBtn").click(function(event) {
 			contractStatus:	$(":input:radio[name=radio]:checked").val() 		
 
 	}*/
-	var buildNo = $("select[name=buildNo]").val();
+	var buildNo = $("input[type=radio][name=buildNo]:checked").val();
 	
 	var val1 = $(":input:radio[name=contractType]:checked").val();
 
@@ -77,7 +81,9 @@ $("#addBtn").click(function(event) {
 	var formData = new FormData(form);	
 	formData.append(buildNo, buildNo)
 	
-
+	//console.log(formData.get("buildNo"));
+	//console.log(formData.get("contractStatus"));
+	//console.log(formData.get("contractType"));
 	ajaxAddContractFile(formData)
 });
 

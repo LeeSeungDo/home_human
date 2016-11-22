@@ -1,3 +1,7 @@
+$("#contract_input").click(function(event) {
+	window.location.href = serverAddr + "/html/contract/tenantRegiForm.html";
+})
+
 
 function ajaxRealEstateContractList1(no) {
 	$.getJSON(serverAddr + "/contract/list1.json", {no: no}, function(obj) {
@@ -26,6 +30,8 @@ function ajaxRealEstateContractList2(no) {
 			return
 		}
 
+		//console.log(result);
+		
 		var template = Handlebars.compile($('#crTemplateText2').html())	    
 		$("#contractTable2").html(template(result.data))		
 
@@ -76,11 +82,11 @@ function ajaxBuildList(email) {
 		}
 
 		var template = Handlebars.compile($('#buildTemplateText').html())
-		$("#buildSelect select").html(template(result))
+		$(".buildList").html(template(result))
 
-		$(".selectB").change(function(event) {
-			var no =  $('.selectB option:selected').attr("data-no1")
-			console.log(no)
+		$(".buildList_list").click(function(event) {
+			var no =  $("input[type=radio][name=buildNo]:checked").val();
+			//console.log(no)
 			ajaxRealEstateContractList1(no)
 			ajaxRealEstateContractList2(no)
 			ajaxRealEstateContractList3(no)

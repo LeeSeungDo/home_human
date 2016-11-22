@@ -1,4 +1,8 @@
-$(".deleteBtn").click(function(event) {
+$("#cancelBtn").click(function(event) {
+	window.location.href = serverAddr + "/html/contract/contractMnge.html";
+})
+
+$("#deleteBtn").click(function(event) {
 	if (location.search.startsWith("?")) {
 		var contractNo = location.search.split("=")[1];
 	}
@@ -29,7 +33,7 @@ function ajaxLoadContract(no) {
 			$("#contractType").val("전세");
 		}
 		$("#file2").attr('src', "../../upload/" + result.data.filename);
-		$(".updateBtn").click(function(event) {
+		$("#updateBtn").click(function(event) {
 			window.location.href = serverAddr + "/html/contract/tenantRegiUpdateForm.html?no=" + no
 		})			
 	})
