@@ -30,6 +30,8 @@ public class BoardController {
   public Object firstlist(String email) throws Exception {
 
     try {
+    	System.out.println("최근공지");
+    	System.out.println(email);
       List<Board> list = boardService.getFirstList(email);
       System.out.println(list);
       HashMap<String, Object> data = new HashMap<>();

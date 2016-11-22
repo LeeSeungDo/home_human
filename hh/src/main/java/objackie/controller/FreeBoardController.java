@@ -28,15 +28,12 @@ public class FreeBoardController {
   @RequestMapping(path="list")
   public Object list(
       @RequestParam(defaultValue="1") int pageNo,
-      @RequestParam(defaultValue="12") int length, 
+      @RequestParam(defaultValue="10") int length, 
       String keyword) throws Exception {
     
     try {
       if ((keyword == null) || (keyword == "")) {
         keyword = "";
-        System.out.println(keyword);
-      } else {
-        System.out.println(keyword);
       }
       
       List<FreeBoard> list = freeboardService.getFreeBoardList(pageNo, length, keyword);
@@ -47,8 +44,16 @@ public class FreeBoardController {
       }
       
       HashMap<String,Object> data = new HashMap<>();      
+
+      if (list.size() <= 9) {
+      	data.put("totalPage", 0);
+      } else if (10 < list.size() && list.size() <= 19) {
+      	data.put("totalPage", 1);
+      } else {
+      	data.put("totalPage", totalPage);
+      }
+      
       data.put("list", list);
-      data.put("totalPage", totalPage);
       data.put("pageNo", pageNo);
       data.put("length", length);
       data.put("keyword", keyword);

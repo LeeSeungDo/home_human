@@ -1,33 +1,7 @@
 @CHARSET "UTF-8";
 
-.userInfo {
-}
-
-.userInfo ul {
-	 list-style-type: none;
-	 width: 500px;
-}
-
-.userInfo ul li {
-	 padding: 10px; 
-	 overflow: auto;
-}
-
-.userInfo ul li img {
-	 width: 50px;
-	 float: left;
-	 margin: 0 15px 0 0;
-}
-
-.userInfo ul li h4 {
-	 position: absolute;
-	 left: 100px;
-	 margin-top: 0;
-	 font-weight: bold;
-}
-
-.userInfo ul li p {
-	 margin: 30px 0 0 0;
+.hover:hover {
+	background-color: beige;
 }
 
 #myPhoto1, #myPhoto2 {

@@ -1,23 +1,33 @@
 /*----------------------------------------------------- 공지사항 불러오기 -----------------------------------------------------*/
 function ajaxFirstList() {
-	$.getJSON(serverAddr + "/board/firstlist.json", function(obj) {
+	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
-		if (result.state != "success") {
-			alert("서버에서 데이터를 가져오는데 실패했습니다.")
+		if (result.state != "success") { // 로그아웃 상태일 경우 로그인 상태와 관련된 태그를 감춘다.
+			window.location.href = serverAddr + "/html/index.html"
 			return
 		}
-		//console.log(result.data.list[0]);
-		var title = result.data.list[0].title;
-		var contents = result.data.list[0].contents;
-		var boardNo = result.data.list[0].boardNo;
-		$("#gongzi_title").html(title);
-		$("#gongzi_contents").html(contents);
-
-		$("#gongzi_detail").click(function(event) {
-			alert("공지 디테일");
-			window.location.href = serverAddr + "/html/board/gongziForm.html?no=" + boardNo;
+		
+		var email = result.data.email;
+		
+		$.getJSON(serverAddr + "/board/firstlist.json", {email: email}, function(obj) {
+			var result = obj.jsonResult
+			if (result.state != "success") {
+				alert("서버에서 데이터를 가져오는데 실패했습니다.")
+				return
+			}
+			//console.log(result.data.list[0]);
+			var title = result.data.list[0].title;
+			var contents = result.data.list[0].contents;
+			var boardNo = result.data.list[0].boardNo;
+			$("#gongzi_title").html(title);
+			$("#gongzi_contents").html(contents);
+	
+			$("#gongzi_detail").click(function(event) {
+				alert("공지 디테일");
+				window.location.href = serverAddr + "/html/board/gongziForm.html?no=" + boardNo;
+			});
 		});
-	})
+	});
 }
 /*----------------------------------------------------- /공지사항 불러오기 -----------------------------------------------------*/
 

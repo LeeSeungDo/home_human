@@ -238,9 +238,11 @@
 						id="complainLink"> <i class="fa fa-bullhorn"></i> <span>
 								민원사항 </span>
 					</a></li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i
-							class="fa fa-building-o"></i> 건물정보
-					</a></li>
+					<li>
+						<a href="#" class=" waves-effect waves-blue" id="buildingLink"> <i class="fa fa-building-o"></i>
+							<span> 건물정보 </span>
+						</a>
+					</li>
 					<li><a href="#" class=" waves-effect waves-blue"> <i
 							class="fa fa-users"></i> 세입자관리
 					</a></li>
@@ -283,13 +285,19 @@
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
 			<a class="waves-effect waves-dark btn cyan" id="new_freeBoard"
 				style="width: 100%;">새 게시물 쓰기</a>
-
 			<div class="row" style="margin-right: 0;">
 				<div class="card-panel">
-				<div class="col-sm-10">
-      <input type="text" class="form-control email" id="keyword" name="keyword" placeholder="검색하세요">
-      <button type="button" id="searchBtn" class="btn btn-primary btn-sm">검색</button>
-    </div>   
+					<div class="input-field col l2 s12">
+						<a class="waves-effect waves-dark btn cyan" id="searchAllBtn" style="width: 100%;">전체보기</a>
+					</div>
+					<div class="input-field col l3 s12 offset-l6">
+						<input type="text" class="form-control email" id="keyword" name="keyword">
+						<label for="input_text">검색하세요.</label>
+					</div>
+					<div class="input-field col l1 s12">
+						<a class="waves-effect waves-dark btn cyan" id="searchBtn" style="width: 100%;">검색</a>
+					</div>
+
 
 					<div class="content">
 						<table id="freeboardTable" class="table table-hover">
@@ -385,7 +393,7 @@
 
 	<script>
 		ajaxDashboardUser();
-		ajaxFreeBoardList();
+		ajaxFreeBoardList1();
 	</script>
 
 	<script id="pagination" type="text/x-handlebars-template">

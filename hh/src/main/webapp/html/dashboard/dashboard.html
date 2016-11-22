@@ -613,10 +613,10 @@
    <script id="buildReqList" type="text/x-handlebars-template">
      {{#each data}}
          <tr>
-            <td>{{name}}</td>
-            <td>{{TEmail}}</td>
-            <td>{{reID}}</td>
-            <td>{{rentPayDate}}</td>
+            <a href="../auth/myinfo.html">
+               <h4>{{reID}}</h4>
+               <p>상세주소 : {{basicAddr}}</p>
+            </a>
          </tr>
       {{/each}}
    </script>

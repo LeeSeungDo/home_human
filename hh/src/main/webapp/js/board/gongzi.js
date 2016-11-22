@@ -4,12 +4,12 @@ $("#new_gongzi").click(function(event) {
 
 $("#prevBtn").click(function(event) {
 	pageNo--;
-	ajaxGongziList();
+	ajaxGongziList(email);
 });
 
 $("#nextBtn").click(function(event) {
 	pageNo++;
-	ajaxGongziList();
+	ajaxGongziList(email);
 });
 
 
@@ -20,7 +20,7 @@ $(document.body).on('click', '.hidden_no', function(event) {
     window.location.href = serverAddr + "/html/board/gongziForm.html?no=" + $("#hidden_no").val();
 })
 
-function ajaxLoginUser() {
+$(document).ready(function() {
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
 		if (result.state != "success") { // 로그아웃 상태일 경우 로그인 상태와 관련된 태그를 감춘다.
@@ -28,11 +28,11 @@ function ajaxLoginUser() {
 			return
 		}	
 		
-		var email = result.data.email;
-		ajaxFirstList(email)
-		ajaxGongziList(email)		
+		email = result.data.email;
+		ajaxFirstList(email);
+		ajaxGongziList(email);
 	})
-}
+})
 
 function ajaxFirstList(email) {
 	$.getJSON(serverAddr + "/board/firstlist.json", {"email": email}, function(obj) {
@@ -54,7 +54,8 @@ function ajaxFirstList(email) {
 
 // 글로벌 변수 = window 프로퍼티 
 var pageNo = 1, /* window.pageNo */
-    pageLength = 4; /* window.pageLength */
+    pageLength = 4, /* window.pageLength */
+    email;
 
 function ajaxGongziList(email) {
 	console.log(email)
@@ -83,8 +84,8 @@ function ajaxGongziList(email) {
 	    pageNo = result.data.pageNo;
 	    totalPage = result.data.totalPage;
 	    
-	    console.log(pageNo);
-	    console.log(totalPage);
+	    //console.log(pageNo);
+	    //console.log(totalPage);
 	    
 	    // 페이지 번호가 1이면 [이전] 버튼을 비활성화시킨다.
 	    if (pageNo <= 1) {
