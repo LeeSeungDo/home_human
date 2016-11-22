@@ -5,7 +5,7 @@ function ajaxReplyList(no) {
 			alert("서버에서 데이터를 가져오는데 실패했습니다.")
 			return
 		}
-		//console.log(result.data);
+		console.log(result.data);
 		var template = Handlebars.compile($('#rrTemplateText').html())	    
 		$("#replyTable tbody").html(template(result))	    
 
