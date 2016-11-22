@@ -35,6 +35,21 @@ public class BuildController {
       return JsonResult.fail(e.getMessage());
     }
   }
+  
+  @RequestMapping(path="reqList")
+  public Object reqList(String email) throws Exception {
+
+    try {
+      HashMap<String,Object> map = new HashMap<>();
+      map.put("email", email);
+
+      return JsonResult.success(buildDao.selectReqList(map));
+
+    } catch (Exception e) {
+      e.printStackTrace();
+      return JsonResult.fail(e.getMessage());
+    }
+  }
 
   @RequestMapping(path="lemail")
   public Object lemail(String TEmail) throws Exception {

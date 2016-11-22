@@ -18,10 +18,11 @@ public class RealEstateContract implements Serializable {
   protected String detailAddress;
   protected Date contractDate;
   protected Date endDate;
-  protected Date rentPayDate;
-  protected Date utilityPayDate;
+  protected int rentPayDate;
+  protected int utilityPayDate;
   protected String filename;
   protected String phoPath;
+  protected int request;
   
   
   public int getContractNo() {
@@ -96,19 +97,19 @@ public class RealEstateContract implements Serializable {
     this.endDate = endDate;
   }
   
-  public Date getRentPayDate() {
+  public int getRentPayDate() {
     return rentPayDate;
   }
   
-  public void setRentPayDate(Date rentPayDate) {
+  public void setRentPayDate(int rentPayDate) {
     this.rentPayDate = rentPayDate;
   }
   
-  public Date getUtilityPayDate() {
+  public int getUtilityPayDate() {
     return utilityPayDate;
   }
   
-  public void setUtilityPayDate(Date utilityPayDate) {
+  public void setUtilityPayDate(int utilityPayDate) {
     this.utilityPayDate = utilityPayDate;
   }
 
@@ -150,7 +151,15 @@ public class RealEstateContract implements Serializable {
 
   public void setPhoPath(String phoPath) {
     this.phoPath = phoPath;
-  }     
+  }
+
+  public int getRequest() {
+    return request;
+  }
+
+  public void setRequest(int request) {
+    this.request = request;
+  }  
 }
 
 
