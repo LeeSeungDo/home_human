@@ -246,15 +246,8 @@
 						id="buildingLink"> <i class="fa fa-building-o"></i> <span>
 								건물정보 </span>
 					</a></li>
-					<li><a href="#" class=" waves-effect waves-blue"
-						id="tenantLink"> <i class="fa fa-users"></i> 세입자관리
-					</a></li>
 					<li><a href="#" class=" waves-effect waves-blue"> <i
 							class="fa fa-credit-card"></i> 관리비내역
-					</a></li>
-					<li><a href="#" class=" waves-effect waves-blue"
-						id="freeBoardLink"> <i class="fa fa-hand-o-right"></i> <span>
-								자유게시판 </span>
 					</a></li>
 				</ul>
 
@@ -325,6 +318,27 @@
                </div>
             </div>
          </div> -->
+
+			<!-- 차트 Card -->
+			<div class="col s12 l12">
+				<div class="card">
+					<div class="title card-panel deep-purple lighten-1 white-text">
+						<h5>
+							<i class="fa fa-area-chart"></i> 관리비 내역
+						</h5>
+						<a class="minimize" href="#"> <i
+							class="mdi-navigation-expand-less"></i>
+						</a>
+					</div>
+					<div class="content">
+						<div id="chart2" style="height: 350px;">
+							<svg id="fillgauge1" width="33%" height="270"></svg>
+							<svg id="fillgauge2" width="33%" height="270"></svg>
+							<svg id="fillgauge3" width="33%" height="270"></svg>
+						</div>
+					</div>
+				</div>
+			</div>
 
 			<!-- 월세 납부 요청 Card -->
 			<div class="col l4 s12">
@@ -416,24 +430,6 @@
 			<!-- /미처리 민원 Card -->
 
 
-			<!-- 차트 Card -->
-			<div class="col s12 l12">
-				<div class="card">
-					<div class="title card-panel deep-purple lighten-1 white-text">
-						<h5>
-							<i class="fa fa-area-chart"></i> 관리비 내역
-						</h5>
-						<a class="minimize" href="#"> <i
-							class="mdi-navigation-expand-less"></i>
-						</a>
-					</div>
-					<div class="content">
-						<div id="chart2" style="height: 350px;"></div>
-					</div>
-				</div>
-			</div>
-
-
 			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 		</div>
 	</section>
@@ -513,6 +509,40 @@
 		ajaxRealEstateContractList()
 		//ajaxFirstList();
 		ajaxComplainListRsvd1_t()
+	</script>
+	
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="liquidFillGauge.js"></script>
+	<script>
+		/* 1번째 수도 그래프 */
+		var config0 = liquidFillGaugeDefaultSettings();
+		config0.circleThickness = 0.1;
+		config0.waveAnimateTime = 2000;
+		config0.textVertPosition = 0.8;
+		var gauge1 = loadLiquidFillGauge("fillgauge1", 11180, config0);
+
+		/* 2번째 전기 그래프 */
+		var config1 = liquidFillGaugeDefaultSettings();
+		config1.circleColor = "#FF7777";
+		config1.textColor = "#FF4444";
+		config1.waveTextColor = "#FFAAAA";
+		config1.waveColor = "#FFDDDD";
+		config1.circleThickness = 0.1;
+		config1.textVertPosition = 0.8;
+		config1.waveAnimateTime = 2000;
+		var gauge2 = loadLiquidFillGauge("fillgauge2", 64320, config1);
+
+		/* 3번째 가스 그래프 */
+		var config2 = liquidFillGaugeDefaultSettings();
+		config2.circleColor = "#ffc107";
+		config2.textColor = "#ffc107";
+		config2.waveColor = "#ffc107";
+		config2.waveTextColor = "#fee600";
+		config2.circleThickness = 0.1;
+		config2.textVertPosition = 0.8;
+		config2.waveAnimateTime = 2000;
+		config2.waveCount = 1;
+		var gauge3 = loadLiquidFillGauge("fillgauge3", 24580, config2);
 	</script>
 
 
