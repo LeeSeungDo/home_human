@@ -136,7 +136,7 @@ $(document).ready(
 						if (category == 0) {
 							window.location.href = serverAddr + "/html/dashboard/dashboard.html"
 						} else {
-							window.location.href = serverAddr + "/html/dashboard/dynamicBoard.html"
+							window.location.href = serverAddr + "/html/dashboard/dashboard_t.html"
 						}
 					},
 					error : function(msg) {
