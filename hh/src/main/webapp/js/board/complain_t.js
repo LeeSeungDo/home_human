@@ -1,7 +1,7 @@
 $("#addBtn").click(function(event) {
 	window.location.href = serverAddr + "/html/board/complainCreate.html";
 })
-
+ 
 $(function () { 
 	$(".tab_content").hide();
 	$(".tab_content:first").show();
