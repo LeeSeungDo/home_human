@@ -51,7 +51,7 @@ function ajaxTenantList() {
 				alert("서버에서 세입자 데이터를 가져오는데 실패했습니다.")
 				return
 			}
-			//console.log(result);
+			console.log(result);
 			//alert("서버에서 세입자 데이터를 가져옴 성공!!");
 			//console.log(result.data.list)
 
