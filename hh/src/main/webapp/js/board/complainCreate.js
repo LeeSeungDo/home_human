@@ -1,8 +1,8 @@
 $(document.body).ready(function() {
     $('.limitation').on('keyup', function() {
-        if($(this).val().length > 200) {
-        	 alert("글자수는 200자 이내로 제한됩니다.!");  
-            $(this).val($(this).val().substring(0, 200));
+        if($(this).val().length > 1000) {
+        	 alert("글자수는 1000자 이내로 제한됩니다.!");  
+            $(this).val($(this).val().substring(0, 1000));
         }
     });
 });
