@@ -320,7 +320,7 @@
          </div> -->
 
 			<!-- 차트 Card -->
-			<div class="col s12 l12">
+			<div class="col s12 l12 center-align">
 				<div class="card">
 					<div class="title card-panel deep-purple lighten-1 white-text">
 						<h5>
@@ -330,11 +330,24 @@
 							class="mdi-navigation-expand-less"></i>
 						</a>
 					</div>
-					<div class="content">
-						<div id="chart2" style="height: 350px;">
-							<svg id="fillgauge1" width="33%" height="270"></svg>
-							<svg id="fillgauge2" width="33%" height="270"></svg>
-							<svg id="fillgauge3" width="33%" height="270"></svg>
+					<div class="content" style="padding-bottom: 0;">
+						<div class="col s12 l12 center-align">
+							<div id="chart2" style="height: 220px;">
+								<svg id="fillgauge1" width="25%" height="250"
+									style="margin-right: 30px;"></svg>
+								<svg id="fillgauge2" width="25%" height="250"
+									style="margin-right: 30px;"></svg>
+								<svg id="fillgauge3" width="25%" height="250" style=""></svg>
+							</div>
+						</div>
+						<div class="col s12 l3 offset-l1 center-align">
+							<h3 style="margin-left: 20px;">수도</h3>
+						</div>
+						<div class="col s12 l4 center-align">
+							<h3>전기</h3>
+						</div>
+						<div class="col s12 l3 center-align">
+							<h3 style="margin-right: 20px;">가스</h3>
 						</div>
 					</div>
 				</div>
@@ -510,7 +523,7 @@
 		//ajaxFirstList();
 		ajaxComplainListRsvd1_t()
 	</script>
-	
+
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="liquidFillGauge.js"></script>
 	<script>
@@ -530,7 +543,7 @@
 		config1.circleThickness = 0.1;
 		config1.textVertPosition = 0.8;
 		config1.waveAnimateTime = 2000;
-		var gauge2 = loadLiquidFillGauge("fillgauge2", 64320, config1);
+		var gauge2 = loadLiquidFillGauge("fillgauge2", 74320, config1);
 
 		/* 3번째 가스 그래프 */
 		var config2 = liquidFillGaugeDefaultSettings();
@@ -542,7 +555,7 @@
 		config2.textVertPosition = 0.8;
 		config2.waveAnimateTime = 2000;
 		config2.waveCount = 1;
-		var gauge3 = loadLiquidFillGauge("fillgauge3", 24580, config2);
+		var gauge3 = loadLiquidFillGauge("fillgauge3", 44580, config2);
 	</script>
 
 
