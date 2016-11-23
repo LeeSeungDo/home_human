@@ -98,8 +98,13 @@ function ajaxAddMember(member) {
 	    	 alert("회원 가입 실패입니다.");
 	    	 return location.href = location.href;
 	    }
-		alert("회원 가입 성공했습니다.");
-	    window.location.href = serverAddr + "/html/index.html"
+		swal({
+			  title: '가입에 성공했습니다.',
+			  confirmButtonColor: '#3085d6',
+			  confirmButtonText: '확인'
+			}).then(function () {
+				window.location.href = serverAddr + "/html/index.html";
+			});
 	}, "json")
 }
 
