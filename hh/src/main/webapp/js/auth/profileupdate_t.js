@@ -1,65 +1,3 @@
-$("#dashboardLink").click(function(event) {
-	alert("메인");
-	window.location.href = serverAddr + "/html/dashboard/dashboard_t.html"
-});
-
-$("#myInfo").click(function(event) {
-	alert("내정보");
-	window.location.href = serverAddr + "/html/auth/myinfo_t.html"
-});
-
-$("#gongziLink").click(function(event) {
-	alert("공지");
-	window.location.href = serverAddr + "/html/board/gongzi_t.html"
-});
-
-$("#complainLink").click(function(event) {
-	alert("민원");
-	window.location.href = serverAddr + "/html/board/complain_t.html"
-});
-
-$("#myinfoLink").click(function(event) {
-	alert("내정보");
-	window.location.href = serverAddr + "/html/auth/myinfo_t.html"
-});
-
-// 카카오 준비
-$(document).ready(function() {
-	Kakao.init("bfb48672ff68dbf137c2daffb44adfb0");
-
-	$("#logout").click(function(event) {
-		alert("로그아웃");
-		Kakao.Auth.logout(function(data) {
-			if (data) { // 정상적으로 로그아웃이 되면 true가 떨어져서 처리하였습니다.
-				window.location.href = serverAddr + "/html/index.html";
-			}
-		});
-	});
-
-	$("#getOut").click(function(event) {
-		alert("탈퇴");
-		Kakao.API.request({
-			url : '/v1/user/unlink',
-			success : function(res) {
-				alert("탈퇴성공");
-				kakaoOut();
-				// window.location.href = serverAddr + "/html/index.html";
-			}
-		});
-	});
-
-	function kakaoOut() {
-		alert("로그아웃 중...");
-		Kakao.Auth.logout(function(data) {
-			if (data) { // 정상적으로 로그아웃이 되면 true가 떨어져서 처리하였습니다.
-				alert("로그아웃 됨!");
-				window.location.href = serverAddr + "/html/index.html";
-			}
-		});
-	}
-});
-
-/*----------------------------------------------------- 로그인 정보 불러오기 -----------------------------------------------------*/
 function ajaxLoginUser() {
 	$.getJSON(serverAddr + "/auth/loginUser.json", function(obj) {
 		var result = obj.jsonResult
@@ -74,24 +12,28 @@ function ajaxLoginUser() {
 		$("#userName1").html(result.data.name);
 		$("#userName2").html(result.data.name);
 		$("#password3").val(result.data.password);
-		$("#authLevel").html("임차인");
+		$("#authLevel").html("임대인");
 
-		if (result.data.phoPath != null && result.data.phoPath != "") {
-			$('#myPhoto1').attr('src', '../../upload/' + result.data.phoPath);
-			$('#myPhoto2').attr('src', '../../upload/' + result.data.phoPath);
-		} else {
-			$('#myPhoto1').attr('src', '../../images/user_default.png');
-			$('#myPhoto2').attr('src', '../../images/user_default.png');
-		}
+		if($.isNumeric(result.data.email)) {
+	    	  if (result.data.phoPath != null && result.data.phoPath != "") {
+	        	  $('#phoPath1').attr('src', result.data.phoPath);
+	          } else {
+	        	  $('#phoPath1').attr('src', '../../images/user_default.png');
+	          }
+	      } else {
+	    	  if (result.data.phoPath != null && result.data.phoPath != "") {
+	        	  $('#phoPath1').attr('src', '../../upload/' + result.data.phoPath);
+	          } else {
+	        	  $('#phoPath1').attr('src', '../../images/user_default.png');
+	          }
+	      }
 
 		ajaxInputUser();
 	})
 }
-/*----------------------------------------------------- /로그인 정보 불러오기 -----------------------------------------------------*/
-/*----------------------------------------------------- /공통 대쉬보드(지우지마세요) -----------------------------------------------------*/
 
 $("#cancelBtn").click(function(event) {
-	window.location.href = serverAddr + "/html/auth/myinfo_t.html"
+	window.location.href = serverAddr + "/html/auth/myinfo.html"
 });
 
 $("#updateBtn").click(function(event) {
@@ -110,26 +52,36 @@ $("#updateBtn").click(function(event) {
 		var result = obj.jsonResult
 		var dbPassword = result.data.password;
 		var dbPhoto = '../../upload/' + result.data.phoPath;
-		var test = $("#phoPath").attr("src");
+		var test = $("#phoPath1").attr("src");
+		
+		//console.log(dbPhoto);
+		//console.log(test);
 
 		// formData0 - 사진만 바꿈
 		// formData1 - 패스워드만 바꿈
 		// formData2 - 사진 & 패스워드 둘다 바꿈
 
 		if (dbPhoto != test && newPassword != "") {
-			console.log("사진 패스워드 둘다 바꿔요");
+			//console.log("사진 패스워드 둘다 바꿔요");
 			ajaxUpdateFile2(formData0);
 			
 		} else if (dbPhoto === test && newPassword != "") {
-			console.log("패스워드만 바꿔요");
+			//console.log("패스워드만 바꿔요");
 			ajaxUpdateFile1(formData1);
 			
 		} else if (dbPhoto != test && newPassword === "") {
-			console.log("사진만 바꿔요");
+			//console.log("사진만 바꿔요");
 			ajaxUpdateFile0(formData0);
 			
 		} else {
-			console.log("바꿀게 없네요");
+			//console.log("바꿀게 없네요");
+			swal({
+				  title: '변경할 부분이 없습니다.',
+				  confirmButtonColor: '#3085d6',
+				  confirmButtonText: '확인'
+				}).then(function () {
+					return;
+				});
 		}
 	})
 });
@@ -142,13 +94,14 @@ function ajaxUpdateFile0(formData) {
 		contentType : false,
 		type : 'POST',
 		success : function(data) {
+			//alert("사진 변경");
 			swal({
-      		  title: '프로필 사진 변경 완료!',
-      		  type: 'success',
-      		  confirmButtonText: '확인'
-      		}).then(function(){
-      			window.location.href = serverAddr + "/html/auth/myinfo_t.html"
-      		});
+				  title: '사진만 변경하였습니다.',
+				  confirmButtonColor: '#3085d6',
+				  confirmButtonText: '확인'
+				}).then(function () {
+					window.location.href = serverAddr + "/html/auth/myinfo_t.html"
+				});
 		}
 	});
 }
@@ -161,8 +114,14 @@ function ajaxUpdateFile1(formData) {
 		contentType : false,
 		type : 'POST',
 		success : function(data) {
-			alert("패스워드 변경 완료");
-			window.location.href = serverAddr + "/html/auth/myinfo_t.html"
+			//alert("패스워드 변경");
+			swal({
+				  title: '패스워드만 변경하였습니다.',
+				  confirmButtonColor: '#3085d6',
+				  confirmButtonText: '확인'
+				}).then(function () {
+					window.location.href = serverAddr + "/html/auth/myinfo_t.html"
+				});
 		}
 	});
 }
@@ -175,8 +134,14 @@ function ajaxUpdateFile2(formData) {
 		contentType : false,
 		type : 'POST',
 		success : function(data) {
-			alert("사진 & 패스워드 변경");
-			window.location.href = serverAddr + "/html/auth/myinfo_t.html"
+			//alert("사진 & 패스워드 변경");
+			swal({
+				  title: '사진 & 패스워드 변경하였습니다.',
+				  confirmButtonColor: '#3085d6',
+				  confirmButtonText: '확인'
+				}).then(function () {
+					window.location.href = serverAddr + "/html/auth/myinfo_t.html"
+				});
 		}
 	});
 }
@@ -193,18 +158,19 @@ function ajaxInputUser() {
 		// $("#hiddenPwd").val(result.data.password);
 
 		if (result.data.phoPath != null && result.data.phoPath != "") {
-			$('#phoPath').attr('src', '../../upload/' + result.data.phoPath);
+			$('#phoPath1').attr('src', '../../upload/' + result.data.phoPath);
 		} else {
-			$('#phoPath').attr('src', '../../images/user_default.png');
+			$('#phoPath1').attr('src', '../../images/user_default.png');
 		}
 	})
 }
 
 // 비밀번호 확인
-function verifynotify(field1, field2, result_id, match_html, nomatch_html) {
+function verifynotify(field1, field2, result_id, default_html, match_html, nomatch_html) {
 	this.field1 = field1;
 	this.field2 = field2;
 	this.result_id = result_id;
+	this.default_html = default_html;
 	this.match_html = match_html;
 	this.nomatch_html = nomatch_html;
 
@@ -222,10 +188,14 @@ function verifynotify(field1, field2, result_id, match_html, nomatch_html) {
 			return false;
 		}
 
-		if (this.field1.value != "" && this.field1.value == this.field2.value) {
-			r.innerHTML = this.match_html;
+		if (this.field1.value == "" && this.field2.value == "") {
+			r.innerHTML = this.default_html;
 		} else {
-			r.innerHTML = this.nomatch_html;
+			if (this.field1.value != "" && this.field1.value == this.field2.value) {
+				r.innerHTML = this.match_html;
+			} else {
+				r.innerHTML = this.nomatch_html;
+			}
 		}
 	}
 }
@@ -235,6 +205,7 @@ function verifyInput() {
 	verify.field1 = document.password_form.password1;
 	verify.field2 = document.password_form.password2;
 	verify.result_id = "password_result";
+	verify.default_html = "<span style=\"color:green\">비밀번호를 입력하세요.<\/span>";
 	verify.match_html = "<span style=\"color:blue\">비밀번호가 일치합니다.<\/span>";
 	verify.nomatch_html = "<span style=\"color:red\">비밀번호가 일치하지 않습니다.<\/span>";
 

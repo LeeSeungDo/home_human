@@ -1,3 +1,7 @@
+$("#addBtn").click(function(event) {
+	window.location.href = serverAddr + "/html/board/complainCreate.html";
+})
+
 $(function () { 
     $(".tab_content").hide();
     $(".tab_content:first").show();
@@ -103,7 +107,7 @@ function ajaxComplainListRsvd1_t() {
 	    	$('#prevBtn').addClass("disabled");
 	    } else {
 	    	$("#prevBtn").css({ 'pointer-events': 'visible' });
-	    	$('#prevBtn').removeClass("disabled");
+	    	//$('#prevBtn').removeClass("disabled");
 	    } 
 	    
 	    // 페이지 번호가 마지막 페이지라면 [다음] 버튼을 비활성화시킨다.
@@ -112,7 +116,7 @@ function ajaxComplainListRsvd1_t() {
 	    	$('#nextBtn').addClass("disabled");
 	    } else {
 	    	$("#nextBtn").css({ 'pointer-events': 'visible' });
-	    	$('#nextBtn').removeClass("disabled");
+	    	//$('#nextBtn').removeClass("disabled");
 	    }
   })
 	})
@@ -157,7 +161,7 @@ function ajaxComplainListRsvd0_t() {
    	    	$('#prevBtn0').addClass("disabled");
    	    } else {
    	    	$("#prevBtn0").css({ 'pointer-events': 'visible' });
-   	    	$('#prevBtn0').removeClass("disabled");
+//   	    	$('#prevBtn0').removeClass("disabled");
    	    } 
    	    
    	    // 페이지 번호가 마지막 페이지라면 [다음] 버튼을 비활성화시킨다.
@@ -166,7 +170,7 @@ function ajaxComplainListRsvd0_t() {
    	    	$('#nextBtn0').addClass("disabled");
    	    } else {
    	    	$("#nextBtn0").css({ 'pointer-events': 'visible' });
-   	    	$('#nextBtn0').removeClass("disabled");
+   	    	//$('#nextBtn0').removeClass("disabled");
    	    }
   })
 	})

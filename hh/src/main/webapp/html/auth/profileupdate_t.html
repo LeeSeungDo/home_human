@@ -30,29 +30,33 @@
 <link rel="stylesheet" type="text/css"
 	href="../../bower_components/ionicons/css/ionicons.min.css" />
 
+<!-- WeatherIcons -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/weather-icons/css/weather-icons.min.css" />
 
+
+
+<!-- nvd3 -->
+<link rel="stylesheet" type="text/css"
+	href="../../bower_components/nvd3/build/nv.d3.min.css" />
 
 <!-- Main -->
 <link rel="stylesheet" type="text/css"
 	href="../../bower_components/assets/_con/css/con-base.css" />
-	
-<!-- Sweet Alert -->
-<link rel="stylesheet" href="../../bower_components/sweetalert2/dist/sweetalert2.min.css">
+
+
 
 <!-- sseung -->
-    <link rel="stylesheet" type="text/css" href="../../css/dashboard/sseung.css" />  
+<link rel="stylesheet" type="text/css"
+	href="../../css/dashboard/sseung.css" />
 
 <!-- dossierbit -->
 <link rel="stylesheet" type="text/css"
 	href="../../css/dashboard/dossierbit.css" />
 
-<!-- pace -->
-<link rel="stylesheet" type="text/css" href="../../css/pace.css" />
-
-<!-- profileupdate -->
-<link rel="stylesheet" type="text/css" href="../../css/dashboard/dossierbit.css" />
-	
-<link href="../../css/auth/profileupdate.css" rel="stylesheet" type="text/css" />
+<!-- Sweet Alert -->
+<link rel="stylesheet"
+	href="../../bower_components/sweetalert2/dist/sweetalert2.min.css">
 
 <!--[if lt IE 9]>
         <script src="../../bower_components/html5shiv/dist/html5shiv.min.js"></script>
@@ -61,9 +65,13 @@
 
 </head>
 
+<!--
+  Body
+    Options:
+      .boxed - boxed layout for content
+-->
 
 <body>
-	<div class="pace"></div>
 	<!--------------------------------------------------------탑 nav 부분------------------------------------------------------------>
 	<!--
      Top Navbar
@@ -72,80 +80,101 @@
          .navbar-static - static navbar
          .navbar-under - under sidebar
    -->
-	    <nav class="navbar-top">
-        <div class="nav-wrapper">
+	<nav class="navbar-top">
+		<div class="nav-wrapper">
 
-            <!-- Sidebar toggle -->
-            <a href="#" class="yay-toggle">
-                <div class="burg1"></div>
-                <div class="burg2"></div>
-                <div class="burg3"></div>
-            </a>
-            <!-- Sidebar toggle -->
+			<!-- Sidebar toggle -->
+			<a href="#" class="yay-toggle">
+				<div class="burg1"></div>
+				<div class="burg2"></div>
+				<div class="burg3"></div>
+			</a>
+			<!-- Sidebar toggle -->
 
-            <!-- Logo -->
-           <a href="../../html/index.html" class="hh-logo">
-                <img src="../../images/hhlogo.png" alt="Home & Human">
-            </a>
-            
-            <!-- /Logo -->
+			<!-- Logo -->
+			<a href="../../html/index.html" class="hh-logo"> <img
+				src="../../images/hhlogo.png" alt="Home & Human">
+			</a>
+			<!-- /Logo -->
 
-            <!-- Menu -->
-            <ul>
-                <li>
-                    <a class="dropdown-button" data-activates="test-dropdown" href="#!">
-                        <i class="mdi-communication-email"></i>
-                        <span class="badge new">2</span>
-                    </a>
-                    <div id="test-dropdown" class="dropdown-content dropdown-media">
-                        <div class="card-panel">
+			<!-- Menu -->
+			<ul>
+				<li><a class="dropdown-button" data-activates="test-dropdown"
+					href="#!"> <i class="mdi-communication-email"></i> <span
+						class="badge new">2</span>
+				</a>
+					<div id="test-dropdown" class="dropdown-content dropdown-media">
+						<div class="card-panel">
 
-                            <div class="media-heading">메세지 <a href="mail-compose.html"><i class="mdi-content-add-circle-outline"></i></a></div>
+							<div class="media-heading">
+								Messages <a href="mail-compose.html"><i
+									class="mdi-content-add-circle-outline"></i></a>
+							</div>
 
-                            <div class="media-footer"><a href="mail-inbox.html"><i class="mdi-hardware-keyboard-control"></i></a></div>
+							<div class="media-footer">
+								<a href="mail-inbox.html"><i
+									class="mdi-hardware-keyboard-control"></i></a>
+							</div>
 
-                            <div class="row mt-0">
-                        </div>
-                    </div>
-                </li>
-                <li class="user">
-                    <a class="dropdown-button" data-activates="user-dropdown" href="#!">
-                        <img id="myPhoto1" src="" class="circle"><span id="userName1"></span><i class="mdi-navigation-expand-more right"></i>
-                    </a>
+							<div class="row mt-0">
+								<div class="col s2">
+									<img src="../../bower_components/assets/_con/images/user2.jpg"
+										alt="" class="circle responsive-img">
+								</div>
+								<div class="col s10">
+									<span class="media-date">9:02 AM</span> <a href="#"
+										class="media-title">Dianne Chambers</a> <span> Ut
+										feugiat tempus felis, sit amet mattis dolor accumsan quis... </span>
+								</div>
+							</div>
 
-                    <ul id="user-dropdown" class="dropdown-content">
-                        <li>
-                            <a href="../auth/myinfo_t.html">
-                                <i class="fa fa-user"></i> 내 정보
-                            </a>
-                        </li>
-                        <li>
-                            <a href="mail-inbox.html">
-                                <i class="fa fa-envelope"></i> 알림
-                                <span class="badge new">2</span>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#" id="logout">
-                                <i class="fa fa-sign-out"></i><span> 로그아웃 </span>
-                            </a>
-                        </li>
-                        <li>
-                           <a href="#" id="getOut">
-                                <i class="fa fa-sign-out"></i><span> 카톡탈퇴 </span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- /Menu -->
+							<div class="row">
+								<div class="col s2">
+									<img src="../../bower_components/assets/_con/images/user3.jpg"
+										alt="" class="circle responsive-img">
+								</div>
+								<div class="col s10">
+									<span class="media-date">Dec 19</span> <a href="#"
+										class="media-title">Joanne Stephens</a> <span> Proin
+										suscipit lobortis porta. Interdum et malesuada fames ac ante
+										ipsum primis in faucibus... </span>
+								</div>
+							</div>
 
-        </div>
-    </nav>
-    <!-- /Top Navbar -->
+						</div>
+					</div></li>
+				<li class="user"><a class="dropdown-button"
+					data-activates="user-dropdown" href="#!"> <img id="myPhoto1"
+						src="" class="circle"><span id="userName1"></span><i
+						class="mdi-navigation-expand-more right"></i>
+				</a>
 
-    <!--
+					<ul id="user-dropdown" class="dropdown-content">
+						<li><a href="../auth/myinfo.html"> <i class="fa fa-user"></i>
+								내 정보
+						</a></li>
+						<li><a href="mail-inbox.html"> <i class="fa fa-envelope"></i>
+								알림 <span class="badge new">2</span>
+						</a></li>
+						<li class="divider"></li>
+						<li><a href="#" id="logout"> <i class="fa fa-sign-out"></i><span>
+									로그아웃 </span>
+						</a></li>
+						<li><a href="#" id="getOut"> <i class="fa fa-sign-out"></i><span>
+									카톡탈퇴 </span>
+						</a></li>
+					</ul></li>
+			</ul>
+			<!-- /Menu -->
+
+		</div>
+	</nav>
+	<!-- /Top Navbar -->
+	<!---------------------------------------------------------/탑 nav 부분------------------------------------------------------------>
+
+
+	<!---------------------------------------------------------사이드바 부분----------------------------------------------------------->
+	<!--
   Yay Sidebar
   Options [you can use all of theme classnames]:
     .yay-hide-to-small         - no hide menu, just set it small with big icons
@@ -159,33 +188,34 @@
     .yay-push     - push content to right
     .yay-shrink   - shrink content width
 -->
-    <aside class="yaybar yay-shrink yay-hide-to-small yay-gestures yay-light yay-static">
+	<aside
+		class="yaybar yay-shrink yay-hide-to-small yay-gestures yay-light">
 
-        <div class="top">
-            <div>
-                <!-- Sidebar toggle -->
-                <a href="#" class="yay-toggle">
-                    <div class="burg1"></div>
-                    <div class="burg2"></div>
-                    <div class="burg3"></div>
-                </a>
-                <!-- Sidebar toggle -->
+		<div class="top">
+			<div>
+				<!-- Sidebar toggle -->
+				<a href="#" class="yay-toggle">
+					<div class="burg1"></div>
+					<div class="burg2"></div>
+					<div class="burg3"></div>
+				</a>
+				<!-- Sidebar toggle -->
 
-                <!-- Logo -->
-                <a href="#!" class="brand-logo">
-                <img src="../../images/hhlogo.png" alt="Home & Human">
-            </a>
-                <!-- /Logo -->
-            </div>
-        </div>
+				<!-- Logo -->
+				<a href="#!" class="brand-logo"> <img
+					src="../../images/hhlogo.png" alt="Home & Human">
+				</a>
+				<!-- /Logo -->
+			</div>
+		</div>
 
-          <div class="nano">
-            <div class="nano-content">
+		<div class="nano">
+			<div class="nano-content">
 
 				<ul>
-					<li class="yay-user-info">
-						<a href="#" id="myinfoLink">
-							<img id="myPhoto2" src="" class="circle" onerror="this.onerror=null;this.src='../../images/user_default.png'">
+					<li class="yay-user-info"><a href="#" id="myinfoLink"> <img
+							id="myPhoto2" src="" class="circle"
+							onerror="this.onerror=null;this.src='../../images/user_default.png'">
 							<h3 class="yay-user-info-name">
 								<span id="userName2"></span>
 							</h3>
@@ -196,33 +226,28 @@
 
 					<li class="label">메뉴</li>
 
-					<li class="active">
-						<a href="#" class=" waves-effect waves-blue" id="dashboardLink"> <i class="fa fa-tachometer"></i>
-							<span> Home &#38; Human </span>
-						</a>
-					</li>
-					<li>
-						<a href="#" class="waves-effect waves-blue" id="gongziLink"> <i class="fa fa-check"></i>
-							<span> 공지사항 </span>
-						</a>
-					</li>
-					<li>
-						<a href="#" class="waves-effect waves-blue" id="complainLink"> <i class="fa fa-bullhorn"></i>
-							<span> 나의 민원 </span>
-						</a>
-					</li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i
-							class="fa fa-credit-card"></i> 관리비내역
+					<li class="active"><a href="#"
+						class=" waves-effect waves-blue" id="dashboardLink"> <i
+							class="fa fa-tachometer"></i> <span> Home &#38; Human </span>
 					</a></li>
-					<li><a href="#" class=" waves-effect waves-blue"> <i
-							class="fa fa-hand-o-right"></i> 자유게시판
+					<li><a href="#" class="waves-effect waves-blue"
+						id="gongziLink"> <i class="fa fa-check"></i> <span>
+								공지사항 </span>
+					</a></li>
+					<li><a href="#" class="waves-effect waves-blue"
+						id="complainLink"> <i class="fa fa-bullhorn"></i> <span>
+								민원사항 </span>
+					</a></li>
+					<li><a href="#" class=" waves-effect waves-blue"
+						id="freeBoardLink"> <i class="fa fa-hand-o-right"></i> <span>
+								자유게시판 </span>
 					</a></li>
 				</ul>
 
 			</div>
-        </div>
-    </aside>
-    <!-- /Yay Sidebar -->
+		</div>
+	</aside>
+	<!-- /Yay Sidebar -->
 	<!---------------------------------------------------------/사이드바 부분------------------------------------------------------------>
 
 
@@ -237,79 +262,106 @@
 				<div class="col s24 m12 l12" style="padding: 10px 26px 0 0">
 					<a href="../../html/index.html" class="hh-logo-black"> <!-- <img src="../../images/hhlogo_black.png" alt="Home & Human"> -->
 					</a>
-					<h1>Home &#38; Human</h1>
+					<h1>내 정보</h1>
 				</div>
 			</div>
 
 		</div>
 		<!-- /Breadcrumb -->
 
-		<div class="row sortable">
+		<div class="row sortable" style="margin-right: 0;">
 
 			<!---------------------------------- 여기부터 지우고 작업하세요 ---------------------------------->
+			<div class="col l12 s12">
+				<div class="card">
+					<div class="title card-panel deep-purple lighten-1 white-text">
+						<h5>프로필 수정</h5>
+					</div>
+					<div class="content" style="padding-right: 0;">
+						<div class="col l6 s12">
+							<div class="card">
+								<div class="title card-panel deep-purple lighten-3 white-text">
+									<h5>프로필 사진</h5>
+								</div>
+								<div class="content" style="height: 220px;">
+									<form id="profileForm">
+										<input type="hidden" name="email0" id="loginUserEmail0">
+										<div class="col l4 s12">
+											<div id="profilePhoto">
+												<a href="#"> <img id="phoPath1"
+													style="width: 100%; height: 136px; radius: 50px;" src="" />
+												</a>
+											</div>
+										</div>
 
-			<div id="main1">
-				<div id="main2">
-					<h3>프로필 수정</h3>
-					<span>프로필과 비밀번호를 수정하실 수 있습니다.</span> <a href="#"><button
-							id="updateBtn" type="button">적용</button></a>
+										<div class="col l8 s12" style="padding-right: 0;">
+											<div class="file-field input-field col l12 s12"
+												style="padding-top: 22%;">
+												<div class="btn">
+													<span>첨부파일</span> <input type="file" name="file"
+														id="ex_file" style="height: 25%; margin-top: 22%;">
+												</div>
+												<div class="file-path-wrapper">
+													<input class="file-path validate" type="text">
+												</div>
+												<input id="hiddenPwd" name="password2" type="hidden"
+													class="form-control">
+											</div>
+										</div>
+										<input type="hidden" name="password3" id="password3">
+									</form>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="col l6 s12">
+							<div class="card">
+								<div class="title card-panel deep-purple lighten-3 white-text">
+									<h5>비밀번호</h5>
+								</div>
+								<div class="content">
+									<form name="password_form">
+										<input type="hidden" name="email1" id="loginUserEmail1">
+										<div class="input-field col l12 s12"
+											style="padding-bottom: 0;">
+											<i class="mdi-content-send prefix"></i> <input
+												type="password" class="form-control" name="password1"
+												onkeyup="verify.check()"> <label for="input_text">새
+												비밀번호</label>
+										</div>
+										<div class="input-field col l12 s12"
+											style="padding-bottom: 0;">
+											<i class="mdi-content-send prefix"></i> <input
+												type="password" class="form-control" id="passwordUp"
+												name="password2" onkeyup="verify.check()"> <label
+												for="input_text">새 비밀번호 확인</label>
+										</div>
+										<!-- Display a message if the passwords match or don't match -->
+										<div class="input-field col l12 s12"
+											style="padding-bottom: 0;">
+											<div id="password_result"></div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+
+						<div class="col l12 s12" style="padding-bottom: 0;">
+							<a class="waves-effect waves-blue btn light-blue accent-4" id="updateBtn"
+								style="width: 100%;">적용</a>
+						</div>
+					</div>
 				</div>
-				<div id="main3">
-					<table>
-						<tr>
-							<th class="th_cell1">프로필 사진</th>
-							<td class="td_cell1">
-								<form id="profileForm">
-									<input type="hidden" name="email0" id="loginUserEmail0">
-									<div id="profilePhoto">
-										<a href="#"> <img id="phoPath"
-											src="../../images/default.png" style="border-radius: 50px;" />
-										</a>
-									</div>
 
-									<div id="phoBtn" class="filebox">
-										<label for="ex_file">사진 선택</label> <input type="file"
-											name="file" id="ex_file"> <input id="hiddenPwd"
-											name="password2" type="hidden" class="form-control">
-									</div>
-									<input type="hidden" name="password3" id="password3">
-								</form>
-
-								<button id="phoDeleteBtn" type="button">삭제</button>
-							</td>
-						</tr>
-					</table>
-
-					<table>
-						<tr>
-							<th class="th_cell2">비밀번호</th>
-							<td class="td_cell2">
-								<form name="password_form">
-									<input type="hidden" name="email1" id="loginUserEmail1">
-									<span>새 비밀번호</span><br> <input type="password"
-										name="password1" class="form-control" onkeyup="verify.check()"><br>
-									<span>새 비밀번호 확인</span><br> <input type="password"
-										name="password2" class="form-control" id="passwordUp"
-										onkeyup="verify.check()">
-									<!-- Display a message if the passwords match or don't match -->
-									<div id="password_result"></div>
-								</form>
-							</td>
-						</tr>
-					</table>
-				</div>
-				<!-- 
-            <a href="#"><button id="updateBtn" type="button">적용</button></a>
-            <a href="#"><button id="cancelBtn" type="button">취소</button></a>
-             -->
 			</div>
+		</div>
 
-			<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
+		<!---------------------------------- /여기까지 지우고 작업하세요 ---------------------------------->
 		</div>
 	</section>
 	<!-- /Main Content -->
 	<!------------------------------------------------------------/메인 부분-------------------------------------------------------------->
-
 
 	<!---------------------------------------------------------푸터 부분---------------------------------------------------------->
 	<footer>
@@ -337,8 +389,6 @@
 	<script type="text/javascript"
 		src="../../bower_components/materialize/bin/materialize.js"></script>
 
-
-
 	<!-- Sortable -->
 	<script type="text/javascript"
 		src="../../bower_components/Sortable/Sortable.min.js"></script>
@@ -347,22 +397,31 @@
 	<script type="text/javascript"
 		src="../../bower_components/assets/_con/js/_con.js"></script>
 
-	<!-- Sweet Alert -->
-	<script src="../../bower_components/es6-promise/es6-promise.auto.min.js"></script>
-	<script src="../../bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+	<!-- Loading Bar -->
+	<script type="text/javascript" src="../../js/pace.js"></script>
 
-	<script type="text/javascript"
-		src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
-		charset="UTF-8"></script>
-	<script type="text/javascript" src="//cdn.poesis.kr/post/search.min.js"
-		charset="UTF-8"></script>
-	<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- Link Sort -->
+	<script type="text/javascript" src="../../js/link_t.js"></script>
+
+	<!-- Common Dashboard -->
+	<script type="text/javascript" src="../../js/commonDashboard.js"></script>
+
+	<!-- Sweet Alert -->
+	<script
+		src="../../bower_components/es6-promise/es6-promise.auto.min.js"></script>
+	<script
+		src="../../bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+
+
 	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/bit.js"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+	<script type="text/javascript" src="//cdn.poesis.kr/post/search.min.js"></script>
 	<script type="text/javascript" src="../../js/auth/profileupdate_t.js"></script>
 
 	<script>
-		//console.log("document.cookie : " + document.cookie);
+		ajaxDashboardUser();
 		ajaxLoginUser();
 	</script>
 
@@ -379,7 +438,7 @@
 				var reader = new FileReader();
 
 				reader.onload = function(e) {
-					$('#phoPath').attr('src', e.target.result);
+					$('#phoPath1').attr('src', e.target.result);
 				}
 
 				reader.readAsDataURL(input.files[0]);
@@ -387,6 +446,8 @@
 		}
 	</script>
 
+
 </body>
 
 </html>
+
