@@ -120,7 +120,7 @@ function ajaxAddContractFile(formData) {
 		contentType: false,
 		type: 'POST',
 		success: function(data){
-			alert("EE");
+			//alert("EE");
 			window.location.href = serverAddr + "/html/contract/contractMnge.html"
 		}
 	});

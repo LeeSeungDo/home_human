@@ -15,7 +15,7 @@ function ajaxFirstList(email) {
 		$("#gongzi_contents").html(contents);
 
 		$("#gongzi_detail").click(function(event) {
-			alert("공지 디테일");
+			//alert("공지 디테일");
 			window.location.href = serverAddr + "/html/board/gongziForm.html?no=" + boardNo;
 		});
 	})
