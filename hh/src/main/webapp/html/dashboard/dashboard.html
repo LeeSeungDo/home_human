@@ -500,11 +500,10 @@
 		$('#calendar').fullCalendar({
 			height : 700,
 			header : {
-				left : 'prev,next today',
+				left : 'prev,next',
 				center : 'title',
-				right : 'month,agendaWeek,agendaDay'
+				right : ''
 			},
-			defaultDate : '2016-11-23',
 			editable : true,
 			droppable : true,
 			drop : function() {
@@ -514,6 +513,7 @@
 					$(this).remove();
 				}
 			}
+			
 		/* 
 		events: [{
 		    title: 'All Day Event',
