@@ -36,7 +36,7 @@ public class JoinController {
     try {
       joinDao.insert(member);
       // System.out.println("DB 들어간 후 출력");
-      // System.out.println(member.toString());
+      System.out.println(member.toString());
       return JsonResult.success();
 
     } catch (Exception e) {

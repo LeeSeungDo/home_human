@@ -5,6 +5,9 @@
 <mapper namespace="objackie.dao.JoinDao">
   <resultMap type="Member" id="MemberMap">
     <id column="EMAIL" property="email" />
+    <result column="NAME" property="name" />
+    <result column="TEL" property="tel" />
+    <result column="BIRTH" property="birth" />
     <result column="PWD" property="password" />
     <result column="GEND" property="gender" />
     <result column="AUTH" property="auth" />
