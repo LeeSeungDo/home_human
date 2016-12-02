@@ -2,9 +2,9 @@
  
 ///////////////////////////////// 체크 시작 /////////////////////////////////
 // 이메일 체크
-$('#email').blur(function() {
+/*$('#email').blur(function() {
 	if (validateEmail($("#email").val())) {
-		$("#email-check").text("사용 가능한 이메일 입니다.");
+		$("#email-check").text("형식에 맞는 이메일 입니다.");
 		$("#email-check").css("color", "blue");
 	} else if (!$("#email").val()) {
 		$("#email-check").text("필수 항목입니다.");
@@ -18,7 +18,36 @@ $('#email').blur(function() {
 function validateEmail(email) {
 	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	return re.test(email);
-}
+}*/
+
+//노드 email
+$(document).ready(
+		function() {
+		$('#email').keyup(function() {
+			if ($('#email').val().length > 8) {
+			var email = $(this).val();
+			// ajax 실행
+			$.ajax({
+			type : 'POST',
+			dataType : "json",
+			url : "http://t6.java85.com:8000/hh/auth/emailVerify.json",
+			crossDomain : true,
+			data : {
+			email : email
+			},
+			success : function(obj) {
+			if (obj.state == "success") {
+			$("#checkedEmail").html("사용 가능한 이메일 입니다.");
+			$("#checkedEmail").css("color","blue");
+			} else {
+			$("#checkedEmail").html("이미 등록된 이메일 입니다.");
+			$("#checkedEmail").css("color","red");
+			}
+				}
+			}); // end ajax
+			} else {$("#checkedEmail").text("");}
+										}); 
+					});
 
 // 패스워드 체크
 $('#password').blur(function() {
