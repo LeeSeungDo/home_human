@@ -253,7 +253,7 @@ const openModal = (animation, onComplete) => {
   iOSfix()
   dom.states.previousActiveElement = document.activeElement
   if (onComplete !== null && typeof onComplete === 'function') {
-    onComplete(undefined, modal)
+    onComplete(modal)
   }
 }
 
@@ -291,6 +291,7 @@ const undoIOSfix = () => {
   if (dom.hasClass(document.body, swalClasses.iosfix)) {
     const offset = parseInt(document.body.style.top, 10)
     dom.removeClass(document.body, swalClasses.iosfix)
+    document.body.style.top = ''
     document.body.scrollTop = (offset * -1)
   }
 }
@@ -1034,7 +1035,7 @@ sweetAlert.close = sweetAlert.closeModal = (onComplete) => {
     hideModalAndResetState()
   }
   if (onComplete !== null && typeof onComplete === 'function') {
-    onComplete(undefined, modal)
+    onComplete(modal)
   }
 }
 

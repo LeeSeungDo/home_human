@@ -23,7 +23,7 @@ app.post('/hh/auth/emailVerify.json', function(request, response) {
 			function(err, rows, fields) {
 				response.writeHead(200, {
 					'Content-Type' 					: 'application/json;charset=UTF-8',
-					'Access-Control-Allow-Origin'	: 'http://t6.java85.com:8080',
+					'Access-Control-Allow-Origin'	: 'http://localhost:8080',
 					'Access-Control-Allow-Methods'	: 'POST, GET, OPTIONS, DELETE',
 					'Access-Control-Max-Age'		: '3600',
 					'Access-Control-Allow-Headers'	: 'x-requested-with'

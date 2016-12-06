@@ -54,7 +54,8 @@
     "videojs-vimeo": "~1.0.2",
     "jquery-requestAnimationFrame": "~0.1.2",
     "nestable": "https://github.com/dbushell/Nestable.git",
-    "jstree": "~3.2.1"
+    "jstree": "~3.2.1",
+    "sweetalert2": "^6.2.0"
   },
   "resolutions": {
     "d3": "~3.5.14",

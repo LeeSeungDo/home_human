@@ -30,7 +30,7 @@ $(document).ready(
 			$.ajax({
 			type : 'POST',
 			dataType : "json",
-			url : "http://t6.java85.com:8000/hh/auth/emailVerify.json",
+			url : "http://localhost:8000/hh/auth/emailVerify.json",
 			crossDomain : true,
 			data : {
 			email : email
